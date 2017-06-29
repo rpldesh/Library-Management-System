@@ -6,11 +6,12 @@
  * Time: 11:47 PM
  */
 
+
 $connection = mysqli_connect('localhost','root','');
-mysqli_select_db($connection,'test_db')or die("Error occured");
+mysqli_select_db($connection,'LMS_DB')or die("Error occured");
 
 //create admins table
-$sql = "CREATE TABLE admins(
+$sql = "CREATE TABLE IF NOT EXISTS 'admins'(
     id INT NOT NULL , 
    admin_name VARCHAR(50) NOT NULL, 
    admin_type VARCHAR(20) NOT NULL, 
