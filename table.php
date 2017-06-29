@@ -1,4 +1,9 @@
 <?php
+<<<<<<< HEAD
+=======
+echo"branch check";
+
+>>>>>>> primary
 /**
  * Created by PhpStorm.
  * User: DiniX
