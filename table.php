@@ -1,5 +1,6 @@
 <?php
 echo"branch check";
+echotest;
 
 /**
  * Created by PhpStorm.
