@@ -1,10 +1,5 @@
 <?php
-<<<<<<< HEAD
-=======
-echo"branch check";
 
->>>>>>> primary
-/**
  * Created by PhpStorm.
  * User: DiniX
  * Date: 27-Jun-17
