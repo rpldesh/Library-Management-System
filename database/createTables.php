@@ -25,6 +25,9 @@ if(! $retval ) {
     die('Could not create table: ');
 }
 echo "Table admins created successfully\n";
+
+
+
 mysqli_close($connection);
 ?>
 
