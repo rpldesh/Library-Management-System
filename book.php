@@ -12,7 +12,6 @@ class book extends table{
 	var $book_type=null;
     var $status=null;
 	var $table="books";
-    var $dukaduka="duka";
 	var $varible = "hush hush";
 
 
