@@ -14,7 +14,6 @@ class database
     private $dbName;
     private $connection;
     private $results;
-    private $numRows;
 
     private static $dbInstance;
 
@@ -40,7 +39,6 @@ class database
 
     public function doQuery($sql){
         $this->results = mysqli_query($this->connection, $sql);
-        $this->numRows = $this->results->num_rows;
     }
 
     public function loadObjList(){
