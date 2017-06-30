@@ -8,7 +8,7 @@
  */
 class admin extends table
 {
-    var $table = "admins";
+    var $tableName = "admins";
     var $id = null;
     var $admin_name = null;
     var $admin_type = null;

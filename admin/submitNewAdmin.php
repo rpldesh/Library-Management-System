@@ -18,25 +18,32 @@ if(isset($_POST['submit'])) {
     $uName = $_POST['uName'];
     $pwd = $_POST['pwd'];
     $rePwd = $_POST['rePwd'];
-    if($pwd != $rePwd){
+    if ($pwd != $rePwd) {
         echo "Re-entered password does not match..!!";
-    }else{
-        $admin = new admin();
-        $data = array("admin_name"=>$adminName,"admin_type"=>$adminType,"username"=>$uName,"pwd"=>$pwd,"join_date"=>time(),"admin_status"=>"allowed");
-        foreach($data as $key=>$value){
-            echo $key."---".$value."<br />";
-            if ($key == "join_date"){
-                echo date("m/d/y", $value)."<br />";
-            }
-        }
-        $sql = "";
     }
+    elseif (strlen($pwd)>64 or strlen($pwd)<8){
+        echo "Your password must contain 8-64 characters..!!";
+    }else {
+        $admin = new admin();
+        $sql = "Select id FROM admins WHERE username = '{$uName}' LIMIT 1";
+        echo $sql . "<br />";
+        $result = $admin->featuredLoad($dbObj, $sql);
+        if (count($result)>0) {
+            echo "Username already exists. Please select another username";
+        }else{
+            $data = array("admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => time(), "admin_status" => "allowed");
+            $admin->bind($data);
+            $admin->insert($dbObj);
+            echo "Admin member account successfully created..!!";
+        }
+    }
+}
     //$admin = new admin();
     //$data = array("id"=>2,"fname"=>"Panther", "lname"=>"Pink");
     //$admin->bind($data);
     //$admin->insert($dbObj);
     //echo $adminName." ".$adminType." ".$username." ".$password;
-}
+
 else{
     echo ".....";
 }
