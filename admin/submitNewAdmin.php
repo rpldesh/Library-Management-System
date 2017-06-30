@@ -28,7 +28,8 @@ if(isset($_POST['submit'])) {
             if ($key == "join_date"){
                 echo date("m/d/y", $value)."<br />";
             }
-        };
+        }
+        $sql = "";
     }
     //$admin = new admin();
     //$data = array("id"=>2,"fname"=>"Panther", "lname"=>"Pink");
