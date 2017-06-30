@@ -1,10 +1,12 @@
 <?php
-
+/*
  * Created by PhpStorm.
  * User: DiniX
  * Date: 27-Jun-17
  * Time: 10:05 AM
  */
+echo "test tes test";
+
 abstract class table
 {
     protected $id = null;
