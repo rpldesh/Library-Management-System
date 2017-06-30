@@ -40,7 +40,7 @@ $sql = "CREATE TABLE IF NOT EXISTS 'books'(
         date_added TIMESTAMP(6) NOT NULL,
         book_type VARCHAR(100) NOT NULL,
         status VARCHAR(50) NOT NULL,
-        primary key ())";
+        primary key (id))";
 $retval = mysqli_query($connection,$sql);
 if(!$retval){
     die('Could not create table:');
