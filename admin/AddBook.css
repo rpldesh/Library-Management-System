@@ -9,7 +9,7 @@ body{
 	position:relative;	
 	
 }
-div.logo_name{float left;color:white;}
+div.logo_name{color:white;}
 
 
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
@@ -61,5 +61,5 @@ nav ul li a{padding:10px;
 	font-size:18px;
 	font-family:Arial;
 	text-decoration:none;
-	display:bloak;}
+	}
 nav ul li a:hover{color:orange;}
