@@ -58,6 +58,7 @@ abstract class table
         $sql = $this->buildQuery('load');
         $dbObj->doQuery($sql);
         $rows = $dbObj->loadObjList();
+        $dbObj->closeConnection();
         foreach ($rows as $key => $value) {
             if ($key == 'id') {
                 continue;
@@ -71,6 +72,7 @@ abstract class table
         //$dbObj = database::getInstance();
         $sql = $this->buildQuery('insert');
         $dbObj->doQuery($sql);
+        $dbObj->closeConnection();
     }
 
     function update($dbObj)
@@ -78,11 +80,13 @@ abstract class table
         //$dbObj = database::getInstance();
         $sql = $this->buildQuery('update');
         $dbObj->doQuery($sql);
+        $dbObj->closeConnection();
     }
 
     function featuredLoad($dbObj,$sql){
         $dbObj->doQuery($sql);
         $rows = $dbObj->loadObjList();
+        $dbObj->closeConnection();
         return $rows;
     }
 

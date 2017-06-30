@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Profile</title>
+    <title>Create Admin Account</title>
     <link rel = "stylesheet" href ="addNewAdminPageStyle.css"/>
 </head>
 <body>
@@ -27,30 +27,22 @@
 </header>
 
 <div class="adminRegform">
-    <form align="center" method="POST" action="" autocomplete="off">
+    <form align="center" method="POST" action="submitNewAdmin.php" autocomplete="off">
         <div class="container">
             <h1>Admin Registration Form</h1><hr />
             <label for="adminName"><b>Name with initials</b></label><br />
             <input id="adminName" name="adminName" type="text" placeholder="Enter name with initials " required autofocus/><br />
             <label for="adminType"><b>Admin Type</b></label><br />
             <select name="adminType" required<br />
-            <option value="selection" >Select admin type</option><option value="librarian" >Librarian</option><option value="clerk" >Clerk</option><option value="audit" >Audit</option></select>
-            <label for="AutName"><b>Author</b></label><br />
-            <input name="AutName" type="text" placeholder="Enter Author" required/><br />
-            <label for="NoOfPg"><b>No Of Pages</b></label><br />
-            <input name="NoOfPg" type="text" placeholder="Enter No Of Pages" required/><br />
-            <label for="Price"><b>Price</b></label><br />
-            <input name="Price" type="text" placeholder="Enter the Price" required/><br />
-            <label for="CatNo"><b>Category Number</b></label><br />
-            <input name="CatNo" type="text" placeholder="Enter Category No" required/><br />
-            <label for="DOP"><b>Date of Publication</b></label><br />
-            <input name="DOP" type="date"/><br />
-            <label for="POP"><b>Place Of Publication</b></label><br />
-            <input name="POP" type="text" placeholder="Enter place Of Publication" /><br />
-            <label for="Remarks"><b>Remarks</b></label><br />
-            <textarea name="Remarks" clos="40" rows="6" required></textarea><br />
-            <button class="Submitbtn"type="submit">Submit</button>
-            <button class="cancelbtn" type="button">Cancel</button>
+            <option value="librarian">Librarian</option><option value="clerk" >Clerk</option><option value="audit" >Audit</option></select>
+            <label for="uName"><b>Username</b></label><br />
+            <input name="uName" type="text" placeholder="Enter a username" required/><br />
+            <label for="pwd"><b>Password</b></label><br />
+            <input name="pwd" type="password" placeholder="Enter a password" required/><br />
+            <label for="rePwd"><b>Re-enter Password</b></label><br />
+            <input name="rePwd" type="password" placeholder="Re-enter the password" required/><br />
+            <button class="Submitbtn" name="submit" type="submit">Create account</button>
+            <button class="cancelbtn" name="cancelBtn" type="button">Cancel</button>
         </div>
     </form>
 </div>

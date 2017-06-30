@@ -62,8 +62,12 @@ nav ul li a{padding:10px;
 	font-family:Arial;
 	text-decoration:none;
 <<<<<<< HEAD
+
 	display:block;}
+
+
 =======
-	}
->>>>>>> f1f4fb24fecece26fa44526e60d16d9c9936e2a0
+	display:block;}
+
+>>>>>>> fa2cf0a980ed326f9120383ddf35607549e70544
 nav ul li a:hover{color:orange;}
