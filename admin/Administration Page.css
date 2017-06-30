@@ -19,8 +19,8 @@ nav{
 nav ul{
 	margin-left:7px;
 	margin-right:1px;
-	padding-bottom:8px;
-	padding-top:8px;
+	padding-bottom:5px;
+	padding-top:5px;
 	width:93%;
 	display:inline-table;
 	transform:translate(10px,20px);
@@ -36,7 +36,7 @@ nav ul li a{padding:10px;
 	font-size:18px;
 	font-family:Arial;
 	text-decoration:none;
-	display:bloak;
+	display:block;
 }
 nav ul li a:hover{color:orange;}
 
@@ -49,7 +49,7 @@ div.linkbox{
 	height:120px;
 	background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
 	padding:8px 8px;
-	box-sizing:box-border;
+	box-sizing:border-box;
 	box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
 }
 div.linkbox:hover{background:rgba(135,206,250,0.4);}
@@ -65,7 +65,7 @@ div#UaccSettings{float:left; display:inline-block; clear:left;margin-left:50px;}
 div#generatereport{float:right; display:inline-block; clear:both;margin-right:60px;}
 
 div.slideshow{ display:block;	
-				box-sizing:box-border;
+				box-sizing:border-box;
 				border-radius:5px;
 				padding:10px; 
 				background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
