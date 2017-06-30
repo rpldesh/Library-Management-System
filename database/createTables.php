@@ -11,14 +11,15 @@ $connection = mysqli_connect('localhost','root','');
 mysqli_select_db($connection,'LMS_DB')or die("Error occured");
 
 //create admins table
-$sql = "CREATE TABLE IF NOT EXISTS 'admins'(
+$sql = "CREATE TABLE IF NOT EXISTS admins(
     id INT NOT NULL , 
-   admin_name VARCHAR(50) NOT NULL, 
+   admin_name VARCHAR(100) NOT NULL, 
    admin_type VARCHAR(20) NOT NULL, 
    username VARCHAR(50) NOT NULL UNIQUE, 
-   password VARCHAR(50) NOT NULL,
-   join_date timestamp(6) NOT NULL, 
-   state VARCHAR(20),
+   pwd VARCHAR(50) NOT NULL,
+   join_date timestamp(6) NOT NULL,
+   last_login_date timestamp(6),
+   admin_status VARCHAR(20),
    primary key ( id ))";
 $retval = mysqli_query(  $connection, $sql );
 if(! $retval ) {
