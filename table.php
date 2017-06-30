@@ -5,7 +5,6 @@
  * Date: 27-Jun-17
  * Time: 10:05 AM
  */
-
 abstract class table
 {
     protected $id = null;
