@@ -1,8 +1,12 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 echo "hellooooo";
+=======
+
+>>>>>>> primary
 /**
 >>>>>>> primary
  * Created by PhpStorm.
@@ -10,6 +14,10 @@ echo "hellooooo";
  * Date: 27-Jun-17
  * Time: 10:05 AM
  */
+
+echo"Stri lanka";
+
+
 abstract class table
 {
     protected $id = null;
