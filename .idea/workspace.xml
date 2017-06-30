@@ -49,6 +49,7 @@
       <file leaf-file-name="Administration Page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/Administration Page.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -61,6 +62,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1054">
               <caret line="62" column="26" lean-forward="false" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+=======
+            <state relative-caret-position="119">
+              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+>>>>>>> 4a1a05df1403e271e7fc87a2e03eee7b4b5b0d6d
               <folding />
             </state>
           </provider>
@@ -285,13 +290,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1498802932534</updated>
+<<<<<<< HEAD
       <workItem from="1498802934055" duration="2738000" />
       <workItem from="1498806487879" duration="818000" />
+=======
+      <workItem from="1498802934055" duration="2908000" />
+>>>>>>> 4a1a05df1403e271e7fc87a2e03eee7b4b5b0d6d
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="3596000" />
+=======
+    <option name="totallyTimeSpent" value="2908000" />
+>>>>>>> 4a1a05df1403e271e7fc87a2e03eee7b4b5b0d6d
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -553,6 +566,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/Administration Page.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -573,6 +587,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="36" column="56" lean-forward="false" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+        <state relative-caret-position="119">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+
           <folding />
         </state>
       </provider>
