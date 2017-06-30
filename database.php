@@ -37,6 +37,10 @@ class database
         $this->connection = mysqli_connect($this->host,$this->user,$this->password,$this->dbName);
     }
 
+    public function closeConnection(){
+        mysqli_close($this->connection);
+    }
+
     public function doQuery($sql){
         $this->results = mysqli_query($this->connection, $sql);
     }

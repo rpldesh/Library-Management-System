@@ -27,7 +27,7 @@
 </header>
 
 <div class="adminRegform">
-    <form align="center" method="POST" action="" autocomplete="off">
+    <form align="center" method="POST" action="submitNewAdmin.php" autocomplete="off">
         <div class="container">
             <h1>Admin Registration Form</h1><hr />
             <label for="adminName"><b>Name with initials</b></label><br />
@@ -38,12 +38,11 @@
             <label for="uName"><b>Username</b></label><br />
             <input name="uName" type="text" placeholder="Enter a username" required/><br />
             <label for="pwd"><b>Password</b></label><br />
-            <input name="pwd" type="text" placeholder="Enter a password" required/><br />
+            <input name="pwd" type="password" placeholder="Enter a password" required/><br />
             <label for="rePwd"><b>Re-enter Password</b></label><br />
-            <input name="rePwd" type="text" placeholder="Re-enter the password" required/><br />
-            <label for="CatNo"><b>Category Number</b></label><br />
-            <button class="Submitbtn"type="submit">Create account</button>
-            <button class="cancelbtn" type="button">Cancel</button>
+            <input name="rePwd" type="password" placeholder="Re-enter the password" required/><br />
+            <button class="Submitbtn" name="submit" type="submit">Create account</button>
+            <button class="cancelbtn" name="cancelBtn" type="button">Cancel</button>
         </div>
     </form>
 </div>

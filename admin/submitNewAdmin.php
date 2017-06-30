@@ -6,34 +6,41 @@
  * Time: 12:24 PM
  */
 
-include("database.php");
-include("table.php");
+include("../database.php");
+include("../table.php");
 include("admin.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
 
-if(isset($_POST['sub'])) {
-    echo "in isset";
+if(isset($_POST['submit'])) {
     $adminName = $_POST['adminName'];
     $adminType = $_POST['adminType'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $admin = new admin();
+    $uName = $_POST['uName'];
+    $pwd = $_POST['pwd'];
+    $rePwd = $_POST['rePwd'];
+    if($pwd != $rePwd){
+        echo "Re-entered password does not match..!!";
+    }else{
+        $admin = new admin();
+        $data = array("admin_name"=>$adminName,"admin_type"=>$adminType,"username"=>$uName,"pwd"=>$pwd,"join_date"=>time(),"admin_status"=>"allowed");
+        foreach($data as $key=>$value){
+            echo $key."---".$value."<br />";
+            if ($key == "join_date"){
+                echo date("m/d/y", $value)."<br />";
+            }
+        };
+    }
+    //$admin = new admin();
     //$data = array("id"=>2,"fname"=>"Panther", "lname"=>"Pink");
     //$admin->bind($data);
-    $admin->insert($dbObj);
-    echo $adminName." ".$adminType." ".$username." ".$password;
+    //$admin->insert($dbObj);
+    //echo $adminName." ".$adminType." ".$username." ".$password;
 }
 else{
     echo ".....";
 }
 
 /*
- *
-
-$dbObj = database::getInstance();
-$dbObj->connect('localhost','root','','test_db');
-
 $user1 = new user();
 //$user1->load($dbObj,'3');
 //echo "{$user1->fname} {$user1->lname}";
@@ -74,6 +81,7 @@ mysqli_close($connection);
 
 <!DOCTYPE html>
 <html>
+<!--
 <head>
     <title>Create Admin Account</title>
     <link rel = "stylesheet" href ="addNewAdminPageStyle.css"/>
@@ -104,5 +112,7 @@ mysqli_close($connection);
 </article>
 
 </body>
+
+-->
 </html>
 
