@@ -1,5 +1,5 @@
 body{ width: 100%; background-color:#DCDCDC}
-div.logo_name{float left;color:white;}
+div.logo_name{color:white;}
 
 
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
@@ -9,7 +9,7 @@ header{height: 255px; padding:5px;  background: linear-gradient(
     rgba(73,4,4, 0),
     rgba(73,4,4, 100)),url(images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
   }
-div.borderbox{border background-color:white; transform: translate(20px,0px);}
+div.borderbox{background-color:white; transform: translate(20px,0px);}
 
 
 nav{
@@ -20,8 +20,8 @@ nav{
 nav ul{
 	margin-left:7px;
 	margin-right:1px;
-	padding-bottom:8px;
-	padding-top:8px;
+	padding-bottom:5px;
+	padding-top:5px;
 	width:93%;
 	display:inline-table;
 	transform:translate(10px,20px);
@@ -37,7 +37,7 @@ nav ul li a{padding:10px;
 	font-size:18px;
 	font-family:Arial;
 	text-decoration:none;
-	display:bloak;
+	display:block;
 }
 nav ul li a:hover{color:orange;}
 
@@ -68,7 +68,7 @@ input:focus,textarea:focus,select:hover{background-color:white;}
 
 
 div.slideshow{ display:block;	
-				box-sizing:box-border;
+				box-sizing:border-box;
 				border-radius:5px;
 				padding:10px; 
 				background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
@@ -109,8 +109,12 @@ div.stretch:hover{ color:black;height:250px;background-color:rgba(222,221,202,1)
 
 
 
-@media screen and (max-width: 1100px){
-    body{width: 1100px}
-    nav{
-        width:93vw;;
-    }
+@media screen and (max-width: 1100px) {
+	body {
+		width: 1100px;
+	}
+
+	nav {
+		width: 93px;
+	}
+}
