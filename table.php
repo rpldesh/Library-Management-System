@@ -1,7 +1,5 @@
 <?php
-echo"branch check";
-echotest;
-
+echo "hellooooo";
 /**
  * Created by PhpStorm.
  * User: DiniX
