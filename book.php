@@ -14,6 +14,7 @@ class book extends table{
 	var $table="books";
 
 
+
 }
 
 
