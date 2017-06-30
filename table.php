@@ -7,8 +7,6 @@
  * Time: 10:05 AM
  */
 
-echo"Stri lanka";
-
 
 abstract class table
 {
