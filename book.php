@@ -13,8 +13,6 @@ class book extends table{
     var $status=null;
 	var $table="books";
 
-
-
 }
 
 
