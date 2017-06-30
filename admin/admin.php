@@ -13,10 +13,10 @@ class admin extends table
     var $admin_name = null;
     var $admin_type = null;
     var $username = null;
-    var $password = null;
+    var $pwd = null;
     var $join_date = null;
     var $last_login_date = null;
-    var $state = null;
+    var $admin_status = null;
 
     public function __construct()
     {

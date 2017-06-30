@@ -12,7 +12,7 @@ mysqli_select_db($connection,'LMS_DB')or die("Error occured");
 
 //create admins table
 $sql = "CREATE TABLE IF NOT EXISTS admins(
-    id INT NOT NULL , 
+    id INT NOT NULL AUTO_INCREMENT, 
    admin_name VARCHAR(100) NOT NULL, 
    admin_type VARCHAR(20) NOT NULL, 
    username VARCHAR(50) NOT NULL UNIQUE, 
