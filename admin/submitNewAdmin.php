@@ -69,3 +69,40 @@ mysqli_close($connection);
 
 
 
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Admin Account</title>
+    <link rel = "stylesheet" href ="addNewAdminPageStyle.css"/>
+</head>
+<body>
+<header>
+    <div class="head_top">
+        <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
+
+            <h1>LIBRARY</h1>
+            <h3>Siyane National College of Education<br />Veyangoda</h3>
+
+        </div>
+    </div>
+    <article class="backgroundimage">
+        <div class="bgimage">
+            <nav>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li class="logout"><a href="#">LOGOUT</a></li>
+                </ul>
+            </nav>
+        </div
+</header>
+
+
+
+</article>
+
+</body>
+</html>
+
