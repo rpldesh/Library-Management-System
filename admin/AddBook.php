@@ -1,10 +1,5 @@
 
-/**
-* Created by PhpStorm.
-* User: Shalika
-* Date: 6/30/2017
-* Time: 3:28 PM
-*/
+
 
 
 <!DOCTYPE html>
@@ -27,22 +22,22 @@
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="Administration Page.html">HOME</a></li>
                     <li><a href="#">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="#">LOGOUT</a></li>
+                    <li class="logout"><a href="../mainpage.html">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
 </header>
 
 <div class="addbkform">
-    <form  method="POST" action="" autocomplete="off">
+    <form  method="POST" action="afterAddBook.php" autocomplete="off">
         <div class="container">
             <h1>Book Registration Form</h1><hr />
             <label for="AccNo"><b>Accession Number</b></label><br />
             <input id="AccNo" name="accNo" type="text" placeholder="Enter Accession Number" required autofocus/><br />
             <label for="title"><b>Titile</b></label><br />
-            <input id="title" name="title" type="text" placeholder="Enter Accession Number" required autofocus/><br />
+            <input id="title" name="title" type="text" placeholder="Enter Title" required autofocus/><br />
             <label for="bktype"><b>Book Type</b></label><br />
             <select id="bktype" name="Bktype" required><br />
                 <option value="borrowable" >Borrowable</option><option value="reference" >Reference</option></select>

@@ -24,7 +24,7 @@ header{padding:5px;  background: linear-gradient(
 h1,label{font-family:Arial,Suns-serif;}
 form{	z-index:7; position:relative; display:inline-block;
 		background:linear-gradient(0deg,rgba(188,189,146,0.8),rgba(204,206,154,0.8),rgba(178,179,136,0.9));
-		border-radius:10px; margin:10px 0;width:500px; float:left; transform:translate(400px,50px);
+		border-radius:10px; margin:10px 0;width:500px; float:left; transform:translate(475px,50px);
 		box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);}
 		
 input,textarea,select{
@@ -61,13 +61,5 @@ nav ul li a{padding:10px;
 	font-size:18px;
 	font-family:Arial;
 	text-decoration:none;
-<<<<<<< HEAD
-
-	display:block;}
-
-
-=======
-	display:block;}
-
->>>>>>> fa2cf0a980ed326f9120383ddf35607549e70544
+}
 nav ul li a:hover{color:orange;}

@@ -5,7 +5,7 @@
       <paths name="Library-Management-System">
         <serverdata>
           <mappings>
-            <mapping deploy="http://Library-Management-System" local="$PROJECT_DIR$" web="Library-Management-System" />
+            <mapping deploy="http://localhost/Library-Management-System" local="$PROJECT_DIR$" web="/Library-Management-System" />
           </mappings>
         </serverdata>
       </paths>
