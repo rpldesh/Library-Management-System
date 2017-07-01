@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Library-Management-System">
+  <component name="PublishConfigData" serverName="WampServer">
     <serverData>
-      <paths name="Library-Management-System">
+      <paths name="WampServer">
         <serverdata>
           <mappings>
             <mapping deploy="http://localhost/Library-Management-System" local="$PROJECT_DIR$" web="/Library-Management-System" />
