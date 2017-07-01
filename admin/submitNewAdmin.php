@@ -93,7 +93,7 @@ $dbObj->closeConnection();
 
     <form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
 
-<div class = "MessageBox"><?php echo $message ?><img class="closeIcon" src="images/closebtn.png"/></div>
+<div class = "MessageBox"><?php echo $message ?><a href="Administration Page.html"><img class="closeIcon" src="images/closebtn.png"/></a></div>
 
 </article>
 

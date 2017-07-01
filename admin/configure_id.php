@@ -48,7 +48,7 @@
 <?php
 include("../database.php");
 include("../table.php");
-include("member.php");
+include("../member.php");
 $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
 if(isset($_POST['submit'])){

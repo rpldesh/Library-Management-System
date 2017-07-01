@@ -43,7 +43,7 @@
             <label for="rePwd"><b>Re-enter Password</b></label><br />
             <input name="rePwd" type="password" placeholder="Re-enter the password" required/><br />
             <button class="Submitbtn" name="submit" type="submit">Create account</button>
-            <button class="cancelbtn" name="cancelBtn" type="button">Cancel</button>
+            <a href="Administration%20Page.html"><button class="cancelbtn" name="cancelBtn" type="button">Cancel</button></a>
         </div>
     </form>
 </div>
