@@ -18,58 +18,27 @@ if(isset($_POST['submit'])) {
     $uName = $_POST['uName'];
     $pwd = $_POST['pwd'];
     $rePwd = $_POST['rePwd'];
-    if($pwd != $rePwd){
+    if ($pwd != $rePwd) {
         echo "Re-entered password does not match..!!";
-    }else{
-        $admin = new admin();
-        $data = array("admin_name"=>$adminName,"admin_type"=>$adminType,"username"=>$uName,"pwd"=>$pwd,"join_date"=>time(),"admin_status"=>"allowed");
-        foreach($data as $key=>$value){
-            echo $key."---".$value."<br />";
-            if ($key == "join_date"){
-                echo date("m/d/y", $value)."<br />";
-            }
-        }
-        $sql = "";
     }
-    //$admin = new admin();
-    //$data = array("id"=>2,"fname"=>"Panther", "lname"=>"Pink");
-    //$admin->bind($data);
-    //$admin->insert($dbObj);
-    //echo $adminName." ".$adminType." ".$username." ".$password;
+    elseif (strlen($pwd)>64 or strlen($pwd)<8){
+        echo "Your password must contain 8-64 characters..!!";
+    }else {
+        $admin = new admin();
+        $sql = "Select id FROM admins WHERE username = '{$uName}' LIMIT 1";
+        echo $sql . "<br />";
+        $result = $admin->featuredLoad($dbObj, $sql);
+        if (count($result)>0) {
+            echo "Username already exists. Please select another username";
+        }else{
+            $data = array("admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => time(), "admin_status" => "allowed");
+            $admin->bind($data);
+            $admin->insert($dbObj);
+            echo "Admin member account successfully created..!!";
+        }
+    }
 }
-else{
-    echo ".....";
-}
-
-/*
-$user1 = new user();
-//$user1->load($dbObj,'3');
-//echo "{$user1->fname} {$user1->lname}";
-//$data = array("id"=>2,"fname"=>"Panther", "lname"=>"Pink");
-//$user1->bind($data);
-//echo "{$user1->id} {$user1->fname} {$user1->lname}";
-//$user1->update($dbObj);
-//$user1->insert($dbObj);
-//echo "{$user1->fname} {$user1->lname}";
-//$out = $user1->featuredLoad($dbObj,"SELECT lname from users where fname = 'Scooby'");
-//foreach ($out as $key=>$value){
-//    echo $key." --- ".$value."<br />";
-//}
-if(isset($_POST['add'])) {
-$emp_name = $_POST['emp_name'];
-$emp_address = $_POST['emp_address'];
-
-$emp_salary = $_POST['emp_salary'];
-$sql = "INSERT INTO employee (emp_name,emp_address, emp_salary, join_date) VALUES('$emp_name','$emp_address',$emp_salary, NOW())";
-mysqli_select_db($connection,'test_db');
-$retval = mysqli_query( $connection,$sql );
-if(! $retval ) {
-die('Could not enter data: ');
-}
-echo "Entered data successfully\n";
-mysqli_close($connection);
-*/
-
+$dbObj->closeConnection();
 
 ?>
 
