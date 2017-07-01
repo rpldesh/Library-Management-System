@@ -25,16 +25,30 @@ if(isset($_POST['submit'])) {
         echo "Your password must contain 8-64 characters..!!";
     }else {
         $admin = new admin();
-        $sql = "Select id FROM admins WHERE username = '{$uName}' LIMIT 1";
-        echo $sql . "<br />";
-        $result = $admin->featuredLoad($dbObj, $sql);
-        if (count($result)>0) {
-            echo "Username already exists. Please select another username";
+        $sql1 = "Select id FROM admins WHERE username = '{$uName}' LIMIT 1";
+        $result1 = $admin->featuredLoad($dbObj, $sql1);
+        if (count($result1)>0) {
+            echo "Username already exists. Please select another username..!!";
         }else{
-            $data = array("admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => time(), "admin_status" => "allowed");
+            $sql2 = "Select count(*) FROM admins";
+            echo $sql2."<br />";
+            $result2 = $admin->featuredLoad($dbObj,$sql2);
+            echo count($result2)."<br />";
+            foreach ($result2 as $key=>$value){
+                $noOfRows = $value;
+            }
+            $newId = $noOfRows+1;
+            echo $newId."<br />";
+            $data = array("id"=>$newId, "admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => time(), "admin_status" => "allowed");
             $admin->bind($data);
             $admin->insert($dbObj);
             echo "Admin member account successfully created..!!";
+            /*$sql = "Select join_date FROM admins WHERE id = 4";
+            $result = $admin->featuredLoad($dbObj,$sql);
+            foreach ($result as $key=>$value){
+                echo "<br />".$value."<br />";
+                echo  date("m/d/y", $value);
+            }*/
         }
     }
 }
@@ -74,15 +88,18 @@ $dbObj->closeConnection();
                     <li class="logout"><a href="#">LOGOUT</a></li>
                 </ul>
             </nav>
-        </div
+        </div>
 </header>
+        <div class="container">
 
 
 
+
+        </div>
 </article>
 
 </body>
-
 -->
+
 </html>
 
