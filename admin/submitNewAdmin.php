@@ -11,65 +11,49 @@ include("../table.php");
 include("admin.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
-
+$message = "";
 if(isset($_POST['submit'])) {
     $adminName = $_POST['adminName'];
     $adminType = $_POST['adminType'];
     $uName = $_POST['uName'];
     $pwd = $_POST['pwd'];
     $rePwd = $_POST['rePwd'];
-    if($pwd != $rePwd){
-        echo "Re-entered password does not match..!!";
-    }else{
-        $admin = new admin();
-        $data = array("admin_name"=>$adminName,"admin_type"=>$adminType,"username"=>$uName,"pwd"=>$pwd,"join_date"=>time(),"admin_status"=>"allowed");
-        foreach($data as $key=>$value){
-            echo $key."---".$value."<br />";
-            if ($key == "join_date"){
-                echo date("m/d/y", $value)."<br />";
-            }
-        }
-        $sql = "";
+
+    if ($pwd != $rePwd) {
+        $message = "Re-entered password does not match..!!";
     }
-    //$admin = new admin();
-    //$data = array("id"=>2,"fname"=>"Panther", "lname"=>"Pink");
-    //$admin->bind($data);
-    //$admin->insert($dbObj);
-    //echo $adminName." ".$adminType." ".$username." ".$password;
+    elseif (strlen($pwd)>64 or strlen($pwd)<8){
+        $message = "Your password must contain 8-64 characters..!!";
+    }else {
+        $admin = new admin();
+        $sql1 = "Select id FROM admins WHERE username = '{$uName}' LIMIT 1";
+        $result1 = $admin->featuredLoad($dbObj, $sql1);
+        if (count($result1)>0) {
+            $message = "Username already exists. Please select another username..!!";
+        }else{
+            $sql2 = "Select count(*) FROM admins";
+            //echo $sql2."<br />";
+            $result2 = $admin->featuredLoad($dbObj,$sql2);
+            //echo count($result2)."<br />";
+            foreach ($result2 as $key=>$value){
+                $noOfRows = $value;
+            }
+            $newId = $noOfRows+1;
+            //echo $newId."<br />";
+            $data = array("id"=>$newId, "admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => time(), "admin_status" => "allowed");
+            $admin->bind($data);
+            $admin->insert($dbObj);
+            $message = "Admin member account successfully created..!!";
+            /*$sql = "Select join_date FROM admins WHERE id = 4";
+            $result = $admin->featuredLoad($dbObj,$sql);
+            foreach ($result as $key=>$value){
+                echo "<br />".$value."<br />";
+                echo  date("m/d/y", $value);
+            }*/
+        }
+    }
 }
-else{
-    echo ".....";
-}
-
-/*
-$user1 = new user();
-//$user1->load($dbObj,'3');
-//echo "{$user1->fname} {$user1->lname}";
-//$data = array("id"=>2,"fname"=>"Panther", "lname"=>"Pink");
-//$user1->bind($data);
-//echo "{$user1->id} {$user1->fname} {$user1->lname}";
-//$user1->update($dbObj);
-//$user1->insert($dbObj);
-//echo "{$user1->fname} {$user1->lname}";
-//$out = $user1->featuredLoad($dbObj,"SELECT lname from users where fname = 'Scooby'");
-//foreach ($out as $key=>$value){
-//    echo $key." --- ".$value."<br />";
-//}
-if(isset($_POST['add'])) {
-$emp_name = $_POST['emp_name'];
-$emp_address = $_POST['emp_address'];
-
-$emp_salary = $_POST['emp_salary'];
-$sql = "INSERT INTO employee (emp_name,emp_address, emp_salary, join_date) VALUES('$emp_name','$emp_address',$emp_salary, NOW())";
-mysqli_select_db($connection,'test_db');
-$retval = mysqli_query( $connection,$sql );
-if(! $retval ) {
-die('Could not enter data: ');
-}
-echo "Entered data successfully\n";
-mysqli_close($connection);
-*/
-
+$dbObj->closeConnection();
 
 ?>
 
@@ -78,14 +62,11 @@ mysqli_close($connection);
 
 
 
-
-
 <!DOCTYPE html>
 <html>
-<!--
 <head>
-    <title>Create Admin Account</title>
-    <link rel = "stylesheet" href ="addNewAdminPageStyle.css"/>
+    <title>Add New Admin Member</title>
+    <link rel = "stylesheet" href ="AddBook.css"/>
 </head>
 <body>
 <header>
@@ -101,19 +82,21 @@ mysqli_close($connection);
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li class="logout"><a href="#">LOGOUT</a></li>
+                    <li><a href="Administration Page.html">HOME</a></li>
+                    <li><a href="#">ADMIN PROFILE</a></li>
+                    <li class="logout"><a href="../mainpage.html">LOGOUT</a></li>
                 </ul>
             </nav>
-        </div
+        </div>
 </header>
 
 
+    <form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
+
+<div class = "MessageBox"><?php echo $message ?><a href="Administration Page.html"><img class="closeIcon" src="images/closebtn.png"/></a></div>
 
 </article>
 
 </body>
-
--->
 </html>
 

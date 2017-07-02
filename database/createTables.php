@@ -16,9 +16,9 @@ $sql = "CREATE TABLE IF NOT EXISTS admins(
    admin_name VARCHAR(100) NOT NULL, 
    admin_type VARCHAR(20) NOT NULL, 
    username VARCHAR(50) NOT NULL UNIQUE, 
-   pwd VARCHAR(50) NOT NULL,
-   join_date timestamp(6) NOT NULL,
-   last_login_date timestamp(6),
+   pwd VARCHAR(100) NOT NULL,
+   join_date VARCHAR(200) NOT NULL,
+   last_login_date VARCHAR(200),
    admin_status VARCHAR(20),
    primary key ( id ))";
 $retval = mysqli_query(  $connection, $sql );
@@ -38,11 +38,13 @@ $sql = "CREATE TABLE IF NOT EXISTS books(
         category_no VARCHAR(50) NOT NULL,
         publisher_name VARCHAR(500) NOT NULL,
         published_date DATE NOT NULL,
+        publisher_address VARCHAR(500)NOT NULL,
         price FLOAT NOT NULL,
         no_pages INT  NOT NULL,
-        date_added TIMESTAMP(6) NOT NULL,
+        date_added VARCHAR(200) NOT NULL,
         book_type VARCHAR(100) NOT NULL,
         book_status VARCHAR(50) NOT NULL,
+        remarks VARCHAR(1000),
         primary key (id))";
 $retval = mysqli_query($connection,$sql);
 if(!$retval){
@@ -58,7 +60,7 @@ $sql = "CREATE TABLE IF NOT EXISTS members(
         member_name VARCHAR(100) NOT NULL,
         member_fullname VARCHAR(200) NOT NULL,
         member_type VARCHAR(20) NOT NULL,
-        join_date timestamp(6) NOT NULL,
+        join_date VARCHAR(200) NOT NULL,
         addmission_date DATE NOT NULL,
         permanent_address VARCHAR(300),
         current_address VARCHAR(300),
@@ -77,7 +79,7 @@ echo "Table member created successfully\n";
 $sql = "CREATE TABLE IF NOT EXISTS logins(
     id INT NOT NULL , 
    password VARCHAR(50) NOT NULL, 
-   last_login_date timestamp(6), 
+   last_login_date VARCHAR(200), 
    primary key ( id ))";
 $retval = mysqli_query(  $connection, $sql );
 if(! $retval ) {

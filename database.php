@@ -42,15 +42,19 @@ class database
     }
 
     public function doQuery($sql){
-        $this->results = mysqli_query($this->connection, $sql);
+        $this->results = mysqli_query($this->connection, $sql) or die("Database access failed..!!");
     }
 
     public function loadObjList(){
-        $objArray = "No Results";
+        $objArray = null;
         if($this->results){
             $objArray = mysqli_fetch_assoc($this->results);
         }
         return $objArray;
+    }
+
+    public function getConnection(){
+        return $this->connection;
     }
 }
 

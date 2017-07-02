@@ -1,5 +1,5 @@
 # Library-Management-System
-Library Management System Powered by Solutia povides library management facilities for Siyane National College of Education.
+Library Management System Powered by Solutia provides library management facilities for Siyane National College of Education.
 
 
 

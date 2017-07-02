@@ -21,7 +21,7 @@ header{padding:5px;  background: linear-gradient(
   }
   
 
-h1,label{font-family:Arial,Sans-serif;}
+h1,label{font-family:Arial,Suns-serif;}
 form{	z-index:7; position:relative; display:inline-block;
 		background:linear-gradient(0deg,rgba(188,189,146,0.8),rgba(204,206,154,0.8),rgba(178,179,136,0.9));
 		border-radius:10px; margin:10px 0;width:500px; float:left; transform:translate(475px,50px);
@@ -31,9 +31,9 @@ input,textarea,select{
 	background-color:rgba(222,221,202,1);
 	border-radius:5px; box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 6px rgba(69,69,69,0.6);
 	width:100%; padding:12px 20px; margin:8px 0; display:inline-block; border:1px solid #ccc; box-sizing:border-box;}
-button{ border-radius:5px; background-color:#4CAF50; color:white; padding:14px 20px; margin:8px 0; border:none; cursor: pointer; width:100%; }
-button:hover{opacity:0.6;}
-button.cancelbtn{width:100%; padding:10px 18px; background-color:#F44336;}
+button.btn{ border-radius:5px; background-color:#4CAF50; color:white; padding:14px 20px; margin:8px 0; border:none; cursor: pointer; width:100%; }
+button.btn:hover{opacity:0.6;}
+button#cancelbtn{width:100%; padding:10px 18px; background-color:#F44336;}
 
 
 div.container{padding:16px;}
@@ -63,13 +63,11 @@ nav ul li a{padding:10px;
 	text-decoration:none;
 }
 nav ul li a:hover{color:orange;}
-
-/* bellow 2 class selectors are for message box*/
-div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display:inline-block; padding: 10px; padding-top:100px;
-	background:linear-gradient(0deg,rgba(188,189,146,1),rgba(204,206,154,1),rgba(178,179,136,1));
-	border-radius:10px; margin:10px 0;width:500px; transform:translate(-35px,50px);
-	box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);
-	position:fixed; height:100px; z-index:30;}
+div.MessageBox{display:inline-block; position:absolute; font-size:30px; text-align:center; vertical-align:middle;  padding: 10px; padding-top:100px;
+		background:linear-gradient(0deg,rgba(188,189,146,1),rgba(204,206,154,1),rgba(178,179,136,1));
+		border-radius:10px; margin:10px 0;width:700px; transform:translate(-35px,50px);
+		box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);
+		position:fixed; z-index:30;}
 
 img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}
-/*button.closeicon{width:50px; height:50px; border-radius:50%;}*/
+button.closeicon{width:50px; height:50px; border-radius:50%}
