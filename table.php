@@ -82,9 +82,8 @@ abstract class table
     }
 
     function featuredLoad($dbObj,$sql){
-        $dbObj->doQuery($sql);
-        $rows = $dbObj->loadObjList();
-        return $rows;
+        $result = mysqli_query($dbObj->getConnection(),$sql);
+        return $result;
     }
 
     function bind($data)

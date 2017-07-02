@@ -52,6 +52,10 @@ class database
         }
         return $objArray;
     }
+
+    public function getConnection(){
+        return $this->connection;
+    }
 }
 
 ?>
