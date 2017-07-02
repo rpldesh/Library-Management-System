@@ -1,4 +1,25 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: DiniX
+ * Date: 02-Jul-17
+ * Time: 12:51 AM
+ */
+
+include("../database.php");
+include("../table.php");
+include("../member.php");
+$dbObj=database::getInstance();
+$dbObj->connect('localhost','root','','lms_db');
+if(isset($_POST['submit'])){
+    $m=new member();
+    m.load($dbObj,$_POST['memberID']);
+}
+?>
+
+
 <!DOCTYPE html>
+<!--
 <html>
 <head>
     <title>ID configuration</title>
@@ -43,18 +64,6 @@
 </article>
 
 </body>
+-->
 </html>
 
-<?php
-include("../database.php");
-include("../table.php");
-include("../member.php");
-$dbObj=database::getInstance();
-$dbObj->connect('localhost','root','','lms_db');
-if(isset($_POST['submit'])){
-    $m=new member();
-    m.load($dbObj,$_POST['memberID']);
-
-
-}
-?>

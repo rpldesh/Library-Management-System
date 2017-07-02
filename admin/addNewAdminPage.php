@@ -19,11 +19,12 @@
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li class="logout"><a href="#">LOGOUT</a></li>
+                    <li><a href="Administration Page.html">HOME</a></li>
+                    <li><a href="#">ADMIN PROFILE</a></li>
+                    <li class="logout"><a href="../mainpage.html">LOGOUT</a></li>
                 </ul>
             </nav>
-        </div
+        </div>
 </header>
 
 <div class="adminRegform">
@@ -42,7 +43,7 @@
             <label for="rePwd"><b>Re-enter Password</b></label><br />
             <input name="rePwd" type="password" placeholder="Re-enter the password" required/><br />
             <button class="Submitbtn" name="submit" type="submit">Create account</button>
-            <button class="cancelbtn" name="cancelBtn" type="button">Cancel</button>
+            <a href="Administration%20Page.html"><button class="cancelbtn" name="cancelBtn" type="button">Cancel</button></a>
         </div>
     </form>
 </div>
