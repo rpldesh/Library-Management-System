@@ -34,7 +34,7 @@
             <input id="memberId" name="memberID" type="text"  required autofocus/><br />
 
             <button class="Submitbtn" name="submit" type="submit">Submit</button>
-            <button class="cancelbtn" type="button" href="Administration Page.html">Cancel</button>
+            <button class="cancelbtn" onclick="window.location='Administration Page.html'"name="cancel" type="button" >Cancel</button>
         </div>
     </form>
 </div>
@@ -55,6 +55,7 @@ if(isset($_POST['submit'])){
     $m=new member();
     m.load($dbObj,$_POST['memberID']);
 
-
 }
+
+
 ?>
