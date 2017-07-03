@@ -10,7 +10,7 @@ class book_session extends table
     var $date_to_be_returned=null;
     var $date_of_return=null;
     var $session_status=null;
-    var $table="book_sessions";
+    var $tableName="book_sessions";
 
 }
 ?>
