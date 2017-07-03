@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ID configuration</title>
-    <link rel = "stylesheet" href ="configure_id.css"/>
+    <title>Member Details and Previous Records Page</title>
+    <link rel = "stylesheet" href ="Table%20Page.css"/>
 </head>
 <body>
 <header>
@@ -25,30 +25,28 @@
             </nav>
         </div>
 </header>
+<div style="overflow:auto;">
+    <table style="width:100%">
+        <caption>Member Details & Previous Records</caption>
+        <tr>
+            <th>Member ID</th>
+            <th>Name with Initials</th>
+            <th colspan="4">Books to be retruned</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>No.</td>
+            <td>Accession No</td>
+            <td>Title</td>
+            <td>Status</td>
 
-<div class="idconfigureform">
-    <form align="center" method="POST" action="testing.php" autocomplete="off">
-        <div class="container">
+        </tr>
 
-            <label for="memberId"><b>Enter Member ID:</b></label><br />
-            <input id="memberId" name="memberID" type="text"  required autofocus/><br />
-
-            <button class="Submitbtn" name="submit" type="submit">Submit</button>
-            <button class="cancelbtn" onclick="window.location='Administration Page.html'"name="cancel" type="button" >Cancel</button>
-        </div>
-    </form>
+    </table>
 </div>
-
 
 </article>
 
 </body>
 </html>
-
-<?php
-
-
-
-
-
-?>

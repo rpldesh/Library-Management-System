@@ -21,7 +21,7 @@ header{padding:5px;  background: linear-gradient(
 }
 
 
-h1,label{font-family:Arial,Sans-serif;}
+h1,label{font-family:Arial,Suns-serif;}
 form{	z-index:7; position:relative; display:inline-block;
     background:linear-gradient(0deg,rgba(188,189,146,0.8),rgba(204,206,154,0.8),rgba(178,179,136,0.9));
     border-radius:10px; margin:10px 0;width:500px; float:left; transform:translate(475px,50px);

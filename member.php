@@ -14,7 +14,7 @@ class member extends table
    var $member_email=null;
    var $contact_no=null;
    var $member_status=null;
-   var $table="members";
+   var $tableName="members";
 
 }
 

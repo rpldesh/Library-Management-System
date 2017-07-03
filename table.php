@@ -20,6 +20,7 @@ abstract class table
         $sql = '';
         if ($task == 'load') {
             $sql = "SELECT * from {$this->tableName} where id = '{$this->id}'";
+            echo $sql;
             return $sql;
         } elseif ($task == 'insert') {
             $keys = "";
@@ -34,6 +35,7 @@ abstract class table
                 $values .= "'{$this->$key}',";
             }
             $sql .= "(" . substr($keys, 0, -1) . ") Values(" . substr($values, 0, -1) . ")";
+
             return $sql;
         } elseif ($task == 'update') {
             $classAttributes = get_class_vars(get_class($this));
