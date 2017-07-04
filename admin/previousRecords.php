@@ -14,7 +14,6 @@
 
         </div>
     </div>
-    <article class="backgroundimage">
         <div class="bgimage">
             <nav>
                 <ul>
@@ -51,8 +50,6 @@
 
     </table>
 </div>
-
-</article>
 
 </body>
 </html>
