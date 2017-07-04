@@ -112,9 +112,11 @@ if(isset($_POST['submitID'])) {
             <tr>
                 <th>Member ID</th>
                 <th>Name with Initials</th>
+                <th>Member Type</th>>
                 <th colspan="4">Books to be retruned</th>
             </tr>
             <tr>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td>No.</td>
@@ -127,6 +129,7 @@ if(isset($_POST['submitID'])) {
 
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $m->id?></td>
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $m->member_name?></td>
+                <td rowspan="<?php echo $numOfRows?>"> <?php echo $m->member_type?></td>
             <?php
             for($i=0;$i<$numOfRows;$i++){?>
 

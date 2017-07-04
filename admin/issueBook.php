@@ -46,7 +46,7 @@
             <label for="bookTitle"><b>Book Title</b></label><br />
             <input name="bookTitle" type="text" placeholder="" required/><br />
 
-            <label for="date"><b>Date of Return</b></label><br />
+            <label for="date"><b>Date to be Returned</b></label><br />
             <input id="date" name="DoR" type="date"/><br />
 
             <button class="Submitbtn" name="submit" type="submit">Issue</button>
