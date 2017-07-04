@@ -55,9 +55,10 @@ include("../member.php");
 include("../book_session.php");
 $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
-
+SESSION_start();
 if(isset($_POST['submitID'])) {
     $m = new member();
+
     $result = $m->load($dbObj, $_POST["memberID"]);
 
 ?>
@@ -100,6 +101,9 @@ if(isset($_POST['submitID'])) {
 
 
     else {
+        $_SESSION['id']=$m->id;
+        $_SESSION['member_name']=$m->member_name;
+        $_SESSION['member_type']=$m->member_type;
         $sql2 = "SELECT book_id,book_title,session_status FROM book_sessions WHERE member_id='$m->id' and session_status!='returned'";
         $bs = new book_session();
         $result2 = $bs->featuredLoad($dbObj, $sql2);
@@ -112,8 +116,11 @@ if(isset($_POST['submitID'])) {
             <tr>
                 <th>Member ID</th>
                 <th>Name with Initials</th>
-                <th>Member Type</th>>
+
+                <th>Member Type</th>
                 <th colspan="4">Books to be retruned</th>
+
+
             </tr>
             <tr>
                 <td></td>
@@ -127,9 +134,9 @@ if(isset($_POST['submitID'])) {
             </tr>
             <tr>
 
-                <td rowspan="<?php echo $numOfRows?>"> <?php echo $m->id?></td>
-                <td rowspan="<?php echo $numOfRows?>"> <?php echo $m->member_name?></td>
-                <td rowspan="<?php echo $numOfRows?>"> <?php echo $m->member_type?></td>
+                <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['id']?></td>
+                <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['member_name']?></td>
+                <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['member_type']?></td>
             <?php
             for($i=0;$i<$numOfRows;$i++){?>
 
@@ -147,10 +154,11 @@ if(isset($_POST['submitID'])) {
             <?php } ?>
 
         </table>
+        <form class="clicks" action="issueBook.php" method="post">
 
-        <button class="Submitbtn" type="button" onclick="window.location='issueBook.php'" name="Issue">Go to Issuing Form</button>
+        <button class="Submitbtn" type="submit" name="Issue">Go to Issuing Form</button>
         <button class="cancelbtn" type="button" onclick="window.location='Administration Page.html'" name="cancel">Cancel</button>
-
+        </form>
 
     </div>
     </article>

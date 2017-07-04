@@ -6,7 +6,7 @@
  * Date: 02-Jul-17
  * Time: 12:51 AM
  */
-if(!isset($_POST["submitID"])){ ?>
+if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
     <!DOCTYPE html>
     <html>
     <head>
@@ -67,30 +67,11 @@ if (isset($_POST["submitID"])){
     $member = new member();
     $loadResult = $member->load($dbObj,$_POST["memberID"]);
 
-       /* foreach (mysqli_fetch_assoc($result) as $key=>$value) {
-            echo $key."------".$value . "<br />";
-        }echo "<br />";
-    }*/
-    //}
-    //while ($row = mysqli_fetch_assoc($result1)){
-      //  print_r($row);
-    //}
-
-
-    //foreach($solution as $tata){
-      //  echo $tata."<br />";
-    //}
-        //echo date("m/d/y", $value);
-    //}
-
-
     ?>
-
-
     <!DOCTYPE HTML>
     <html>
     <head>
-        <title>Return Book</title>
+        <title>Books to be Returned</title>
         <link rel="stylesheet" href="returnPage.css"/>
     </head>
     <body>
@@ -125,31 +106,57 @@ if (isset($_POST["submitID"])){
         $bkSession = new book_session();
         $result = $bkSession->featuredLoad($dbObj,$sql);
         $numOfRows = mysqli_num_rows($result);
+        $delayedBooks = array();
         ?>
+
         <div style="overflow:auto;">
             <table style="width:100%">
-                <caption>Books To Be Returned</caption>
-
+                <caption>Member Details & Previous Records</caption>
                 <tr>
-                    <th>Book Accession Number</th>
-                    <th>Book Name</th>
-                    <th>Date of Borrowal</th>
-                    <th>Date to be Returned</th>
-                    <th>Status</th>
+                    <th>Member ID</th>
+                    <th>Name with Initials</th>
+                    <th>Member Type</th>
+                    <th colspan="6">Books to be returned</th>
                 </tr>
                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><p><b>No.</b></p></td>
+                    <td><p><b>Accession No</b></p></td>
+                    <td><p><b>Title</b></p></form></td>
+                    <td><p><b>Date of Borrowal</b></p></td>
+                    <td><p><b>Date to be Returned</b></p></td>
+                    <td><p><b>Status</b></p></td>
+                </tr>
+                <tr>
+
+                    <td rowspan="<?php echo $numOfRows?>"> <?php echo $member->id?></td>
+                    <td rowspan="<?php echo $numOfRows?>"> <?php echo $member->member_name?></td>
+                    <td rowspan="<?php echo $numOfRows?>"> <?php echo $member->member_type?></td>
                     <?php
+                    $count = 0;
                     for($i=0;$i<$numOfRows;$i++){
-                        ?><tr><?php
+                        ?><td><?php echo ($i+1)."." ?></td><?php
                         foreach (mysqli_fetch_assoc($result) as $key=>$value) {
                             if($key == 'date_to_be_returned') {
                                 //$return_date = strtotime($value);
                                 if (date("Y-m-d") > date("Y-m-d", strtotime($value))) {
-                                    ?><td><p style="color: red"><?php echo $value ."    Expired" ?></p><form action="calculateFine.php" method="post"><button class="calcFine" name="calcFine" type="submit">Calculate Fine</button></form><?php
+                                    //$count = $count+1;
+                                    $start = strtotime($value);
+                                    $end = time();
+                                    $noOfDays = ceil(abs($end - $start) / 86400);
+                                    $fine = $noOfDays -2;
+                                    ?><td><p style="color: red"><?php echo $value ."    Expired"."<br />"."Fine : "."Rs.".$fine.".00" ?></p></td><?php
                                 }if (date("Y-m-d") <= date("Y-m-d", strtotime($value))) {
                                     ?><td><?php echo $value ."    Not Expired" ?></td><?php
                                 }
-                            } else{
+                            }elseif($key == 'book_id'){
+                                ?><td><form action="returnBook.php" method="post">
+                                    <input type="radio" name="bookId" value=<?php echo $value ?> required/><?php echo $value ?>
+                                    <input name="return" type="submit" value="Return Book"/>
+                                </td>
+                            <?php } else{
                             ?><td><?php echo $value ?></td>
                         <?php
                         }}?>
@@ -159,10 +166,16 @@ if (isset($_POST["submitID"])){
 
             </table>
         </div>
-    <?php } ?>
+
+        <div class="btns">
+        <form class="clicks" action="returnBook.php" method="post">
+            <!--<button class="return" name="return" type="submit">Return Book</button>-->
+            <a href="Administration%20Page.html"><button name="exitBtn" class="exitBtn" type="button">Exit</button></a>
+        </form>
+        </div>
 
     </body>
     </html>
 <?php
-}?>
+}} ?>
 

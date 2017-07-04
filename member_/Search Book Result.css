@@ -21,6 +21,7 @@ header{padding:5px;  background: linear-gradient(
 }
 
 
+
 nav{
     padding:20px 0;
     min-width:500px;}
@@ -76,8 +77,6 @@ th {text-align:left;
     box-shadow: inset 0 1px 0 #999;
     color: #fff;
     font-weight: bold;
-    font-size: 16px;
-    align: center;
     padding: 10px 15px;
     position: relative;
     text-shadow: 0 1px 0 #000;
@@ -87,30 +86,12 @@ table {
     background: #f5f5f5;
     border-collapse: separate;
     box-shadow: inset 0 1px 0 #fff;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 24px;
     margin: 30px auto;
     text-align: left;
     width: 800px;
 }
-div.MessageBox{ font-size:30px; text-align:center; vertical-align:middle; display:inline-block; padding: 10px; padding-top:100px;
-    background:linear-gradient(0deg,rgba(188,189,146,1),rgba(204,206,154,1),rgba(178,179,136,1));
-    border-radius:10px; margin:10px 0;width:500px; transform:translate(400px,50px);
-    box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);
-    position:fixed; height:100px; z-index:30;}
-
-div.topOfTable{ font-size: 20px;font-weight:bold;background:linear-gradient(0deg, rgb(194, 178, 158), rgb(183, 168, 148), rgb(158, 143, 126));
-    margin:15px 0;width:350px; box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);
-    height:60px; z-index:30;}
-
-form.clicks{	z-index:7; position:relative; display:inline-block;
-    margin:10px 0;width:500px; float:left; transform:translate(475px,50px);}
-
-button.return{width:100%; padding:10px 18px; background-color: #9e8f7e; }
-button:hover{opacity:0.6;}
-button.exitBtn{width:100%; padding:10px 18px; background-color: #b93730;}
-
-img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}
 td {
     border-right: 1px solid #fff;
     border-left: 1px solid #e8e8e8;
@@ -122,5 +103,4 @@ td {
 caption{font-family:Arial;
     font-size:30px;
     font-weight:bolder;
-    color: floralwhite;
-    background:black }
+    color:white;}
