@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Created by PhpStorm.
  * User: DiniX
@@ -66,7 +66,8 @@ if (isset($_POST["submitID"])){
 
     $member = new member();
     $loadResult = $member->load($dbObj,$_POST["memberID"]);
-
+    $_SESSION['ID'] = $member->id;
+    $_SESSION['Name'] = $member->member_name;
     ?>
     <!DOCTYPE HTML>
     <html>
@@ -176,6 +177,5 @@ if (isset($_POST["submitID"])){
 
     </body>
     </html>
-<?php
-}} ?>
+<?php }$dbObj->closeConnection();} ?>
 
