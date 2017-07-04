@@ -1,7 +1,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +17,6 @@
 
         </div>
     </div>
-    <article class="backgroundimage">
         <div class="bgimage">
             <nav>
                 <ul>
@@ -66,11 +64,6 @@
 </div>
 
 <!--this line is for messeage box -->
-
-
-<div class = "MessageBox">Member added successfully<img class="closeIcon" src="images/closebtn.png"/></div>
-
-</article>
 
 </body>
 </html>

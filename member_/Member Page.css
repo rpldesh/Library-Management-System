@@ -47,12 +47,12 @@ div.linkbox{
 	border-radius:2px;
 	width:110px;
 	height:120px;
-	background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #490404), to(#FFFFFF));
 	padding:8px 8px;
 	box-sizing:border-box;
 	box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
 }
-div.linkbox:hover{background:rgba(135,206,250,0.4);}
+div.linkbox:hover{background:rgba(73,4,4,0.5);}
 
 div.linkbox img{width:70px; height:70px; }
 div#myProfile{float:left; display:block;margin-left:50px; margin-top:30px;}
