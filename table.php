@@ -57,12 +57,17 @@ abstract class table
         //$dbObj = database::getInstance();
         $sql = $this->buildQuery('load');
         $dbObj->doQuery($sql);
-        $rows = $dbObj->loadObjList();
-        foreach ($rows as $key => $value) {
-            if ($key == 'id') {
-                continue;
+        if(mysqli_num_rows($dbObj->getResult())>0){
+            $rows = $dbObj->loadObjList();
+            foreach ($rows as $key => $value) {
+                if ($key == 'id') {
+                    continue;
+                }
+                $this->$key = $value;
             }
-            $this->$key = $value;
+            return true;
+        }else{
+            return false;
         }
     }
 
