@@ -2,7 +2,7 @@
 <html> 
 	<head> 
 		<title></title>
-		<link rel="stylesheet" href="../TablePage.css"/>
+		<link rel="stylesheet" href="Table Page.css"/>
 	</head>
 	<body> 
 	
