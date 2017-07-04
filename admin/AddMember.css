@@ -1,3 +1,5 @@
+.MessageBox{display: none}
+
 body{
     background-color:#DCDCDC;
     background-repeat:no-repeat;
@@ -5,7 +7,7 @@ body{
     background-position:10px 280px ;
     height:100%;
     z-index:1;
-    background-image:url("images/library-1.jpg") ;
+    background-image:url("../images/library-1.jpg") ;
     position:relative;
 
 }
@@ -17,14 +19,14 @@ img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; h
 header{padding:5px;  background: linear-gradient(
         to left,
         rgba(73,4,4, 0),
-        rgba(73,4,4, 100)),url(images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
+        rgba(73,4,4, 100)),url(../images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
 }
 
 
-h1,label{font-family:Arial,Sans-serif;}
+h1,label{font-family:Arial,Suns-serif;}
 form{	z-index:7; position:relative; display:inline-block;
     background:linear-gradient(0deg,rgba(188,189,146,0.8),rgba(204,206,154,0.8),rgba(178,179,136,0.9));
-    border-radius:10px; margin:10px 0;width:500px; float:left; transform:translate(475px,50px);
+    border-radius:10px; margin:10px 0;width:500px; float:left; transform:translate(400px,50px);
     box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);}
 
 input,textarea,select{
@@ -62,7 +64,11 @@ nav ul li a{padding:10px;
     font-family:Arial;
     text-decoration:none;
 }
+
+
+.MessageBox{font-size: xx-large}
 nav ul li a:hover{color:orange;}
+
 
 /* bellow 2 class selectors are for message box*/
 div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display:inline-block; padding: 10px; padding-top:100px;
@@ -72,4 +78,3 @@ div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display
     position:fixed; height:100px; z-index:30;}
 
 img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}
-/*button.closeicon{width:50px; height:50px; border-radius:50%;}*/

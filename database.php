@@ -52,6 +52,13 @@ class database
         }
         return $objArray;
     }
+
+    public function getConnection(){
+        return $this->connection;
+    }
+    public function getResult(){
+        return $this->results;
+    }
 }
 
 ?>

@@ -28,18 +28,13 @@ if(isset($_POST['submit'])) {
         $admin = new admin();
         $sql1 = "Select id FROM admins WHERE username = '{$uName}' LIMIT 1";
         $result1 = $admin->featuredLoad($dbObj, $sql1);
-        if (count($result1)>0) {
+        if (mysqli_num_rows($result1)>0) {
             $message = "Username already exists. Please select another username..!!";
         }else{
-            $sql2 = "Select count(*) FROM admins";
-            //echo $sql2."<br />";
+            $sql2 = "Select * FROM admins";
             $result2 = $admin->featuredLoad($dbObj,$sql2);
-            //echo count($result2)."<br />";
-            foreach ($result2 as $key=>$value){
-                $noOfRows = $value;
-            }
-            $newId = $noOfRows+1;
-            //echo $newId."<br />";
+            $newId = mysqli_num_rows($result2)+1;
+            echo $newId."<br />";
             $data = array("id"=>$newId, "admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => time(), "admin_status" => "allowed");
             $admin->bind($data);
             $admin->insert($dbObj);
@@ -56,8 +51,6 @@ if(isset($_POST['submit'])) {
 $dbObj->closeConnection();
 
 ?>
-
-
 
 
 
@@ -92,7 +85,6 @@ $dbObj->closeConnection();
 
 
     <form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
-
 <div class = "MessageBox"><?php echo $message ?><a href="Administration Page.html"><img class="closeIcon" src="images/closebtn.png"/></a></div>
 
 </article>

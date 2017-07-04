@@ -5,22 +5,21 @@ body{
 	background-position:10px 280px ;
 	height:100%;
 	z-index:1;
-	background-image:url("../Images/library-1.jpg") ;
-	position:relative;	
-	
+	background-image:url("images/library-1.jpg") ;
+	position:relative;
+
 }
 div.logo_name{color:white;}
 
 
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
-	
+
 header{padding:5px;  background: linear-gradient(
-    to left,
-    rgba(73,4,4, 0),
-    rgba(73,4,4, 100)),url(../Images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
-  }
-  
-  
+		to left,
+		rgba(73,4,4, 0),
+		rgba(73,4,4, 100)),url(images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
+}
+
 
 nav{
 	padding:20px 0;
@@ -77,6 +76,8 @@ th {text-align:left;
 	box-shadow: inset 0 1px 0 #999;
 	color: #fff;
 	font-weight: bold;
+	font-size: 16px;
+	align: center;
 	padding: 10px 15px;
 	position: relative;
 	text-shadow: 0 1px 0 #000;	
@@ -86,7 +87,7 @@ table {
 	background: #f5f5f5;
 	border-collapse: separate;
 	box-shadow: inset 0 1px 0 #fff;
-	font-size: 12px;
+	font-size: 16px;
 	line-height: 24px;
 	margin: 30px auto;
 	text-align: left;
@@ -102,4 +103,6 @@ td {
 }
 caption{font-family:Arial;
 		font-size:30px;
-		font-weight:bolder;}
+		font-weight:bolder;
+	color: floralwhite;
+	background:black }
