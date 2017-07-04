@@ -56,6 +56,9 @@ class database
     public function getConnection(){
         return $this->connection;
     }
+    public function getResult(){
+        return $this->results;
+    }
 }
 
 ?>
