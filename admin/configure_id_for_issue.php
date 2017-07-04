@@ -112,7 +112,7 @@ if(isset($_POST['submitID'])) {
             <tr>
                 <th>Member ID</th>
                 <th>Name with Initials</th>
-                <th colspan="4">Books to be retruned</th>
+                <th colspan="4">Books to be returned</th>
             </tr>
             <tr>
                 <td></td>
