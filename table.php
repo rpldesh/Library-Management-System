@@ -35,7 +35,6 @@ abstract class table
                 $values .= "'{$this->$key}',";
             }
             $sql .= "(" . substr($keys, 0, -1) . ") Values(" . substr($values, 0, -1) . ")";
-
             return $sql;
         } elseif ($task == 'update') {
             $classAttributes = get_class_vars(get_class($this));
