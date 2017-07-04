@@ -20,7 +20,7 @@ abstract class table
         $sql = '';
         if ($task == 'load') {
             $sql = "SELECT * from {$this->tableName} where id = '{$this->id}'";
-            echo $sql;
+
             return $sql;
         } elseif ($task == 'insert') {
             $keys = "";
@@ -41,7 +41,7 @@ abstract class table
             $classAttributes = get_class_vars(get_class($this));
             $sql .= "UPDATE {$this->tableName} set ";
             foreach ($classAttributes as $key => $value) {
-                if ($key == "id" || $key == "table") {
+                if ($key == "id" || $key == "tableName") {
                     continue;
                 }
                 $sql .= "{$key} = '{$this->$key}',";
@@ -57,13 +57,20 @@ abstract class table
         //$dbObj = database::getInstance();
         $sql = $this->buildQuery('load');
         $dbObj->doQuery($sql);
-        $rows = $dbObj->loadObjList();
-        foreach ($rows as $key => $value) {
-            if ($key == 'id') {
-                continue;
+        if(mysqli_num_rows($dbObj->getResult())>0) {
+            $rows = $dbObj->loadObjList();
+            foreach ($rows as $key => $value) {
+                if ($key == 'id') {
+                    continue;
+                }
+                $this->$key = $value;
+
             }
-            $this->$key = $value;
+            return true;
+        }else{
+            return false;
         }
+
     }
 
     function insert($dbObj)
@@ -81,7 +88,7 @@ abstract class table
     }
 
     function featuredLoad($dbObj,$sql){
-        $result = mysqli_query($dbObj->getConnection(),$sql);
+        $result = mysqli_query($dbObj->getConnection(),$sql) or die("Database access failed..!!");
         return $result;
     }
 
