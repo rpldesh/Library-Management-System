@@ -35,7 +35,7 @@
             <input id="memberId" name="memberID" type="text"  required autofocus/><br />
 
             <button class="Submitbtn" name="submitID" type="submit">Submit</button>
-            <button class="cancelbtn" onclick="window.location='Administration Page.html'"name="cancel" type="button" >Cancel</button>
+            <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancel" type="button" >Cancel</button>
         </div>
     </form>
 </div>
@@ -157,7 +157,7 @@ if(isset($_POST['submitID'])) {
         <form class="clicks" action="issueBook.php" method="post">
 
         <button class="Submitbtn" type="submit" name="Issue">Go to Issuing Form</button>
-        <button class="cancelbtn" type="button" onclick="window.location='Administration Page.html'" name="cancel">Cancel</button>
+        <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
         </form>
 
     </div>

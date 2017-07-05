@@ -22,9 +22,9 @@
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="Administration Page.html">HOME</a></li>
+                    <li><a href="Administration Page.php">HOME</a></li>
                     <li><a href="#">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="../mainpage.html">LOGOUT</a></li>
+                    <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>

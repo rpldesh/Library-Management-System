@@ -43,7 +43,7 @@ if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
                 <input id="memberId" name="memberID" type="text"  required autofocus/><br />
 
                 <button class="Submitbtn" name="submitID" type="submit">Submit</button>
-                <button class="cancelbtn" onclick="window.location='Administration Page.html'"name="cancel" type="button" >Cancel</button>
+                <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancel" type="button" >Cancel</button>
             </div>
         </form>
     </div>
