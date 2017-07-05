@@ -82,6 +82,9 @@ th {text-align:left;
     position: relative;
     text-shadow: 0 1px 0 #000;
 }
+th.bookdetail{
+    text-align: center;
+}
 table {
     box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
     background: #f5f5f5;
@@ -95,7 +98,9 @@ table {
 }
 button{border-radius:5px; background-color:#4CAF50; color:white; padding:14px 20px; margin:8px 0; border:none; cursor: pointer; width:25%; }
 button:hover{opacity:0.6;}
-button.cancelbtn{width:25%; padding:14px 20px; background-color:#F44336;}
+button.SubmitBtn{transform:translate(650px,0);}
+button.cancelBtn{transform:translate(650px,0); width:25%; padding:14px 20px; background-color:#F44336;}
+
 
 div.MessageBox{ font-size:30px; text-align:center; vertical-align:middle; display:inline-block; padding: 10px; padding-top:100px;
     background:linear-gradient(0deg,rgba(188,189,146,1),rgba(204,206,154,1),rgba(178,179,136,1));
