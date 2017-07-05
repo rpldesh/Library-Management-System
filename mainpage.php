@@ -7,7 +7,7 @@
 <body>
 	<header>
 	<div class="head_top">
-		<div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
+		<div class="logo_name"><img class="siyanelogo" src="Images/siyane_logo.jpg"/>
 			<h1>LIBRARY</h1>
 		<h3>Siyane National College of Education<br />Veyangoda</h3> 
 	
@@ -25,7 +25,7 @@
 	</header>
 	
 	<form methood="POST" action="member_/Member Page.html" autocomplete="off">
-		<div class="imgcontainer"><img src="images/login-bg.png" alt="" class="loginimge"/></div>
+		<div class="imgcontainer"><img src="Images/login-bg.png" alt="" class="loginimge"/></div>
 		<div class="container">
 		<label for="user"><b>Username</b></label><br />
 		<input id="user" name="uname" type="text" placeholder="Enter Username" required autofocus/><br />

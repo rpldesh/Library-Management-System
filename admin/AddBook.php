@@ -42,7 +42,7 @@
             <label for="autname"><b>Author</b></label><br />
             <input id="autname" name="AutName" type="text" placeholder="Enter Author" required/><br />
             <label for="isbn"><b>ISBN</b></label><br />
-            <input id="isbn" name="isbn" type="text" placeholder="Enter Accession Number" required autofocus/><br />
+            <input id="isbn" name="isbn" type="text" placeholder="Enter Accession Number"autofocus/><br />
             <label for="NoP"><b>No Of Pages</b></label><br />
             <input id="NoP" name="NoOfPg" type="number" placeholder="Enter No Of Pages" required/><br />
             <label for="price"><b>Price</b></label><br />
@@ -56,7 +56,7 @@
             <label for="pop"><b>Place Of Publication</b></label><br />
             <input id="pop" name="POP" type="text" placeholder="Enter place Of Publication" /><br />
             <label for="remarks"><b>Remarks</b></label><br />
-            <textarea id="remarks" name="Remarks" cols="40" rows="6" required></textarea><br />
+            <textarea id="remarks" name="Remarks" cols="40" rows="6"></textarea><br />
             <button name="save" class="Submitbtn" type="submit">Submit</button>
             <button name="cancel" class="cancelbtn" type="button">Cancel</button>
         </div>
