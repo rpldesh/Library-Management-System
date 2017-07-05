@@ -3,10 +3,12 @@
 	<head>
 		<title>Administration Page</title>
 		<link rel = "stylesheet" href ="css/Administration Page.css"/>
+
 	</head>
 <body>
 	<header>
-	<div class="head_top"><img class="siyanelogo" src="images/siyane_logo.jpg">
+	<!--<div class="head_top"><img class="siyanelogo" src="images/siyane_logo.jpg"/>-->
+        <div class "head_top"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
 	<div class="logo_name">
 		<h1>LIBRARY</h1>
 		<h3>Siyane National College Of Education<br />Veyangoda</h3>

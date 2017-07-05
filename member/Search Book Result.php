@@ -1,8 +1,9 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="Search%20Book%20Result.css"/>
+    <link rel="stylesheet" href="css/Search%20Book%20Result.css"/>
 </head>
 <body>
 
@@ -37,8 +38,8 @@
             <th>Author</th>
             <th>Book Type</th>
             <th>Availability</th>
-            <th>No Of Copies</th>
         </tr>
+
         <tr>
             <td>150377G</td>
             <td>A.S.Madhushanki</td>
@@ -49,35 +50,10 @@
             <td>3</td>
 
         </tr>
-        <tr>
-            <td>150301V</td>
-            <td>I.M.A.S.Karunarathne</td>
-            <td>1995/SEP/28</td>
-            <td>Bemulla</td>
-            <td>pending</td>
-            <td>not available</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>150574H</td>
-            <td>D.A.D.P.Senarath</td>
-            <td>1995/JUL/21</td>
-            <td>pallewela</td>
-            <td>pending</td>
-            <td>available</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>150490V</td>
-            <td>R.P.L.D.Rarapakse</td>
-            <td>1994/JUN/06</td>
-            <td>Gampaha</td>
-            <td>pending</td>
-            <td>not available</td>
-            <td>3</td>
-        </tr>
+
     </table>
 </div>
 
 </body>
 </html>
+
