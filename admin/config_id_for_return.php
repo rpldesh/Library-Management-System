@@ -1,12 +1,11 @@
 <?php
-session_start();
 /**
  * Created by PhpStorm.
  * User: DiniX
  * Date: 02-Jul-17
  * Time: 12:51 AM
  */
-if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
+if(!isset($_POST["submitID"]) ){ ?>
     <!DOCTYPE html>
     <html>
     <head>
@@ -57,6 +56,7 @@ if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
 <?php }
 
 if (isset($_POST["submitID"])){
+    session_start();
     include("../database.php");
     include("../table.php");
     include("../member.php");

@@ -12,7 +12,14 @@ if(isset($_POST["return"])){
         echo "Please select a book";
     }else{
         $bookId = $_POST["bookId"];
-        ;
+        include("../database.php");
+        include("../table.php");
+        include("../member.php");
+        include("../book_session.php");
+        $dbObj=database::getInstance();
+        $dbObj->connect('localhost','root','','lms_db');
+
+
     }
 }
 
