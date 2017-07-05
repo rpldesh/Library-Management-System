@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Member Page</title>
-    <link rel = "stylesheet" href ="Member Page.css"/>
+    <link rel = "stylesheet" href ="css/Member Page.css"/>
 </head>
 <body>
 <header>

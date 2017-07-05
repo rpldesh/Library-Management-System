@@ -1,17 +1,16 @@
 <?php
-session_start();
 /**
  * Created by PhpStorm.
  * User: DiniX
  * Date: 02-Jul-17
  * Time: 12:51 AM
  */
-if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
+if(!isset($_POST["submitID"]) ){ ?>
     <!DOCTYPE html>
     <html>
     <head>
         <title>ID configuration for Returning</title>
-        <link rel = "stylesheet" href ="configure_id.css"/>
+        <link rel = "stylesheet" href ="css/configure_id.css"/>
     </head>
     <body>
     <header>
@@ -57,6 +56,7 @@ if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
 <?php }
 
 if (isset($_POST["submitID"])){
+    session_start();
     include("../database.php");
     include("../table.php");
     include("../member.php");
@@ -73,7 +73,7 @@ if (isset($_POST["submitID"])){
     <html>
     <head>
         <title>Books to be Returned</title>
-        <link rel="stylesheet" href="returnPage.css"/>
+        <link rel="stylesheet" href="css/returnPage.css"/>
     </head>
     <body>
 

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Create Admin Account</title>
-    <link rel = "stylesheet" href ="addNewAdminPageStyle.css"/>
+    <link rel = "stylesheet" href ="css/addNewAdminPageStyle.css"/>
 </head>
 <body>
 <header>

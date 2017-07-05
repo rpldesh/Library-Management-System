@@ -13,7 +13,7 @@ if (isset($_POST['Issue'])) {
 <html >
 <head >
     <title > Issue Book </title >
-    <link rel = "stylesheet" href = "issueBook.css" />
+    <link rel = "stylesheet" href = "css/issueBook.css" />
 </head >
 <body >
 <header >

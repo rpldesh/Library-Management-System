@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Library-Home</title>
-		<link rel = "stylesheet" href ="mainpage.css"/>
+		<link rel = "stylesheet" href ="css/mainpage.css"/>
 	</head>
 <body>
 	<header>

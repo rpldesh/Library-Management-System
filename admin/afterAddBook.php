@@ -1,4 +1,44 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Admin Member</title>
+    <link rel = "stylesheet" href ="css/AddBook.css"/>
+</head>
+<body>
+<header>
+    <div class="head_top">
+        <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
+
+            <h1>LIBRARY</h1>
+            <h3>Siyane National College of Education<br />Veyangoda</h3>
+
+        </div>
+    </div>
+    <article class="backgroundimage">
+        <div class="bgimage">
+            <nav>
+                <ul>
+                    <li><a href="Administration Page.php">HOME</a></li>
+                    <li><a href="#">ADMIN PROFILE</a></li>
+                    <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+</header>
+
+
+<form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
+
+<div class = "MessageBox"><?php echo $message ?><a href="Administration Page.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+
+</article>
+
+</body>
+</html>
+
+
+>>>>>>> c490ace1d088def27a63dc35a6c22e99cc0e7013
 <?php
 /**
  * Created by PhpStorm.
