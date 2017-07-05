@@ -107,7 +107,7 @@ if (isset($_POST["submitID"])){
         $bkSession = new book_session();
         $result = $bkSession->featuredLoad($dbObj,$sql);
         $numOfRows = mysqli_num_rows($result);
-        $delayedBooks = array();
+        //$delayedBooks = array();
         ?>
 
         <div style="overflow:auto;">
@@ -136,7 +136,7 @@ if (isset($_POST["submitID"])){
                     <td rowspan="<?php echo $numOfRows?>"> <?php echo $member->member_name?></td>
                     <td rowspan="<?php echo $numOfRows?>"> <?php echo $member->member_type?></td>
                     <?php
-                    $count = 0;
+                    //$count = 0;
                     for($i=0;$i<$numOfRows;$i++){
                         ?><td><?php echo ($i+1)."." ?></td><?php
                         foreach (mysqli_fetch_assoc($result) as $key=>$value) {
