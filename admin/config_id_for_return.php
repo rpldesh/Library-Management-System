@@ -10,7 +10,7 @@ if(!isset($_POST["submitID"]) ){ ?>
     <html>
     <head>
         <title>ID configuration for Returning</title>
-        <link rel = "stylesheet" href ="css/configure_id.css"/>
+        <link rel = "stylesheet" href ="css/config_if_for_return.css"/>
     </head>
     <body>
     <header>
@@ -35,7 +35,7 @@ if(!isset($_POST["submitID"]) ){ ?>
     </header>
 
     <div class="idconfigureform">
-        <form align="center" method="POST" action="" autocomplete="off">
+        <form class="Form" align="center" method="POST" action="" autocomplete="off">
             <div class="container">
 
                 <label for="memberId"><b>Enter Member ID:</b></label><br />
@@ -70,12 +70,11 @@ if (isset($_POST["submitID"])){
     $_SESSION['Name'] = $member->member_name;
     ?>
     <!DOCTYPE HTML>
-    <html>
     <head>
         <title>Books to be Returned</title>
         <link rel="stylesheet" href="css/returnPage.css"/>
     </head>
-    <body>
+    <form>
 
     <header>
         <div class="head_top">
@@ -103,7 +102,7 @@ if (isset($_POST["submitID"])){
         <div class = "MessageBox"><?php echo "Member does not exist..!!" ?><a href="config_id_for_return.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
     <?php }
     else {
-        $sql = "Select book_id,book_title,date_of_borrowal,date_to_be_returned,session_status from book_sessions where member_id = '$member->id' and session_status = 'pending'";
+        $sql = "Select book_id,book_title,date_of_borrowal,date_to_be_returned,session_status from book_sessions where member_id = '$member->id' and session_status != 'returned'";
         $bkSession = new book_session();
         $result = $bkSession->featuredLoad($dbObj,$sql);
         $numOfRows = mysqli_num_rows($result);
@@ -154,8 +153,8 @@ if (isset($_POST["submitID"])){
                                 }
                             }elseif($key == 'book_id'){
                                 ?><td><form action="returnBook.php" method="post">
-                                    <input type="radio" name="bookId" value=<?php echo $value ?> required/><?php echo $value ?>
-                                    <input name="return" type="submit" value="Return Book"/>
+                                    <input type="checkbox" name="bookId[]" value=<?php echo $value ?> required/><?php echo $value ?>
+
                                 </td>
                             <?php } else{
                             ?><td><?php echo $value ?></td>
@@ -167,13 +166,13 @@ if (isset($_POST["submitID"])){
 
             </table>
         </div>
+        <button class="Submitbtn" type="submit" name="returnBTN">Return Book</button>
+        <form class="clicks" action="issueBook.php" method="post">
 
-        <div class="btns">
-        <form class="clicks" action="returnBook.php" method="post">
-            <!--<button class="return" name="return" type="submit">Return Book</button>-->
-            <a href="Administration%20Page.html"><button name="exitBtn" class="exitBtn" type="button">Exit</button></a>
+
+            <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
         </form>
-        </div>
+
 
     </body>
     </html>
