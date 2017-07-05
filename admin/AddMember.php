@@ -25,13 +25,35 @@ if (isset($_POST['submit'])){
     $member_email=$_POST['email'];
     $contact_no=$_POST['contactNo'];
     $member_status="active";
-    $member= new member();
-    $data= array("id"=>$id, "member_name"=>$member_name, "member_fullname"=>$member_fullname, "member_type"=>$member_type,"join_date"=>$join_date,"addmission_date"=>$addmission_date, "permanent_address"=>$permanent_address, "current_address"=>$current_address,"member_email"=>$member_email,"contact_no"=>$contact_no,"member_status"=>$member_status);
-    $member->bind($data);
-    $member->insert($dbObj);
-}
+    $tempmember = new member();
+    $result1 = $tempmember->load($dbObj, $id);
+    if ($result1) {
+        $msg = "Username already exists. Please select another username..!!";
+    }
 
+    else if (date("m-d-Y") < date("m-d-Y",strtotime($addmission_date))){
+        $msg= "Invalid Date";
+        }
+
+    else if(!is_numeric($contact_no)||!(strlen($contact_no)==10)){
+        $msg="Invalid Contact Number";
+
+    }
+    else{
+        $member = new member();
+        $data = array("id" => $id, "member_name" => $member_name, "member_fullname" => $member_fullname, "member_type" => $member_type, "join_date" => $join_date, "addmission_date" => $addmission_date, "permanent_address" => $permanent_address, "current_address" => $current_address, "member_email" => $member_email, "contact_no" => $contact_no, "member_status" => $member_status);
+        $member->bind($data);
+        $member->insert($dbObj);
+
+    }
+
+
+
+    }
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,9 +114,9 @@ if (isset($_POST['submit'])){
             <label for="currentAddress"><b>Current Address</b></label><br />
             <input id="currentAddress" name="currentaddress" type="text" placeholder="Enter Current Address" required/><br />
             <label for="Email"><b>E-mail Address</b></label><br />
-            <input id="Email" name="email" type="text" placeholder="Enter E-mail Address " required/><br />
+            <input id="Email" name="email" type="text" placeholder="xxxx@example.com " required/><br />
             <label for="phone"><b>Contact Number</b></label><br />
-            <input id="phome" name="contactNo" type="text" placeholder="Enter Contact Number " required/><br />
+            <input id="phome" name="contactNo" type="text" placeholder="0xxxxxxxxx " required/><br />
             <button name="submit" type="submit">Submit</button>
             <button class="cancelbtn" type="button">Cancel</button>
         </div>
