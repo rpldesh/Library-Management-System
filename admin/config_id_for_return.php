@@ -151,6 +151,8 @@ if (isset($_POST["submitID"])){
                                 }if (date("Y-m-d") <= date("Y-m-d", strtotime($value))) {
                                     ?><td><?php echo $value ."    Not Expired" ?></td><?php
                                 }
+                            }elseif($key == 'date_of_borrowal'){
+                                ?><td><?php echo date("Y-m-d",strtotime($value)) ?></td>><?php
                             }elseif($key == 'book_id'){
                                 ?><td><form action="returnBook.php" method="post">
                                     <input type="checkbox" name="bookIds[]" value=<?php echo $value ?> /><?php echo $value ?>
