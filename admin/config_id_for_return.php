@@ -153,7 +153,7 @@ if (isset($_POST["submitID"])){
                                 }
                             }elseif($key == 'book_id'){
                                 ?><td><form action="returnBook.php" method="post">
-                                    <input type="checkbox" name="bookIds[]" value=<?php echo $value ?> required/><?php echo $value ?>
+                                    <input type="checkbox" name="bookIds[]" value=<?php echo $value ?> /><?php echo $value ?>
 
                                 </td>
                             <?php } else{
@@ -166,7 +166,7 @@ if (isset($_POST["submitID"])){
 
             </table>
         </div>
-        <button class="returnBTN" type="submit" name="returnBTN">Return Book/Books</button></form>
+        <button class="returnBTN" type="submit" name="returnBTN">Return Book/Books</button>
         <form class="clicks" action="issueBook.php" method="post">
             <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
         </form>
