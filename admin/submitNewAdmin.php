@@ -39,12 +39,6 @@ if(isset($_POST['submit'])) {
             $admin->bind($data);
             $admin->insert($dbObj);
             $message = "Admin member account successfully created..!!";
-            /*$sql = "Select join_date FROM admins WHERE id = 4";
-            $result = $admin->featuredLoad($dbObj,$sql);
-            foreach ($result as $key=>$value){
-                echo "<br />".$value."<br />";
-                echo  date("m/d/y", $value);
-            }*/
         }
     }
 }
