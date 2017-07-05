@@ -2,8 +2,8 @@
 <html> 
 	<head> 
 		<title></title>
-		<link rel="stylesheet" href="../admin/AddBook.css"/>
-		<link rel="stylesheet" href="Search Book.css"/>
+		<link rel="stylesheet" href="../admin/css/AddBook.css"/>
+		<link rel="stylesheet" href="css/Search Book.css"/>
 
 	</head>
 	<body> 

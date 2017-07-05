@@ -1,17 +1,16 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: DiniX
  * Date: 02-Jul-17
  * Time: 12:51 AM
  */
-if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
+if(!isset($_POST["submitID"]) ){ ?>
     <!DOCTYPE html>
     <html>
     <head>
         <title>ID configuration for Returning</title>
-        <link rel = "stylesheet" href ="configure_id.css"/>
+        <link rel = "stylesheet" href ="css/configure_id.css"/>
     </head>
     <body>
     <header>
@@ -43,7 +42,7 @@ if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
                 <input id="memberId" name="memberID" type="text"  required autofocus/><br />
 
                 <button class="Submitbtn" name="submitID" type="submit">Submit</button>
-                <button class="cancelbtn" onclick="window.location='Administration Page.html'"name="cancel" type="button" >Cancel</button>
+                <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancel" type="button" >Cancel</button>
             </div>
         </form>
     </div>
@@ -57,6 +56,7 @@ if(!isset($_POST["submitID"]) and !isset($_POST["calcFine"])){ ?>
 <?php }
 
 if (isset($_POST["submitID"])){
+    session_start();
     include("../database.php");
     include("../table.php");
     include("../member.php");
@@ -66,13 +66,14 @@ if (isset($_POST["submitID"])){
 
     $member = new member();
     $loadResult = $member->load($dbObj,$_POST["memberID"]);
-
+    $_SESSION['ID'] = $member->id;
+    $_SESSION['Name'] = $member->member_name;
     ?>
     <!DOCTYPE HTML>
     <html>
     <head>
         <title>Books to be Returned</title>
-        <link rel="stylesheet" href="returnPage.css"/>
+        <link rel="stylesheet" href="css/returnPage.css"/>
     </head>
     <body>
 
@@ -106,7 +107,7 @@ if (isset($_POST["submitID"])){
         $bkSession = new book_session();
         $result = $bkSession->featuredLoad($dbObj,$sql);
         $numOfRows = mysqli_num_rows($result);
-        $delayedBooks = array();
+        //$delayedBooks = array();
         ?>
 
         <div style="overflow:auto;">
@@ -135,7 +136,7 @@ if (isset($_POST["submitID"])){
                     <td rowspan="<?php echo $numOfRows?>"> <?php echo $member->member_name?></td>
                     <td rowspan="<?php echo $numOfRows?>"> <?php echo $member->member_type?></td>
                     <?php
-                    $count = 0;
+                    //$count = 0;
                     for($i=0;$i<$numOfRows;$i++){
                         ?><td><?php echo ($i+1)."." ?></td><?php
                         foreach (mysqli_fetch_assoc($result) as $key=>$value) {
@@ -176,6 +177,5 @@ if (isset($_POST["submitID"])){
 
     </body>
     </html>
-<?php
-}} ?>
+<?php }$dbObj->closeConnection();} ?>
 

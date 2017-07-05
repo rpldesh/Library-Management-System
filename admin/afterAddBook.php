@@ -1,44 +1,4 @@
 
-<?php $message="";?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add New Admin Member</title>
-    <link rel = "stylesheet" href ="AddBook.css"/>
-</head>
-<body>
-<header>
-    <div class="head_top">
-        <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
-
-            <h1>LIBRARY</h1>
-            <h3>Siyane National College of Education<br />Veyangoda</h3>
-
-        </div>
-    </div>
-    <article class="backgroundimage">
-        <div class="bgimage">
-            <nav>
-                <ul>
-                    <li><a href="Administration Page.html">HOME</a></li>
-                    <li><a href="#">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="../mainpage.html">LOGOUT</a></li>
-                </ul>
-            </nav>
-        </div>
-</header>
-
-
-<form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
-
-<div class = "MessageBox"><?php echo $message ?><a href="Administration Page.html"><img class="closeIcon" src="images/closebtn.png"/></a></div>
-
-</article>
-
-</body>
-</html>
-
-
 <?php
 /**
  * Created by PhpStorm.
@@ -64,7 +24,7 @@ if(isset($_POST['save'])){
     $publisher_name=$_POST['Pubname'];
     $published_date=$_POST['DOP'];
     $publisher_address=$_POST['POP'];
-    $price=$_POST['Remarks'];
+    $price=$_POST['Price'];
     $no_pages = $_POST['NoOfPg'];
     $date_added=time();
     $book_type=$_POST['Bktype'];
@@ -74,7 +34,7 @@ if(isset($_POST['save'])){
     $book=new book();
     $sql1 = "Select id FROM books WHERE id = '{$id}' LIMIT 1";
     $result1 = $book->featuredLoad($dbObj, $sql1);
-    if (count($result1)>0) {
+    if (mysqli_num_rows($result1)>0) {
         $message = "This accession number already exists. Please enter correct accession number..!!";
     }if($published_date>time()){
         $message = "This is a future date.re enter the correct date..!";
@@ -86,7 +46,7 @@ if(isset($_POST['save'])){
 
     $data = array("id"=>$id,"title"=>$title,"author"=>$author,"ISBN"=>$ISBN,"category_no"=>$category_no,
         "publisher_name"=>$publisher_name,"published_date"=>$published_date,"publisher_address"=>$publisher_address,"price"=>$price,
-        "no_pages"=>$no_pages,"date_added"=>$date_added,"book_type"=>$book_type,"book_status"=>$book_status,"remarks"=>$remarks,);
+        "no_pages"=>$no_pages,"date_added"=>$date_added,"book_type"=>$book_type,"book_status"=>$book_status,"remarks"=>$remarks);
 
     $book->bind($data);
     $book->insert($dbObj);
@@ -99,3 +59,41 @@ $dbObj->closeConnection();
 ?>
 
 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Book</title>
+    <link rel = "stylesheet" href ="AddBook.css"/>
+</head>
+<body>
+<header>
+    <div class="head_top">
+        <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
+
+            <h1>LIBRARY</h1>
+            <h3>Siyane National College of Education<br />Veyangoda</h3>
+
+        </div>
+    </div>
+    <article class="backgroundimage">
+        <div class="bgimage">
+            <nav>
+                <ul>
+                    <li><a href="Administration Page.php">HOME</a></li>
+                    <li><a href="#">ADMIN PROFILE</a></li>
+                    <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+</header>
+
+
+<form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
+
+<div class = "MessageBox"><?php echo $message ?><a href="Administration Page.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+
+</article>
+
+</body>
+</html>

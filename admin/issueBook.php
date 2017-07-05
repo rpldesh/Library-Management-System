@@ -8,6 +8,7 @@ $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
 session_start();
 
+<<<<<<< HEAD
 if (isset($_POST['GotoIssueForm'])) {
     $id = $_SESSION['id'];
     $member_name = $_SESSION['member_name'];
@@ -28,6 +29,38 @@ if (isset($_POST['GotoIssueForm'])) {
                 <h3 > Siyane National College of Education < br />Veyangoda </h3 >
 
             </div >
+=======
+}
+
+?>
+
+
+<!DOCTYPE html >
+<html >
+<head >
+    <title > Issue Book </title >
+    <link rel = "stylesheet" href = "css/issueBook.css" />
+</head >
+<body >
+<header >
+    <div class="head_top" >
+        <div class="logo_name" ><img class="siyanelogo" src = "images/siyane_logo.jpg" >
+
+            <h1 > LIBRARY</h1 >
+            <h3 > Siyane National College of Education < br />Veyangoda </h3 >
+
+        </div >
+    </div >
+    <article class="backgroundimage" >
+        <div class="bgimage" >
+            <nav >
+                <ul >
+                    <li ><a href = "Administration Page.php" > HOME</a ></li >
+                    <li ><a href = "#" > ADMIN PROFILE </a ></li >
+                    <li class="logout" ><a href = "../mainpage.php" > LOGOUT</a ></li >
+                </ul >
+            </nav >
+>>>>>>> 86059140d2d868eb224eda9ae1cc28122da21ecf
         </div >
         <article class="backgroundimage" >
             <div class="bgimage" >
@@ -56,6 +89,7 @@ if (isset($_POST['GotoIssueForm'])) {
 
             <button class="checkbtn" onclick = "window.location=''" name = "checkbtn" type = "submit" > Check</button >
 
+<<<<<<< HEAD
         </div>
         </form>
 
@@ -131,6 +165,18 @@ if (isset($_POST['GotoIssueForm'])) {
                 <button class="cancelbtn" onclick = "window.location='Administration Page.html'" name = "cancelBtn" type = "button" > Cancel</button >
             </div>
         </form >
+=======
+            <label for="bookTitle" ><b > Book Title </b ></label ><br />
+            <input name = "bookTitle" type = "text" placeholder = "" required /><br />
+
+            <label for="date" ><b > Date to be Returned </b ></label ><br />
+            <input id = "date" name = "DoR" type = "date" /><br />
+
+            <button class="Submitbtn" name = "submit" type = "submit" > Issue</button >
+            <button class="cancelbtn" onclick = "window.location='Administration Page.php'" name = "cancelBtn" type = "button" > Cancel</button >
+        </div >
+    </form >
+>>>>>>> 86059140d2d868eb224eda9ae1cc28122da21ecf
 </div >
 
 </article >

@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>ID configuration for issue</title>
-    <link rel = "stylesheet" href ="configure_id.css"/>
+    <link rel = "stylesheet" href ="css/configure_id.css"/>
 </head>
 <body>
 <header>
@@ -35,7 +35,7 @@
             <input id="memberId" name="memberID" type="text"  required autofocus/><br />
 
             <button class="Submitbtn" name="submitID" type="submit">Submit</button>
-            <button class="cancelbtn" onclick="window.location='Administration Page.html'"name="cancel" type="button" >Cancel</button>
+            <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancel" type="button" >Cancel</button>
         </div>
     </form>
 </div>
@@ -66,7 +66,7 @@ if(isset($_POST['submitID'])) {
     <html>
     <head>
         <title>Member Details and Previous Records</title>
-        <link rel = "stylesheet" href="issuePage.css"/>
+        <link rel = "stylesheet" href="css/issuePage.css"/>
     </head>
     <body>
     <header>
@@ -156,8 +156,13 @@ if(isset($_POST['submitID'])) {
         </table>
         <form class="clicks" action="issueBook.php" method="post">
 
+<<<<<<< HEAD
         <button class="Submitbtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
         <button class="cancelbtn" type="button" onclick="window.location='Administration Page.html'" name="cancel">Cancel</button>
+=======
+        <button class="Submitbtn" type="submit" name="Issue">Go to Issuing Form</button>
+        <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
+>>>>>>> 86059140d2d868eb224eda9ae1cc28122da21ecf
         </form>
 
     </div>
