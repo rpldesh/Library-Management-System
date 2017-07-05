@@ -7,7 +7,7 @@ session_start();
  * Time: 2:51 PM
  */
 $msg = "";
-if(isset($_POST["return"])){
+if(isset($_POST["returnBTN"])){
     if(!isset($_POST["bookId"])){
         $msg = "Please select a book";
         echo $msg;
@@ -19,11 +19,13 @@ if(isset($_POST["return"])){
         include("../book_session.php");
         $dbObj=database::getInstance();
         $dbObj->connect('localhost','root','','lms_db');
-        $book = new book();
-        $bookSession = new book_session();
-        $book->load($dbObj,$bookId);
-        $book->status = "available";
-        $book->update($dbObj);
+        echo ;
+        //$book = new book();
+        //$bookSession = new book_session();
+        //$book->load($dbObj,$bookId);
+        //$book->book_status = "available";
+        //$book->update($dbObj);
+        //$sql = "Update book_sessions set date_of_return = ,session_status from book_sessions where member_id = '$member->id' and session_status != 'returned'";
 
     }
 }
