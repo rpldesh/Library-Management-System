@@ -20,7 +20,7 @@
 			<li><a href="#">ADMIN PROFILE</a></li>
 
 			<li><a href="addNewAdminPage.php">ADD NEW ADMIN</a></li>
-			<li class="logout"><a href="../mainpage.html">LOGOUT</a></li>
+			<li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
 		</ul>
 	</nav>
 	</div>

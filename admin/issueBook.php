@@ -29,9 +29,9 @@ if (isset($_POST['Issue'])) {
         <div class="bgimage" >
             <nav >
                 <ul >
-                    <li ><a href = "Administration Page.html" > HOME</a ></li >
+                    <li ><a href = "Administration Page.php" > HOME</a ></li >
                     <li ><a href = "#" > ADMIN PROFILE </a ></li >
-                    <li class="logout" ><a href = "../mainpage.html" > LOGOUT</a ></li >
+                    <li class="logout" ><a href = "../mainpage.php" > LOGOUT</a ></li >
                 </ul >
             </nav >
         </div >
@@ -59,7 +59,7 @@ if (isset($_POST['Issue'])) {
             <input id = "date" name = "DoR" type = "date" /><br />
 
             <button class="Submitbtn" name = "submit" type = "submit" > Issue</button >
-            <button class="cancelbtn" onclick = "window.location='Administration Page.html'" name = "cancelBtn" type = "button" > Cancel</button >
+            <button class="cancelbtn" onclick = "window.location='Administration Page.php'" name = "cancelBtn" type = "button" > Cancel</button >
         </div >
     </form >
 </div >
