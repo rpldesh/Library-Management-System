@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title></title>
-		<link rel="stylesheet" href="My%20profile.css"/>
+		<link rel="stylesheet" href="css/My%20profile.css"/>
 
 	</head>
 	<body>

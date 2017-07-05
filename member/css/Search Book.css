@@ -27,7 +27,7 @@ form{	z-index:7; position:relative; display:inline-block;
     border-radius:10px; margin:10px 0; width:500px; float:left; transform:translate(475px,50px);
     box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);}
 
-input,textarea,select{
+input.normal,textarea,select{
     background-color:rgba(222,221,202,1);
     border-radius:5px; box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 6px rgba(69,69,69,0.6);
     width:100%; padding:12px 20px; margin:8px 0; display:inline-block; border:1px solid #ccc; box-sizing:border-box;}
