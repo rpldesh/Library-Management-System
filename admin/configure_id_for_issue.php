@@ -156,7 +156,7 @@ if(isset($_POST['submitID'])) {
         </table>
         <form class="clicks" action="issueBook.php" method="post">
 
-        <button class="Submitbtn" type="submit" name="Issue">Go to Issuing Form</button>
+        <button class="Submitbtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
         <button class="cancelbtn" type="button" onclick="window.location='Administration Page.html'" name="cancel">Cancel</button>
         </form>
 
@@ -165,4 +165,5 @@ if(isset($_POST['submitID'])) {
     <?php } ?>
     </body>
     </html>
-<?php } ?>
+<?php $dbObj->closeConnection();}
+?>
