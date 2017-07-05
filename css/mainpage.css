@@ -7,7 +7,7 @@ img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; h
 header{height: 255px; padding:5px;  background: linear-gradient(
     to left,
     rgba(73,4,4, 0),
-    rgba(73,4,4, 100)),url(images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
+    rgba(73,4,4, 100)),url(../Images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
   }
 div.borderbox{background-color:white; transform: translate(20px,0px);}
 
@@ -82,12 +82,12 @@ div.slideshow{ display:block;
 				float:left;
 }
 @keyframes slideShow{
-	0%{background-image:url(images/1.jpg);}
-	20%{background-image:url(images/2.jpg);}
-	40%{background-image:url(images/3.jpg);}
-	60%{background-image:url(images/4.jpg);}
-	80%{background-image:url(images/5.jpg);}
-	100%{background-image:url(images/6.jpg);}
+	0%{background-image:url(../Images/1.jpg);}
+	20%{background-image:url(../Images/2.jpg);}
+	40%{background-image:url(../Images/3.jpg);}
+	60%{background-image:url(../Images/4.jpg);}
+	80%{background-image:url(../Images/5.jpg);}
+	100%{background-image:url(../Images/6.jpg);}
 	}
 	
 a{text-decoration:none; color:grey;  display:inline-table;  }

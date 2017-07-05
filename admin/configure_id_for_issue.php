@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>ID configuration for issue</title>
-    <link rel = "stylesheet" href ="configure_id.css"/>
+    <link rel = "stylesheet" href ="css/configure_id.css"/>
 </head>
 <body>
 <header>
@@ -66,7 +66,7 @@ if(isset($_POST['submitID'])) {
     <html>
     <head>
         <title>Member Details and Previous Records</title>
-        <link rel = "stylesheet" href="issuePage.css"/>
+        <link rel = "stylesheet" href="css/issuePage.css"/>
     </head>
     <body>
     <header>

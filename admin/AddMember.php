@@ -36,7 +36,7 @@ if (isset($_POST['submit'])){
 <html>
 <head>
     <title>Add Member page</title>
-    <link rel = "stylesheet" href ="AddMember.css"/>
+    <link rel = "stylesheet" href ="css/AddMember.css"/>
     <style> div.MessageBox{display: none;}</style>
 
 

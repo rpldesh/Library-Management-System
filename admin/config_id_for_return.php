@@ -10,7 +10,7 @@ if(!isset($_POST["submitID"]) ){ ?>
     <html>
     <head>
         <title>ID configuration for Returning</title>
-        <link rel = "stylesheet" href ="configure_id.css"/>
+        <link rel = "stylesheet" href ="css/configure_id.css"/>
     </head>
     <body>
     <header>
@@ -73,7 +73,7 @@ if (isset($_POST["submitID"])){
     <html>
     <head>
         <title>Books to be Returned</title>
-        <link rel="stylesheet" href="returnPage.css"/>
+        <link rel="stylesheet" href="css/returnPage.css"/>
     </head>
     <body>
 

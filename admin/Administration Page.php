@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Administration Page</title>
-		<link rel = "stylesheet" href ="Administration Page.css"/>
+		<link rel = "stylesheet" href ="css/Administration Page.css"/>
 	</head>
 <body>
 	<header>
