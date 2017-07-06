@@ -147,12 +147,12 @@ if (isset($_POST["submitID"])){
                                     $end = time();
                                     $noOfDays = ceil(abs($end - $start) / 86400);
                                     $fine = $noOfDays -2;
-                                    ?><td><p style="color: red"><?php echo $value ."    Expired"."<br />"."Fine : "."Rs.".$fine.".00" ?></p></td><?php
+                                    ?><td><p style="color: red"><?php echo $value ."    Expired"."</br>"."Fine : "."Rs.".$fine.".00" ?></p></td><?php
                                 }if (date("Y-m-d") <= date("Y-m-d", strtotime($value))) {
                                     ?><td><?php echo $value ."    Not Expired" ?></td><?php
                                 }
                             }elseif($key == 'date_of_borrowal'){
-                                ?><td><?php echo date("Y-m-d",strtotime($value)) ?></td>><?php
+                                ?><td><?php echo date("Y-m-d",strtotime($value)) ?></td><?php
                             }elseif($key == 'book_id'){
                                 ?><td><form action="returnBook.php" method="post">
                                     <input type="checkbox" name="bookIds[]" value=<?php echo $value ?> /><?php echo $value ?>

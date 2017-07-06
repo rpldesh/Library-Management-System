@@ -137,10 +137,10 @@ if(isset($_POST['submitID'])) {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>No.</td>
-                <td>Accession No</td>
-                <td>Title</td>
-                <td>Status</td>
+                <td><p><b>No.</b></p></td>
+                <td><p><b>Accession No</b></p></td>
+                <td><p><b>Title</b></p></td>
+                <td><p><b>Status</b></p></td>
 
             </tr>
             <tr>

@@ -66,7 +66,6 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
 
 
 </div>
-    </article >
 
     </body >
     </html >
@@ -78,7 +77,9 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
         $result = $bk->load($dbObj, $_POST['accessionNo']);
         $message='';
         if (!$result) {
+
             $message="Incorrect Accession Number";?>
+            <link rel = "stylesheet" href ="css/messageBox.css"/>
 
             <div class = "MessageBox"><?php echo $message ?><a href="issueBook.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
             <?php
@@ -123,7 +124,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
 
             </div>
 
-            </article >
+
 
             </body>
             </html>
