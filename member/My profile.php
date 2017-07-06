@@ -43,8 +43,6 @@
             <form  method="POST" action="" autocomplete="off">
                 <div class="container">
                     <h1>Change the Password</h1><hr />
-                    <label><b>Username</b></label>
-                    <input type="text" name="uname" Placeholder="Enter the username"/>
                     <label><b>Current Password</b></label>
                     <input type="password" name="curPsw" Placeholder="Enter your current password"/>
                     <label><b>New Password</b></label>
@@ -62,14 +60,10 @@
             <form  method="POST" action="" autocomplete="off">
                 <div class="container">
                     <h1>Change the E-mail</h1><hr />
-                    <label><b>Username</b></label>
-                    <input type="text" name="uname" Placeholder="Enter the username"/>
                     <label><b>Current E-mail address</b></label>
                     <input type="text" name="curEmail" Placeholder="Enter your current Email"/>
                     <label><b>New E-mail address</b></label>
                     <input type="text" name="newEmail" Placeholder="Enter your new E-mail"/>
-                    <label><b>Confirm new E-mail address</b></label>
-                    <input type="text" name="ConNewEmail" Placeholder="Re enter your new E-mail"/>
                     <button name="save" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
@@ -81,16 +75,68 @@
             <form  method="POST" action="" autocomplete="off">
                 <div class="container">
                     <h1>Change the Address</h1><hr />
-                    <label><b>Username</b></label>
-                    <input type="text" name="uname" Placeholder="Enter the username" />
-                    <label><b>Current address</b></label>
-                    <textarea name="curAdd" cols="40" rows="6" ></textarea>
                     <label><b>New Address</b></label>
                     <textarea name="newAdd" cols="40" rows="6" ></textarea>
                     <button name="save" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
+    </div>
+    <?php
+
+    include("../database.php");
+    include("../member.php");
+    include("../table.php");
+    $dbObj= database::getInstance();
+    $dbObj->connect('localhost','root','','lms_db');
+    $m= new member();
+    $sql = "Select id,category_no,title,author,book_type,book_status from books where $value = '$input' ";
+
+    ?>
+    <div class="tableMyProf">
+        <table class =MyprofTable">
+            <th align="center" class ="tableCaption" colspan="2"><h1>My Profile Details</h1> </th>
+            <tr>
+                <th>Member ID</th>
+                <td>150377G</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>A.S.Madhushanki</td>
+            </tr>
+            <tr>
+                <th>Full Name</th>
+                <td>Ariyasinghage shalika madhushanki</td>
+            </tr>
+            <tr>
+                <th>Member Type</th>
+                <td>Student</td>
+            </tr>
+            <tr>
+                <th>Joined Date</th>
+                <td>2015.11.22</td>
+            </tr>
+            <tr>
+                <th>Addmission Date</th>
+                <td>2015.09.25</td>
+            </tr>
+            <tr>
+                <th>Permanent Address</th>
+                <td>No:07,"Shoba", Bemmulla</td>
+            </tr>
+            <tr>
+                <th>Current Address</th>
+                <td>No.124u,sdhdj ,Moratuwa</td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td>shali.madhushanki@gmail.com</td>
+            </tr>
+            <tr>
+                <th>Contact No.</th>
+                <td>0717377514</td>
+            </tr>
+        </table>
     </div>
 
     <script>
@@ -108,6 +154,8 @@
             evt.currentTarget.className += " active";
         }
     </script>
+
+
 
     </body>
     </html>

@@ -17,14 +17,13 @@
 	<nav>
 		<ul class="navbar">
 			<li><a href="#">HOME</a></li>
-			<li><a href="#">ADMIN PROFILE</a></li>
-			<li class="logout"><a href="#">LOGOUT</a></li>
+			<li class="adminprof"><a href="#">ADMIN PROFILE</a></li>
 		</ul>
 	</nav>
 	</div>
 	</header>
 	
-	<form methood="POST" action="member_/Member Page.html" autocomplete="off">
+	<form methood="POST" action="member/Member%20Page.php" autocomplete="off">
 		<div class="imgcontainer"><img src="Images/login-bg.png" alt="" class="loginimge"/></div>
 		<div class="container">
 		<label for="user"><b>Username</b></label><br />
@@ -47,7 +46,7 @@
 		<b>President :</b> <i class="TPnumber">+94333832157</i><br />
 		<b>Vice President (Administration) :</b> <i class="TPnumber">+94332287213</i><br />
 		<b>Vice President (Academic) :</b><i class="TPnumber"> +94333832156</i><br />
-		<b>Registar :</b><i class="TPnumber"> +94332287587</i><br />
+		<b>Registrar :</b><i class="TPnumber"> +94332287587</i><br />
 		<b>Fax :</b> <i class="TPnumber">+94332287213</i>
 	</div>
 	

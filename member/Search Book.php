@@ -1,37 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="../admin/css/AddBook.css"/>
+    <link rel="stylesheet" href="css/Search Book.css"/>
+    <link rel="stylesheet" href="css/Search%20Book%20Result.css"/>
+
+</head>
+<body>
+
+<header>
+    <div class="head_top">
+        <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
+
+            <h1>LIBRARY</h1>
+            <h3>Siyane National College of Education<br />Veyangoda</h3>
+
+        </div>
+    </div>
+    <div class="bgimage">
+        <nav>
+            <ul>
+                <li><a href="Member%20Page.php">HOME</a></li>
+                <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                <li class="backtoSrch"><a href="Search%20Book.php">Back to Search</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
 <?php if(!isset($_POST["save"]) ){ ?>
 
-<!DOCTYPE HTML>
-<html> 
-	<head> 
-		<title></title>
-		<link rel="stylesheet" href="../admin/css/AddBook.css"/>
-		<link rel="stylesheet" href="css/Search Book.css"/>
-        <link rel="stylesheet" href="css/Search%20Book%20Result.css.css"/>
-
-	</head>
-	<body> 
-	
-	<header>
-	<div class="head_top">
-	<div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
-		
-		<h1>LIBRARY</h1>
-		<h3>Siyane National College of Education<br />Veyangoda</h3> 
-	
-	</div>
-	</div>
-	<div class="bgimage">
-	<nav>
-		<ul>
-			<li><a href="#">HOME</a></li>
-			<li class="logout"><a href="#">LOGOUT</a></li>
-		</ul>
-	</nav>
-	</div>
-	</header>
-	
-	
-	
 		<div class="searchBook">
 			<form  method="POST" action="" autocomplete="off">
 				<div class="container">
@@ -40,7 +41,7 @@
 				    <input class="radioBtn" type="radio" name="searchOption" value="author"/>Search by Author
                     <input class="radioBtn" type="radio" name="searchOption" value="title"/>Search by Title<br />
 				    <label><b>Author/Title </b></label>
-				    <input class="normal" type="text" name="searchName" Placeholder="Enter the Author/Title"/>
+				    <input class="normal" type="search" name="searchName" Placeholder="Enter the Author/Title"/>
 				    <button name="save" class="Submitbtn" type="submit">Click Here to Search</button>
 				</div>
 			</form>
@@ -48,6 +49,7 @@
 
 <?php }
 if (isset($_POST["save"])) {
+
 
     include("../database.php");
     include("../table.php");
@@ -58,16 +60,16 @@ if (isset($_POST["save"])) {
     $value=$_POST["searchOption"];
     $input=$_POST["searchName"];
     $book = new book();
-    $sql = "Select id,category_no,title,author,book_type,book_status from books where $value = '$input' ";
+    $sql = "Select id,member_name,member_fullname,member_type,join_date,addmission_date,permanent_address,current_address,member_email,contact_no from members where id = '' ";
 
 
     $result = $book->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
-    echo $sql;
 
 
 ?>
-
+<?php if(!$result){ echo "No book found";}
+    else{ ?>
     <div style="overflow:auto;">
         <table style="width:100%">
             <caption>Searched Book Reuslt</caption>
@@ -92,7 +94,7 @@ if (isset($_POST["save"])) {
 
         </table>
     </div>
-
+    <?php }?>
     </body>
     </html>
 <?php } ?>

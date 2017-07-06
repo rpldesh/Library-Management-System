@@ -57,7 +57,7 @@ div.linkbox:hover{background:rgba(73,4,4,0.5);}
 div.linkbox img{width:70px; height:70px; }
 div#myProfile{float:left; display:block;margin-left:50px; margin-top:30px;}
 div#searchbk{float:left; display:inline-block; clear:both; position:relative; margin-left:50px;}
-div#prevRecords{float:right; margin-right:60px; position:relative;}
+div#prevRecords{float:left; margin-left:50px; position:relative; display:inline-block;}
 
 div.slideshow{ display:block;	
 				box-sizing:border-box;
