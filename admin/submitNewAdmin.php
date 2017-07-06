@@ -46,14 +46,11 @@ $dbObj->closeConnection();
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Add New Admin Member</title>
-    <link rel = "stylesheet" href ="css/AddBook.css"/>
+    <link rel = "stylesheet" href ="css/messageBox.css"/>
 </head>
 <body>
 <header>
@@ -78,7 +75,6 @@ $dbObj->closeConnection();
 </header>
 
 
-    <form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
 <div class = "MessageBox"><?php echo $message ?><a href="Administration Page.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
 
 </article>

@@ -46,9 +46,6 @@ if (isset($_POST['submit'])){
         $member->insert($dbObj);
 
     }
-
-
-
     }
 ?>
 
