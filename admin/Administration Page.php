@@ -11,7 +11,7 @@
         <div class "head_top"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
 	<div class="logo_name">
 		<h1>LIBRARY</h1>
-		<h3>Siyane National College Of Education<br />Veyangoda</h3>
+		<h3>Siyane National College Of Education</br>Veyangoda</h3>
 	</div>
 	</div>
 	<div class="bgimage">
@@ -43,7 +43,7 @@
 		<a href="config_id_for_return.php"><img src="images/returnbk.png" align="center"/></a></div><br />
 
 	<div class="linkbox" id="renew"><span><strong>Renew Book</strong><br /><br /></span>
-		<a href="configure_id_for_issue.php" ><img src="images/renew.png" align="center"/></a></div><br />
+		<a href="configure_id_for_renew.php" ><img src="images/renew.png" align="center"/></a></div><br />
 	
 	<div class="linkbox" id="viewcatelog"><span><strong>View Catelog</strong><br /><br /></span>
 		<a href="########"><img src="images/searchbk.png" align="center"/></a></div><br />

@@ -13,7 +13,7 @@ $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root','','lms_db');
 
 if (isset($_POST['submit'])){
-    $msg= "Member Added Sucessfully ";
+    $msg= "Member Added Successfully ";
     $id=$_POST['memberID'];
     $member_name=$_POST['Name'];
     $member_fullname=$_POST['fullName'];
@@ -46,9 +46,6 @@ if (isset($_POST['submit'])){
         $member->insert($dbObj);
 
     }
-
-
-
     }
 ?>
 
@@ -66,7 +63,7 @@ if (isset($_POST['submit'])){
 <body>
 <header>
     <div class="head_top">
-        <div class="logo_name"><img class="siyanelogo" src="../images/siyane_logo.jpg">
+        <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
             <h1>LIBRARY</h1>
             <h3>Siyane National College of Education<br />Veyangoda</h3>
@@ -101,12 +98,14 @@ if (isset($_POST['submit'])){
             <input id="memberFullName" name="fullName" type="text" placeholder="Enter Full Name" required autofocus/><br>
             <label for="membertype"><b>Member Type</b></label><br />
             <select id="membertype" name="type" required><br />
-                <option value="internalStudent">Internal Student</option>
-                <option value="internshipStudent">Internship Student</option>
-                <option value="academicStaff">Academic Staff</option>
-                <option value="non-academicStaff">Non-Academic Staff</option>
-                <option value="temporaryStaff">Temporary Staff</option>
-                <option value="secondmentStaff">On-Secondment Staff</option></select>
+                <option value="Internal Student(1st year)">Internal Student(1st year)</option>
+                <option value="Internal Student(2nd year)">Internal Student(2nd year)</option>
+                <option value="Internship Student">Internship Student</option>
+                <option value="Academic Staff">Academic Staff</option>
+                <option value="Clerical Staff">Clerical Staff</option>
+                <option value="Minor Staff">Minor Staff</option>
+                <option value="Secondment Staff">On-Secondment Staff</option>
+                <option value="Temporary Staff">Temporary Staff</option></select>
             <label for="doa"><b>Date of Addmission</b></label><br />
             <input id="doa" name="DOA" type="date"/><br />
             <label for="permanentAddress"><b>Permanent Address</b></label><br />

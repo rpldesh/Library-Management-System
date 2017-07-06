@@ -46,14 +46,11 @@ $dbObj->closeConnection();
 
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Add New Admin Member</title>
-    <link rel = "stylesheet" href ="css/AddBook.css"/>
+    <link rel = "stylesheet" href ="css/messageBox.css"/>
 </head>
 <body>
 <header>
@@ -61,7 +58,7 @@ $dbObj->closeConnection();
         <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
 
             <h1>LIBRARY</h1>
-            <h3>Siyane National College of Education<br />Veyangoda</h3>
+            <h3>Siyane National College of Education</br>Veyangoda</h3>
 
         </div>
     </div>
@@ -78,7 +75,6 @@ $dbObj->closeConnection();
 </header>
 
 
-    <form  method="POST" action="afterAddBook.php" autocomplete="off"></form>
 <div class = "MessageBox"><?php echo $message ?><a href="Administration Page.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
 
 </article>

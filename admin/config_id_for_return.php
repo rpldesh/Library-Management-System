@@ -18,7 +18,7 @@ if(!isset($_POST["submitID"]) ){ ?>
             <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
                 <h1>LIBRARY</h1>
-                <h3>Siyane National College of Education<br />Veyangoda</h3>
+                <h3>Siyane National College of Education</br>Veyangoda</h3>
 
             </div>
         </div>
@@ -147,13 +147,15 @@ if (isset($_POST["submitID"])){
                                     $end = time();
                                     $noOfDays = ceil(abs($end - $start) / 86400);
                                     $fine = $noOfDays -2;
-                                    ?><td><p style="color: red"><?php echo $value ."    Expired"."<br />"."Fine : "."Rs.".$fine.".00" ?></p></td><?php
+                                    ?><td><p style="color: red"><?php echo $value ."    Expired"."</br>"."Fine : "."Rs.".$fine.".00" ?></p></td><?php
                                 }if (date("Y-m-d") <= date("Y-m-d", strtotime($value))) {
                                     ?><td><?php echo $value ."    Not Expired" ?></td><?php
                                 }
+                            }elseif($key == 'date_of_borrowal'){
+                                ?><td><?php echo date("Y-m-d",strtotime($value)) ?></td><?php
                             }elseif($key == 'book_id'){
                                 ?><td><form action="returnBook.php" method="post">
-                                    <input type="checkbox" name="bookId[]" value=<?php echo $value ?> required/><?php echo $value ?>
+                                    <input type="checkbox" name="bookIds[]" value=<?php echo $value ?> /><?php echo $value ?>
 
                                 </td>
                             <?php } else{
@@ -166,10 +168,8 @@ if (isset($_POST["submitID"])){
 
             </table>
         </div>
-        <button class="Submitbtn" type="submit" name="returnBTN">Return Book</button>
+        <button class="returnBTN" type="submit" name="returnBTN">Return Book/Books</button>
         <form class="clicks" action="issueBook.php" method="post">
-
-
             <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
         </form>
 

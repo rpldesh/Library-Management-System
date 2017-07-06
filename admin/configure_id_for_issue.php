@@ -15,7 +15,7 @@
 
         </div>
     </div>
-    <article class="backgroundimage">
+
         <div class="bgimage">
             <nav>
                 <ul>
@@ -40,8 +40,6 @@
     </form>
 </div>
 
-
-</article>
 
 </body>
 </html>
@@ -74,7 +72,7 @@ if(isset($_POST['submitID'])) {
             <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
                 <h1>LIBRARY</h1>
-                <h3>Siyane National College of Education<br />Veyangoda</h3>
+                <h3>Siyane National College of Education</br >Veyangoda</h3>
 
             </div>
         </div>
@@ -104,6 +102,17 @@ if(isset($_POST['submitID'])) {
         $_SESSION['id']=$m->id;
         $_SESSION['member_name']=$m->member_name;
         $_SESSION['member_type']=$m->member_type;
+        $max_no_borrowals=null;
+        if($m->member_type=="Academic Staff"){
+            $max_no_borrowals=5;
+        }
+        elseif ($m->member_type=="Internal Student(2nd year)"||$m->member_type=="Internship Student"||$m->member_type=="Clerical Staff"){
+            $max_no_borrowals=3;
+        }
+        elseif($m->member_type=="Internal Student(1st year)" ||$m->member_type== "Minor Staff" ||
+            $m->member_type=="Secondment Staff" ||$m->member_type== "Temporary Staff"){
+            $max_no_borrowals=2;
+        }
         $sql2 = "SELECT book_id,book_title,session_status FROM book_sessions WHERE member_id='$m->id' and session_status!='returned'";
         $bs = new book_session();
         $result2 = $bs->featuredLoad($dbObj, $sql2);
@@ -118,7 +127,8 @@ if(isset($_POST['submitID'])) {
                 <th>Name with Initials</th>
 
                 <th>Member Type</th>
-                <th colspan="4">Books to be retruned</th>
+                <th>Maximum No of Borrowable Books</th>
+                <th class="bookdetail" colspan="4">Books to be retruned</th>
 
 
             </tr>
@@ -126,10 +136,11 @@ if(isset($_POST['submitID'])) {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>No.</td>
-                <td>Accession No</td>
-                <td>Title</td>
-                <td>Status</td>
+                <td></td>
+                <td><p><b>No.</b></p></td>
+                <td><p><b>Accession No</b></p></td>
+                <td><p><b>Title</b></p></td>
+                <td><p><b>Status</b></p></td>
 
             </tr>
             <tr>
@@ -137,6 +148,7 @@ if(isset($_POST['submitID'])) {
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['id']?></td>
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['member_name']?></td>
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['member_type']?></td>
+                <td rowspan="<?php echo $numOfRows?>"> <?php echo $max_no_borrowals?></td>
             <?php
             for($i=0;$i<$numOfRows;$i++){?>
 
@@ -156,13 +168,9 @@ if(isset($_POST['submitID'])) {
         </table>
         <form class="clicks" action="issueBook.php" method="post">
 
-<<<<<<< HEAD
-        <button class="Submitbtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
-        <button class="cancelbtn" type="button" onclick="window.location='Administration Page.html'" name="cancel">Cancel</button>
-=======
-        <button class="Submitbtn" type="submit" name="Issue">Go to Issuing Form</button>
-        <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
->>>>>>> 86059140d2d868eb224eda9ae1cc28122da21ecf
+        <button class="SubmitBtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
+        <button class="cancelBtn" type="button" onclick="window.location='Administration page.php'" name="cancel">Cancel</button>
+
         </form>
 
     </div>
