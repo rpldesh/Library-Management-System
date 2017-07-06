@@ -72,7 +72,7 @@ if(isset($_POST['submitID'])) {
             <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
                 <h1>LIBRARY</h1>
-                <h3>Siyane National College of Education<br />Veyangoda</h3>
+                <h3>Siyane National College of Education</br >Veyangoda</h3>
 
             </div>
         </div>
@@ -169,7 +169,7 @@ if(isset($_POST['submitID'])) {
         <form class="clicks" action="issueBook.php" method="post">
 
         <button class="SubmitBtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
-        <button class="cancelBtn" type="button" onclick="window.location='Administration Page.html'" name="cancel">Cancel</button>
+        <button class="cancelBtn" type="button" onclick="window.location='Administration page.php'" name="cancel">Cancel</button>
 
         </form>
 

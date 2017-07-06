@@ -9,7 +9,7 @@
 	<div class="head_top">
 		<div class="logo_name"><img class="siyanelogo" src="Images/siyane_logo.jpg"/>
 			<h1>LIBRARY</h1>
-		<h3>Siyane National College of Education<br />Veyangoda</h3> 
+		<h3>Siyane National College of Education</br>Veyangoda</h3>
 	
 	</div>
 	</div>
