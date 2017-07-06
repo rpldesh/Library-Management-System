@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title></title>
+		<title>My Profile Page</title>
 		<link rel="stylesheet" href="css/My%20profile.css"/>
 
 	</head>
@@ -37,7 +37,7 @@
         <button class="tablinks" onclick="ClickOption(event, 'Address')">Address</button>
     </div>
 
-
+    <?php if(!isset($_POST["save"]) ){ ?>
     <div id="Password" class="tabcontent">
         <div class="Password">
             <form  method="POST" action="" autocomplete="off">
@@ -48,12 +48,45 @@
                     <label><b>New Password</b></label>
                     <input type="password" name="newPsw" Placeholder="Enter your new password"/>
                     <label><b>Confirm new password</b></label>
-                    <input type="password" name="ConNewPsw" Placeholder="Re enter your new password"/>
-                    <button name="save" class="Submitbtn" type="submit">Save Changes</button>
+                    <input type="password" name="conNewPsw" Placeholder="Re enter your new password"/>
+                    <button name="savePsw" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
     </div>
+    <?php }
+    if (isset($_POST["savePsw"])) {
+
+
+    include("../database.php");
+    include("../table.php");
+    include("../member.php");
+    include ("../login.php");
+    $dbObj=database::getInstance();
+    $dbObj->connect('localhost','root','','lms_db');
+
+    $input=$_POST["searchName"];
+    $login = new login();
+    $sql = "Select password from logins where id = 1 ";
+    $result = $login->featuredLoad($dbObj,$sql);
+
+    $CurPsw=$_POST["curPsw"];
+    $NewPsw=$_POST["newPsw"];
+    $ConNewPsw=$_POST["conNewPsw"];
+
+    if($NewPsw!=$ConNewPsw){
+        echo "Your new Password and confirmed password are not matched..!!";}
+    }
+    elseif($CurPsw!=$result){
+        echo "Your current password is incorrect..!!";
+
+    }elseif($CurPsw=$result){
+        $data = array("password" => $NewPsw);
+        $login->bind($data);
+        $login->update($dbObj);
+        echo "Your password changed successfully";
+    }
+?>
 
     <div id="E-mail" class="tabcontent">
         <div class="Password">
@@ -64,7 +97,7 @@
                     <input type="text" name="curEmail" Placeholder="Enter your current Email"/>
                     <label><b>New E-mail address</b></label>
                     <input type="text" name="newEmail" Placeholder="Enter your new E-mail"/>
-                    <button name="save" class="Submitbtn" type="submit">Save Changes</button>
+                    <button name="saveEmail" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
@@ -77,67 +110,17 @@
                     <h1>Change the Address</h1><hr />
                     <label><b>New Address</b></label>
                     <textarea name="newAdd" cols="40" rows="6" ></textarea>
-                    <button name="save" class="Submitbtn" type="submit">Save Changes</button>
+                    <button name="saveAddress" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
     </div>
     <?php
 
-    include("../database.php");
-    include("../member.php");
-    include("../table.php");
-    $dbObj= database::getInstance();
-    $dbObj->connect('localhost','root','','lms_db');
-    $m= new member();
-    $sql = "Select id,category_no,title,author,book_type,book_status from books where $value = '$input' ";
+
 
     ?>
-    <div class="tableMyProf">
-        <table class =MyprofTable">
-            <th align="center" class ="tableCaption" colspan="2"><h1>My Profile Details</h1> </th>
-            <tr>
-                <th>Member ID</th>
-                <td>150377G</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>A.S.Madhushanki</td>
-            </tr>
-            <tr>
-                <th>Full Name</th>
-                <td>Ariyasinghage shalika madhushanki</td>
-            </tr>
-            <tr>
-                <th>Member Type</th>
-                <td>Student</td>
-            </tr>
-            <tr>
-                <th>Joined Date</th>
-                <td>2015.11.22</td>
-            </tr>
-            <tr>
-                <th>Addmission Date</th>
-                <td>2015.09.25</td>
-            </tr>
-            <tr>
-                <th>Permanent Address</th>
-                <td>No:07,"Shoba", Bemmulla</td>
-            </tr>
-            <tr>
-                <th>Current Address</th>
-                <td>No.124u,sdhdj ,Moratuwa</td>
-            </tr>
-            <tr>
-                <th>E-mail</th>
-                <td>shali.madhushanki@gmail.com</td>
-            </tr>
-            <tr>
-                <th>Contact No.</th>
-                <td>0717377514</td>
-            </tr>
-        </table>
-    </div>
+
 
     <script>
         function ClickOption(evt, optionName) {

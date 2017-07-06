@@ -4,7 +4,6 @@
     <title></title>
     <link rel="stylesheet" href="../admin/css/AddBook.css"/>
     <link rel="stylesheet" href="css/Search Book.css"/>
-    <link rel="stylesheet" href="css/Search%20Book%20Result.css"/>
 
 </head>
 <body>
@@ -60,7 +59,7 @@ if (isset($_POST["save"])) {
     $value=$_POST["searchOption"];
     $input=$_POST["searchName"];
     $book = new book();
-    $sql = "Select id,member_name,member_fullname,member_type,join_date,addmission_date,permanent_address,current_address,member_email,contact_no from members where id = '' ";
+    $sql = "Select id,category_no,title,author,book_type,book_status from books where $value = '$input' ";
 
 
     $result = $book->featuredLoad($dbObj,$sql);
@@ -82,10 +81,11 @@ if (isset($_POST["save"])) {
                 <th>Book Type</th>
                 <th>Availability</th>
             </tr>
-            <tr>
+
             <?php
-            for($i=0;$i<$numOfRows;$i++){
-                ?><td><?php echo ($i+1)."." ?></td><?php
+            for($i=0;$i<$numOfRows;$i++){?>
+            <tr>
+                <td><?php echo ($i+1)."." ?></td><?php
                 foreach (mysqli_fetch_assoc($result) as $key=>$value) {
                 ?>
                 <td><?php echo $value ?></td>
