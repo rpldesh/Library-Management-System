@@ -29,9 +29,7 @@
 	</nav>
 	</div>
 	</header>
-	
-	
-	
+
 		<div class="searchBook">
 			<form  method="POST" action="" autocomplete="off">
 				<div class="container">
