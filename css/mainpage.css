@@ -30,7 +30,7 @@ nav ul{
 	box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
 }
 
-li.logout{float:right;}
+li.adminprof{float:right;}
 nav ul li{display:inline-block;}
 nav ul li a{padding:10px; 
 	color:white;

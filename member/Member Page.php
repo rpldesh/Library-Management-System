@@ -15,7 +15,7 @@
     <div class="bgimage">
         <nav>
             <ul>
-                <li><a href="Member Page.html">HOME</a></li>
+                <li><a href="Member Page.php">HOME</a></li>
                 <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
             </ul>
         </nav>
@@ -27,10 +27,10 @@
         <a href="My%20profile.php"><img src="images/useraccount.jpg" align="center"/></a></div><br />
 
     <div class="linkbox" id="searchbk"><span><strong>Search Books</strong><br /><br /></span>
-        <a  href="Search%20Book.html"><img src="images/searchbook.jpg" align="center"/></a></div><br />
+        <a  href="Search%20Book.php"><img src="images/searchbook.jpg" align="center"/></a></div><br />
 
     <div class="linkbox" id="prevRecords"><span><strong>Previous Records</strong><br /></span>
-        <a href="########"><img src="images/bookmark.png" align="center"/></a></div><br />
+        <a href="Previous%20Records.php"><img src="images/bookmark.png" align="center"/></a></div><br />
 
 
 
