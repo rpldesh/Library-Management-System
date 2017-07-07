@@ -18,7 +18,7 @@ if (isset($_POST['submit'])){
     $member_name=$_POST['Name'];
     $member_fullname=$_POST['fullName'];
     $member_type=$_POST['type'];
-    $join_date=time();
+    $join_date=date("Y-m-d");
     $addmission_date=$_POST['DOA'];
     $permanent_address=$_POST['permanentaddress'];
     $current_address=$_POST['currentaddress'];

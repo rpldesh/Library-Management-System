@@ -49,7 +49,7 @@
 		<a href="########"><img src="images/searchbk.png" align="center"/></a></div><br />
 	
 	<div class="linkbox" id="generatereport"><span><strong>Generate report</strong><br /></span>
-		<a href="########"><img src="images/report-icon.png" align="center"/></a></div><br />
+		<a href="generateReport.php"><img src="images/report-icon.png" align="center"/></a></div><br />
 	
 	<div class="linkbox" id="UaccSettings"><span><strong>User Account Settings</strong><br /></span>
 		<a href="########"><img src="images/useraccount.jpg" align="center"/></a></div><br />
