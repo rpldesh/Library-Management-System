@@ -20,14 +20,14 @@ if(isset($_POST["returnBTN"])) {
         $memberId = $_SESSION['ID'];
         $bookIds = $_POST["bookIds"];
         foreach ($bookIds as $value){
-            echo $value."<br />";
             $book = new book();
             $bookSession = new book_session();
             $book->load($dbObj,$value);
             $book->book_status = "available";
             $book->update($dbObj);
             $dateOfReturn = date("Y-m-d");
-            $sql = "Update book_sessions set date_of_return = $dateOfReturn, session_status = 'returned' where member_id = $memberId and book_id = $value and session_status != 'returned'";
+            echo $dateOfReturn;
+            $sql = "Update book_sessions set date_of_return = '$dateOfReturn', session_status = 'returned' where member_id = $memberId and book_id = $value and session_status != 'returned'";
             $dbObj->doQuery($sql);
         }$msg = "Returned successfully..!!";
         $dbObj->closeConnection();
