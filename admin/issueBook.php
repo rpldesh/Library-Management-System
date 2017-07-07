@@ -20,7 +20,7 @@ session_start();?>
         <div class="logo_name" ><img class="siyanelogo" src = "images/siyane_logo.jpg" >
 
             <h1 > LIBRARY</h1 >
-            <h3 > Siyane National College of Education < /br>Veyangoda </h3 >
+            <h3 > Siyane National College of Education <br />Veyangoda </h3 >
 
         </div >
     </div >
@@ -112,7 +112,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
                         <h4><?php echo $_SESSION['book_type'] ?></h4></br>
 
                         <label for="date"><b> Date to be Returned </b></label><br/>
-                        <input id="date" name="DoR" type="date"/><br/>
+                        <input id="date" name="DoR" type="date" required/><br/>
 
 
                         <button class="Submitbtn" name="Issue" type="submit"> Issue</button>
