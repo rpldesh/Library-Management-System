@@ -63,6 +63,8 @@ div#renew{display:inline-block; float:right; clear:both; margin-right:60px;posit
 div#viewcatelog{float:left; display:inline-block; clear:left;margin-left:50px;}
 div#UaccSettings{float:left; display:inline-block; clear:left;margin-left:50px;}
 div#generatereport{float:right; display:inline-block; clear:both;margin-right:60px;}
+div#AddnewAdmins{float:left; display:inline-block; clear:left;margin-left:50px; position: relative;}
+div#bkSettings{float:right; display:inline-block; clear:right;margin-right:60px;}
 
 div.slideshow{ display:block;	
 				box-sizing:border-box;
@@ -71,7 +73,7 @@ div.slideshow{ display:block;
 				background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
 				box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
 				margin:15px; 
-				transform:translate(5px,-325px); 
+				transform:translate(30px,-600px);
 				width:700px; height:300px; 
 				animation-name:slideShow; 
 				animation-duration:15s; 

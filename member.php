@@ -1,8 +1,7 @@
 <?php
 
 
-class member extends table
-{
+class member extends table{
    var $id=null;
    var $member_name=null;
    var $member_fullname=null;
