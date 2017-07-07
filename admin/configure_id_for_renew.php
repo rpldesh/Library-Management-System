@@ -177,7 +177,7 @@ if (isset($_POST["submitID"])){
                         <td><?php echo date("Y-m-d", strtotime($value)) ?></td>><?php
                     }
                 } elseif ($key == 'session_status') {
-                    if ($value == "Extended") {
+                    if ($value == "extended") {
                         $allowed = false; ?>
                         <td><p style="color:red"><?php echo $value ?></p></td><?php
                     } else {
