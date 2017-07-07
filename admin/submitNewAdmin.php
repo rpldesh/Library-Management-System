@@ -35,7 +35,7 @@ if(isset($_POST['submit'])) {
             $result2 = $admin->featuredLoad($dbObj,$sql2);
             $newId = mysqli_num_rows($result2)+1;
             echo $newId."<br />";
-            $data = array("id"=>$newId, "admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => time(), "admin_status" => "allowed");
+            $data = array("id"=>$newId, "admin_name" => $adminName, "admin_type" => $adminType, "username" => $uName, "pwd" => $pwd, "join_date" => date("Y-m-d"), "admin_status" => "allowed");
             $admin->bind($data);
             $admin->insert($dbObj);
             $message = "Admin member account successfully created..!!";

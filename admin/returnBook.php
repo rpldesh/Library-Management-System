@@ -26,7 +26,8 @@ if(isset($_POST["returnBTN"])) {
             $book->load($dbObj,$value);
             $book->book_status = "available";
             $book->update($dbObj);
-            $sql = "Update book_sessions set date_of_return = NOW(), session_status = 'returned' where member_id = $memberId and book_id = $value and session_status != 'returned'";
+            $dateOfReturn = date("Y-m-d");
+            $sql = "Update book_sessions set date_of_return = $dateOfReturn, session_status = 'returned' where member_id = $memberId and book_id = $value and session_status != 'returned'";
             $dbObj->doQuery($sql);
         }$msg = "Returned successfully..!!";
         $dbObj->closeConnection();
