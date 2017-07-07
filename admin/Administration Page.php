@@ -37,6 +37,7 @@
             <div class="linkbox" id="addmember"><span><strong>Add Member</strong><br /><br /></span>
                 <a href="########"><img src="images/addmember.png" align="center"/></a></div><br />
 
+
             <div class="linkbox" id="returnbk"><span><strong>Return Book</strong><br /><br /></span>
                 <a href="config_id_for_return.php"><img src="images/returnbk.png" align="center"/></a></div><br />
 
@@ -57,6 +58,7 @@
 
             <div class="linkbox" id="bkSettings"><span><strong>Change Book Details</strong><br /></span>
                 <a href="########"><img src="images/BkSettings.jpg" align="center"/></a></div><br />
+
 	
 	<div class="slideshow "></div>
 	</article>

@@ -15,7 +15,7 @@ if(isset($_POST['Issue'])) {
     $book1->load($dbObj, $book_id);
     $date_to_be_returned = $_POST['DoR'];
 
-    if ($book1->book_status != "available") {
+    if ($book1->book_status != "available" || $book1->book_type!="Borrowable") {
         $message = "Sorry...!!This book is not allowed to borrow";
     } elseif (date("m-d-Y") >= date("m-d-Y", strtotime($date_to_be_returned))) {
         $message = "Date to be returned is invalid";
@@ -27,7 +27,8 @@ if(isset($_POST['Issue'])) {
         $sql = "Select * FROM book_sessions";
         $result = $book_session1->featuredLoad($dbObj, $sql);
         $newId = mysqli_num_rows($result) + 1;
-        $data = array("id" => $newId, "book_id" => $book_id, "member_id" => $_SESSION['id'], "book_title" => $_SESSION['title'], "date_of_borrowal" =>time(), "date_to_be_returned" => $date_to_be_returned,
+        $date_of_borrowal=date("Y-m-d");
+        $data = array("id" => $newId, "book_id" => $book_id, "member_id" => $_SESSION['id'], "book_title" => $_SESSION['title'], "date_of_borrowal" =>$date_of_borrowal, "date_to_be_returned" => $date_to_be_returned,
             "session_status" => "Pending");
         $book_session1->bind($data);
         $book_session1->insert($dbObj);
