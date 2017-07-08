@@ -59,7 +59,8 @@ if (isset($_POST["save"])) {
     $value=$_POST["searchOption"];
     $input=$_POST["searchName"];
     $book = new book();
-    $sql = "Select id,category_no,title,author,book_type,book_status from books where $value = '$input' ";
+    $sql = "Select id,category_no,title,author,book_type,book_status from books where $value LIKE '%$input%' ";
+
 
 
     $result = $book->featuredLoad($dbObj,$sql);

@@ -48,6 +48,7 @@ abstract class table
             }
             $sql = substr($sql, 0, -1) . " where id = {$this->id}";
             return $sql;
+
         }
     }
 

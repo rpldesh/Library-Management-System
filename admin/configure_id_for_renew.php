@@ -8,6 +8,21 @@ if(!isset($_POST["submitID"]) ){ ?>
     </head>
     <body>
     <header>
+        <script type="text/javascript">
+            function validate(){
+                var missingField=false;
+                var strFields="";
+                if(id_config.memberID.value==""){
+                    missingField=true;
+                    strFields+="Plese enter a member ID";
+                }
+                if(missingField){
+                    alert("Sorry! You must provide following fields to continue:\n"+strFields);
+                    return false;
+                }
+                return true;
+            }
+        </script>
         <div class="head_top">
             <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
@@ -20,8 +35,8 @@ if(!isset($_POST["submitID"]) ){ ?>
             <div class="bgimage">
                 <nav>
                     <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ADMIN PROFILE</a></li>
+                        <li><a href="Administration Page.php">HOME</a></li>
+                        <li><a href="">ADMIN PROFILE</a></li>
                         <li class="logout"><a href="#">LOGOUT</a></li>
                     </ul>
                 </nav>
@@ -29,13 +44,13 @@ if(!isset($_POST["submitID"]) ){ ?>
     </header>
 
     <div class="idconfigureform">
-        <form class="Form" align="center" method="POST" action="" autocomplete="off">
+        <form name="id_config"class="Form" align="center" method="POST" action="" autocomplete="off">
             <div class="container">
 
                 <label for="memberId"><b>Enter Member ID:</b></label></br>
                 <input id="memberId" name="memberID" type="text"  required autofocus/></br >
 
-                <button class="Submitbtn" name="submitID" type="submit">Submit</button>
+                <button class="Submitbtn" name="submitID" type="submit" onclick="validate()">Submit</button>
                 <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancel" type="button" >Cancel</button>
             </div>
         </form>
@@ -57,7 +72,7 @@ if (isset($_POST["submitID"])){
     include("../book_session.php");
     $dbObj=database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
-
+    $message='';
     $member = new member();
     $loadResult = $member->load($dbObj,$_POST["memberID"]);
     $_SESSION['ID'] = $member->id;
@@ -92,8 +107,9 @@ if (isset($_POST["submitID"])){
     </header>
 
 
-    <?php if(!$loadResult){ ?>
-        <div class = "MessageBox"><?php echo "Member does not exist..!!" ?><a href="config_id_for_renew.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+    <?php if(!$loadResult){
+        $message="Member does not exist..!!";?>
+        <div class = "MessageBox"><?php echo "Member does not exist..Incorrect Member ID!!" ?><a href="configure_id_for_renew.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
     <?php }
     else {
         $sql = "Select book_id,book_title,date_of_borrowal,date_to_be_returned,session_status from book_sessions where member_id = '$member->id' and session_status != 'returned'";
@@ -161,7 +177,7 @@ if (isset($_POST["submitID"])){
                         <td><?php echo date("Y-m-d", strtotime($value)) ?></td>><?php
                     }
                 } elseif ($key == 'session_status') {
-                    if ($value == "Extended") {
+                    if ($value == "extended") {
                         $allowed = false; ?>
                         <td><p style="color:red"><?php echo $value ?></p></td><?php
                     } else {

@@ -6,8 +6,7 @@
  * Date: 27-Jun-17
  * Time: 9:47 AM
  */
-class database
-{
+class database{
     private $host;
     private $user;
     private $password;

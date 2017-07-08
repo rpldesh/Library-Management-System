@@ -1,4 +1,9 @@
-
+<?php
+    include("../database.php");
+    include("../table.php");
+    include("../member.php");
+    include ("../login.php");
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -31,13 +36,19 @@
 
 
     <div class="tab">
-        <h3>Click on the buttons to change your settings</h3>
-        <button class="tablinks" onclick="ClickOption(event, 'Password')" id="defaultOpen">Password</button>
-        <button class="tablinks" onclick="ClickOption(event, 'E-mail')">E-mail</button>
-        <button class="tablinks" onclick="ClickOption(event, 'Address')">Address</button>
+        <div class="ChangeSettings">
+
+            <button class="tablinks" onclick="ClickOption(event, 'tableMyProf')" id="defaultOpen">My Profile</button>
+
+            <h3>Click on the buttons to change your settings</h3>
+            <button class="tablinks" onclick="ClickOption(event, 'Password')">Password</button>
+            <button class="tablinks" onclick="ClickOption(event, 'E-mail')">E-mail</button>
+            <button class="tablinks" onclick="ClickOption(event, 'Address')">Address</button>
+            <button class="tablinks" onclick="ClickOption(event, 'TP')">Telephone No</button>
+        </div>
     </div>
 
-    <?php if(!isset($_POST["save"]) ){ ?>
+    <?php if(!isset($_POST["savePsw"]) )/*{*/ ?>
     <div id="Password" class="tabcontent">
         <div class="Password">
             <form  method="POST" action="" autocomplete="off">
@@ -54,37 +65,40 @@
             </form>
         </div>
     </div>
-    <?php }
+    <?php
+   // }
+
+    $psw="";
     if (isset($_POST["savePsw"])) {
 
-
-    include("../database.php");
-    include("../table.php");
-    include("../member.php");
-    include ("../login.php");
     $dbObj=database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
 
-    $input=$_POST["searchName"];
-    $login = new login();
-    $sql = "Select password from logins where id = 1 ";
-    $result = $login->featuredLoad($dbObj,$sql);
+
 
     $CurPsw=$_POST["curPsw"];
     $NewPsw=$_POST["newPsw"];
     $ConNewPsw=$_POST["conNewPsw"];
+    $login = new login();
+    $sql = "Select password from logins where id = 1 ";
+    $login->load($dbObj,1);
+    $result = $login->featuredLoad($dbObj,$sql);
+    $psw=mysqli_fetch_row($result)[0];
+    echo $psw;
+
 
     if($NewPsw!=$ConNewPsw){
-        echo "Your new Password and confirmed password are not matched..!!";}
+        echo "Your new Password and confirmed password are not matched..!!";
     }
-    elseif($CurPsw!=$result){
+
+    elseif($CurPsw!=$psw){
         echo "Your current password is incorrect..!!";
 
-    }elseif($CurPsw=$result){
-        $data = array("password" => $NewPsw);
-        $login->bind($data);
+    }elseif($CurPsw=$psw){
+        $login->password="$NewPsw";
         $login->update($dbObj);
         echo "Your password changed successfully";
+    }
     }
 ?>
 
@@ -118,8 +132,62 @@
     <?php
 
 
+    $dbObj= database::getInstance();
+    $dbObj->connect('localhost','root','','lms_db');
+    session_start();
+    /*$member_id = $_SESSION['id'];*/
+    $m= new member();
+    $m->load($dbObj, '1');
 
+    /*$sql = "Select id,member_name,member_fullname,member_type,join_date,addmission_date,permanent_address,current_address,member_email,contact_no from members where id = 1 ";
+    $result = $m->featuredLoad($dbObj,$sql);*/
     ?>
+    <div id="tableMyProf" class="tabcontent">
+			<table class =MyprofTable">
+				<th align="center" class ="tableCaption" colspan="2"><h1>My Profile Details</h1> </th>
+				<tr>
+					<th>Member ID</th>
+					<td><?php echo $m->id ?></td>
+				</tr>
+				<tr>
+					<th>Name</th>
+					<td><?php echo $m->member_name ?></td>
+				</tr>
+				<tr>
+					<th>Full Name</th>
+					<td><?php echo $m->member_fullname ?></td>
+				</tr>
+				<tr>
+					<th>Member Type</th>
+					<td><?php echo $m->member_type ?></td>
+				</tr>
+				<tr>
+					<th>Joined Date</th>
+					<td><?php echo $m->join_date ?></td>
+				</tr>
+				<tr>
+					<th>Addmission Date</th>
+					<td><?php echo $m->addmission_date ?></td>
+				</tr>
+				<tr>
+					<th>Permanent Address</th>
+					<td><?php echo $m->permanent_address ?></td>
+				</tr>
+				<tr>
+					<th>Current Address</th>
+					<td><?php echo $m->current_address ?></td>
+				</tr>
+				<tr>
+					<th>E-mail</th>
+					<td><?php echo $m->member_email ?></td>
+				</tr>
+				<tr>
+					<th>Contact No.</th>
+					<td><?php echo $m->contact_no ?></td>
+				</tr>
+			</table>
+		</div>
+
 
 
     <script>

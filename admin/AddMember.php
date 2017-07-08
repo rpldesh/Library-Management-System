@@ -26,7 +26,7 @@ if(($_SESSION['indicator'])=='notDone') {
             $member_name=$_POST['Name'];
             $member_fullname=$_POST['fullName'];
             $member_type=$_POST['type'];
-            $join_date=time();
+            $join_date=date("Y-m-d");
             $addmission_date=$_POST['DOA'];
             $permanent_address=$_POST['permanentaddress'];
             $current_address=$_POST['currentaddress'];
@@ -54,7 +54,7 @@ if(($_SESSION['indicator'])=='notDone') {
                 $member->insert($dbObj);
 
             }
-
+            
         }
 }
 
@@ -78,7 +78,7 @@ if(($_SESSION['indicator'])=='notDone') {
         <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
             <h1>LIBRARY</h1>
-            <h3>Siyane National College of Education<br />Veyangoda</h3>
+            <h3>Siyane National College of Education</br>Veyangoda</h3>
 
 
 

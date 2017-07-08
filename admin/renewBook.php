@@ -40,14 +40,15 @@ $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
 $msg = "";
 
-$bookIds = $_POST["bookIds"];
-$_SESSION['bookIds']=$bookIds;
+
 
     if (!isset($_POST["bookIds"])) {
         $msg = "Please select a book";?>
     <div class = "MessageBox"><?php echo $msg ?><a href="configure_id_for_renew.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
    <?php
     } else {
+$bookIds = $_POST["bookIds"];
+$_SESSION['bookIds']=$bookIds;
         ?>
 
         <div class="bookRenewalForm">
@@ -70,7 +71,7 @@ $_SESSION['bookIds']=$bookIds;
                     } ?></h4></br>
 
                     <label for="date"><b> Date to be Returned </b></label><br/>
-                    <input id="date" name="DoR" type="date"/><br/>
+                    <input id="date" name="DoR" type="date" required/><br/>
 
                     <button class="Submitbtn" name="Renew" type="submit"> Renew</button>
                     <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancelBtn"
@@ -105,12 +106,12 @@ if(isset($_POST['Renew'])) {
        <?php
    }else{
        $memberId = $_SESSION['ID'];
-       echo $memberId;
+
        $Date_to_be_returned=$_POST['DoR'];
        foreach ($_SESSION['bookIds'] as $value) {
-        echo $value ;
+
         $bookSession = new book_session();
-        $sql = "Update book_sessions set session_status ='Extended',date_to_be_returned=$Date_to_be_returned where member_id = $memberId and book_id = $value and session_status != 'returned'";
+        $sql = "Update book_sessions set session_status ='extended',date_to_be_returned=$Date_to_be_returned where member_id = $memberId and book_id = $value and session_status != 'returned'";
         $dbObj->doQuery($sql);
         $msg = "Renewed successfully..!!";
     }?>
@@ -120,9 +121,7 @@ if(isset($_POST['Renew'])) {
    }
     $dbObj->closeConnection();
     session_destroy();
-}
-
-        ?>
+} ?>
 
 
 

@@ -26,7 +26,7 @@ if(isset($_POST['save'])) {
     $publisher_address = $_POST['POP'];
     $price = $_POST['Price'];
     $no_pages = $_POST['NoOfPg'];
-    $date_added = time();
+    $date_added = date("Y-m-d");
     $book_type = $_POST['Bktype'];
     $book_status = "available";
     $remarks = $_POST['Remarks'];
@@ -36,12 +36,12 @@ if(isset($_POST['save'])) {
     $result1 = $book->featuredLoad($dbObj, $sql1);
     if (mysqli_num_rows($result1) > 0) {
         $message = "This accession number already exists. Please enter correct accession number..!!";
-    } elseif ($published_date > time()) {
-        $message = "This is a future date.re enter the correct date..!";
+    } elseif (date("Y-m-d",strtotime($published_date)) > date("Y-m-d")) {
+        $message = "Invalid date..!";
     } elseif ($no_pages <= 0) {
-        $message = "No of pages cannot be negative value or 0. re enter the correct value..!";
+        $message = "No of pages cannot be negative or 0..!";
     } elseif (is_float($price + 0) && ($price > 0)) {
-        $message = "--------------------------------";
+        $message = "Invalid price..!";
     } else {
 
         $data = array("id" => $id, "title" => $title, "author" => $author, "ISBN" => $ISBN, "category_no" => $category_no,
@@ -65,7 +65,7 @@ $dbObj->closeConnection();
 <html>
 <head>
     <title>Add New Book</title>
-    <link rel = "stylesheet" href ="AddBook.css"/>
+    <link rel = "stylesheet" href ="css/AddBook.css"/>
 </head>
 <body>
 <header>

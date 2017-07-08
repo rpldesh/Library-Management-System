@@ -118,3 +118,10 @@ div.stretch:hover{ color:black;height:250px;background-color:rgba(222,221,202,1)
 		width: 93px;
 	}
 }
+
+
+/* for Admin login page*/
+article.whitebg{margin-left:100px; margin-right:100px;box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	height:1000px; position:relative;}
+form.loginForm{transform:translate(350px,0);}

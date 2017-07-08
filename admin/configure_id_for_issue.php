@@ -7,6 +7,21 @@
 </head>
 <body>
 <header>
+    <script type="text/javascript">
+        function validate(){
+            var missingField=false;
+            var strFields="";
+            if(id_config.memberID.value==""){
+                missingField=true;
+                strFields+="Plese enter a member ID";
+            }
+            if(missingField){
+                alert("Sorry! You must provide following fields to continue:\n"+strFields);
+                return false;
+            }
+            return true;
+        }
+    </script>
     <div class="head_top">
         <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
@@ -28,13 +43,13 @@
 </header>
 
 <div class="idconfigureform">
-    <form align="center" method="POST" action="configure_id_for_issue.php" autocomplete="off">
+    <form name="id_config" align="center" method="POST" action="configure_id_for_issue.php" autocomplete="off">
         <div class="container">
 
             <label for="memberId"><b>Enter Member ID:</b></label><br />
             <input id="memberId" name="memberID" type="text"  required autofocus/><br />
 
-            <button class="Submitbtn" name="submitID" type="submit">Submit</button>
+            <button class="Submitbtn" name="submitID" type="submit" onclick="validate()">Submit</button>
             <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancel" type="button" >Cancel</button>
         </div>
     </form>
