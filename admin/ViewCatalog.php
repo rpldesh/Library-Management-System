@@ -52,13 +52,19 @@ $len= mysqli_num_rows($result);
 </article>
 
     <div>
-
         <form action="ViewCatalog.php" method="post">
-            <input class="search" type="search" name="Search" placeholder="Search..">
-            <input class="radioBtn" type="radio" name="searchOption" value="author"/>Search by Author
-            <input class="radioBtn" type="radio" name="searchOption" value="title"/>Search by Title<br />
-            <button type="submit" name="search">Search</button>
+            <div class="searchbar">
+                <input class="searchtext"  type="search" name="Search" placeholder="Search..">
+                <button class="submit_3" type="submit" name="search">Search</button>
+            </div>
+            <div class="option">
+                <input class="radioBtn" type="radio" name="searchOption" value="author"/>Search by Author
+                <input class="radioBtn" type="radio" name="searchOption" value="title"/>Search by Title<br/>
+                <input class="radioBtn" type="radio" name="searchOption" value="isbn"/>Search by ISBN<br/>
+
+            </div>
         </form>
+
     </div>
 
     <div style="...">
@@ -84,12 +90,13 @@ $len= mysqli_num_rows($result);
             <tr>
                 <?php
                 if (isset($_POST['search'])) {
+                    unset($_POST['search']);
                     $value = $_POST['searchOption'];
                     $keyword = '"%'.$_POST['Search'].'%"';
                     echo $keyword;
 
                     $sql = "Select * from books Where $value like $keyword";
-                    echo $sql;
+
                     $result = $book->featuredLoad($dbobj, $sql);
                     $len=mysqli_num_rows($result);
                 }
