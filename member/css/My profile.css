@@ -189,11 +189,11 @@ tr:nth-child(odd) td {
 
 div#tableMyProf{display:inline-block ;}
 div.ChangeSettings{float:right;}
-div#defaultOpen{float:left;}
+button#defaultOpen{float:left; margin-top: 10px; margin-left: 10px;}
 
 
 
-
+div.MyprofTable{transform: translate(30px,0);}
 
 
 
