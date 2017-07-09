@@ -87,6 +87,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
             $_SESSION['book_id'] = $bk->id;
             $_SESSION['title'] = $bk->title;
             $_SESSION['book_type'] = $bk->book_type;
+            $_SESSION['category_no'] = $bk->category_no;
 
             ?>
 
