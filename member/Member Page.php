@@ -24,10 +24,20 @@
 </header>
 <article>
     <?php
-        echo "55555";
         session_start();
-        if(!empty($_SESSION['member'])){
-            echo " Welcome to Siyana National College of Education Library Page".$_SESSION['member']."...!!!";
+        include("../database.php");
+        include("../table.php");
+        include("../member.php");
+        $dbObj=database::getInstance();
+        $dbObj->connect('localhost','root','','lms_db');
+        $m=new member();
+        $mem_id=$_SESSION['id'];
+        $sql= "Select member_name from members where id ='$mem_id' ";
+        $result=$m->featuredLoad($dbObj,$sql);
+        $name=mysqli_fetch_row($result)[0];
+
+    if(!empty($_SESSION['id'])){
+            echo " Welcome to Siyana National College of Education Library Page ".$name."...!!!";
         }
     ?>
     <div class="linkbox" id="myProfile"><span><strong>My Profile</strong><br /><br /></span>
