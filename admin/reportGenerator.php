@@ -16,8 +16,9 @@ if(isset($_POST["generate"])){
     foreach ($period as $dt){
         $date = $dt->format("Y-m-d");
         echo $date."<br />";
-        $sql = "Select date_of_borrowal,book_title from book_sessions where date_of_borrowal = ";
-    }
+        for ($i=0;$i,10;$i++){
+            $sql = "Select date_of_borrowal,book_title from book_sessions where date_of_borrowal = $date and ";
+    }}
 }
 
 ?>

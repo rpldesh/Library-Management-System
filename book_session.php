@@ -6,6 +6,7 @@ class book_session extends table
     var $book_id=null;
     var $member_id=null;
     var $book_title=null;
+    var $category_no=null;
     var $date_of_borrowal=null;
     var $date_to_be_returned=null;
     var $date_of_return=null;
