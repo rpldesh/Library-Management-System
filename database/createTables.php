@@ -59,7 +59,7 @@ $sql = "CREATE TABLE IF NOT EXISTS members(
         id VARCHAR(20) NOT NULL,
         member_name VARCHAR(100) NOT NULL,
         member_fullname VARCHAR(200) NOT NULL,
-        member_type VARCHAR(20) NOT NULL,
+        member_type VARCHAR(50) NOT NULL,
         join_date VARCHAR(200) NOT NULL,
         addmission_date VARCHAR (100)NOT NULL,
         permanent_address VARCHAR(300),

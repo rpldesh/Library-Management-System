@@ -11,42 +11,54 @@ include("../member.php");
 
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root','','lms_db');
+session_start();
 
-if (isset($_POST['submit'])){
-    $msg= "Member Added Successfully ";
-    $id=$_POST['memberID'];
-    $member_name=$_POST['Name'];
-    $member_fullname=$_POST['fullName'];
-    $member_type=$_POST['type'];
-    $join_date=date("Y-m-d");
-    $addmission_date=$_POST['DOA'];
-    $permanent_address=$_POST['permanentaddress'];
-    $current_address=$_POST['currentaddress'];
-    $member_email=$_POST['email'];
-    $contact_no=$_POST['contactNo'];
-    $member_status="active";
-    $tempmember = new member();
-    $result1 = $tempmember->load($dbObj, $id);
-    if ($result1) {
-        $msg = "Username already exists. Please select another username..!!";
-    }
+if(!(isset($_POST['submit']))){
+    $_SESSION['indicator']='notDone';
+}
 
-    else if (date("m-d-Y") < date("m-d-Y",strtotime($addmission_date))){
-        $msg= "Invalid Date";
+if(($_SESSION['indicator'])=='notDone') {
+        if (isset($_POST['submit'])){
+            $_SESSION['indicator']='done';
+            $_SESSION['displayMessage']='on';
+            $msg= "Member Added Successfully ";
+            $id=$_POST['memberID'];
+            $member_name=$_POST['Name'];
+            $member_fullname=$_POST['fullName'];
+            $member_type=$_POST['type'];
+            $join_date=date("Y-m-d");
+            $addmission_date=$_POST['DOA'];
+            $permanent_address=$_POST['permanentaddress'];
+            $current_address=$_POST['currentaddress'];
+            $member_email=$_POST['email'];
+            $contact_no=$_POST['contactNo'];
+            $member_status="active";
+            $tempmember = new member();
+            $result1 = $tempmember->load($dbObj, $id);
+            if ($result1) {
+                $msg = "Username already exists. Please select another username..!!";
+            }
+
+            else if (date("m-d-Y") < date("m-d-Y",strtotime($addmission_date))){
+                $msg= "Invalid Date";
+            }
+
+            else if(!is_numeric($contact_no)||!(strlen($contact_no)==10)){
+                $msg="Invalid Contact Number";
+
+            }
+            else{
+                $member = new member();
+                $data = array("id" => $id, "member_name" => $member_name, "member_fullname" => $member_fullname, "member_type" => $member_type, "join_date" => $join_date, "addmission_date" => $addmission_date, "permanent_address" => $permanent_address, "current_address" => $current_address, "member_email" => $member_email, "contact_no" => $contact_no, "member_status" => $member_status);
+                $member->bind($data);
+                $member->insert($dbObj);
+
+            }
+            
         }
+}
 
-    else if(!is_numeric($contact_no)||!(strlen($contact_no)==10)){
-        $msg="Invalid Contact Number";
 
-    }
-    else{
-        $member = new member();
-        $data = array("id" => $id, "member_name" => $member_name, "member_fullname" => $member_fullname, "member_type" => $member_type, "join_date" => $join_date, "addmission_date" => $addmission_date, "permanent_address" => $permanent_address, "current_address" => $current_address, "member_email" => $member_email, "contact_no" => $contact_no, "member_status" => $member_status);
-        $member->bind($data);
-        $member->insert($dbObj);
-
-    }
-    }
 ?>
 
 
@@ -124,10 +136,11 @@ if (isset($_POST['submit'])){
 
 
 <div class = "MessageBox">
-    <?php if (isset($_POST['submit'])){ ?>
+    <?php if(($_SESSION['displayMessage'])=='on'){
+        $_SESSION['displayMessage']='off'; ?>
     <style> div.MessageBox{display:inline-block ;}</style>
     <?php } ?>
-    <?php echo $msg ?><span class="closebtn" onclick="this.parentElement.style.display='none';"> <button type="button">Close</button> </span></div>
+    <?php echo $msg ?><span class="closebtn"> <a href="AddMember.php"> <button type="button">Close</button> </a> </span></div>
 
 </article>
 </body>
