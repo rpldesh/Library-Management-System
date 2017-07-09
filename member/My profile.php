@@ -1,8 +1,10 @@
 <?php
+    session_start();
     include("../database.php");
     include("../table.php");
     include("../member.php");
     include ("../login.php");
+    $user_id=$_SESSION['id'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -79,8 +81,8 @@
             $NewPsw=$_POST["newPsw"];
             $ConNewPsw=$_POST["conNewPsw"];
             $login = new login();
-            $sql = "Select password from logins where id = 1 ";
-            $login->load($dbObj,1);
+            $sql = "Select password from logins where id = '$user_id' ";
+            $login->load($dbObj,$user_id);
             $result = $login->featuredLoad($dbObj,$sql);
             $psw=mysqli_fetch_row($result)[0];
 
@@ -112,7 +114,7 @@
         $dbObj->connect('localhost','root','','lms_db');
         $emal="";
         $m=new member();
-        $sql= "Select member_email from members where id = 1 ";
+        $sql= "Select member_email from members where id = '$user_id' ";
         $m->load($dbObj,1);
         $emailresult= $m->featuredLoad($dbObj,$sql);
         $email = mysqli_fetch_row($emailresult)[0];
@@ -146,7 +148,7 @@
         $dbObj=database::getInstance();
         $dbObj->connect('localhost','root','','lms_db');
         $address="";
-        $sql= "Select permanent_address from members where id = 1 ";
+        $sql= "Select permanent_address from members where id = '$user_id' ";
         $add= $m->featuredLoad($dbObj,$sql);
         $address = mysqli_fetch_row($add)[0];
         ?>
@@ -172,16 +174,47 @@
         ?>
     </div>
 
+    <div id="TP" class="tabcontent">
+
+        <?php
+        $dbObj=database::getInstance();
+        $dbObj->connect('localhost','root','','lms_db');
+        $tel="";
+        $sql= "Select contact_no from members where id = '$user_id' ";
+        $tp= $m->featuredLoad($dbObj,$sql);
+        $tel = mysqli_fetch_row($tp)[0];
+        ?>
+
+        <div class="telephoneNo">
+            <form  method="POST" action="" autocomplete="off">
+                <div class="container">
+                    <h1>Change the Telephone No.</h1><hr />
+                    <label><b>Current Telephone No.</b></label>
+                    <input type="text" name="curTP" value="<?php echo $tel ;?>" readonly/>
+                    <label><b>New Telephone No.</b></label>
+                    <input type="text" name="newTP" Placeholder="Enter your Telephone No." required/>
+                    <button name="saveTP" class="Submitbtn" type="submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+        <?php if(isset($_POST['saveTP'])){
+            $NewTP=$_POST['newTP'];
+            $m->contact_no="$NewTP";
+            $m->update($dbObj);
+        }
+        ?>
+
+    </div>
 
     <?php
 
 
     $dbObj= database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
-    session_start();
+   /* session_start();*/
     /*$member_id = $_SESSION['id'];*/
     $m= new member();
-    $m->load($dbObj, '1');
+    $m->load($dbObj, $user_id);
 
     /*$sql = "Select id,member_name,member_fullname,member_type,join_date,addmission_date,permanent_address,current_address,member_email,contact_no from members where id = 1 ";
     $result = $m->featuredLoad($dbObj,$sql);*/
@@ -249,38 +282,6 @@
             evt.currentTarget.className += " active";
         }
     </script>
-
-    <div id="TP" class="tabcontent">
-
-        <?php
-        $dbObj=database::getInstance();
-        $dbObj->connect('localhost','root','','lms_db');
-        $tel="";
-        $sql= "Select contact_no from members where id = 1 ";
-        $tp= $m->featuredLoad($dbObj,$sql);
-        $tel = mysqli_fetch_row($tp)[0];
-        ?>
-
-        <div class="telephoneNo">
-            <form  method="POST" action="" autocomplete="off">
-                <div class="container">
-                    <h1>Change the Telephone No.</h1><hr />
-                    <label><b>Current Telephone No.</b></label>
-                    <input type="text" name="curTP" value="<?php echo $tel ;?>" readonly/>
-                    <label><b>New Telephone No.</b></label>
-                    <input type="text" name="newTP" Placeholder="Enter your Telephone No." required/>
-                    <button name="saveTP" class="Submitbtn" type="submit">Save Changes</button>
-                </div>
-            </form>
-        </div>
-        <?php if(isset($_POST['saveTP'])){
-            $NewTP=$_POST['newTP'];
-            $m->contact_no="$NewTP";
-            $m->update($dbObj);
-        }
-        ?>
-
-    </div>
 
     </body>
     </html>
