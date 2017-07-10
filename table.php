@@ -47,6 +47,7 @@ abstract class table
                 $sql .= "{$key} = '{$this->$key}',";
             }
             $sql = substr($sql, 0, -1) . " where id = {$this->id}";
+            echo $sql;
             return $sql;
 
         }

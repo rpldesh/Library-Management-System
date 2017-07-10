@@ -40,7 +40,7 @@ if(isset($_POST['save'])) {
         $message = "Invalid date..!";
     } elseif ($no_pages <= 0) {
         $message = "No of pages cannot be negative or 0..!";
-    } elseif (is_float($price + 0) && ($price > 0)) {
+    } elseif (is_float($price + 0) && ($price < 0)) {
         $message = "Invalid price..!";
     } else {
 
@@ -51,9 +51,7 @@ if(isset($_POST['save'])) {
         $book->bind($data);
         $book->insert($dbObj);
         $message = "Book added successfully..!!";
-
-        echo $id . " " . $title . " " . $author . " " . $ISBN . " " . $category_no . " " . $publisher_name . " " . $published_date . " " . $publisher_address . " " . $price . " " . $no_pages . " " . $date_added . " " . $book_type . " " . $book_status . "" . $remarks;
-    }
+            }
 }
 
 $dbObj->closeConnection();
