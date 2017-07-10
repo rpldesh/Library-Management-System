@@ -103,8 +103,11 @@ td {
 caption{font-family:Arial;
     font-size:30px;
     font-weight:bolder;
-    color:ghostwhite;
-    margin-bottom: 15px
+    color:whitesmoke;
+    background-color: #444444;
+    margin-bottom: 15px;
+    padding-top: 3%;
+    padding-bottom: 2%;
     }
 td:hover {
 
@@ -142,6 +145,7 @@ button{
     background: #e1e1e1; /* Fallback color for non-css3 browsers */
     width: 400px;
     margin: 100px auto;
+     padding-bottom: 1%;
 
     /* Gradients */
     background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(243,243,243)), color-stop(1, rgb(225,225,225)));

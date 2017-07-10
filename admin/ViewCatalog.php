@@ -14,7 +14,21 @@ include("../book.php");
 $dbobj= database::getInstance();
 $dbobj->connect('localhost','root','','lms_db');
 $book = new book();
-$sql= "Select * from books";
+
+
+/*Getting data for Paging*/
+if(!(isset($_GET['startrow']))){
+    $startrow=0;
+}
+else{
+    $startrow=(int)$_GET['startrow'];
+
+}
+if (!(isset($_POST['search']))) {
+    $_SESSION['indicator']='Started';
+}
+
+$sql= "Select * from books Limit $startrow,2";
 
 $result = $book->featuredLoad($dbobj,$sql);
 $len= mysqli_num_rows($result);
@@ -24,7 +38,7 @@ $len= mysqli_num_rows($result);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add New Admin Member</title>
+    <title>View Catalog</title>
     <link rel = "stylesheet" href ="css/ViewCatalog.css"/>
 
 </head>
@@ -58,9 +72,9 @@ $len= mysqli_num_rows($result);
                 <button class="submit_3" type="submit" name="search">Search</button>
             </div>
             <div class="option">
-                <input class="radioBtn" type="radio" name="searchOption" value="author"/>Search by Author
-                <input class="radioBtn" type="radio" name="searchOption" value="title"/>Search by Title<br/>
-                <input class="radioBtn" type="radio" name="searchOption" value="isbn"/>Search by ISBN<br/>
+                <input class="radioBtn" type="radio" name="searchOption" value="author" required/>Search by Author
+                <input class="radioBtn" type="radio" name="searchOption" value="title" required/>Search by Title<br/>
+                <input class="radioBtn" type="radio" name="searchOption" value="isbn" required/>Search by ISBN<br/>
 
             </div>
         </form>
@@ -87,29 +101,52 @@ $len= mysqli_num_rows($result);
                 <th>Remarks</th>
             </tr>
 
-            <tr>
                 <?php
+                session_start();
+
+
+
+                /*if($_SESSION['indicator']=="error"){
+                    header("location: ViewCatalog.php");
+                    exit();
+                }*/
                 if (isset($_POST['search'])) {
-                    unset($_POST['search']);
+                    if(empty($_POST['Search'])){
+                        header("location: ViewCatalog.php");
+                        exit();
+                    }
                     $value = $_POST['searchOption'];
                     $keyword = '"%'.$_POST['Search'].'%"';
-                    echo $keyword;
+                    $_SESSION['indicator']="error";
 
-                    $sql = "Select * from books Where $value like $keyword";
+
+                    $sql = "Select * from books Where $value like $keyword Limit $startrow,2";
 
                     $result = $book->featuredLoad($dbobj, $sql);
                     $len=mysqli_num_rows($result);
                 }
 
-                for($i=0; $i<$len; $i++){
-                        foreach (mysqli_fetch_assoc($result) as $key=>$value) {
-                            ?>
-                            <td><?php echo $value ?></td>
-                            <?php } ?>
-            </tr>
-                <?php  }?>
+                for($i=0; $i<$len; $i++){?>
+                        <tr>
+                        <?php foreach (mysqli_fetch_assoc($result) as $key=>$value) {
+                            if($key=="id"){
+                                $link= '"bookDetails.php?=id'.$value.'"'?><?php }?>
 
+                            <td><a href=<?php echo $link?>><?php echo $value ?></a></td>
+                            <?php } ?>
+                        </tr>
+                <?php }
+
+
+                $next=$startrow+2;
+                $prev=$startrow-2;?>
         </table>
+        <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
+        <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
+        <a class="tableNav">
+            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+            <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
+        </div>
     </div>
 
 

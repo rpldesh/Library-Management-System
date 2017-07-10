@@ -71,7 +71,6 @@ $dbObj->connect('localhost','root','','lms_db');
 SESSION_start();
 if(isset($_POST['submitID'])) {
     $m = new member();
-
     $result = $m->load($dbObj, $_POST["memberID"]);
 
 ?>
