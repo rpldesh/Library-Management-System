@@ -155,7 +155,7 @@ th {
     text-shadow: 0 1px 0 #000;
 }
 
-th:after {
+/*th:after {
     background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
     content: '';
     display: block;
@@ -165,7 +165,7 @@ th:after {
     position: absolute;
     top: 25%;
     width: 100%;
-}
+}*/
 
 
 td {
@@ -187,13 +187,31 @@ tr:nth-child(odd) td {
     background: #f1f1f1 url(https://jackrugile.com/images/misc/noise-diagonal.png);
 }
 
-div#tableMyProf{display:inline-block ;}
+div#tableMyProf{display:inline-block ; transform: translate(25px,0);}
 div.ChangeSettings{float:right;}
-div#defaultOpen{float:left;}
+button#defaultOpen{float:left; margin-top: 10px; margin-left: 10px;}
+div.MyprofTable{transform: translate(1300px,0);}
 
 
-
-
-
-
+/* for message box*/
+div.alert {
+    display:inline-block;
+    z-index: 100;
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+div.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 30px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+div.closebtn:hover {
+    color: black;
+}
 

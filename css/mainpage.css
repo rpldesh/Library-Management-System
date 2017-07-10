@@ -74,7 +74,7 @@ div.slideshow{ display:block;
 				background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
 				box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
 				margin:15px; 
-				transform:translate(5px,20px); 
+				transform:translate(5px,0px);
 				width:700px; height:300px; 
 				animation-name:slideShow; 
 				animation-duration:15s; 
@@ -92,20 +92,18 @@ div.slideshow{ display:block;
 	
 a{text-decoration:none; color:grey;  display:inline-table;  }
 a:hover{color:orange;}
+
 section.linkarea{ z-index:7; position:relative; display:inline-block;
 		background:linear-gradient(0deg,rgba(156,23,23,0.8),rgba(108,16,16,0.8),rgba(73,4,4,0.9));
 		border-radius:10px; margin:10px 0; width:230px; float:left; 
 		box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);
-
-
-
- transform:translate(15px,0);  padding:10px;}
+		transform:translate(15px,0);  padding:10px;}
 
 div.stretch{padding:5px; overflow:hidden; width:200px; height:50px; border-radius:10px; background-color:rgba(222,221,202,1); transition:height 3s ;transition-timing-function:ease-out;
 color:grey;}
 i.TPnumber{color:grey;}
 p.hidden{visibility:hidden;}
-div.stretch:hover{ color:black;height:250px;background-color:rgba(222,221,202,1);}
+div.stretch:hover{ color:black; height:250px; background-color:rgba(222,221,202,1);}
 
 
 
@@ -124,4 +122,4 @@ div.stretch:hover{ color:black;height:250px;background-color:rgba(222,221,202,1)
 article.whitebg{margin-left:100px; margin-right:100px;box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
 	height:1000px; position:relative;}
-form.loginForm{transform:translate(350px,0);}
+form.loginForm{transform:translate(400px,0);}

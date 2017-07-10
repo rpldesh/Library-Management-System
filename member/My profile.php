@@ -1,8 +1,10 @@
 <?php
+    session_start();
     include("../database.php");
     include("../table.php");
     include("../member.php");
     include ("../login.php");
+    $user_id=$_SESSION['id'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -25,8 +27,8 @@
 	<div class="bgimage">
 	<nav>
 		<ul>
-			<li><a href="Member%20Page.html">HOME</a></li>
-			<li class="logout"><a href="#">LOGOUT</a></li>
+			<li><a href="Member%20Page.php">HOME</a></li>
+			<li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
 		</ul>
 	</nav>
 	</div>
@@ -36,9 +38,9 @@
 
 
     <div class="tab">
-        <div class="ChangeSettings">
 
-            <button class="tablinks" onclick="ClickOption(event, 'tableMyProf')" id="defaultOpen">My Profile</button>
+        <button class="tablinks" onclick="ClickOption(event, 'tableMyProf')" id="defaultOpen">My Profile</button>
+        <div class="ChangeSettings">
 
             <h3>Click on the buttons to change your settings</h3>
             <button class="tablinks" onclick="ClickOption(event, 'Password')">Password</button>
@@ -48,10 +50,10 @@
         </div>
     </div>
 
-    <?php if(!isset($_POST["savePsw"]) )/*{*/ ?>
+    <?php if(!isset($_POST["savePsw"]) ){ ?>
     <div id="Password" class="tabcontent">
         <div class="Password">
-            <form  method="POST" action="" autocomplete="off">
+            <form  method="POST"  autocomplete="off">
                 <div class="container">
                     <h1>Change the Password</h1><hr />
                     <label><b>Current Password</b></label>
@@ -64,80 +66,156 @@
                 </div>
             </form>
         </div>
+        <?php
+        }
+
+        $psw="";
+        if (isset($_POST["savePsw"])) {
+
+            $dbObj=database::getInstance();
+            $dbObj->connect('localhost','root','','lms_db');
+
+
+
+            $CurPsw=$_POST["curPsw"];
+            $NewPsw=$_POST["newPsw"];
+            $ConNewPsw=$_POST["conNewPsw"];
+            $login = new login();
+            $sql = "Select password from logins where id = '$user_id' ";
+            $login->load($dbObj,$user_id);
+            $result = $login->featuredLoad($dbObj,$sql);
+            $psw=mysqli_fetch_row($result)[0];
+
+
+            if($NewPsw!=$ConNewPsw){
+                echo "Your new Password and confirmed password are not matched..!!";
+            }
+
+            elseif($CurPsw!=$psw){
+                echo "Your current password is incorrect..!!";
+
+            }elseif($CurPsw=$psw){
+                $encriptedPsw=md5($NewPsw);
+                $login->password="$encriptedPsw";
+                $login->update($dbObj);
+                echo "Your password changed successfully";
+            }
+        }
+
+
+        ?>
+
     </div>
-    <?php
-   // }
-
-    $psw="";
-    if (isset($_POST["savePsw"])) {
-
-    $dbObj=database::getInstance();
-    $dbObj->connect('localhost','root','','lms_db');
 
 
-
-    $CurPsw=$_POST["curPsw"];
-    $NewPsw=$_POST["newPsw"];
-    $ConNewPsw=$_POST["conNewPsw"];
-    $login = new login();
-    $sql = "Select password from logins where id = 1 ";
-    $login->load($dbObj,1);
-    $result = $login->featuredLoad($dbObj,$sql);
-    $psw=mysqli_fetch_row($result)[0];
-    echo $psw;
-
-
-    if($NewPsw!=$ConNewPsw){
-        echo "Your new Password and confirmed password are not matched..!!";
-    }
-
-    elseif($CurPsw!=$psw){
-        echo "Your current password is incorrect..!!";
-
-    }elseif($CurPsw=$psw){
-        $login->password="$NewPsw";
-        $login->update($dbObj);
-        echo "Your password changed successfully";
-    }
-    }
-?>
 
     <div id="E-mail" class="tabcontent">
+        <?php
+        $dbObj=database::getInstance();
+        $dbObj->connect('localhost','root','','lms_db');
+        $emal="";
+        $m=new member();
+        $sql= "Select member_email from members where id = '$user_id' ";
+        $m->load($dbObj,$user_id);
+        $emailresult= $m->featuredLoad($dbObj,$sql);
+        $email = mysqli_fetch_row($emailresult)[0];
+        ?>
+
         <div class="Password">
             <form  method="POST" action="" autocomplete="off">
                 <div class="container">
                     <h1>Change the E-mail</h1><hr />
                     <label><b>Current E-mail address</b></label>
-                    <input type="text" name="curEmail" Placeholder="Enter your current Email"/>
+                    <input type="text" name="curEmail" value="<?php echo $email; ?>" readonly />
                     <label><b>New E-mail address</b></label>
-                    <input type="text" name="newEmail" Placeholder="Enter your new E-mail"/>
+                    <input type="text" name="newEmail" Placeholder="Enter your new E-mail" required/>
                     <button name="saveEmail" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
+        <?php if(isset($_POST['saveEmail'])){
+            $NewEmail=$_POST['newEmail'];
+            $m->member_email="$NewEmail";
+            $m->update($dbObj);
+        }
+        ?>
     </div>
 
+
+
     <div id="Address" class="tabcontent">
+
+        <?php
+        $dbObj=database::getInstance();
+        $dbObj->connect('localhost','root','','lms_db');
+        $address="";
+        $sql= "Select permanent_address from members where id = '$user_id' ";
+        $add= $m->featuredLoad($dbObj,$sql);
+        $address = mysqli_fetch_row($add)[0];
+        ?>
+
         <div class="Password">
             <form  method="POST" action="" autocomplete="off">
                 <div class="container">
                     <h1>Change the Address</h1><hr />
+                    <label><b>Current Address</b></label>
+                    <textarea name="curAdd" cols="40" rows="6" readonly ><?php echo $address;?></textarea>
                     <label><b>New Address</b></label>
-                    <textarea name="newAdd" cols="40" rows="6" ></textarea>
+                    <textarea name="newAdd" cols="40" rows="6" required></textarea>
                     <button name="saveAddress" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
+
+        <?php if(isset($_POST['saveAddress'])){
+            $NewAdd=$_POST['newAdd'];
+            $m->permanent_address="$NewAdd";
+            $m->update($dbObj);
+        }
+        ?>
     </div>
+
+    <div id="TP" class="tabcontent">
+
+        <?php
+        $dbObj=database::getInstance();
+        $dbObj->connect('localhost','root','','lms_db');
+        $tel="";
+        $sql= "Select contact_no from members where id = '$user_id' ";
+        $tp= $m->featuredLoad($dbObj,$sql);
+        $tel = mysqli_fetch_row($tp)[0];
+        ?>
+
+        <div class="telephoneNo">
+            <form  method="POST" action="" autocomplete="off">
+                <div class="container">
+                    <h1>Change the Telephone No.</h1><hr />
+                    <label><b>Current Telephone No.</b></label>
+                    <input type="text" name="curTP" value="<?php echo $tel ;?>" readonly/>
+                    <label><b>New Telephone No.</b></label>
+                    <input type="text" name="newTP" Placeholder="Enter your Telephone No." required/>
+                    <button name="saveTP" class="Submitbtn" type="submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+        <?php if(isset($_POST['saveTP'])){
+            $NewTP=$_POST['newTP'];
+            $m->contact_no="$NewTP";
+            $m->update($dbObj);
+        }
+        ?>
+
+    </div>
+
     <?php
 
 
     $dbObj= database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
-    session_start();
+   /* session_start();*/
     /*$member_id = $_SESSION['id'];*/
     $m= new member();
-    $m->load($dbObj, '1');
+    $m->load($dbObj, $user_id);
 
     /*$sql = "Select id,member_name,member_fullname,member_type,join_date,addmission_date,permanent_address,current_address,member_email,contact_no from members where id = 1 ";
     $result = $m->featuredLoad($dbObj,$sql);*/
@@ -205,7 +283,6 @@
             evt.currentTarget.className += " active";
         }
     </script>
-
 
 
     </body>

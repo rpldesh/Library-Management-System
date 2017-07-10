@@ -89,9 +89,8 @@ if(($_SESSION['indicator'])=='notDone') {
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="Administration%20Page.html">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="#">LOGOUT</a></li>
+                    <li><a href="Administration%20Page.php">HOME</a></li>
+                    <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>

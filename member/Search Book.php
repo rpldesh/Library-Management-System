@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title></title>
-    <link rel="stylesheet" href="../admin/css/AddBook.css"/>
+    <title>Search Book</title>
+
     <link rel="stylesheet" href="css/Search Book.css"/>
 
 </head>
@@ -36,9 +36,9 @@
 			<form  method="POST" action="" autocomplete="off">
 				<div class="container">
 				<h1>Search a Book</h1><hr />
-				    <label><b>Select Search Option</b></label>
-				    <input class="radioBtn" type="radio" name="searchOption" value="author"/>Search by Author
-                    <input class="radioBtn" type="radio" name="searchOption" value="title"/>Search by Title<br />
+				    <label><b>Select Search Option</b></label><br /><br />
+				    <input class="radioBtn" type="radio" name="searchOption" value="author" required="required"/>Search by Author
+                    <input class="radioBtn" type="radio" name="searchOption" value="title" required="required"/>Search by Title<br /><br />
 				    <label><b>Author/Title </b></label>
 				    <input class="normal" type="search" name="searchName" Placeholder="Enter the Author/Title"/>
 				    <button name="save" class="Submitbtn" type="submit">Click Here to Search</button>
