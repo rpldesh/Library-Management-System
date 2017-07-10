@@ -41,7 +41,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
     <div class="bgimage">
         <nav>
             <ul>
-                <li><a href="Administration%20Page.php">HOME</a></li>
+                <li><a href="Administration%20Page.php?id==back">HOME</a></li>
                 <li><a href="#">ADMIN PROFILE</a></li>
                 <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
             </ul>
@@ -62,7 +62,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
                         <br />
 
                             <form  class="change_form" id="one" method="post" action=""  autocomplete="off">
-                                <input type="text" name="m_name" value="<?php echo $_SESSION['name']?>"/>
+                                <input type="text" name="m_name" value="<?php echo $_SESSION['name']?>" required/>
                                 <button class="saveBtn" name="save_name" type="submit" >Save Changes</button>
                                 <button class="cancelBtn" onclick="hide('one')" name="cancel" type="button" >Cancel</button>
 
@@ -81,7 +81,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
 
                     <form class="change_form" id="two" method="post" action=""  autocomplete="off">
 
-                        <input type="text" name="m_fullname" value="<?php echo  $_SESSION['fname']?>"/>
+                        <input type="text" name="m_fullname" value="<?php echo  $_SESSION['fname']?>" required/>
                         <button class="saveBtn" name="save_fullname" type="submit" >Save Changes</button>
                         <button class="cancelBtn" onclick="hide('two')" name="cancel" type="button" >Cancel</button>
 
@@ -125,7 +125,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
 
                         <form class="change_form" id="four"   method="post" action=""  autocomplete="off">
 
-                            <input type="date" name="m_addmision_date" value="<?php echo $_SESSION['adddate']?>"/>
+                            <input type="date" name="m_addmision_date" value="<?php echo $_SESSION['adddate']?>" required/>
                             <button class="saveBtn" name="save_add_date" type="submit" >Save Changes</button>
                             <button class="cancelBtn" onclick="hide('four')" name="cancel" type="button" >Cancel</button>
 
@@ -196,6 +196,9 @@ else if(isset($_POST['save_add_date'])){
 
 
 }
-header("Refresh:0")
+
+if(isset($_GET['id']) && $_GET['id']=='back' ){
+    session_destroy();
+}
 
 ?>

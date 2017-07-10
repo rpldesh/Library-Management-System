@@ -50,10 +50,10 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
         <div class="container" >
             <h1 > Book Issuing Form </h1 ><hr />
             <label for="memberID" ><b > Member ID </b ></label ><br />
-            <h4><?php echo  $_SESSION['id'] ?></h4></br>
+            <h4><input type="text" value="<?php echo  $_SESSION['id'] ?>"readonly/></h4></br>
 
             <label for="memberName" ><b > Name with initials </b ></label ><br />
-            <h4><?php echo $_SESSION['member_name']?></h4></br>
+            <h4><input type="text" value="<?php echo $_SESSION['member_name']?>"readonly/></h4></br>
 
             <label for="accessionNo" ><b > Accession No </b ></label ><br />
             <input name = "accessionNo" type = "text" placeholder = "Enter Accession No" required /><br />
@@ -97,16 +97,16 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
                         <h1> Book Issuing Form </h1>
                         <hr/>
                         <label for="memberID"><b> Member ID </b></label><br/>
-                        <h4><?php echo $_SESSION['id'] ?></h4></br>
+                        <h4><input type="text" value="<?php echo $_SESSION['id'] ?>" readonly/></h4></br>
 
                         <label for="memberName"><b> Name with initials </b></label><br/>
-                        <h4><?php echo $_SESSION['member_name'] ?></h4></br>
+                        <h4><input type="text" value="<?php echo $_SESSION['member_name'] ?>"readonly/></h4></br>
 
                         <label for="accessionNo"><b> Accession No </b></label><br/>
-                        <h4><?php echo $_SESSION['book_id'] ?></h4></br>
+                        <h4><input type="text" value="<?php echo $_SESSION['book_id'] ?>" readonly/></h4></br>
 
                         <label for="bookTitle"><b> Book Title </b></label><br/>
-                        <h4><?php echo $_SESSION['title'] ?></h4></br>
+                        <h4><input type="text" value="<?php echo $_SESSION['title'] ?>"readonly/></h4></br>
 
                         <label for="bookType"><b> Book Type</b></label><br/>
                         <h4><?php echo $_SESSION['book_type'] ?></h4></br>
