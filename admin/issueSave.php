@@ -20,7 +20,7 @@ if(isset($_POST['Issue'])) {
     } elseif (date("m-d-Y") >= date("m-d-Y", strtotime($date_to_be_returned))) {
         $message = "Date to be returned is invalid";
     } else {
-        $book1->book_status = "Issued";
+        $book1->book_status = "issued";
         $book1->update($dbObj);
 
         $book_session1 = new book_session();
