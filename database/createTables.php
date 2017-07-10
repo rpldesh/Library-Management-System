@@ -94,6 +94,7 @@ $sql ="CREATE TABLE IF NOT EXISTS book_sessions(
   book_id INT NOT NULL,
   member_id VARCHAR(20) NOT NULL,
   book_title VARCHAR(500) NOT NULL,
+  category_no VARCHAR(50) NOT NULL,
   date_of_borrowal VARCHAR(200) NOT NULL,
   date_to_be_returned VARCHAR(200) NOT NULL,
   date_of_return VARCHAR(200),

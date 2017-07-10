@@ -54,7 +54,7 @@ if(($_SESSION['indicator'])=='notDone') {
                 $member->insert($dbObj);
 
             }
-            
+
         }
 }
 
