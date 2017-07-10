@@ -27,7 +27,7 @@
 	<div class="bgimage">
 	<nav>
 		<ul>
-			<li><a href="Member%20Page.html">HOME</a></li>
+			<li><a href="Member%20Page.php">HOME</a></li>
 			<li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
 		</ul>
 	</nav>
@@ -95,7 +95,8 @@
                 echo "Your current password is incorrect..!!";
 
             }elseif($CurPsw=$psw){
-                $login->password="$NewPsw";
+                $encriptedPsw=md5($NewPsw);
+                $login->password="$encriptedPsw";
                 $login->update($dbObj);
                 echo "Your password changed successfully";
             }
@@ -115,7 +116,7 @@
         $emal="";
         $m=new member();
         $sql= "Select member_email from members where id = '$user_id' ";
-        $m->load($dbObj,1);
+        $m->load($dbObj,$user_id);
         $emailresult= $m->featuredLoad($dbObj,$sql);
         $email = mysqli_fetch_row($emailresult)[0];
         ?>
@@ -282,6 +283,7 @@
             evt.currentTarget.className += " active";
         }
     </script>
+
 
     </body>
     </html>

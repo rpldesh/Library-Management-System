@@ -155,7 +155,7 @@ th {
     text-shadow: 0 1px 0 #000;
 }
 
-th:after {
+/*th:after {
     background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
     content: '';
     display: block;
@@ -165,7 +165,7 @@ th:after {
     position: absolute;
     top: 25%;
     width: 100%;
-}
+}*/
 
 
 td {
@@ -195,6 +195,7 @@ div.MyprofTable{transform: translate(1300px,0);}
 
 /* for message box*/
 div.alert {
+    display:inline-block;
     z-index: 100;
     padding: 20px;
     background-color: #f44336;
