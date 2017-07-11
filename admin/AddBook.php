@@ -6,6 +6,7 @@
 <head>
     <title>Add Book Page</title>
     <link rel = "stylesheet" href ="css/AddBook.css"/>
+    <script>div.{}</script>
 </head>
 <body>
 <header>

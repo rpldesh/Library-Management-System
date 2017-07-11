@@ -4,6 +4,9 @@
 <head>
     <title>Renew Book</title>
     <link rel = "stylesheet" href ="css/issueBook.css"/>
+    <style>
+        div.alert{display:none ;}
+    </style>
 </head>
 <body>
 <header>
@@ -37,13 +40,17 @@ include("../book.php");
 include("../book_session.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
-$msg = "";
+$message = "";
 
 
 
     if (!isset($_POST["bookIds"])) {
-        $msg = "Please select a book";?>
-    <div class = "MessageBox"><?php echo $msg ?><a href="configure_id_for_renew.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+        $message = "Please select a book";?>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+        <?php  echo $message;?>
+
+    </div>
    <?php
     } else {
 $bookIds = $_POST["bookIds"];
@@ -97,11 +104,15 @@ if(isset($_POST['Renew'])) {
     include("../book_session.php");
     $dbObj = database::getInstance();
     $dbObj->connect('localhost', 'root', '', 'lms_db');
-    $msg = "";
+    $message = "";
 
    if(date("m-d-Y")>= date("m-d-Y",strtotime($_POST['DoR']))){
-       $msg="Date to be returned is unvalid";?>
-       <div class = "MessageBox"><?php echo $msg ?><a href="Administration Page.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+       $message="Date to be returned is unvalid";?>
+       <div class="alert">
+           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+           <?php  echo $message;?>
+
+       </div>
        <?php
    }else{
        $memberId = $_SESSION['ID'];
@@ -112,9 +123,13 @@ if(isset($_POST['Renew'])) {
         $bookSession = new book_session();
         $sql = "Update book_sessions set session_status ='extended',date_to_be_returned=$Date_to_be_returned where member_id = $memberId and book_id = $value and session_status != 'returned'";
         $dbObj->doQuery($sql);
-        $msg = "Renewed successfully..!!";
+        $message = "Renewed successfully..!!";
     }?>
-       <div class = "MessageBox"><?php echo $msg ?><a href="Administration Page.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+       <div class="alert">
+           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+           <?php  echo $message;?>
+
+       </div>
 
     <?php
    }

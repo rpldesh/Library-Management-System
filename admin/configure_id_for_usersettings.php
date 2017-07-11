@@ -67,13 +67,18 @@ include("../book.php");
 include("../book_session.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
-
+$message='';
 if(isset($_POST['submitID'])) {
     $_SESSION['id']= $_POST["memberID"];
     $m = new member();
     $result = $m->load($dbObj, $_SESSION['id']);
-    if(!$result){?>
-       <div class = "MessageBox"><?php echo "Member does not exist..Incorrect Member ID!!" ?><a href="configure_id_for_usersettings.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+    if(!$result){
+        $message="Member does not exist..!!";?>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+            <?php  echo $message;?>
+
+        </div>
 
     <?php }
     else{
@@ -82,5 +87,7 @@ if(isset($_POST['submitID'])) {
     $_SESSION['type'] = $m->member_type;
     $_SESSION['status'] = $m->member_status;
     $_SESSION['adddate'] = $m->join_date;
-    header("Location:memberAccountSetting.php");}}
+    header("Location:memberAccountSetting.php");}
+
+}
 ?>
