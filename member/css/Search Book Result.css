@@ -86,3 +86,6 @@ caption{font-family:Arial;
     font-size:30px;
     font-weight:bolder;
     color:white;}
+
+/*For admin previous records*/
+div.addminprevRcd{clear: both; transform: translate(0,80px);}
