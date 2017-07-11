@@ -9,6 +9,7 @@
 $startDate="";
 $finishDate="";
 
+
 if(isset($_POST["generate"])){
     include("../database.php");
     include("../table.php");

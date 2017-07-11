@@ -197,8 +197,10 @@ else if(isset($_POST['save_add_date'])){
 
 }
 
+
 if(isset($_GET['id']) && $_GET['id']=='back' ){
     session_destroy();
 }
+
 
 ?>
