@@ -71,7 +71,8 @@
 </body>
 </html>
 <?php
-if (isset($_GET['id']) && $_GET['id']==logout){
+if (isset($_GET['id']) && $_GET['id']=='logout'){
     $_SESSION['user']='';
+    session_destroy();
 }
 ?>
