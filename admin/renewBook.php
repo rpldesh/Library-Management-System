@@ -57,10 +57,10 @@ $_SESSION['bookIds']=$bookIds;
                     <h1> Book Renewal Form </h1>
                     <hr/>
                     <label for="memberID"><b> Member ID </b></label><br/>
-                    <h4><?php echo $_SESSION['ID'] ?></h4></br>
+                    <h4><input type="text" value="<?php echo $_SESSION['ID'] ?>" readonly/></h4></br>
 
                     <label for="memberName"><b> Name with initials </b></label><br/>
-                    <h4><?php echo $_SESSION['Name'] ?></h4></br>
+                    <h4><input type="text" value="<?php echo $_SESSION['Name'] ?>" readonly/></h4></br>
 
                     <label for="accessionNo"><b> Accession No & Book Title </b></label><br/>
                     <h4><?php foreach ($bookIds as $value) {

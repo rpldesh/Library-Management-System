@@ -116,17 +116,19 @@ if(isset($_POST['submitID'])) {
         $_SESSION['id']=$m->id;
         $_SESSION['member_name']=$m->member_name;
         $_SESSION['member_type']=$m->member_type;
-        $max_no_borrowals=null;
+        $max_no=null;
+
         if($m->member_type=="Academic Staff"){
-            $max_no_borrowals=5;
+            $max_no=5;
         }
         elseif ($m->member_type=="Internal Student(2nd year)"||$m->member_type=="Internship Student"||$m->member_type=="Clerical Staff"){
-            $max_no_borrowals=3;
+            $max_no=3;
         }
         elseif($m->member_type=="Internal Student(1st year)" ||$m->member_type== "Minor Staff" ||
             $m->member_type=="Secondment Staff" ||$m->member_type== "Temporary Staff"){
-            $max_no_borrowals=2;
+            $max_no=2;
         }
+
         $sql2 = "SELECT book_id,book_title,session_status FROM book_sessions WHERE member_id='$m->id' and session_status!='returned'";
         $bs = new book_session();
         $result2 = $bs->featuredLoad($dbObj, $sql2);
@@ -162,7 +164,7 @@ if(isset($_POST['submitID'])) {
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['id']?></td>
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['member_name']?></td>
                 <td rowspan="<?php echo $numOfRows?>"> <?php echo $_SESSION['member_type']?></td>
-                <td rowspan="<?php echo $numOfRows?>"> <?php echo $max_no_borrowals?></td>
+                <td rowspan="<?php echo $numOfRows?>"> <?php echo $max_no?></td>
             <?php
             for($i=0;$i<$numOfRows;$i++){?>
 

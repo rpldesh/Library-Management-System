@@ -28,7 +28,7 @@ if(isset($_POST['Issue'])) {
         $result = $book_session1->featuredLoad($dbObj, $sql);
         $newId = mysqli_num_rows($result) + 1;
         $date_of_borrowal=date("Y-m-d");
-        $data = array("id" => $newId, "book_id" => $book_id, "member_id" => $_SESSION['id'], "book_title" => $_SESSION['title'], "date_of_borrowal" =>$date_of_borrowal, "date_to_be_returned" => $date_to_be_returned,
+        $data = array("id" => $newId, "book_id" => $book_id, "member_id" => $_SESSION['id'], "book_title" => $_SESSION['title'], "category_no" => $_SESSION['category_no'],"date_of_borrowal" =>$date_of_borrowal, "date_to_be_returned" => $date_to_be_returned,
             "session_status" => "Pending");
         $book_session1->bind($data);
         $book_session1->insert($dbObj);
