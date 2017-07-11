@@ -52,16 +52,14 @@
             $user_name = $_POST['uname'];
             $password = $_POST['Psw'];
             $enPass = md5("$password");
-            $sql = "SELECT * FROM logins WHERE id= '$user_name' AND password='$enPass' ";
             $login = new login();
-            $result = $login->featuredLoad($dbObj, $sql);
-            $numOfRows = mysqli_num_rows($result);
-            $last_login_date=date('Y-m-d');
-            echo $last_login_date;
+            $result = $login->load($dbObj,$user_name);
+            $numOfRows = mysqli_num_rows($dbObj->getResult());
+
+            $lst_login_date=date('Y-m-d');
             if ($numOfRows == 1) {
                 header("Location:member/Member Page.php");
-                $login->last_login_date="$last_login_date";
-                echo $last_login_date;
+                $login->last_login_date=$lst_login_date;
                 $login->update($dbObj);
                 $_SESSION['id'] = $user_name;
             } else {
@@ -69,7 +67,6 @@
             }
         }
     }
-    $dbObj->closeConnection();
     ?>
 	
 	

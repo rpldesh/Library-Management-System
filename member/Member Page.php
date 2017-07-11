@@ -37,7 +37,7 @@
         $name=mysqli_fetch_row($result)[0];
 
     if(!empty($_SESSION['id'])){
-            echo " Welcome to Siyana National College of Education Library Page ".$name."...!!!";
+            echo " Welcome to Siyane National College of Education Library Page ".$name."...!!!";
         }
     ?>
     <div class="linkbox" id="myProfile"><span><strong>My Profile</strong><br /><br /></span>
