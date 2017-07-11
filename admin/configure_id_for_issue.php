@@ -4,6 +4,9 @@
 <head>
     <title>ID configuration for issue</title>
     <link rel = "stylesheet" href ="css/configure_id.css"/>
+    <style>
+        div.alert{display:none ;}
+    </style>
 </head>
 <body>
 <header>
@@ -68,6 +71,7 @@ include("../member.php");
 include("../book_session.php");
 $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
+$message='';
 SESSION_start();
 if(isset($_POST['submitID'])) {
     $m = new member();
@@ -79,6 +83,9 @@ if(isset($_POST['submitID'])) {
     <head>
         <title>Member Details and Previous Records</title>
         <link rel = "stylesheet" href="css/issuePage.css"/>
+        <style>
+            div.alert{display:none ;}
+        </style>
     </head>
     <body>
     <header>
@@ -106,9 +113,14 @@ if(isset($_POST['submitID'])) {
 
 
     <?php
-    if(!$result){?>
+    if(!$result){
+        $message="Member does not exist..Incorrect Member ID!!";?>
 
-        <div class = "MessageBox"><?php echo "Member does not exist..Incorrect Member ID!!" ?><a href="configure_id_for_issue.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="configure_id_for_issue.php">&times;</a></strong></span>
+            <?php  echo $message;?>
+
+        </div>
     <?php   }
 
 

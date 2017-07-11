@@ -123,3 +123,28 @@ caption{font-family:Arial;
     font-weight:bolder;
     color: floralwhite;
     background:black }
+
+div.alert {
+    z-index:70;
+    position:relative;
+    display:inline-block;
+    transform:translate(0,0px);
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+span.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+span.closebtn:hover {
+    color: black;
+}

@@ -60,11 +60,11 @@
             $lst_login_date=date('Y-m-d');
 
             if ($numOfRows == 1 && $login->password==$enPass) {
-
-                header("Location:member/Member Page.php");
+                session_start();
                 $login->last_login_date=$lst_login_date;
                 $login->update($dbObj);
                 $_SESSION['id'] =$user_name;
+                header("Location:member/Member Page.php");
             } else {
                 $msg= "Your Username or Password is invalid";
             }

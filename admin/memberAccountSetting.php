@@ -94,7 +94,6 @@ $result = $m->load($dbObj, $_SESSION['id']);
                     <td ><div id="div_mType"> <?php echo $_SESSION['type']?> </div><br />
                         <button id="b3" onclick="show('three')">Edit</button>
                         <br />
-                       <!-- -->
                        <form class="change_form" id="three" method="post" action=""  autocomplete="off">
 
                             <select id="membertype" name="m_type" id="mm_type"><br />

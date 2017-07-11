@@ -26,16 +26,14 @@
 </header>
 
 <div>
-    <form action="ViewCatalog.php" method="post">
+    <form action="AdminPreviousRecords.php" method="post">
         <div class="searchbar">
             <input class="searchtext"  type="search" name="Search" placeholder="Search..">
             <button class="submit_3" type="submit" name="search">Search</button>
         </div>
         <div class="option">
-            <input class="radioBtn" type="radio" name="searchOption" value="author" required/>Search by Author
-            <input class="radioBtn" type="radio" name="searchOption" value="title" required/>Search by Title<br/>
-            <input class="radioBtn" type="radio" name="searchOption" value="isbn" required/>Search by ISBN<br/>
-
+            <input class="radioBtn" type="radio" name="searchOption" value="id" required/>Search by ID
+            <input class="radioBtn" type="radio" name="searchOption" value="book_title" required/>Search by Title<br/>
         </div>
     </form>
 
@@ -49,11 +47,45 @@ include("../book_session.php");
 $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
 
-$bk_sess = new book_session();
-$sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = 1 ";
+/*Getting data for Paging*/
+if(!(isset($_GET['startrow']))){
+    $startrow=0;
+}
+else {
+    $startrow = (int)$_GET['startrow'];
+}
 
-$result = $bk_sess->featuredLoad($dbObj,$sql);
-$numOfRows = mysqli_num_rows($result);
+
+if (isset($_POST['search'])) {
+
+    if(empty($_POST['Search'])){
+        header("location: AdminPreviousRecords.php");
+        exit();
+    }
+    $value = $_POST['searchOption'];
+    $bk_sess = new book_session();
+     if($value=='id'){
+         $keyword = '"'.$_POST['Search'].'"';
+         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword Limit $startrow,2";
+     }
+
+     else{
+
+         $keyword = '"%'.$_POST['Search'].'%"';
+         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword Limit $startrow,2";
+     }
+
+
+    $result = $bk_sess->featuredLoad($dbObj, $sql);
+    $numOfRows=mysqli_num_rows($result);
+}
+else{
+    $bk_sess = new book_session();
+    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Limit $startrow,2 ";
+    $result = $bk_sess->featuredLoad($dbObj,$sql);
+    $numOfRows = mysqli_num_rows($result);
+}
+
 
 
 ?>
@@ -82,6 +114,16 @@ else{ ?>
 
 
         </table>
+        <?php
+            $next=$startrow+2;
+            $prev=$startrow-2;
+                $prevlink = "AdminPreviousRecords.php?startrow=".$prev;?>
+        <?php $nxtlink = "AdminPreviousRecords.php?startrow=".$next;?>
+
+        <a class="tableNav">
+            <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
+            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+
     </div>
 <?php }?>
 </body>
