@@ -42,7 +42,7 @@ if(($_SESSION['indicator'])=='notDone') {
                 $msg = "Username already exists. Please select another username..!!";
             }
 
-            else if (date("m-d-Y") > date("m-d-Y",strtotime($addmission_date))){
+            else if (date("m-d-Y") < date("m-d-Y",strtotime($addmission_date))){
                 $msg= "Invalid Date";
             }
 
