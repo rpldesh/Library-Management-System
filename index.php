@@ -38,6 +38,7 @@
 	</form>
 
     <?php
+
         include("database.php");
         include("table.php");
         include("login.php");
@@ -55,15 +56,15 @@
             $login = new login();
             $result = $login->load($dbObj,$user_name);
             $numOfRows = mysqli_num_rows($dbObj->getResult());
-
+            session_start();
             $lst_login_date=date('Y-m-d');
 
             if ($numOfRows == 1 && $login->password==$enPass) {
+
                 header("Location:member/Member Page.php");
                 $login->last_login_date=$lst_login_date;
                 $login->update($dbObj);
-                $_SESSION['id'] = $user_name;
-                header("Location:member/Member Page.php");
+                $_SESSION['id'] =$user_name;
             } else {
                 $msg= "Your Username or Password is invalid";
             }

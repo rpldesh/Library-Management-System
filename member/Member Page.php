@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,7 @@
 </header>
 <article>
     <?php
-        session_start();
+
         include("../database.php");
         include("../table.php");
         include("../member.php");
@@ -71,7 +72,8 @@
 </body>
 </html>
 <?php
-if (isset($_GET['id']) && $_GET['id']==logout){
+if (isset($_GET['id']) && $_GET['id']=='logout'){
     $_SESSION['user']='';
+    session_destroy();
 }
 ?>
