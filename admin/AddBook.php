@@ -22,18 +22,19 @@
                 <ul>
                     <li><a href="Administration Page.php">HOME</a></li>
                     <li><a href="#">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                    <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
 </header>
+<?php if(!isset($_POST['save'])){?>
 
 <div class="addbkform">
-    <form  method="POST" action="afterAddBook.php" autocomplete="off">
+    <form  method="POST" action="" autocomplete="off">
         <div class="container">
             <h1>Book Registration Form</h1><hr />
             <label for="AccNo"><b>Accession Number</b></label><br />
-            <input id="AccNo" name="accNo" type="text" placeholder="Enter Accession Number" required autofocus/><br />
+            <input id="AccNo" name="accNo" type="text" placeholder="Enter Accession Number" value="<?php if (isset($_POST['accNo'])) echo $_POST['accNo']; ?>" required autofocus/><br />
             <label for="title"><b>Titile</b></label><br />
             <input id="title" name="title" type="text" placeholder="Enter Title" required autofocus/><br />
             <label for="bktype"><b>Book Type</b></label><br />
@@ -62,8 +63,65 @@
         </div>
     </form>
 </div>
+<?php }
+include("../database.php");
+include("../table.php");
+include("../book.php");
+$message = "";
+$dbObj = database::getInstance();
+$dbObj->connect('localhost','root','','LMS_DB');
+
+if(isset($_POST['save'])) {
+    $title = $_POST['title'];
+    $id = $_POST['accNo'];
+    $ISBN = $_POST['isbn'];
+    $author = $_POST['AutName'];
+    $category_no = $_POST['CatNo'];
+    $publisher_name = $_POST['Pubname'];
+    $published_date = $_POST['DOP'];
+    $publisher_address = $_POST['POP'];
+    $price = $_POST['Price'];
+    $no_pages = $_POST['NoOfPg'];
+    $date_added = date("Y-m-d");
+    $book_type = $_POST['Bktype'];
+    $book_status = "available";
+    $remarks = $_POST['Remarks'];
+
+    $book = new book();
+    $sql1 = "Select id FROM books WHERE id = '{$id}' LIMIT 1";
+    $result1 = $book->featuredLoad($dbObj, $sql1);
+    if (mysqli_num_rows($result1) > 0) {
+        $message = "This accession number already exists. Please enter correct accession number..!!";
+    } elseif (date("Y-m-d",strtotime($published_date)) > date("Y-m-d")) {
+        $message = "Invalid date..!";
+    } elseif ($no_pages <= 0) {
+        $message = "Invalid Number of Pages..!";
+    } elseif (is_float($price + 0) && ($price < 0)) {
+        $message = "Invalid price..!";
+    } else {
+
+        $data = array("id" => $id, "title" => $title, "author" => $author, "ISBN" => $ISBN, "category_no" => $category_no,
+            "publisher_name" => $publisher_name, "published_date" => $published_date, "publisher_address" => $publisher_address, "price" => $price,
+            "no_pages" => $no_pages, "date_added" => $date_added, "book_type" => $book_type, "book_status" => $book_status, "remarks" => $remarks);
+
+        $book->bind($data);
+        $book->insert($dbObj);
+        $message = "Book added successfully..!!";
+    }
+}
+
+$dbObj->closeConnection();
+
+?>
 
 <!--this line is for messeage box -->
+
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+    <?php  echo $message;?>
+
+</div>
+
 
 </body>
 </html>

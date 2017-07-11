@@ -77,8 +77,8 @@ echo "Table member created successfully\n";
 
 //create logins table
 $sql = "CREATE TABLE IF NOT EXISTS logins(
-    id INT NOT NULL , 
-   password VARCHAR(50) NOT NULL, 
+   id INT NOT NULL , 
+   password VARCHAR(100) NOT NULL, 
    last_login_date VARCHAR(200), 
    primary key ( id ))";
 $retval = mysqli_query(  $connection, $sql );

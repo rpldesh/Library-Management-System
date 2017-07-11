@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="Member Page.php">HOME</a></li>
-                <li id="logout" class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                <li id="logout" class="logout"><a href="../index.php">LOGOUT</a></li>
 
             </ul>
         </nav>
@@ -37,7 +37,7 @@
         $name=mysqli_fetch_row($result)[0];
 
     if(!empty($_SESSION['id'])){
-            echo " Welcome to Siyana National College of Education Library Page ".$name."...!!!";
+            echo " Welcome to Siyane National College of Education Library Page ".$name."...!!!";
         }
     ?>
     <div class="linkbox" id="myProfile"><span><strong>My Profile</strong><br /><br /></span>

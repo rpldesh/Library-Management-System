@@ -5,13 +5,16 @@
     include("../member.php");
     include ("../login.php");
     $user_id=$_SESSION['id'];
+    $message='';
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>My Profile Page</title>
 		<link rel="stylesheet" href="css/My%20profile.css"/>
-
+        <style>
+            div.alert{display:none ;}
+        </style>
 	</head>
 	<body>
 
@@ -28,14 +31,17 @@
 	<nav>
 		<ul>
 			<li><a href="Member%20Page.php">HOME</a></li>
-			<li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+			<li class="logout"><a href="../index.php">LOGOUT</a></li>
 		</ul>
 	</nav>
 	</div>
 	</header>
 
 
-
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo $message;?>
+    </div>
 
     <div class="tab">
 
@@ -76,8 +82,8 @@
             $dbObj->connect('localhost','root','','lms_db');
 
 
-
             $CurPsw=$_POST["curPsw"];
+            $curEncriped=md5("$CurPsw");
             $NewPsw=$_POST["newPsw"];
             $ConNewPsw=$_POST["conNewPsw"];
             $login = new login();
@@ -88,17 +94,18 @@
 
 
             if($NewPsw!=$ConNewPsw){
-                echo "Your new Password and confirmed password are not matched..!!";
+                $message= "Your new Password and confirmed password are not matched..!!";
             }
+            elseif($curEncriped!=$psw){
 
-            elseif($CurPsw!=$psw){
-                echo "Your current password is incorrect..!!";
+                $message= "Your current password is incorrect..!!";
+                ?> <style>div.alert{display:inline-block;}</style><?php
 
-            }elseif($CurPsw=$psw){
+            }elseif($curEncriped==$psw){
                 $encriptedPsw=md5($NewPsw);
                 $login->password="$encriptedPsw";
                 $login->update($dbObj);
-                echo "Your password changed successfully";
+                $message=  "Your password changed successfully";
             }
         }
 
@@ -284,6 +291,10 @@
         }
     </script>
 
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo $message;?>
+    </div>
 
     </body>
     </html>
