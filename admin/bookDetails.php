@@ -259,7 +259,7 @@ $result = $b->load($dbObj, $_GET['id']);
 if(isset($_POST['save_title'])){
     $b->title=$_POST['b_title'];
     $b->update($dbObj);
-    $text='"'.$b->title.'"'?>
+    $text='"'.$b->title.'"';?>
    <script type="text/javascript"> document.getElementById("div_title").innerHTML=<?php echo $text;?>
    </script>
 
