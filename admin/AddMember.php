@@ -9,7 +9,7 @@ include("../database.php");
 include("../table.php");
 include("../member.php");
 include ("../login.php");
-$msg="";
+
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root','','lms_db');
 session_start();
