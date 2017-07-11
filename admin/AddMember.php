@@ -61,7 +61,7 @@ if(($_SESSION['indicator'])=='notDone') {
                 $login->insert($dbObj);
 
             }
-            
+
         }
 }
 

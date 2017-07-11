@@ -51,10 +51,10 @@
                 <a href="generateReport.php"><img src="images/report-icon.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="UaccSettings"><span><strong>User Account Settings</strong><br /></span>
-                <a href="########"><img src="images/useraccount.jpg" align="center"/></a></div><br />
+                <a href="configure_id_for_usersettings.php"><img src="images/useraccount.jpg" align="center"/></a></div><br />
 
             <div class="linkbox" id="AddnewAdmins"><span><strong>Add New Admin</strong><br /></span>
-                <a href="AddnewAdmins.php"><img src="images/addAdmin.jpg" align="center"/></a></div><br />
+                <a href="addNewAdminPage.php"><img src="images/addAdmin.jpg" align="center"/></a></div><br />
 
             <div class="linkbox" id="bkSettings"><span><strong>Change Book Details</strong><br /></span>
                 <a href="########"><img src="images/BkSettings.jpg" align="center"/></a></div><br />

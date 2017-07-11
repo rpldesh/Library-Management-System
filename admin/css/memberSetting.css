@@ -1,0 +1,162 @@
+body{
+    background-color:#DCDCDC;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:10px 280px ;
+    height:100%;
+    z-index:1;
+    background-image:url("../images/library-1.jpg") ;
+    position:relative;
+
+}
+div.logo_name{color:white;}
+
+
+img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
+
+header{padding:5px;  background: linear-gradient(
+        to left,
+        rgba(73,4,4, 0),
+        rgba(73,4,4, 100)),url(../images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
+}
+
+
+h1,label{font-family:Arial,Sans-serif;}
+
+
+form.change_form{
+    padding:5px; display:none;width:100%;height:150px; border-radius:10px; background-color:rgba(222,221,202,1); transition:height ;
+    color:grey;}
+
+
+input,textarea,select{
+    background-color:rgba(222,221,202,1);
+    border-radius:5px; box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 6px rgba(69,69,69,0.6);
+    width:100%; padding:12px 20px; margin:8px 0; display:inline-block; border:1px solid #ccc; box-sizing:border-box;}
+button{ border-radius:5px; background-color:darkslategray; color:white; padding:5px 5px; margin:8px 0; border:none; cursor: pointer; width:20%;transform: translate(400px,0);}
+button:hover{opacity:0.6;}
+button.returnBTN:hover{opacity:0.6;}
+
+button.cancelBtn{width:20%;transform: translate(250px,0) ;background-color:#B2B388 ;}
+button.saveBtn{width:30%;transform: translate(250px,0) ; background-color:darkslategray;}
+
+
+div.container{padding:16px;}
+
+input:focus,textarea:focus,select:hover{background-color:white;}
+
+nav{
+    padding:20px 0;
+    min-width:500px;}
+nav ul{
+    margin-left:7px;
+    margin-right:1px;
+    padding-bottom:8px;
+    padding-top:8px;
+    width:93%;
+    display:inline-table;
+    transform:translate(10px,20px);
+    z-index:33;
+    background:linear-gradient(90deg,rgba(255,255,255,0)0%,rgba(255,255,255,0.2)25%,rgba(255,255,255,0.2)75%,rgba(255,255,255,0)100%);
+    box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);}
+li.logout{float:right;}
+nav ul li{display:inline-block;}
+nav ul li a{padding:10px;
+    color:white;
+    font-size:18px;
+    font-family:Arial;
+    text-decoration:none;
+}
+nav ul li a:hover{color:orange;}
+
+/* bellow 2 class selectors are for message box*/
+div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display:inline-block; padding: 10px; padding-top:100px;
+    background:linear-gradient(0deg,rgba(188,189,146,1),rgba(204,206,154,1),rgba(178,179,136,1));
+    border-radius:10px; margin:10px 0;width:500px; transform:translate(-450px,50px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6),inset 0 0 1px rgba(255,255,255,0.6);
+    position:fixed; height:100px; z-index:30;}
+
+img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}
+/*button.closeicon{width:50px; height:50px; border-radius:50%;}*/
+
+table {
+    background: #f5f5f5;
+    border-collapse: separate;
+    box-shadow: inset 0 1px 0 #fff;
+    font-size: 12px;
+    line-height: 24px;
+    margin: 30px auto;
+    text-align: left;
+    width: 800px;
+}
+
+th {
+    background: linear-gradient(#777, #444);
+    border-left: 1px solid #555;
+    border-right: 1px solid #777;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #333;
+    box-shadow: inset 0 1px 0 #999;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    position: relative;
+    text-shadow: 0 1px 0 #000;
+    width:100px;
+}
+
+
+
+td {
+    border-right: 1px solid #fff;
+    border-left: 1px solid #e8e8e8;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 300ms;
+    width:300px;
+}
+
+
+
+
+tr:nth-child(odd) td {
+    background: #f1f1f1 url(https://jackrugile.com/images/misc/noise-diagonal.png);
+}
+
+
+caption{font-family:Arial;
+    font-size:30px;
+    font-weight:bolder;
+    color: floralwhite;
+    background:black }
+
+
+
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    align: center;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
