@@ -17,7 +17,7 @@
 	<nav>
 		<ul class="navbar">
 			<li><a href="#">HOME</a></li>
-			<li class="adminprof"><a href="#">ADMIN PROFILE</a></li>
+			<li class="adminprof"><a href="admin/Admin%20Login.php">ADMIN LOGIN</a></li>
 		</ul>
 	</nav>
 	</div>
@@ -38,8 +38,6 @@
 	</form>
 
     <?php
-
-        session_start();
         include("database.php");
         include("table.php");
         include("login.php");
@@ -59,11 +57,13 @@
             $numOfRows = mysqli_num_rows($dbObj->getResult());
 
             $lst_login_date=date('Y-m-d');
+
             if ($numOfRows == 1 && $login->password==$enPass) {
                 header("Location:member/Member Page.php");
                 $login->last_login_date=$lst_login_date;
                 $login->update($dbObj);
                 $_SESSION['id'] = $user_name;
+                header("Location:member/Member Page.php");
             } else {
                 $msg= "Your Username or Password is invalid";
             }

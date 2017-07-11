@@ -24,6 +24,7 @@ if(isset($_POST["generate"])){
     $finishDate = $finishDate->modify( '+1 day' );
 
     $pdf = new FPDF();
+    $bs = new book_session();
     $pdf->AddPage();
     $topic = "Daily Circulation Report ( ".date_format($startDate,'Y-m-d')." - ".($_POST["finishDate"])." ) ";
     $cat=array("000-099","100-199","200-299","300-399","400-499","500-599","600-699","700-799","800-899","900-999");
@@ -44,23 +45,14 @@ if(isset($_POST["generate"])){
         $pdf->Cell(35,10,$date,1,0);
         $count=0;
         for ($i=0;$i<10;$i++){
-            $bs = new book_session();
             $sql = "Select book_title from book_sessions where date_of_borrowal = '$date' and category_no like '$i%'";
             $result = $bs->featuredLoad($dbObj,$sql);
             $numOfRows = mysqli_num_rows($result);
             $count+=$numOfRows;
             $pdf->Cell(14,10,$numOfRows,1,0,"C");
-                /*if($numOfRows==0){
-                    continue;
-                }else {
-                    for ($j = 0; $j < $numOfRows; $j++) {
-                        foreach (mysqli_fetch_assoc($result) as $key => $value) {
-                            echo $value . "<br />";
-                        }
-                    }
-                }*/
             }$pdf->Cell(15,10,$count,1,1,"C");
     }$pdf->Output();
+    $dbObj->closeConnection();
 }
 
 
