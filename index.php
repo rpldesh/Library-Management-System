@@ -17,7 +17,7 @@
 	<nav>
 		<ul class="navbar">
 			<li><a href="#">HOME</a></li>
-			<li class="adminprof"><a href="#">ADMIN PROFILE</a></li>
+			<li class="adminprof"><a href="admin/Admin%20Login.php">ADMIN LOGIN</a></li>
 		</ul>
 	</nav>
 	</div>
@@ -27,6 +27,7 @@
         <h2 align="center">User Login</h2>
 		<div class="imgcontainer"><img src="Images/login-bg.png" alt="" class="loginimge"/></div>
 		<div class="container">
+            <span class="warningMsg"><?php $msg;?></span>
 		<label for="user"><b>Username</b></label><br />
 		<input id="user" name="uname" type="text" placeholder="Enter Username" value="<?php if (isset($_POST['uname'])) echo $_POST['uname']; ?>" required autofocus/><br />
 		<label for="psw"><b>Password</b></label><br />
@@ -37,39 +38,37 @@
 	</form>
 
     <?php
-
-        session_start();
         include("database.php");
         include("table.php");
         include("login.php");
         $dbObj=database::getInstance();
         $dbObj->connect('localhost','root','','lms_db');
+        $msg='';
 
     if(isset($_POST["SubmitBotton"])) {
         if (empty($_POST['uname']) || empty($_POST['Psw'])) {
-            echo "Username or password is invalid";
+            $msg= "Username or password is invalid";
         } else {
             $user_name = $_POST['uname'];
             $password = $_POST['Psw'];
             $enPass = md5("$password");
-            $sql = "SELECT * FROM logins WHERE id= '$user_name' AND password='$enPass' ";
             $login = new login();
-            $result = $login->featuredLoad($dbObj, $sql);
-            $numOfRows = mysqli_num_rows($result);
-            $last_login_date=date('Y-m-d');
-            echo $last_login_date;
-            if ($numOfRows == 1) {
+            $result = $login->load($dbObj,$user_name);
+            $numOfRows = mysqli_num_rows($dbObj->getResult());
+
+            $lst_login_date=date('Y-m-d');
+
+            if ($numOfRows == 1 && $login->password==$enPass) {
                 header("Location:member/Member Page.php");
-                $login->last_login_date="$last_login_date";
-                echo $last_login_date;
+                $login->last_login_date=$lst_login_date;
                 $login->update($dbObj);
                 $_SESSION['id'] = $user_name;
+                header("Location:member/Member Page.php");
             } else {
-                echo "Your Username or Password is invalid";
+                $msg= "Your Username or Password is invalid";
             }
         }
     }
-    $dbObj->closeConnection();
     ?>
 	
 	

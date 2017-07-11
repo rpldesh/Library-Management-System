@@ -46,7 +46,7 @@ $result = $b->load($dbObj, $_GET['id']);
             <ul>
                 <li><a href="Administration%20Page.php">HOME</a></li>
                 <li><a href="#">ADMIN PROFILE</a></li>
-                <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                <li class="logout"><a href="../index.php">LOGOUT</a></li>
             </ul>
         </nav>
     </div>
@@ -259,7 +259,7 @@ $result = $b->load($dbObj, $_GET['id']);
 if(isset($_POST['save_title'])){
     $b->title=$_POST['b_title'];
     $b->update($dbObj);
-    $text='"'.$b->title.'"'?>
+    $text='"'.$b->title.'"';?>
    <script type="text/javascript"> document.getElementById("div_title").innerHTML=<?php echo $text;?>
    </script>
 

@@ -8,6 +8,7 @@
 include("../database.php");
 include("../table.php");
 include("../member.php");
+include ("../login.php");
 
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root','','lms_db');
@@ -35,11 +36,13 @@ if(($_SESSION['indicator'])=='notDone') {
             $member_status="active";
             $tempmember = new member();
             $result1 = $tempmember->load($dbObj, $id);
+            $defaltPsw=$_POST['memberID'];
+            $encDefPsw=md5("$defaltPsw");
             if ($result1) {
                 $msg = "Username already exists. Please select another username..!!";
             }
 
-            else if (date("m-d-Y") < date("m-d-Y",strtotime($addmission_date))){
+            else if (date("m-d-Y") > date("m-d-Y",strtotime($addmission_date))){
                 $msg= "Invalid Date";
             }
 
@@ -49,9 +52,13 @@ if(($_SESSION['indicator'])=='notDone') {
             }
             else{
                 $member = new member();
+                $login = new login();
+                $logindata=array("id"=>$id, "password"=>$encDefPsw);
                 $data = array("id" => $id, "member_name" => $member_name, "member_fullname" => $member_fullname, "member_type" => $member_type, "join_date" => $join_date, "addmission_date" => $addmission_date, "permanent_address" => $permanent_address, "current_address" => $current_address, "member_email" => $member_email, "contact_no" => $contact_no, "member_status" => $member_status);
                 $member->bind($data);
+                $login->bind($logindata);
                 $member->insert($dbObj);
+                $login->insert($dbObj);
 
             }
 
@@ -84,17 +91,17 @@ if(($_SESSION['indicator'])=='notDone') {
 
         </div>
     </div>
-    <article class="backgroundimage">
+
 
         <div class="bgimage">
             <nav>
                 <ul>
                     <li><a href="Administration%20Page.php">HOME</a></li>
-                    <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                    <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
-    </article>
+
 </header>
 
 <div class="addbkform">
@@ -141,7 +148,6 @@ if(($_SESSION['indicator'])=='notDone') {
     <?php } ?>
     <?php echo $msg ?><span class="closebtn"> <a href="AddMember.php"> <button type="button">Close</button> </a> </span></div>
 
-</article>
 </body>
 </html>
 

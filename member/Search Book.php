@@ -21,7 +21,7 @@
         <nav>
             <ul>
                 <li><a href="Member%20Page.php">HOME</a></li>
-                <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 <li class="backtoSrch"><a href="Search%20Book.php">Back to Search</a></li>
             </ul>
         </nav>

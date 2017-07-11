@@ -4,14 +4,25 @@
     include("../table.php");
     include("../member.php");
     include ("../login.php");
+    $dbObj=database::getInstance();
+    $dbObj->connect('localhost','root','','lms_db');
+
     $user_id=$_SESSION['id'];
+    $message='';
+    $login = new login();
+    $login->load($dbObj,$user_id);
+    $m=new member();
+    $m->load($dbObj,$user_id);
+
 ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>My Profile Page</title>
 		<link rel="stylesheet" href="css/My%20profile.css"/>
-
+        <style>
+            div.alert{display:none ;}
+        </style>
 	</head>
 	<body>
 
@@ -28,14 +39,17 @@
 	<nav>
 		<ul>
 			<li><a href="Member%20Page.php">HOME</a></li>
-			<li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+			<li class="logout"><a href="../index.php">LOGOUT</a></li>
 		</ul>
 	</nav>
 	</div>
 	</header>
 
 
-
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo $message;?>
+    </div>
 
     <div class="tab">
 
@@ -71,34 +85,28 @@
 
         $psw="";
         if (isset($_POST["savePsw"])) {
-
-            $dbObj=database::getInstance();
-            $dbObj->connect('localhost','root','','lms_db');
-
-
-
             $CurPsw=$_POST["curPsw"];
+            $curEncriped=md5("$CurPsw");
             $NewPsw=$_POST["newPsw"];
             $ConNewPsw=$_POST["conNewPsw"];
-            $login = new login();
             $sql = "Select password from logins where id = '$user_id' ";
-            $login->load($dbObj,$user_id);
             $result = $login->featuredLoad($dbObj,$sql);
             $psw=mysqli_fetch_row($result)[0];
 
 
             if($NewPsw!=$ConNewPsw){
-                echo "Your new Password and confirmed password are not matched..!!";
+                $message= "Your new Password and confirmed password are not matched..!!";
             }
+            elseif($curEncriped!=$psw){
 
-            elseif($CurPsw!=$psw){
-                echo "Your current password is incorrect..!!";
+                $message= "Your current password is incorrect..!!";
+                ?> <style>div.alert{display:inline-block;}</style><?php
 
-            }elseif($CurPsw=$psw){
+            }elseif($curEncriped==$psw){
                 $encriptedPsw=md5($NewPsw);
                 $login->password="$encriptedPsw";
                 $login->update($dbObj);
-                echo "Your password changed successfully";
+                $message=  "Your password changed successfully";
             }
         }
 
@@ -111,12 +119,8 @@
 
     <div id="E-mail" class="tabcontent">
         <?php
-        $dbObj=database::getInstance();
-        $dbObj->connect('localhost','root','','lms_db');
         $emal="";
-        $m=new member();
         $sql= "Select member_email from members where id = '$user_id' ";
-        $m->load($dbObj,$user_id);
         $emailresult= $m->featuredLoad($dbObj,$sql);
         $email = mysqli_fetch_row($emailresult)[0];
         ?>
@@ -146,8 +150,6 @@
     <div id="Address" class="tabcontent">
 
         <?php
-        $dbObj=database::getInstance();
-        $dbObj->connect('localhost','root','','lms_db');
         $address="";
         $sql= "Select permanent_address from members where id = '$user_id' ";
         $add= $m->featuredLoad($dbObj,$sql);
@@ -178,8 +180,6 @@
     <div id="TP" class="tabcontent">
 
         <?php
-        $dbObj=database::getInstance();
-        $dbObj->connect('localhost','root','','lms_db');
         $tel="";
         $sql= "Select contact_no from members where id = '$user_id' ";
         $tp= $m->featuredLoad($dbObj,$sql);
@@ -207,19 +207,6 @@
 
     </div>
 
-    <?php
-
-
-    $dbObj= database::getInstance();
-    $dbObj->connect('localhost','root','','lms_db');
-   /* session_start();*/
-    /*$member_id = $_SESSION['id'];*/
-    $m= new member();
-    $m->load($dbObj, $user_id);
-
-    /*$sql = "Select id,member_name,member_fullname,member_type,join_date,addmission_date,permanent_address,current_address,member_email,contact_no from members where id = 1 ";
-    $result = $m->featuredLoad($dbObj,$sql);*/
-    ?>
     <div id="tableMyProf" class="tabcontent">
 			<table class =MyprofTable">
 				<th align="center" class ="tableCaption" colspan="2"><h1>My Profile Details</h1> </th>
@@ -284,11 +271,17 @@
         }
     </script>
 
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo $message;?>
+    </div>
 
     </body>
     </html>
 
-
+<?php
+ $dbObj->closeConnection();
+?>
 
 
 
