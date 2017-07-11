@@ -193,8 +193,6 @@ else if(isset($_POST['save_add_date'])){
     $m->join_date=$_POST['m_addmision_date'];
     $_SESSION['adddate']=$_POST['m_addmision_date'];
     $m->update($dbObj);
-
-
 }
 
 
