@@ -57,7 +57,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
                 </tr>
                 <tr>
                     <th>Name with initials</th>
-                    <td><?php $_SESSION['name']?><br />
+                    <td><?php echo $_SESSION['name']?><br />
                         <button id="b1" type='submit' onclick="show('one')">Edit</button>
                         <br />
 
