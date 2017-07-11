@@ -20,7 +20,7 @@
             <nav>
                 <ul>
                     <li><a href="Administration Page.php">HOME</a></li>
-                    <li class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                    <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>

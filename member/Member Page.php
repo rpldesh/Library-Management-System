@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="Member Page.php">HOME</a></li>
-                <li id="logout" class="logout"><a href="../mainpage.php">LOGOUT</a></li>
+                <li id="logout" class="logout"><a href="../index.php">LOGOUT</a></li>
 
             </ul>
         </nav>
