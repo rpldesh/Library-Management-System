@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,13 +25,14 @@
 </header>
 <article>
     <?php
-        session_start();
+
         include("../database.php");
         include("../table.php");
         include("../member.php");
         $dbObj=database::getInstance();
         $dbObj->connect('localhost','root','','lms_db');
         $m=new member();
+
         $mem_id=$_SESSION['id'];
         $sql= "Select member_name from members where id ='$mem_id' ";
         $result=$m->featuredLoad($dbObj,$sql);

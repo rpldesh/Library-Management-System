@@ -24,15 +24,17 @@
 </header>
 
 <?php
+    session_start();
     include("../database.php");
     include("../table.php");
     include("../book.php");
     include("../book_session.php");
     $dbObj=database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
+    $user_id=$_SESSION['id'];
 
     $bk_sess = new book_session();
-    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = 1 ";
+    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id ";
 
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
