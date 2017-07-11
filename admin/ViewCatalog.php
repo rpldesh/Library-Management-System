@@ -130,7 +130,7 @@ $len= mysqli_num_rows($result);
                         <tr>
                         <?php foreach (mysqli_fetch_assoc($result) as $key=>$value) {
                             if($key=="id"){
-                                $link= '"bookDetails.php?=id'.$value.'"'?><?php }?>
+                                $link= '"bookDetails.php?id='.$value.'"'?><?php }?>
 
                             <td><a href=<?php echo $link?>><?php echo $value ?></a></td>
                             <?php } ?>
@@ -141,11 +141,13 @@ $len= mysqli_num_rows($result);
                 $next=$startrow+2;
                 $prev=$startrow-2;?>
         </table>
-        <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
         <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
+        <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
+
         <a class="tableNav">
-            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
             <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
+            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+
         </div>
     </div>
 

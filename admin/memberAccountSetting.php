@@ -196,6 +196,6 @@ else if(isset($_POST['save_add_date'])){
 
 
 }
-header("Refresh:0")
+
 
 ?>
