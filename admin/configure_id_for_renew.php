@@ -109,7 +109,11 @@ if (isset($_POST["submitID"])){
 
     <?php if(!$loadResult){
         $message="Member does not exist..!!";?>
-        <div class = "MessageBox"><?php echo "Member does not exist..Incorrect Member ID!!" ?><a href="configure_id_for_renew.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+            <?php  echo $message;?>
+
+        </div>
     <?php }
     else {
         $sql = "Select book_id,book_title,date_of_borrowal,date_to_be_returned,session_status from book_sessions where member_id = '$member->id' and session_status != 'returned'";
