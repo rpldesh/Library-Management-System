@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ID configuration for Returning</title>
+    <title>Generate Book Circulation Report</title>
     <link rel = "stylesheet" href ="css/config_if_for_return.css"/>
 </head>
 <body>
@@ -23,12 +23,12 @@
             if(dateEntry.startDate.value > dateEntry.finishDate.value){
                 missingField=true;
                 strFields+="Please select valid time duration to generate the report.";
+                return false;
             }
             if(missingField){
                 alert("Invalid starting and finishing dates.\n"+strFields);
                 return false;
-            }
-            else {
+            }else{
                 return true;
             }
         }
@@ -71,4 +71,6 @@
 
 </body>
 </html>
+
+
 

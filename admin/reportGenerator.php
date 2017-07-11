@@ -6,8 +6,8 @@
  * Time: 12:59 PM
  */
 
-$startDate="2017.07.01";
-$finishDate="2017.07.21";
+$startDate="";
+$finishDate="";
 
 if(isset($_POST["generate"])){
     include("../database.php");
@@ -28,25 +28,27 @@ if(isset($_POST["generate"])){
     $cat=array("000-099","100-199","200-299","300-399","400-499","500-599","600-699","700-799","800-899","900-999");
     $pdf->SetFont("Arial","B",16);
     $pdf->Cell(190,20,$topic,1,1,"C",0,0);
-    $pdf->Cell(40,20,"Date",1,0,"C");
-    $pdf->Cell(150,10,"Category No.",1,1,"C");
-    $pdf->Cell(40,10,"",0,0);
-    $pdf->SetFont("Arial","",11);
+    $pdf->Cell(35,20,"Date",1,0,"C");
+    $pdf->Cell(155,10,"Category No.",1,1,"C");
+    $pdf->Cell(35,10,"",0,0);
+    $pdf->SetFont("Arial","",10);
     for($i=0;$i<10;$i++){
-        $pdf->Cell(15,10,$cat[$i],1,0,"C");
+        $pdf->Cell(14,10,$cat[$i],1,0,"C");
     }
-    $pdf->Ln();
+    $pdf->Cell(15,10,"Total",1,1,"C");
     $interval = DateInterval::createFromDateString('1 day');
     $period =new DatePeriod($startDate,$interval,$finishDate);
     foreach ($period as $dt){
         $date = $dt->format("Y-m-d");
-        $pdf->Cell(40,10,$date,1,0);
+        $pdf->Cell(35,10,$date,1,0);
+        $count=0;
         for ($i=0;$i<10;$i++){
             $bs = new book_session();
             $sql = "Select book_title from book_sessions where date_of_borrowal = '$date' and category_no like '$i%'";
             $result = $bs->featuredLoad($dbObj,$sql);
             $numOfRows = mysqli_num_rows($result);
-            $pdf->Cell(15,10,$numOfRows,1,0,"C");
+            $count+=$numOfRows;
+            $pdf->Cell(14,10,$numOfRows,1,0,"C");
                 /*if($numOfRows==0){
                     continue;
                 }else {
@@ -56,7 +58,7 @@ if(isset($_POST["generate"])){
                         }
                     }
                 }*/
-            }$pdf->Ln();
+            }$pdf->Cell(15,10,$count,1,1,"C");
     }$pdf->Output();
 }
 
