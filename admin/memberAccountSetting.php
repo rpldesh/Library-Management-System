@@ -2,8 +2,7 @@
 include("../database.php");
 include("../table.php");
 include("../member.php");
-include("../book.php");
-include("../book_session.php");
+include("../login.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
 session_start();
@@ -153,12 +152,27 @@ $result = $m->load($dbObj, $_SESSION['id']);
                     </td>
 
                 </tr>
-
+                <tr>
+                    <th>Reset Password</th>
+                    <td>
+                    <form method="post" action="">
+                        <button name="clearPsw" type="submit">Clear Password</button>
+                    </form>
+                    </td>
+            </tr>
             </table>
+
 
 </body>
 </html>
 <?php
+if(isset($_POST['clearPsw'])){
+    $login=new login();
+    $login->load($dbObj,$_SESSION['id']);
+    $defPsw=$_SESSION['id'];
+    $login->password=md5(" $defPsw");
+    $login->update($dbObj);
+}
 if(isset($_POST['save_name'])){
     $m->member_name=$_POST['m_name'];
     $_SESSION['name']=$_POST['m_name'];
@@ -213,10 +227,10 @@ else if(isset($_POST['save_status'])){
 <?php }
 
 else if(isset($_POST['save_add_date'])){
-    $m->join_date=$_POST['m_addmision_date'];
+    $m->addmission_date=$_POST['m_addmision_date'];
     $_SESSION['adddate']=$_POST['m_addmision_date'];
     $m->update($dbObj);
-    $text='"'.$m->join_date.'"';
+    $text='"'.$m->addmission_date.'"';
     ?>
     <script type="text/javascript"> document.getElementById("div_DOA").innerHTML=<?php echo $text;?></script>
 

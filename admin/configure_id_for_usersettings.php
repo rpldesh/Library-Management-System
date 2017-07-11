@@ -86,7 +86,7 @@ if(isset($_POST['submitID'])) {
     $_SESSION['fname'] = $m->member_fullname;
     $_SESSION['type'] = $m->member_type;
     $_SESSION['status'] = $m->member_status;
-    $_SESSION['adddate'] = $m->join_date;
+    $_SESSION['adddate'] = $m->addmission_date;
     header("Location:memberAccountSetting.php");}
 
 }
