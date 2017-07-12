@@ -59,6 +59,7 @@ if (isset($_POST["submitID"])){
     include("../table.php");
     include("../member.php");
     include("../book_session.php");
+    include ("calculateFine.php");
     $dbObj=database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
 
@@ -136,14 +137,9 @@ if (isset($_POST["submitID"])){
                         ?><td><?php echo ($i+1)."." ?></td><?php
                         foreach (mysqli_fetch_assoc($result) as $key=>$value) {
                             if($key == 'date_to_be_returned') {
-                                //$return_date = strtotime($value);
                                 if (date("Y-m-d") > date("Y-m-d", strtotime($value))) {
-                                    //$count = $count+1;
-                                    $start = strtotime($value);
-                                    $end = time();
-                                    $noOfDays = ceil(abs($end - $start) / 86400);
-                                    $fine = $noOfDays -2;
-                                    ?><td><p style="color: red"><?php echo $value ."    Expired"."</br>"."Fine : "."Rs.".$fine.".00" ?></p></td><?php
+                                    $fine = calculateFine($value);
+                                    ?><td><p style="color: red"><?php echo $value ."    Expired"."</br>"."Fine : ". $fine ?></p></td><?php
                                 }if (date("Y-m-d") <= date("Y-m-d", strtotime($value))) {
                                     ?><td><?php echo $value ."    Not Expired" ?></td><?php
                                 }
