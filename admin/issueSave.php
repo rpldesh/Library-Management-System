@@ -16,9 +16,22 @@ if(isset($_POST['Issue'])) {
     $date_to_be_returned = $_POST['DoR'];
 
     if ($book1->book_status != "available" || $book1->book_type!="Borrowable") {
-        $message = "Sorry...!!This book is not allowed to borrow";
+        $message = "Sorry...!!This book is not allowed to borrow";?>
+
+    <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueBook.php">&times;</a></span>
+    <?php echo $message;?>
+
+</div>
+<?php
     } elseif (date("m-d-Y") >= date("m-d-Y", strtotime($date_to_be_returned))) {
         $message = "Date to be returned is invalid";
+        ?>
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueBook.php">&times;</a></span>
+    <?php echo $message;?>
+
+</div><?php
     } else {
         $book1->book_status = "issued";
         $book1->update($dbObj);
@@ -32,7 +45,13 @@ if(isset($_POST['Issue'])) {
             "session_status" => "Pending");
         $book_session1->bind($data);
         $book_session1->insert($dbObj);
-        $message = "Issued Successfully";
+        $message = "Issued Successfully";?>
+    <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueBook.php">&times;</a></span>
+    <?php echo $message;?>
+
+    </div>
+<?php
 
     }
 }
@@ -61,17 +80,14 @@ $dbObj->closeConnection();
             <nav>
                 <ul>
                     <li><a href="Administration Page.php">HOME</a></li>
-                    <li><a href="#">ADMIN PROFILE</a></li>
+                    <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
                     <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
 </header>
 
-<div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueSave.php">&times;</a></span>
-    <?php echo $message;?>
-</div>
+
 
 </article>
 

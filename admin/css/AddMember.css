@@ -71,10 +71,36 @@ nav ul li a:hover{color:orange;}
 
 
 /* bellow 2 class selectors are for message box*/
-div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display:inline-block; padding: 10px; padding-top:100px;
+/*div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display:inline-block; padding: 10px; padding-top:100px;
     background:linear-gradient(0deg,rgba(188,189,146,1),rgba(204,206,154,1),rgba(178,179,136,1));
     border-radius:10px; margin:10px 0;width:500px; transform:translate(450px,50px);
     box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);
     position:fixed; height:100px; z-index:30;}
 
-img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}
+img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}*/
+
+
+div.alert {
+    z-index:70;
+    position:absolute;
+    display:inline-block;
+    transform:translate(100px,10px);
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+span.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+span.closebtn:hover {
+    color: black;
+}

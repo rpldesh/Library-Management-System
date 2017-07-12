@@ -94,3 +94,9 @@ div.stretch{padding:5px; overflow:hidden; width:200px; height:50px; border-radiu
 i.TPnumber{color:grey;}
 p.hidden{visibility:hidden;}
 div.stretch:hover{ color:black;height:250px;background-color:rgba(222,221,202,1);}
+
+p.WelMsg{float: right; position: relative}
+div.head_top{float: left; position: relative}
+
+a.sncoelink{text-decoration: none; color: ghostwhite;}
+a.sncoelink:hover{color:orange;}

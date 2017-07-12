@@ -43,7 +43,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
         <nav>
             <ul>
                 <li><a href="Administration%20Page.php?id==back">HOME</a></li>
-                <li><a href="#">ADMIN PROFILE</a></li>
+                <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
                 <li class="logout"><a href="../index.php">LOGOUT</a></li>
             </ul>
         </nav>
@@ -173,9 +173,10 @@ if(isset($_POST['clearPsw'])){
     $login=new login();
     $login->load($dbObj,$_SESSION['id']);
     $defPsw=$_SESSION['id'];
-    $login->password=md5('$defPsw');
+    $encodedpsw=md5("$defPsw");
+    $login->password=$encodedpsw;
     $login->update($dbObj);
-    $message="successfully changed. $defPsw is the new password ";?>
+    $message="successfully changed. $defPsw is the new password $encodedpsw ";?>
     <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
     <?php  echo $message;?>
@@ -238,6 +239,9 @@ else if(isset($_POST['save_status'])){
 <?php }
 
 else if(isset($_POST['save_add_date'])){
+    if(date("m-d-Y") < date("m-d-Y",strtotime($_POST['m_addmision_date']))){
+        $message= "Invalid Date";
+    }else{
     $m->addmission_date=$_POST['m_addmision_date'];
     $_SESSION['adddate']=$_POST['m_addmision_date'];
     $m->update($dbObj);
@@ -248,8 +252,9 @@ else if(isset($_POST['save_add_date'])){
     <script type="text/javascript"> document.getElementById("m_DOA").value= <?php echo $text;?>
     </script>
 
-<?php }
+<?php }}
 if(isset($_GET['id']) && $_GET['id']=='back' ){
     session_destroy();
 }
+$dbObj->closeConnection();
 ?>

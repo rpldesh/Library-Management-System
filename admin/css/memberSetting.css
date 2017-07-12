@@ -25,7 +25,7 @@ h1,label{font-family:Arial,Sans-serif;}
 
 
 form.change_form{
-    padding:5px; display:none;width:100%;height:150px; border-radius:10px; background-color:rgba(222,221,202,1); transition:height ;
+    padding:5px; display:none;width:100%;height:250px; border-radius:10px; background-color:rgba(222,221,202,1); transition:height ;
     color:grey;}
 
 
