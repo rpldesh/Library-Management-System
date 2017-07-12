@@ -4,9 +4,7 @@
 <head>
     <title>ID configuration for issue</title>
     <link rel = "stylesheet" href ="css/configure_id.css"/>
-    <style>
-        div.alert{display:none ;}
-    </style>
+
 </head>
 <body>
 <header>
@@ -83,9 +81,7 @@ if(isset($_POST['submitID'])) {
     <head>
         <title>Member Details and Previous Records</title>
         <link rel = "stylesheet" href="css/issuePage.css"/>
-        <style>
-            div.alert{display:none ;}
-        </style>
+
     </head>
     <body>
     <header>
@@ -203,8 +199,11 @@ if(isset($_POST['submitID'])) {
 
     </div>
     </article>
-    <?php } ?>
+    <?php  }
+   ?>
     </body>
     </html>
-<?php $dbObj->closeConnection();}
+<?php
+
+    $dbObj->closeConnection();}
 ?>

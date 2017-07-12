@@ -44,9 +44,7 @@ $dbObj->closeConnection();
 <head>
     <title>Save Issue</title>
     <link rel = "stylesheet" href ="css/AddBook.css"/>
-    <style>
-        div.alert{display:none ;}
-    </style>
+
 </head>
 <body>
 <header>
@@ -71,7 +69,7 @@ $dbObj->closeConnection();
 </header>
 
 <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueSave.php">&times;</a></span>
     <?php echo $message;?>
 </div>
 

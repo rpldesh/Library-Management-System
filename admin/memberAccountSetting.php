@@ -14,7 +14,9 @@ $result = $m->load($dbObj, $_SESSION['id']);
 <head>
     <title>ID configuration for changeDetails</title>
     <link rel = "stylesheet" href ="css/memberSetting.css"/>
-
+    <style>
+        div.alert{display: ;}
+    </style>
 <body>
 <header>
     <script type="text/javascript">
@@ -166,12 +168,21 @@ $result = $m->load($dbObj, $_SESSION['id']);
 </body>
 </html>
 <?php
+$message='';
 if(isset($_POST['clearPsw'])){
     $login=new login();
     $login->load($dbObj,$_SESSION['id']);
     $defPsw=$_SESSION['id'];
-    $login->password=md5(" $defPsw");
+    $login->password=md5('$defPsw');
     $login->update($dbObj);
+    $message="successfully changed. $defPsw is the new password ";?>
+    <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+    <?php  echo $message;?>
+
+    </div>
+    <?php
+
 }
 if(isset($_POST['save_name'])){
     $m->member_name=$_POST['m_name'];
