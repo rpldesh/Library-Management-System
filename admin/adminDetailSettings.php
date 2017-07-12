@@ -164,3 +164,4 @@ if(isset($_GET['id']) && $_GET['id']=='back' ){
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     <?php echo $message;?>
 </div>
+<?php $dbObj->closeConnection()?>

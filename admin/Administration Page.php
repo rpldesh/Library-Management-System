@@ -20,16 +20,25 @@
 	<nav>
 		<ul>
 
+
 			<li><a href="#">HOME</a></li>
 			<li><a href="#">Admin Profile</a></li>
 
-			<li class="logout"><a href="../index.php">LOGOUT</a></li>
+            <?php
+            if(!empty($_SESSION['username'])){ ?>
+                <li class="logout" ><a href="Admin%20Login.php?id=adminLogout" id="adminLogout">LOGOUT</a></li>
+            <?php } ?>
+
 		</ul>
 	</nav>
 	</div>
 	</header>
 		<article>
-
+            <?php
+            if(!empty($_SESSION['username'])){
+            echo " Welcome to Siyane National College of Education Library Administration Page ".$_SESSION['adminName']."...!!!";
+            }
+            ?>
 
             <div class="linkbox" id="addbook"><span><strong>Add Book</strong><br /><br /></span>
                 <a href="AddBook.php"><img src="images/addbook.png" align="center"/></a></div><br />
