@@ -23,17 +23,20 @@
     </div>
 </header>
 <?php
-
-
-include("database.php");
-include("table.php");
-include("login.php");
-include ("member.php");
-$dbObj=database::getInstance();
-$dbObj->connect('localhost','root','','lms_db');
 $msg='';
+include("database.php");
 
 if(isset($_POST["SubmitBotton"])) {
+
+
+    include("table.php");
+    include("login.php");
+    include("member.php");
+
+    $dbObj=database::getInstance();
+    $dbObj->connect('localhost','root','','lms_db');
+
+
     if (empty($_POST['uname']) || empty($_POST['Psw'])) {
         $msg= " Invalid login. Try again..!";
     } else {

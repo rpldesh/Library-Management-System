@@ -128,7 +128,7 @@ if(isset($_POST['save_name'])){
 
 
 else if(isset($_POST['save_psw'])){
-
+    $logedpsw=$_SESSION['psw'];
     $CurPsw=$_POST["curPsw"];
     $curEncriped=md5("$CurPsw");
     $NewPsw=$_POST["newPsw"];
@@ -137,13 +137,12 @@ else if(isset($_POST['save_psw'])){
     if($NewPsw!=$ConNewPsw){
         $message= "Your new Password and confirmed password do not match..!!";
     }
-    elseif($curEncriped!=$_SESSION['psw']){
-
+    elseif($curEncriped!=$logedpsw){
         $message= "Your current password is incorrect..!!";}
     elseif (strlen($NewPsw)>64 or strlen($NewPsw)<8){
         $message = "Your password must contain 8-64 characters..!!";
 
-    }elseif($curEncriped==$_SESSION['psw'] && $NewPsw==$ConNewPsw ){
+    }elseif($curEncriped==$logedpsw && $NewPsw==$ConNewPsw ){
         $encriptedPsw=md5($NewPsw);
         $uname=$_SESSION['username'];
         $sql = "Update admins set pwd= '$encriptedPsw' where username='$uname'";
