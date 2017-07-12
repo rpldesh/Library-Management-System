@@ -173,9 +173,10 @@ if(isset($_POST['clearPsw'])){
     $login=new login();
     $login->load($dbObj,$_SESSION['id']);
     $defPsw=$_SESSION['id'];
-    $login->password=md5('$defPsw');
+    $encodedpsw=md5("$defPsw");
+    $login->password=$encodedpsw;
     $login->update($dbObj);
-    $message="successfully changed. $defPsw is the new password ";?>
+    $message="successfully changed. $defPsw is the new password $encodedpsw ";?>
     <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
     <?php  echo $message;?>
@@ -252,4 +253,5 @@ else if(isset($_POST['save_add_date'])){
 if(isset($_GET['id']) && $_GET['id']=='back' ){
     session_destroy();
 }
+$dbObj->closeConnection();
 ?>
