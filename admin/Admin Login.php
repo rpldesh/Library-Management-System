@@ -48,8 +48,7 @@ if(isset($_POST["login"])) {
 <html>
 <head>
     <title>Admin Login Page</title>
-    <link rel = "stylesheet" href ="css/Administration Page.css"/>
-    <link rel = "stylesheet" href ="../css/mainpage.css"/>
+    <link rel = "stylesheet" href ="css/AddBook.css"/>
 
 </head>
 <body>
@@ -70,10 +69,10 @@ if(isset($_POST["login"])) {
     </div>
 </header>
 
-<article class="whitebg">
+
 
 <form class="loginForm" method="POST" action="Admin%20Login.php" autocomplete="off">
-    <div class="imgcontainer"><img src="Images/login-bg.png" alt="" class="loginimge"/></div>
+    <div class="imgcontainer"><img src="images/login-bg.png" alt="" class="loginimge"/></div>
     <div class="container">
         <span class="warningMsg"><?php echo $message ;?></span><br /><br />
         <label for="user"><b>Admin Username</b></label><br />
@@ -85,7 +84,6 @@ if(isset($_POST["login"])) {
     </div>
 </form>
 
-</article>
 </body>
 </html>
 

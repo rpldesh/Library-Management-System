@@ -48,7 +48,6 @@
             $sql= "Select member_status from members WHERE id= '$user_name' ";
             $resultStatus = $login->featuredLoad($dbObj,$sql);
             $mem_status=mysqli_fetch_row($resultStatus)[0];
-            session_start();
             $lst_login_date=date('Y-m-d');
 
             if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active") {
@@ -86,7 +85,7 @@
 	
 	<section class="linkarea">
 	<h3>Quick Links</h3>
-	<a href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
+	<a class="sncoelink" href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
 	<div class="stretch"><strong>Contact Information</strong> <br />
 		<p class="hidden">This text is hidden.</p>
 		<b>President :</b> <i class="TPnumber">+94333832157</i><br />
