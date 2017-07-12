@@ -64,24 +64,22 @@
         </div>
     </div>
 
-    <?php if(!isset($_POST["savePsw"]) ){ ?>
     <div id="Password" class="tabcontent">
         <div class="Password">
             <form  method="POST"  autocomplete="off">
                 <div class="container">
                     <h1>Change the Password</h1><hr />
                     <label><b>Current Password</b></label>
-                    <input type="password" name="curPsw" Placeholder="Enter your current password"/>
+                    <input type="password" name="curPsw" Placeholder="Enter your current password" required autofocus/>
                     <label><b>New Password</b></label>
-                    <input type="password" name="newPsw" Placeholder="Enter your new password"/>
+                    <input type="password" name="newPsw" Placeholder="Enter your new password" required/>
                     <label><b>Confirm new password</b></label>
-                    <input type="password" name="conNewPsw" Placeholder="Re enter your new password"/>
+                    <input type="password" name="conNewPsw" Placeholder="Re enter your new password" required/>
                     <button name="savePsw" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
         </div>
         <?php
-        }
 
         $psw="";
         if (isset($_POST["savePsw"])) {
@@ -96,6 +94,7 @@
 
             if($NewPsw!=$ConNewPsw){
                 $message= "Your new Password and confirmed password are not matched..!!";
+                ?> <style>div.alert{display:inline-block;}</style><?php
             }
             elseif($curEncriped!=$psw){
 
@@ -107,6 +106,7 @@
                 $login->password="$encriptedPsw";
                 $login->update($dbObj);
                 $message=  "Your password changed successfully";
+                ?> <style>div.alert{display:inline-block;}</style><?php
             }
         }
 
@@ -132,7 +132,7 @@
                     <label><b>Current E-mail address</b></label>
                     <input type="text" name="curEmail" value="<?php echo $email; ?>" readonly />
                     <label><b>New E-mail address</b></label>
-                    <input type="text" name="newEmail" Placeholder="Enter your new E-mail" required/>
+                    <input type="text" name="newEmail" Placeholder="Enter your new E-mail" required autofocus/>
                     <button name="saveEmail" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
@@ -163,7 +163,7 @@
                     <label><b>Current Address</b></label>
                     <textarea name="curAdd" cols="40" rows="6" readonly ><?php echo $address;?></textarea>
                     <label><b>New Address</b></label>
-                    <textarea name="newAdd" cols="40" rows="6" required></textarea>
+                    <textarea name="newAdd" cols="40" rows="6" required autofocus></textarea>
                     <button name="saveAddress" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
@@ -193,7 +193,7 @@
                     <label><b>Current Telephone No.</b></label>
                     <input type="text" name="curTP" value="<?php echo $tel ;?>" readonly/>
                     <label><b>New Telephone No.</b></label>
-                    <input type="text" name="newTP" Placeholder="Enter your Telephone No." required/>
+                    <input type="text" name="newTP" Placeholder="Enter your Telephone No." required autofocus/>
                     <button name="saveTP" class="Submitbtn" type="submit">Save Changes</button>
                 </div>
             </form>
@@ -271,10 +271,6 @@
         }
     </script>
 
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <?php echo $message;?>
-    </div>
 
     </body>
     </html>
