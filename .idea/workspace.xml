@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f1e3f3-8f39-40ed-a442-ca30b2284a5a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/adminDetailSettings.php" afterPath="$PROJECT_DIR$/admin/adminDetailSettings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/memberSetting.css" afterPath="$PROJECT_DIR$/admin/css/memberSetting.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/issueSave.php" afterPath="$PROJECT_DIR$/admin/issueSave.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/memberAccountSetting.php" afterPath="$PROJECT_DIR$/admin/memberAccountSetting.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/images/warning.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/images/warning.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/Admin Login.php" afterPath="$PROJECT_DIR$/admin/Admin Login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/Administration Page.php" afterPath="$PROJECT_DIR$/admin/Administration Page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/Administration Page.css" afterPath="$PROJECT_DIR$/admin/css/Administration Page.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +22,11 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
-              <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+            <state relative-caret-position="147">
+              <caret line="64" column="3" lean-forward="true" selection-start-line="64" selection-start-column="3" selection-end-line="64" selection-end-column="3" />
               <folding>
-                <marker date="1499858436611" expanded="true" signature="1328:1384" ph="Select membe... members" />
-                <marker date="1499858436611" expanded="true" signature="2991:3647" ph="..." />
+                <marker date="1499859883805" expanded="true" signature="1328:1384" ph="Select membe... members" />
+                <marker date="1499859883805" expanded="true" signature="3005:3661" ph="..." />
               </folding>
             </state>
           </provider>
@@ -199,10 +200,10 @@
         <option value="$PROJECT_DIR$/admin/configure_id_for_issue.php" />
         <option value="$PROJECT_DIR$/admin/issueBook.php" />
         <option value="$PROJECT_DIR$/admin/css/memberSetting.css" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/admin/adminDetailSettings.php" />
         <option value="$PROJECT_DIR$/admin/issueSave.php" />
         <option value="$PROJECT_DIR$/admin/memberAccountSetting.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -435,12 +436,12 @@
       <workItem from="1499751178463" duration="3097000" />
       <workItem from="1499756100978" duration="18056000" />
       <workItem from="1499830177465" duration="10280000" />
-      <workItem from="1499853381818" duration="5240000" />
+      <workItem from="1499853381818" duration="5338000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188563000" />
+    <option name="totallyTimeSpent" value="188661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="0" width="1370" height="744" extended-state="0" />
@@ -753,7 +754,7 @@
         <state relative-caret-position="152">
           <caret line="38" column="45" lean-forward="false" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
           <folding>
-            <marker date="1499836545298" expanded="true" signature="492:541" ph="Select * fro... admins" />
+            <marker date="1499859839265" expanded="true" signature="492:541" ph="Select * fro... admins" />
           </folding>
         </state>
       </provider>
@@ -932,11 +933,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        <state relative-caret-position="147">
+          <caret line="64" column="3" lean-forward="true" selection-start-line="64" selection-start-column="3" selection-end-line="64" selection-end-column="3" />
           <folding>
-            <marker date="1499858436611" expanded="true" signature="1328:1384" ph="Select membe... members" />
-            <marker date="1499858436611" expanded="true" signature="2991:3647" ph="..." />
+            <marker date="1499859883805" expanded="true" signature="1328:1384" ph="Select membe... members" />
+            <marker date="1499859883805" expanded="true" signature="3005:3661" ph="..." />
           </folding>
         </state>
       </provider>

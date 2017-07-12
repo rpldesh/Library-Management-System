@@ -65,7 +65,8 @@ if(isset($_POST["SubmitBotton"])) {
 }?>
 
 
-<form class="memberLoginForm" method="POST" action="" autocomplete="off">
+    <form class="memberLoginForm" method="POST" action="index.php" autocomplete="off">
+
         <h2 align="center">User Login</h2>
         <div class="imgcontainer"><img src="Images/login-bg.png" alt="" class="loginimge"/></div>
         <div class="container">

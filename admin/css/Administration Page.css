@@ -90,4 +90,13 @@ div.slideshow{ display:block;
 	100%{background-image:url(../images/6.jpg);}
 	}
 
+span.warningMsg{color:orangered;}
+@media screen and (max-width: 1100px) {
+	body {
+		width: 1100px;
+	}
 
+	nav {
+		width: 93px;
+	}
+}
