@@ -5,8 +5,7 @@ include("admin.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
 session_start();
-$login= new login();
-$login->load($dbObj, $_SESSION['id']);
+
 
 ?>
 <!DOCTYPE html>
@@ -14,6 +13,7 @@ $login->load($dbObj, $_SESSION['id']);
 <head>
     <title>Change Admin Details</title>
     <link rel = "stylesheet" href ="css/memberSetting.css"/>
+    <style>div.alert{display:inline-block;}</style>
 
 <body>
 <header>
@@ -50,7 +50,7 @@ $login->load($dbObj, $_SESSION['id']);
 <table >
     <caption>Admin Details Settings</caption>
     <tr>
-        <th>username</th>
+        <th>Username</th>
         <td><?php echo  $_SESSION['username']?></td>
 
     </tr>
@@ -87,18 +87,19 @@ $login->load($dbObj, $_SESSION['id']);
     </tr>
 
     <tr>
-        <th>Member status</th>
-        <td><div id="div_status"><?php echo $_SESSION['status']?></div><br />
-            <button id="b5" onclick="show('five')">Edit</button>
+        <th>Change Password</th>
+        <td>
+            <button id="b2" onclick="show('two')">Change Password</button>
             <br />
-
-            <form class="change_form" id="five" method="post" action=""  autocomplete="off">
-
-                <select id="memberstatus" name="m_status" id="mm_status"><br />
-                    <option value="active">active</option>
-                    <option value="restricted">restricted</option></select>
-                <button class="saveBtn" name="save_status" type="submit" >Save Changes</button>
-                <button class="cancelBtn" onclick="hide('five')" name="cancel" type="button" >Cancel</button>
+            <form class="change_form" id="two" method="post" action=""  autocomplete="off">
+                <label><b>Current Password</b></label>
+                <input type="password" name="curPsw" Placeholder="Enter your current password"/>
+                <label><b>New Password</b></label>
+                <input type="password" name="newPsw" Placeholder="Enter your new password"/>
+                <label><b>Confirm new password</b></label>
+                <input type="password" name="conNewPsw" Placeholder="Re enter your new password"/>
+                <button class="saveBtn" name="save_psw" type="submit" >Save Changes</button>
+                <button class="cancelBtn" onclick="hide('two')" name="cancel" type="button" >Cancel</button>
 
             </form>
 
@@ -111,11 +112,12 @@ $login->load($dbObj, $_SESSION['id']);
 </body>
 </html>
 <?php
+$message='';
 if(isset($_POST['save_name'])){
-    $m->member_name=$_POST['m_name'];
-    $_SESSION['name']=$_POST['m_name'];
-    $m->update($dbObj);
-    $text='"'.$m->member_name.'"';
+    $admin->admin_name=$_POST['m_name'];
+    $_SESSION['adminName']=$_POST['m_name'];
+    $admin->update($dbObj);
+    $text='"'.$admin->admin_name.'"';
     ?>
     <script type="text/javascript"> document.getElementById("div_name").innerHTML=<?php echo $text;?></script>
 
@@ -125,24 +127,40 @@ if(isset($_POST['save_name'])){
 <?php }
 
 
-else if(isset($_POST['save_status'])){
-    $m->member_status=$_POST['m_status'];
-    $_SESSION['status']=$_POST['m_status'];
-    $m->update($dbObj);
-    $text='"'.$m->member_status.'"';
-    ?>
-    <script type="text/javascript"> document.getElementById("div_status").innerHTML=<?php echo $text;?></script>
+else if(isset($_POST['save_psw'])){
 
-    <script type="text/javascript"> document.getElementById("mm_status").value= <?php echo $text;?>
-    </script>
+    $CurPsw=$_POST["curPsw"];
+    $curEncriped=md5("$CurPsw");
+    $NewPsw=$_POST["newPsw"];
+    $ConNewPsw=$_POST["conNewPsw"];
+
+    if($NewPsw!=$ConNewPsw){
+        $message= "Your new Password and confirmed password do not match..!!";
+    }
+    elseif($curEncriped!=$_SESSION['psw']){
+
+        $message= "Your current password is incorrect..!!";}
+    elseif (strlen($NewPsw)>64 or strlen($NewPsw)<8){
+        $message = "Your password must contain 8-64 characters..!!";
+
+    }elseif($curEncriped==$_SESSION['psw'] && $NewPsw==$ConNewPsw ){
+        $encriptedPsw=md5($NewPsw);
+        $uname=$_SESSION['username'];
+        $sql = "Update admins set pwd= '$encriptedPsw' where username='$uname'";
+        $dbObj->doQuery($sql);
+        $message=  "Your password changed successfully";
+        $_SESSION['psw']=$encriptedPsw;
+    }
 
 
+}
 
-
-
-
-<?php }
 if(isset($_GET['id']) && $_GET['id']=='back' ){
     session_destroy();
 }
 ?>
+
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <?php echo $message;?>
+</div>
