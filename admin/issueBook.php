@@ -113,7 +113,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
                         <h4><input type="text" value="<?php echo $_SESSION['title'] ?>"readonly/></h4></br>
 
                         <label for="bookType"><b> Book Type</b></label><br/>
-                        <h4><?php echo $_SESSION['book_type'] ?></h4></br>
+                        <h4><input type="text" value="<?php echo $_SESSION['book_type'] ?>" readonly></h4></br>
 
                         <label for="date"><b> Date to be Returned </b></label><br/>
                         <input id="date" name="DoR" type="date" required/><br/>

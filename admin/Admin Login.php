@@ -34,6 +34,8 @@ if(isset($_POST["login"])) {
                 $_SESSION['username'] = $admin->username;
                 $_SESSION['adminName'] = $admin->admin_name;
                 $_SESSION['adminType'] = $admin->admin_type;
+                $_SESSION['adminStatus']=$admin->admin_status;
+                $_SESSION['add_date']=$admin->join_date;
                 header("Location:Administration Page.php");
             }
         }
