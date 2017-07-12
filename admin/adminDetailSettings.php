@@ -5,8 +5,9 @@ include("admin.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
 session_start();
-$admin = new admin();
-$result = $admin->load($dbObj, $_SESSION['id']);
+$login= new login();
+$login->load($dbObj, $_SESSION['id']);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,17 +51,17 @@ $result = $admin->load($dbObj, $_SESSION['id']);
     <caption>Admin Details Settings</caption>
     <tr>
         <th>username</th>
-        <td><?php echo $_SESSION['id']?></td>
+        <td><?php echo  $_SESSION['username']?></td>
 
     </tr>
     <tr>
         <th>Name with initials</th>
-        <td><div id="div_name"> <?php echo $m->member_name?> </div> <br/>
+        <td><div id="div_name"> <?php echo $_SESSION['adminName']?> </div> <br/>
             <button id="b1" type='submit' onclick="show('one')">Edit</button>
             <br />
 
             <form  class="change_form" id="one" method="post" action=""  autocomplete="off">
-                <input type="text" name="m_name" id="mm_name" value="<?php echo $_SESSION['name']?>" required/>
+                <input type="text" name="m_name" id="mm_name" value="<?php echo $_SESSION['adminName']?>" required/>
                 <button class="saveBtn" name="save_name" type="submit" >Save Changes</button>
                 <button class="cancelBtn" onclick="hide('one')" name="cancel" type="button" >Cancel</button>
 
@@ -69,66 +70,20 @@ $result = $admin->load($dbObj, $_SESSION['id']);
         </td>
     </tr>
 
+
     <tr>
-        <th>Full name</th>
-        <td><div id="div_fullname"><?php echo  $_SESSION['fname']?></div><br />
-            <button id="b2" onclick="show('two')">Edit</button>
-            <br />
-
-            <form class="change_form" id="two" method="post" action=""  autocomplete="off">
-
-                <input type="text" name="m_fullname" id="mm_fullname" value="<?php echo  $_SESSION['fname']?>" required/>
-                <button class="saveBtn" name="save_fullname" type="submit" >Save Changes</button>
-                <button class="cancelBtn" onclick="hide('two')" name="cancel" type="button" >Cancel</button>
-
-            </form>
-
-
-        </td>
+        <th>Admin type</th>
+        <td><?php echo  $_SESSION['adminType']?></td>
     </tr>
 
     <tr>
-        <th>Member type</th>
-        <td ><div id="div_mType"> <?php echo $_SESSION['type']?> </div><br />
-            <button id="b3" onclick="show('three')">Edit</button>
-            <br />
-            <form class="change_form" id="three" method="post" action=""  autocomplete="off">
-
-                <select id="membertype" name="m_type" id="mm_type"><br />
-                    <option value="Internal Student(1st year)">Internal Student(1st year)</option>
-                    <option value="Internal Student(2nd year)">Internal Student(2nd year)</option>
-                    <option value="Internship Student">Internship Student</option>
-                    <option value="Academic Staff">Academic Staff</option>
-                    <option value="Clerical Staff">Clerical Staff</option>
-                    <option value="Minor Staff">Minor Staff</option>
-                    <option value="Secondment Staff">On-Secondment Staff</option>
-                    <option value="Temporary Staff">Temporary Staff</option></select>
-                <button class="saveBtn" name="save_type" type="submit" >Save Changes</button>
-                <button class="cancelBtn" onclick="hide('three')" name="cancel" type="button" >Cancel</button>
-
-            </form>
-
-
-        </td>
+        <th>Admin status</th>
+        <td><?php echo  $_SESSION['adminStatus']?></td>
     </tr>
 
     <tr>
-        <th>Date of admission</th>
-        <td><div id="div_DOA"><?php echo $_SESSION['adddate']?></div><br />
-            <button id="b4" onclick="show('four')">Edit</button>
-            <br />
-
-            <form class="change_form" id="four"   method="post" action=""  autocomplete="off">
-
-                <input type="date" name="m_addmision_date" id="m_DOA" value="<?php echo $_SESSION['adddate']?>" required/>
-                <button class="saveBtn" name="save_add_date" type="submit" >Save Changes</button>
-                <button class="cancelBtn" onclick="hide('four')" name="cancel" type="button" >Cancel</button>
-
-            </form>
-
-
-
-        </td>
+        <th>Joined date</th>
+        <td><?php echo  $_SESSION['add_date']?></td>
     </tr>
 
     <tr>
@@ -136,7 +91,6 @@ $result = $admin->load($dbObj, $_SESSION['id']);
         <td><div id="div_status"><?php echo $_SESSION['status']?></div><br />
             <button id="b5" onclick="show('five')">Edit</button>
             <br />
-            <!-- -->
 
             <form class="change_form" id="five" method="post" action=""  autocomplete="off">
 
@@ -171,32 +125,6 @@ if(isset($_POST['save_name'])){
 <?php }
 
 
-else if(isset($_POST['save_fullname'])){
-    $m->member_fullname=$_POST['m_fullname'];
-    $_SESSION['fname']=$_POST['m_fullname'];
-    $m->update($dbObj);
-    $text='"'.$m->member_fullname.'"';
-    ?>
-    <script type="text/javascript"> document.getElementById("div_fullname").innerHTML=<?php echo $text;?></script>
-
-    <script type="text/javascript"> document.getElementById("mm_fullname").value= <?php echo $text;?>
-    </script>
-
-<?php }
-
-else if(isset($_POST['save_type'])){
-    $m->member_type=$_POST['m_type'];
-    $_SESSION['type']=$_POST['m_type'];
-    $m->update($dbObj);
-    $text='"'.$m->member_type.'"';
-    ?>
-    <script type="text/javascript"> document.getElementById("div_mType").innerHTML=<?php echo $text;?></script>
-
-    <script type="text/javascript"> document.getElementById("mm_type").value= <?php echo $text;?>
-    </script>
-
-<?php }
-
 else if(isset($_POST['save_status'])){
     $m->member_status=$_POST['m_status'];
     $_SESSION['status']=$_POST['m_status'];
@@ -208,18 +136,10 @@ else if(isset($_POST['save_status'])){
     <script type="text/javascript"> document.getElementById("mm_status").value= <?php echo $text;?>
     </script>
 
-<?php }
 
-else if(isset($_POST['save_add_date'])){
-    $m->join_date=$_POST['m_addmision_date'];
-    $_SESSION['adddate']=$_POST['m_addmision_date'];
-    $m->update($dbObj);
-    $text='"'.$m->join_date.'"';
-    ?>
-    <script type="text/javascript"> document.getElementById("div_DOA").innerHTML=<?php echo $text;?></script>
 
-    <script type="text/javascript"> document.getElementById("m_DOA").value= <?php echo $text;?>
-    </script>
+
+
 
 <?php }
 if(isset($_GET['id']) && $_GET['id']=='back' ){
