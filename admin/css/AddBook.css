@@ -34,7 +34,8 @@ input,textarea,select{
 button{ border-radius:5px; background-color:#4CAF50; color:white; padding:14px 20px; margin:8px 0; border:none; cursor: pointer; width:100%; }
 button:hover{opacity:0.6;}
 button.cancelbtn{width:100%; padding:10px 18px; background-color:#F44336;}
-
+div.imgcontainer{text-align:center; margin:24px 0 12px 0;}
+img.loginimge{width:40%; border-radius:50%;}
 
 div.container{padding:16px;}
 
@@ -68,9 +69,9 @@ nav ul li a:hover{color:orange;}
 
 div.alert {
 	z-index:70;
-	position:relative;
+	position:absolute;
 	display:inline-block;
-	transform:translate(0,0px);
+	transform:translate(100px,10px);
 	padding: 20px;
 	background-color: #f44336;
 	color: white;

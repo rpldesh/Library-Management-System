@@ -80,7 +80,7 @@ header{padding:5px;  background: linear-gradient(
 h1,label{font-family:Arial,Sans-serif;}
 form{	z-index:7; position:relative; display:inline-block;
     background:linear-gradient(0deg,rgba(188,189,146,0.8),rgba(204,206,154,0.8),rgba(178,179,136,0.9));
-    border-radius:10px; margin:10px 0; width:500px; float:left; transform:translate(475px,50px);
+    border-radius:10px; margin:10px 0; width:500px; float:left; transform:translate(450px,50px);
     box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);}
 
 input,textarea{
@@ -187,18 +187,18 @@ tr:nth-child(odd) td {
     background: #f1f1f1 url(https://jackrugile.com/images/misc/noise-diagonal.png);
 }
 
-div#tableMyProf{display:inline-block ; transform: translate(25px,0);}
+div#tableMyProf{display:inline-block ; transform: translate(250px,0);}
 div.ChangeSettings{float:right;}
 button#defaultOpen{float:left; margin-top: 10px; margin-left: 10px;}
-div.MyprofTable{transform: translate(1300px,0);}
+
 
 
 /* for message box*/
 div.alert {
     z-index:370;
-    position:relative;
+    position:absolute;
     display:inline-block;
-    transform:translate(200px,20px);
+    transform:translate(-100px,20px);
     padding: 20px;
     background-color: #f44336;
     color: white;

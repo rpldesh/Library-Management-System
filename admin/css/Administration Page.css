@@ -60,12 +60,12 @@ div#addbook{float:left; display:block;margin-left:50px; margin-top:30px;}
 div#addmember{float:left; display:inline-block; clear:both; position:relative; margin-left:50px;}
 div#issuebk{float:right; margin-right:60px; position:relative;}
 div#returnbk{display:inline-block; float:right; margin-right:60px; position:relative;}
-div#renew{display:inline-block; float:right; clear:both; margin-right:60px;position:relative;}
-div#viewcatelog{float:left; display:inline-block; clear:left;margin-left:50px;}
-div#UaccSettings{float:left; display:inline-block; clear:left;margin-left:50px;}
-div#generatereport{float:right; display:inline-block; clear:both;margin-right:60px;}
-div#AddnewAdmins{float:left; display:inline-block; clear:left;margin-left:50px; position: relative;}
-div#bkSettings{float:right; display:inline-block; clear:right;margin-right:60px;}
+div#renew{display:inline-block; float:right; clear:both; margin-right:60px; position:relative;}
+div#viewcatelog{float:left; display:inline-block; clear:left; margin-left:50px;}
+div#UaccSettings{float:left; display:inline-block; clear:left; margin-left:50px;}
+div#generatereport{float:right; display:inline-block; clear:both; margin-right:60px;}
+div#AddnewAdmins{float:left; display:inline-block; clear:left; margin-left:50px; position: relative;}
+div#prevRecods{display:inline-block; float:right; clear:both; margin-right:60px; position:relative;}
 
 div.slideshow{ display:block;	
 				box-sizing:border-box;

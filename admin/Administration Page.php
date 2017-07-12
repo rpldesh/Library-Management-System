@@ -19,10 +19,16 @@
 	<div class="bgimage">
 	<nav>
 		<ul>
+
+
+			<li><a href="#">HOME</a></li>
+			<li><a href="#">Admin Profile</a></li>
+
             <?php
             if(!empty($_SESSION['username'])){ ?>
                 <li class="logout" ><a href="Admin%20Login.php?id=adminLogout" id="adminLogout">LOGOUT</a></li>
             <?php } ?>
+
 		</ul>
 	</nav>
 	</div>
@@ -43,7 +49,6 @@
             <div class="linkbox" id="addmember"><span><strong>Add Member</strong><br /><br /></span>
                 <a href="AddMember.php"><img src="images/addmember.png" align="center"/></a></div><br />
 
-
             <div class="linkbox" id="returnbk"><span><strong>Return Book</strong><br /><br /></span>
                 <a href="config_id_for_return.php"><img src="images/returnbk.png" align="center"/></a></div><br />
 
@@ -62,8 +67,8 @@
             <div class="linkbox" id="AddnewAdmins"><span><strong>Add New Admin</strong><br /></span>
                 <a href="addNewAdminPage.php"><img src="images/addAdmin.jpg" align="center"/></a></div><br />
 
-            <div class="linkbox" id="bkSettings"><span><strong>Change Book Details</strong><br /></span>
-                <a href="########"><img src="images/BkSettings.jpg" align="center"/></a></div><br />
+            <div class="linkbox" id="prevRecods"><span><strong>Previous Records</strong><br /></span>
+                <a href="AdminPreviousRecords.php"><img src="images/bookmark.png" align="center"/></a></div><br />
 
 	
 	<div class="slideshow "></div>

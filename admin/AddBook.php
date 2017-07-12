@@ -6,7 +6,7 @@
 <head>
     <title>Add Book Page</title>
     <link rel = "stylesheet" href ="css/AddBook.css"/>
-    <script>div.{}</script>
+    <style>div.alert{display:none;}</style>
 </head>
 <body>
 <header>
@@ -28,43 +28,49 @@
             </nav>
         </div>
 </header>
-<?php if(!isset($_POST['save'])){?>
 
 <div class="addbkform">
-    <form  method="POST" action="" autocomplete="off">
+    <form  id="AddBkForm" method="POST" action="" autocomplete="off">
         <div class="container">
             <h1>Book Registration Form</h1><hr />
             <label for="AccNo"><b>Accession Number</b></label><br />
             <input id="AccNo" name="accNo" type="text" placeholder="Enter Accession Number" value="<?php if (isset($_POST['accNo'])) echo $_POST['accNo']; ?>" required autofocus/><br />
             <label for="title"><b>Titile</b></label><br />
-            <input id="title" name="title" type="text" placeholder="Enter Title" required autofocus/><br />
+            <input id="title" name="title" type="text" placeholder="Enter Title" value="<?php if (isset($_POST['title'])) echo $_POST['title']; ?>" required autofocus/><br />
             <label for="bktype"><b>Book Type</b></label><br />
             <select id="bktype" name="Bktype" required><br />
                 <option value="borrowable" >Borrowable</option><option value="reference" >Reference</option></select>
             <label for="autname"><b>Author</b></label><br />
-            <input id="autname" name="AutName" type="text" placeholder="Enter Author" required/><br />
+            <input id="autname" name="AutName" type="text" placeholder="Enter Author" value="<?php if (isset($_POST['AutName'])) echo $_POST['AutName']; ?>" required/><br />
             <label for="isbn"><b>ISBN</b></label><br />
-            <input id="isbn" name="isbn" type="text" placeholder="Enter Accession Number"autofocus/><br />
+            <input id="isbn" name="isbn" type="text" placeholder="Enter Accession Number" value="<?php if (isset($_POST['isbn'])) echo $_POST['isbn']; ?>" autofocus/><br />
             <label for="NoP"><b>No Of Pages</b></label><br />
-            <input id="NoP" name="NoOfPg" type="number" placeholder="Enter No Of Pages" required/><br />
+            <input id="NoP" name="NoOfPg" type="number"  placeholder="Enter No Of Pages" value="<?php if (isset($_POST['NoOfPg'])) echo $_POST['NoOfPg']; ?>" required/><br />
             <label for="price"><b>Price</b></label><br />
-            <input id ="price" name="Price" type="text" placeholder="Enter the Price" required/><br />
+            <input id ="price" name="Price" type="number" step="0.01" placeholder="Enter the Price" value="<?php if (isset($_POST['Price'])) echo $_POST['Price']; ?>" required/><br />
             <label for="catno"><b>Category Number</b></label><br />
-            <input id="catno" name="CatNo" type="text" placeholder="Enter Category No" required/><br />
+            <input id="catno" name="CatNo" type="text" placeholder="Enter Category No" value="<?php if (isset($_POST['CatNo'])) echo $_POST['CatNo']; ?>" required/><br />
             <label for="pubName"><b>Publisher Name</b></label><br />
-            <input id="pubName" name="Pubname" type="text" placeholder="Enter Publisher Name" required/><br />
+            <input id="pubName" name="Pubname" type="text" placeholder="Enter Publisher Name" value="<?php if (isset($_POST['Pubname'])) echo $_POST['Pubname']; ?>" required/><br />
             <label for="dop"><b>Date of Publication</b></label><br />
-            <input id="dop" name="DOP" type="date"/><br />
+            <input id="dop" name="DOP" type="date" value="<?php if (isset($_POST['DOP'])) echo $_POST['DOP']; ?>" /><br />
             <label for="pop"><b>Place Of Publication</b></label><br />
-            <input id="pop" name="POP" type="text" placeholder="Enter place Of Publication" /><br />
+            <input id="pop" name="POP" type="text" placeholder="Enter place Of Publication" value="<?php if (isset($_POST['POP'])) echo $_POST['POP']; ?>" /><br />
             <label for="remarks"><b>Remarks</b></label><br />
-            <textarea id="remarks" name="Remarks" cols="40" rows="6"></textarea><br />
+            <textarea id="remarks" name="Remarks" cols="40" rows="6" value="<?php if (isset($_POST['Remarks'])) echo $_POST['Remarks']; ?>"></textarea><br />
             <button name="save" class="Submitbtn" type="submit">Submit</button>
-            <button name="cancel" class="cancelbtn" type="button">Cancel</button>
+            <button name="cancel" class="cancelbtn" type="button" onclick="myFunction()">Cancel</button>
         </div>
     </form>
+    <script>
+        function myFunction() {
+            document.getElementById("AddBkForm").reset();
+        }
+    </script>
 </div>
-<?php }
+
+
+<?php
 include("../database.php");
 include("../table.php");
 include("../book.php");
@@ -92,12 +98,16 @@ if(isset($_POST['save'])) {
     $sql1 = "Select id FROM books WHERE id = '{$id}' LIMIT 1";
     $result1 = $book->featuredLoad($dbObj, $sql1);
     if (mysqli_num_rows($result1) > 0) {
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "This accession number already exists. Please enter correct accession number..!!";
     } elseif (date("Y-m-d",strtotime($published_date)) > date("Y-m-d")) {
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Invalid date..!";
     } elseif ($no_pages <= 0) {
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Invalid Number of Pages..!";
-    } elseif (is_float($price + 0) && ($price < 0)) {
+    } elseif (!(is_float($price + 0)) && ($price < 0)) {
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Invalid price..!";
     } else {
 
@@ -107,9 +117,11 @@ if(isset($_POST['save'])) {
 
         $book->bind($data);
         $book->insert($dbObj);
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Book added successfully..!!";
     }
 }
+
 
 $dbObj->closeConnection();
 

@@ -26,6 +26,7 @@
 $msg='';
 include("database.php");
 
+
 if(isset($_POST["SubmitBotton"])) {
 
 
@@ -51,6 +52,7 @@ if(isset($_POST["SubmitBotton"])) {
         $resultStatus = $login->featuredLoad($dbObj,$sql);
         $mem_status=mysqli_fetch_row($resultStatus)[0];
         $lst_login_date=date('Y-m-d');
+
 
         if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active") {
             session_start();
@@ -88,7 +90,7 @@ if(isset($_POST["SubmitBotton"])) {
 	
 	<section class="linkarea">
 	<h3>Quick Links</h3>
-	<a href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
+	<a class="sncoelink" href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
 	<div class="stretch"><strong>Contact Information</strong> <br />
 		<p class="hidden">This text is hidden.</p>
 		<b>President :</b> <i class="TPnumber">+94333832157</i><br />

@@ -4,11 +4,10 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Admin Login Page</title>
-        <link rel = "stylesheet" href ="css/Administration Page.css"/>
-        <link rel = "stylesheet" href ="../css/mainpage.css"/>
-        <style>img.warImg{display: none;}</style>
+<head>
+    <title>Admin Login Page</title>
+    <link rel = "stylesheet" href ="css/AddBook.css"/>
+    <style>img.warImg{display: none;}</style>
 
     </head>
 <body>
@@ -97,7 +96,6 @@ session_start();
     }
     ?>
 
-    <article class="whitebg">
 
     <form class="loginForm" method="post" action="" autocomplete="off">
         <div class="imgcontainer"><img src="images/login-bg.png" alt="" class="loginimge"/></div>
@@ -112,7 +110,7 @@ session_start();
         </div>
     </form>
 
-    </article>
+
 </body>
 </html>
 

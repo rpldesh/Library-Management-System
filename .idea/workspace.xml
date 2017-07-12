@@ -3,18 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="a2f1e3f3-8f39-40ed-a442-ca30b2284a5a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/AddBook.php" afterPath="$PROJECT_DIR$/admin/AddBook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/AddMember.php" afterPath="$PROJECT_DIR$/admin/AddMember.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/Admin Login.php" afterPath="$PROJECT_DIR$/admin/Admin Login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/addNewAdminPage.php" afterPath="$PROJECT_DIR$/admin/addNewAdminPage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/adminDetailSettings.php" afterPath="$PROJECT_DIR$/admin/adminDetailSettings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/configure_id_for_issue.php" afterPath="$PROJECT_DIR$/admin/configure_id_for_issue.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/configure_id_for_renew.php" afterPath="$PROJECT_DIR$/admin/configure_id_for_renew.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/configure_id_for_usersettings.php" afterPath="$PROJECT_DIR$/admin/configure_id_for_usersettings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/memberSetting.css" afterPath="$PROJECT_DIR$/admin/css/memberSetting.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/issueBook.php" afterPath="$PROJECT_DIR$/admin/issueBook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/issueSave.php" afterPath="$PROJECT_DIR$/admin/issueSave.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/memberAccountSetting.php" afterPath="$PROJECT_DIR$/admin/memberAccountSetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/renewBook.php" afterPath="$PROJECT_DIR$/admin/renewBook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/Administration Page.php" afterPath="$PROJECT_DIR$/admin/Administration Page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/AddBook.css" afterPath="$PROJECT_DIR$/admin/css/AddBook.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/AddMember.css" afterPath="$PROJECT_DIR$/admin/css/AddMember.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/css/Administration Page.css" afterPath="$PROJECT_DIR$/admin/css/Administration Page.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mainpage.css" afterPath="$PROJECT_DIR$/css/mainpage.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/member/Member Page.php" afterPath="$PROJECT_DIR$/member/Member Page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/member/My profile.php" afterPath="$PROJECT_DIR$/member/My profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/member/css/Member Page.css" afterPath="$PROJECT_DIR$/member/css/Member Page.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/member/css/My profile.css" afterPath="$PROJECT_DIR$/member/css/My profile.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -326,12 +327,12 @@
       <workItem from="1499830177465" duration="10280000" />
       <workItem from="1499853381818" duration="8051000" />
       <workItem from="1499869995208" duration="7876000" />
-      <workItem from="1499885359259" duration="256000" />
+      <workItem from="1499885359259" duration="393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199506000" />
+    <option name="totallyTimeSpent" value="199643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -524,7 +525,7 @@
         <state relative-caret-position="136">
           <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="27" />
           <folding>
-            <marker date="1499768397312" expanded="true" signature="3994:4041" ph="Select id FR... books" />
+            <marker date="1499885739173" expanded="true" signature="3994:4041" ph="Select id FR... books" />
           </folding>
         </state>
       </provider>
@@ -741,7 +742,7 @@
         <state relative-caret-position="329">
           <caret line="80" column="23" lean-forward="true" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
           <folding>
-            <marker date="1499875627602" expanded="true" signature="1350:1406" ph="Select membe... members" />
+            <marker date="1499885739251" expanded="true" signature="1350:1406" ph="Select membe... members" />
           </folding>
         </state>
       </provider>
@@ -751,8 +752,8 @@
         <state relative-caret-position="1254">
           <caret line="76" column="49" lean-forward="false" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
           <folding>
-            <marker date="1499882467670" expanded="true" signature="492:541" ph="Select * fro... admins" />
-            <marker date="1499882467670" expanded="true" signature="1397:1446" ph="Select * fro... admins" />
+            <marker date="1499885739251" expanded="true" signature="492:541" ph="Select * fro... admins" />
+            <marker date="1499885739251" expanded="true" signature="1397:1446" ph="Select * fro... admins" />
           </folding>
         </state>
       </provider>

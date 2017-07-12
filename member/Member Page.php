@@ -1,4 +1,5 @@
-<?php session_start();?>
+<?php session_start();
+$welcomeMsg='';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,26 @@
             <h3>Siyane National College Of Education<br />Veyangoda</h3>
         </div>
     </div>
+
+    <?php
+
+    include("../database.php");
+    include("../table.php");
+    include("../member.php");
+    $dbObj=database::getInstance();
+    $dbObj->connect('localhost','root','','lms_db');
+    $m=new member();
+
+    $mem_id=$_SESSION['id'];
+    $sql= "Select member_name from members where id ='$mem_id' ";
+    $result=$m->featuredLoad($dbObj,$sql);
+    $name=mysqli_fetch_row($result)[0];
+
+    if(!empty($_SESSION['id'])){
+        $welcomeMsg=" Hi ".$name."...!!! <br /> welcome to Siyane National College of Education Library.";}
+    ?>
+
+    <p class="WelMsg"><?php echo $welcomeMsg;?></p>
     <div class="bgimage">
         <nav>
             <ul>
@@ -24,24 +45,7 @@
     </div>
 </header>
 <article>
-    <?php
 
-        include("../database.php");
-        include("../table.php");
-        include("../member.php");
-        $dbObj=database::getInstance();
-        $dbObj->connect('localhost','root','','lms_db');
-        $m=new member();
-
-        $mem_id=$_SESSION['id'];
-        $sql= "Select member_name from members where id ='$mem_id' ";
-        $result=$m->featuredLoad($dbObj,$sql);
-        $name=mysqli_fetch_row($result)[0];
-
-    if(!empty($_SESSION['id'])){
-            echo " Welcome to Siyane National College of Education Library Page ".$name."...!!!";
-        }
-    ?>
     <div class="linkbox" id="myProfile"><span><strong>My Profile</strong><br /><br /></span>
 
         <a href="My%20profile.php"><img src="images/useraccount.jpg" align="center"/></a></div><br />
@@ -58,7 +62,7 @@
 
     <section class="linkarea">
         <h3>Quick Links</h3>
-        <a href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
+        <a class="sncoelink" href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
         <div class="stretch"><strong>Contact Information</strong> <br />
             <p class="hidden">This text is hidden.</p>
             <b>President :</b> <i class="TPnumber">+94333832157</i><br />
@@ -73,7 +77,7 @@
 </body>
 </html>
 <?php
-if (isset($_GET['id']) && $_GET['id']=='logout'){
+if (isset($_GET['id']) && $_GET['id']=="logout"){
     $_SESSION['user']='';
     session_destroy();
 }

@@ -1,20 +1,4 @@
-<?php
-    session_start();
-    include("../database.php");
-    include("../table.php");
-    include("../member.php");
-    include ("../login.php");
-    $dbObj=database::getInstance();
-    $dbObj->connect('localhost','root','','lms_db');
 
-    $user_id=$_SESSION['id'];
-    $message='';
-    $login = new login();
-    $login->load($dbObj,$user_id);
-    $m=new member();
-    $m->load($dbObj,$user_id);
-
-?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -45,15 +29,9 @@
 	</div>
 	</header>
 
-
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <?php echo $message;?>
-    </div>
-
     <div class="tab">
 
-        <button class="tablinks" onclick="ClickOption(event, 'tableMyProf')" id="defaultOpen">My Profile</button>
+        <button class="tablinks" onclick="ClickOption(event, 'tableMyProf')" >My Profile</button>
         <div class="ChangeSettings">
 
             <h3>Click on the buttons to change your settings</h3>
@@ -63,6 +41,24 @@
             <button class="tablinks" onclick="ClickOption(event, 'TP')">Telephone No</button>
         </div>
     </div>
+
+    <?php
+    session_start();
+    include("../database.php");
+    include("../table.php");
+    include("../member.php");
+    include ("../login.php");
+    $dbObj=database::getInstance();
+    $dbObj->connect('localhost','root','','lms_db');
+
+    $user_id=$_SESSION['id'];
+    $message='';
+    $login = new login();
+    $login->load($dbObj,$user_id);
+    $m=new member();
+    $m->load($dbObj,$user_id);
+
+    ?>
 
     <div id="Password" class="tabcontent">
         <div class="Password">
@@ -92,13 +88,13 @@
             $psw=mysqli_fetch_row($result)[0];
 
 
-            if($NewPsw!=$ConNewPsw){
-                $message= "Your new Password and confirmed password are not matched..!!";
-                ?> <style>div.alert{display:inline-block;}</style><?php
-            }
-            elseif($curEncriped!=$psw){
+            if($curEncriped!=$psw){
 
                 $message= "Your current password is incorrect..!!";
+                ?> <style>div.alert{display:inline-block;}</style><?php
+            }
+            elseif($NewPsw!=$ConNewPsw){
+                $message= "Your new Password and confirmed password are not matched..!!";
                 ?> <style>div.alert{display:inline-block;}</style><?php
 
             }elseif($curEncriped==$psw){
@@ -141,6 +137,8 @@
             $NewEmail=$_POST['newEmail'];
             $m->member_email="$NewEmail";
             $m->update($dbObj);
+            $message=  "Your Email address changed successfully";
+            ?> <style>div.alert{display:inline-block;}</style><?php
         }
         ?>
     </div>
@@ -173,6 +171,8 @@
             $NewAdd=$_POST['newAdd'];
             $m->permanent_address="$NewAdd";
             $m->update($dbObj);
+            $message=  "Your Address changed successfully";
+            ?> <style>div.alert{display:inline-block;}</style><?php
         }
         ?>
     </div>
@@ -202,6 +202,8 @@
             $NewTP=$_POST['newTP'];
             $m->contact_no="$NewTP";
             $m->update($dbObj);
+            $message=  "Your Telephone Number changed successfully";
+            ?> <style>div.alert{display:inline-block;}</style><?php
         }
         ?>
 
@@ -253,6 +255,10 @@
 			</table>
 		</div>
 
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <?php echo $message;?>
+    </div>
 
 
     <script>
@@ -266,11 +272,10 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(optionName).style.display = "block";
+            document.getElementById(optionName).style.display = "inline-block";
             evt.currentTarget.className += " active";
         }
     </script>
-
 
     </body>
     </html>
