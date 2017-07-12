@@ -26,9 +26,7 @@ if(!isset($_POST["submitID"]) ){ ?>
             <div class="bgimage">
                 <nav>
                     <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ADMIN PROFILE</a></li>
-                        <li class="logout"><a href="#">LOGOUT</a></li>
+                        <li><a href="Administration%20Page.php">HOME</a></li>
                     </ul>
                 </nav>
             </div>
@@ -89,9 +87,7 @@ if (isset($_POST["submitID"])){
             <div class="bgimage">
                 <nav>
                     <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">ADMIN PROFILE</a></li>
-                        <li class="logout"><a href="#">LOGOUT</a></li>
+                        <li><a href="Administration%20Page.php">HOME</a></li>
                     </ul>
                 </nav>
             </div>
@@ -169,7 +165,7 @@ if (isset($_POST["submitID"])){
             </table>
         </div>
         <button class="returnBTN" type="submit" name="returnBTN">Return Book/Books</button>
-        <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
+        <button class="cancelbtn" type="button" onclick="window.location='config_id_for_return.php'" name="cancel">Cancel</button>
 
 
 
