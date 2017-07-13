@@ -69,7 +69,7 @@ include("../book_session.php");
 $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
 $message='';
-SESSION_start();
+session_start();
 if(isset($_POST['submitID'])) {
     $m = new member();
     $result = $m->load($dbObj, $_POST["memberID"]);

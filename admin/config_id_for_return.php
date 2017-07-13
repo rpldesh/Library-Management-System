@@ -1,11 +1,12 @@
 <?php
+session_start();
 /**
  * Created by PhpStorm.
  * User: DiniX
  * Date: 02-Jul-17
  * Time: 12:51 AM
  */
-if(!isset($_POST["submitID"]) ){ ?>
+if(!isset($_POST["submitID"])){ ?>
     <!DOCTYPE html>
     <html>
     <head>
@@ -53,8 +54,7 @@ if(!isset($_POST["submitID"]) ){ ?>
 
 <?php }
 
-if (isset($_POST["submitID"])){
-    session_start();
+if(isset($_POST["submitID"])){
     include("../database.php");
     include("../table.php");
     include("../member.php");
@@ -72,6 +72,7 @@ if (isset($_POST["submitID"])){
     <head>
         <title>Books to be Returned</title>
         <link rel="stylesheet" href="css/returnPage.css"/>
+        <style>div.alertMsg{display: none;}</style>
     </head>
     <form>
 
@@ -95,9 +96,16 @@ if (isset($_POST["submitID"])){
     </header>
 
 
-    <?php if(!$loadResult){ ?>
-        <div class = "MessageBox"><?php echo "Member does not exist..!!" ?><a href="config_id_for_return.php"><img class="closeIcon" src="images/closebtn.png"/></a></div>
+    <?php if(!$loadResult){
+        ?> <style>div.alertMsg{display:inline-block;}</style><?php
+        $message="Member does not exist..!!";?>
+        <div class="alertMsg">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closeIcon" style="text-decoration: none; color: white" href="config_id_for_return.php">&times;</a></strong></span>
+            <?php  echo $message;?>
+
+        </div>
     <?php }
+
     else {
         $sql = "Select book_id,book_title,date_of_borrowal,date_to_be_returned,session_status from book_sessions where member_id = '$member->id' and session_status != 'returned'";
         $bkSession = new book_session();
@@ -162,8 +170,6 @@ if (isset($_POST["submitID"])){
         </div>
         <button class="returnBTN" type="submit" name="returnBTN">Return Book/Books</button>
         <button class="cancelbtn" type="button" onclick="window.location='config_id_for_return.php'" name="cancel">Cancel</button>
-
-
 
     </body>
     </html>
