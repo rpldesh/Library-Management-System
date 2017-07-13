@@ -14,7 +14,7 @@
             var strFields="";
             if(id_config.memberID.value==""){
                 missingField=true;
-                strFields+="Plese enter a member ID";
+                strFields+="Please enter a member ID";
             }
             if(missingField){
                 alert("Sorry! You must provide following fields to continue:\n"+strFields);
@@ -35,9 +35,8 @@
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="#">LOGOUT</a></li>
+                    <li><a href="Administration%20Page.php">HOME</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -98,8 +97,7 @@ if(isset($_POST['submitID'])) {
                 <nav>
                     <ul>
                         <li><a href="Administration%20Page.php">HOME</a></li>
-                        <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
-                        <li class="logout"><a href="#">LOGOUT</a></li>
+
                     </ul>
                 </nav>
             </div>
@@ -190,7 +188,7 @@ if(isset($_POST['submitID'])) {
             <?php } ?>
 
         </table>
-        <form class="clicks" action="issueBook.php" method="post">
+        <form class="clicks" action="issueBook.php"  method="post">
 
         <button class="SubmitBtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
         <button class="cancelBtn" type="button" onclick="window.location='Administration page.php'" name="cancel">Cancel</button>
@@ -199,7 +197,9 @@ if(isset($_POST['submitID'])) {
 
     </div>
     </article>
-    <?php  }
+    <?php
+    }
+
    ?>
     </body>
     </html>

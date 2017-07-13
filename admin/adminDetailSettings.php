@@ -5,6 +5,7 @@ include("admin.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
 session_start();
+$admin= new admin();
 
 
 ?>
@@ -41,8 +42,7 @@ session_start();
         <nav>
             <ul>
                 <li><a href="Administration%20Page.php?id==back">HOME</a></li>
-                <li><a href="#">ADMIN PROFILE</a></li>
-                <li class="logout"><a href="../index.php">LOGOUT</a></li>
+
             </ul>
         </nav>
     </div>
@@ -113,6 +113,11 @@ session_start();
 </html>
 <?php
 $message='';
+
+$admin=new admin();
+$admin->load($dbObj,$_SESSION['id']);
+$_SESSION['psw']=$admin->pwd;
+
 if(isset($_POST['save_name'])){
     $admin->admin_name=$_POST['m_name'];
     $_SESSION['adminName']=$_POST['m_name'];

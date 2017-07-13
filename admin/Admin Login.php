@@ -73,7 +73,7 @@ session_start();
                     $_SESSION['adminType'] = $admin->admin_type;
                     $_SESSION['adminStatus']=$admin->admin_status;
                     $_SESSION['add_date']=$admin->join_date;
-                    $_SESSION['psw']=$admin->pwd;
+                    $_SESSION['id']=$admin->id;
                     header("Location:Administration Page.php");
                 }
                 else{
@@ -104,6 +104,7 @@ session_start();
 
 
     <form class="loginForm" method="post" action="" autocomplete="off">
+        <h2 align="center">Admin Login</h2>
         <div class="imgcontainer"><img src="images/login-bg.png" alt="" class="loginimge"/></div>
         <div class="container">
             <span class="warningMsg"><img class="warImg" src="images/warning.gif" height="25px" width="25px"/>  <?php echo $message ; ?></span><br /><br />

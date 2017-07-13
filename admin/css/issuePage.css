@@ -128,7 +128,7 @@ div.alert {
     z-index:70;
     position:relative;
     display:inline-block;
-    transform:translate(0,0px);
+    transform:translate(500px,10px);
     padding: 20px;
     background-color: #f44336;
     color: white;

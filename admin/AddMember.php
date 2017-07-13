@@ -65,15 +65,17 @@ if(isset($_POST['submit'])){
             $defaltPsw=$_POST['memberID'];
             $encDefPsw=md5("$defaltPsw");
             if ($result1) {
+                ?> <style>div.alert{display:inline-block;}</style><?php
                 $msg = "Username already exists. Please select another username..!!";
-                echo $msg;
             }
 
             else if (date("m-d-Y") < date("m-d-Y",strtotime($addmission_date))){
+                ?> <style>div.alert{display:inline-block;}</style><?php
                 $msg= "Invalid Date";
             }
 
             else if(!is_numeric($contact_no)||!(strlen($contact_no)==10)){
+                ?> <style>div.alert{display:inline-block;}</style><?php
                 $msg="Invalid Contact Number";
 
             }
@@ -86,13 +88,16 @@ if(isset($_POST['submit'])){
                 $login->bind($logindata);
                 $member->insert($dbObj);
                 $login->insert($dbObj);
+                $msg = "Member added successfully.!";
+                ?> <style>div.alert{display:inline-block;}</style><?php
+                $_POST=array();
 
             }
         }
 ?>
 
 <div class="addbkform">
-    <form id="AddMemForm" align="center" method="POST" action="" autocomplete="off">
+    <form id="AddMemForm" align="center" method="POST" action="AddMember.php" autocomplete="off">
         <div class="container">
             <h1>Member Registration Application</h1><hr />
             <label for="id"><b>Member ID</b></label><br />
@@ -114,7 +119,7 @@ if(isset($_POST['submit'])){
             <label for="doa"><b>Date of Addmission</b></label><br />
             <input id="doa" name="DOA" type="date" value="<?php if (isset($_POST['DOA'])) echo $_POST['DOA']; ?>"/><br />
             <label for="permanentAddress"><b>Permanent Address</b></label><br />
-            <input id="permanentAddress" name="permanentaddress" type="text" placeholder="Enter Permanent Address" value="<?php if (isset($_POST['permanentaddress'])) echo $_POST['permanentaddress']; ?> "required/><br />
+            <input id="permanentAddress" name="permanentaddress" type="text" placeholder="Enter Permanent Address" value="<?php if (isset($_POST['permanentaddress'])) echo $_POST['permanentaddress']; ?>" required/><br />
             <label for="currentAddress"><b>Current Address</b></label><br />
             <input id="currentAddress" name="currentaddress" type="text" placeholder="Enter Current Address" value="<?php if (isset($_POST['currentaddress'])) echo $_POST['currentaddress']; ?>" required/><br />
             <label for="Email"><b>E-mail Address</b></label><br />
@@ -122,14 +127,9 @@ if(isset($_POST['submit'])){
             <label for="phone"><b>Contact Number</b></label><br />
             <input id="phome" name="contactNo" type="text" placeholder="0xxxxxxxxx " value="<?php if (isset($_POST['contactNo'])) echo $_POST['contactNo']; ?>" required/><br />
             <button name="submit" type="submit">Submit</button>
-            <button onclick="myFunction()" class="cancelbtn" type="button">Cancel</button>
+            <button onclick="window.location='Administration page.php'" class="cancelbtn" type="button">Cancel</button>
         </div>
     </form>
-    <script>
-        function myFunction() {
-            document.getElementById("AddMemForm").reset();
-        }
-    </script>
 </div>
 
 <div class="alert">

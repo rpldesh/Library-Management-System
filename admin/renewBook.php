@@ -23,8 +23,7 @@
             <nav>
                 <ul>
                     <li><a href="Administration Page.php">HOME</a></li>
-                    <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="../index.php">LOGOUT</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -46,9 +45,10 @@ $message = "";
 
 
     if (!isset($_POST["bookIds"])) {
-        $message = "Please select a book";?>
+        $message = "Please select a book";
+    ?> <style>div.alert{display:inline-block;}</style>
     <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="configure_id_for_renew.php?id=back">&times;</a></strong></span>
         <?php  echo $message;?>
 
     </div>
@@ -109,8 +109,9 @@ if(isset($_POST['Renew'])) {
 
    if(date("m-d-Y")>= date("m-d-Y",strtotime($_POST['DoR']))){
        $message="Date to be returned is unvalid";?>
+        <style>div.alert{display:inline-block;}</style>
        <div class="alert">
-           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="renewBook.php">&times;</a></strong></span>
            <?php  echo $message;?>
 
        </div>
@@ -125,9 +126,10 @@ if(isset($_POST['Renew'])) {
         $sql = "Update book_sessions set session_status ='extended',date_to_be_returned=$Date_to_be_returned where member_id = $memberId and book_id = $value and session_status != 'returned'";
         $dbObj->doQuery($sql);
         $message = "Renewed successfully..!!";
-    }?>
+        ?><style>div.alert{display:inline-block;}</style>
+    <?php }?>
        <div class="alert">
-           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="Administration%20Page.php">&times;</a></strong></span>
            <?php  echo $message;?>
 
        </div>
