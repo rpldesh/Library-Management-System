@@ -33,8 +33,16 @@
     $dbObj->connect('localhost','root','','lms_db');
     $user_id=$_SESSION['id'];
 
-    $bk_sess = new book_session();
-    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id ";
+    /*Getting data for Paging*/
+    if(!(isset($_GET['startrow']))){
+     $startrow=0;
+    }
+    else {
+        $startrow = (int)$_GET['startrow'];
+    }
+
+$bk_sess = new book_session();
+    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
 
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
@@ -66,6 +74,17 @@ else{ ?>
 
 
         </table>
+        <?php
+        $next=$startrow+2;
+        $prev=$startrow-2;
+        $prevlink = "AdminPreviousRecords.php?startrow=".$prev;?>
+        <?php $nxtlink = "AdminPreviousRecords.php?startrow=".$next;?>
+
+        <a class="tableNav">
+            <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
+            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+
+    </div>
     </div>
 <?php }?>
 </body>
