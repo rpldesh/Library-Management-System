@@ -51,11 +51,14 @@ $welcomeMsg="";
 	</div>
 	</div>
 	<div class="bgimage">
+        <p class="WelMsg"><?php echo $welcomeMsg;?></p>
 	<nav>
 		<ul>
 
 
+
 			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
+
 
 
             <?php
@@ -73,7 +76,6 @@ $welcomeMsg="";
                 $welcomeMsg= " Welcome to Siyane National College of Education Library Administration Page ".$_SESSION['adminName']."...!!!";
             }
             ?>
-            <p class="WelMsg"><?php echo $welcomeMsg;?></p>
 
             <div class="linkbox" id="addbook"><span><strong>Add Book</strong><br /><br /></span>
                 <a href="AddBook.php" onclick="return allowLibrarianOnly()"><img src="images/addbook.png" align="center"/></a></div><br />

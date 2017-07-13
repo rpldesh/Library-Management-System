@@ -66,13 +66,13 @@ if (isset($_POST['search'])) {
     $bk_sess = new book_session();
      if($value=='id'){
          $keyword = '"'.$_POST['Search'].'"';
-         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword Limit $startrow,2";
+         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
      }
 
      else{
 
          $keyword = '"%'.$_POST['Search'].'%"';
-         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword Limit $startrow,2";
+         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
      }
 
 
@@ -81,7 +81,7 @@ if (isset($_POST['search'])) {
 }
 else{
     $bk_sess = new book_session();
-    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Limit $startrow,2 ";
+    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
 }

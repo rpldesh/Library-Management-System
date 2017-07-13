@@ -101,8 +101,6 @@ span.warningMsg{color:orangered;}
 	}
 }
 
-<<<<<<< HEAD
-=======
 
 p.WelMsg{float: right; position: relative;}
 div.head_top{float: left; position: relative;}
@@ -187,4 +185,4 @@ div.head_top{float: left; position: relative;}
 @media only screen and (max-width: 300px) {
 	.text {font-size: 11px}
 }
->>>>>>> c3c4a5504a1cfa6d9ee2c6e3fba03f492f5d5c6a
+

@@ -20,7 +20,6 @@ abstract class table
         $sql = '';
         if ($task == 'load') {
             $sql = "SELECT * from {$this->tableName} where id = '{$this->id}'";
-
             return $sql;
         } elseif ($task == 'insert') {
             $keys = "";
@@ -35,7 +34,6 @@ abstract class table
                 $values .= "'{$this->$key}',";
             }
             $sql .= "(" . substr($keys, 0, -1) . ") Values(" . substr($values, 0, -1) . ")";
-
             return $sql;
         } elseif ($task == 'update') {
             $classAttributes = get_class_vars(get_class($this));
@@ -46,7 +44,7 @@ abstract class table
                 }
                 $sql .= "{$key} = '{$this->$key}',";
             }
-            $sql = substr($sql, 0, -1) . " where id = {$this->id}";
+            $sql = substr($sql, 0, -1) . " where id = '{$this->id}'";
             return $sql;
 
         }
@@ -60,7 +58,6 @@ abstract class table
         $dbObj->doQuery($sql);
 
         if(mysqli_num_rows($dbObj->getResult())>0) {
-
             $rows = $dbObj->loadObjList();
             foreach ($rows as $key => $value) {
                 if ($key == 'id') {
