@@ -13,26 +13,22 @@
 <head>
     <title>Generate Book Circulation Report</title>
     <link rel = "stylesheet" href ="css/config_if_for_return.css"/>
+    <script type="text/javascript">
+        <!--
+        function validateDates() {
+           if(dateEntry.startDate.value > dateEntry.finishDate.value){
+               alert("Invalid time period selected..!!");
+               return false;
+           }else{
+               return true;
+           }
+        }
+        //-->
+    </script>
 </head>
 <body>
 <header>
-    <script type="text/javascript">
-        function validateDates(){
-            var missingField=false;
-            var strFields="";
-            if(dateEntry.startDate.value > dateEntry.finishDate.value){
-                missingField=true;
-                strFields+="Please select valid time duration to generate the report.";
-                return false;
-            }
-            if(missingField){
-                alert("Invalid starting and finishing dates.\n"+strFields);
-                return false;
-            }else{
-                return true;
-            }
-        }
-    </script>
+
     <div class="head_top">
         <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
@@ -53,14 +49,14 @@
 </header>
 
 <div class="idconfigureform">
-    <form name="dateEntry" class="Form" align="center" method="POST" action="reportGenerator.php" autocomplete="off">
+    <form class="Form" name="dateEntry" id="dateEntry" align="center" method="POST" action="reportGenerator.php" onsubmit="return validateDates()" autocomplete="off">
         <div class="container">
             <h1 align="center">Generate Books Circulation Report</h1><hr />
             <label class="date" for="startDate"><b>From :</b></label><br />
             <input id="startDate" name="startDate" type="date"  required autofocus/><br />
             <label class="date" for="finishDate"><b>To :</b></label><br />
             <input id="finishDate" name="finishDate" type="date"  required autofocus/><br />
-            <button class="Submitbtn" name="generate" type="submit" onclick="validateDates()">Generate Report</button>
+            <button class="Submitbtn" name="generate" type="submit" >Generate Report</button>
             <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancel" type="button" >Cancel</button>
         </div>
     </form>

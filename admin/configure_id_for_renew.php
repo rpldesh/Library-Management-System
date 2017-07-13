@@ -70,6 +70,7 @@ if (isset($_POST["submitID"])){
     include("../table.php");
     include("../member.php");
     include("../book_session.php");
+    include ("calculateFine.php");
     $dbObj=database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
     $message='';
@@ -160,13 +161,10 @@ if (isset($_POST["submitID"])){
                 if ($key == 'date_to_be_returned') {
                     if (date("Y-m-d") > date("Y-m-d", strtotime($value))) {
                         $allowed = false;
-                        $start = strtotime($value);
-                        $end = time();
-                        $noOfDays = ceil(abs($end - $start) / 86400);
-                        $fine = $noOfDays - 2;
+                        $fine = calculateFine($value);
                         ?>
                         <td><p
-                            style="color: red"><?php echo $value . "    Expired" . "</br>" . "Fine : " . "Rs." . $fine . ".00" ?></p>
+                            style="color: red"><?php echo $value . "    Expired" . "</br>" . "Fine : " . $fine  ?></p>
                         </td><?php
                     } elseif (date("Y-m-d") <= date("Y-m-d", strtotime($value))) {
                         ?>

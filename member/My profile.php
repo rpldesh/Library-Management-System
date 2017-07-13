@@ -126,7 +126,7 @@
                 <div class="container">
                     <h1>Change the E-mail</h1><hr />
                     <label><b>Current E-mail address</b></label>
-                    <input type="text" name="curEmail" value="<?php echo $email; ?>" readonly />
+                    <input type="text" name="curEmail" id="textEmail" value="<?php echo $email; ?>" readonly />
                     <label><b>New E-mail address</b></label>
                     <input type="text" name="newEmail" Placeholder="Enter your new E-mail" required autofocus/>
                     <button name="saveEmail" class="Submitbtn" type="submit">Save Changes</button>
@@ -138,7 +138,9 @@
             $m->member_email="$NewEmail";
             $m->update($dbObj);
             $message=  "Your Email address changed successfully";
-            ?> <style>div.alert{display:inline-block;}</style><?php
+            $text='"'.$m->member_email.'"';
+            ?><script type="text/javascript"> document.getElementById("textEmail").value= <?php echo $text;?> </script>
+            <style>div.alert{display:inline-block;}</style><?php
         }
         ?>
     </div>

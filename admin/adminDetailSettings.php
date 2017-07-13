@@ -5,6 +5,7 @@ include("admin.php");
 $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
 session_start();
+$admin= new admin();
 
 
 ?>
@@ -113,9 +114,13 @@ session_start();
 </html>
 <?php
 $message='';
+<<<<<<< HEAD
 $admin=new admin();
 $admin->load($dbObj,$_SESSION['id']);
 $_SESSION['psw']=$admin->pwd;
+=======
+
+>>>>>>> 63b21ec97bcbb15446bf89d0448bb4c36daf6c48
 if(isset($_POST['save_name'])){
     $admin->admin_name=$_POST['m_name'];
     $_SESSION['adminName']=$_POST['m_name'];
