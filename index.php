@@ -25,8 +25,6 @@
 </header>
 <article class="whitebg">
     <?php
-
-
     include("database.php");
     include("table.php");
     include("login.php");
