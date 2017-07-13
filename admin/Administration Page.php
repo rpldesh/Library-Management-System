@@ -53,13 +53,10 @@ $welcomeMsg="";
 	<div class="bgimage">
 	<nav>
 		<ul>
-<<<<<<< HEAD
+
 
 			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
-=======
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">Admin Profile</a></li>
->>>>>>> 3bd620eaba1b7bcd91c6677726617bf7a43d7cdd
+
 
             <?php
             if(!empty($_SESSION['username'])){ ?>
@@ -180,3 +177,39 @@ $welcomeMsg="";
         </article>
 	</body>
 </html>
+<?php
+if(isset($_GET['id']) && ($_GET['id']=='Issue1back' ||$_GET['id']=='Issue2back' )){
+    $_SESSION['id']='';
+    $_SESSION['member_name']='';
+    $_SESSION['member_type']='';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Issue2back'){
+    $_SESSION['id']='';
+    $_SESSION['member_name']='';
+    $_SESSION['member_type']='';
+    $_SESSION['book_id']='';
+    $_SESSION['title']='';
+    $_SESSION['book_type']='';
+
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Renew1back'){
+    $_SESSION['ID']='';
+    $_SESSION['Name']='';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Renew2back') {
+    $_SESSION['ID'] = '';
+    $_SESSION['Name'] = '';
+    $_SESSION['bookIds'] = '';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='m_settingsback') {
+    $_SESSION['id'] = '';
+    $_SESSION['name'] = '';
+    $_SESSION['fname'] = '';
+    $_SESSION['type'] = '';
+    $_SESSION['status'] = '';
+    $_SESSION['adddate'] = '';
+}
+
+
+
+?>

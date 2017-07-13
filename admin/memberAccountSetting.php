@@ -12,11 +12,9 @@ $result = $m->load($dbObj, $_SESSION['id']);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ID configuration for changeDetails</title>
+    <title>User Detail Settings</title>
     <link rel = "stylesheet" href ="css/memberSetting.css"/>
-    <style>
-        div.alert{display: ;}
-    </style>
+    <style>div.alert{display:none;}</style>
 <body>
 <header>
     <script type="text/javascript">
@@ -42,7 +40,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
     <div class="bgimage">
         <nav>
             <ul>
-                <li><a href="Administration%20Page.php">HOME</a></li>
+                <li><a href="Administration%20Page.php?id=m_settingsback">HOME</a></li>
 
             </ul>
         </nav>
@@ -138,7 +136,6 @@ $result = $m->load($dbObj, $_SESSION['id']);
                     <td><div id="div_status"><?php echo $_SESSION['status']?></div><br />
                         <button id="b5" onclick="show('five')">Edit</button>
                         <br />
-                      <!-- -->
 
                             <form class="change_form" id="five" method="post" action=""  autocomplete="off">
 
@@ -176,9 +173,12 @@ if(isset($_POST['clearPsw'])){
     $login->password=$encodedpsw;
     $login->update($dbObj);
     $message="successfully changed. $defPsw is the new password $encodedpsw ";?>
+    <style>div.alert{display:inline-block;}</style>
     <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
-    <?php  echo $message;?>
+    <?php  echo $message; ?>
+
+
 
     </div>
     <?php
