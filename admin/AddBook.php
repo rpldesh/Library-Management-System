@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +29,7 @@
 </header>
 
 <div class="addbkform">
-    <form  id="AddBkForm" method="POST" action="" autocomplete="off">
+    <form  id="AddBkForm" method="POST" action="AddBook.php" autocomplete="off">
         <div class="container">
             <h1>Book Registration Form</h1><hr />
             <label for="AccNo"><b>Accession Number</b></label><br />
@@ -43,7 +42,7 @@
             <label for="autname"><b>Author</b></label><br />
             <input id="autname" name="AutName" type="text" placeholder="Enter Author" value="<?php if (isset($_POST['AutName'])) echo $_POST['AutName']; ?>" required/><br />
             <label for="isbn"><b>ISBN</b></label><br />
-            <input id="isbn" name="isbn" type="text" placeholder="Enter Accession Number" value="<?php if (isset($_POST['isbn'])) echo $_POST['isbn']; ?>" autofocus/><br />
+            <input id="isbn" name="isbn" type="text" placeholder="Enter ISBN" value="<?php if (isset($_POST['isbn'])) echo $_POST['isbn']; ?>" autofocus/><br />
             <label for="NoP"><b>No Of Pages</b></label><br />
             <input id="NoP" name="NoOfPg" type="number"  placeholder="Enter No Of Pages" value="<?php if (isset($_POST['NoOfPg'])) echo $_POST['NoOfPg']; ?>" required/><br />
             <label for="price"><b>Price</b></label><br />
@@ -59,14 +58,9 @@
             <label for="remarks"><b>Remarks</b></label><br />
             <textarea id="remarks" name="Remarks" cols="40" rows="6" value="<?php if (isset($_POST['Remarks'])) echo $_POST['Remarks']; ?>"></textarea><br />
             <button name="save" class="Submitbtn" type="submit">Submit</button>
-            <button name="cancel" class="cancelbtn" type="button" onclick="myFunction()">Cancel</button>
+            <button name="cancel" class="cancelbtn" type="button" onclick="window.location='Administration page.php'">Cancel</button>
         </div>
     </form>
-    <script>
-        function myFunction() {
-            document.getElementById("AddBkForm").reset();
-        }
-    </script>
 </div>
 
 
@@ -106,7 +100,7 @@ if(isset($_POST['save'])) {
     } elseif ($no_pages <= 0) {
         ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Invalid Number of Pages..!";
-    } elseif (!(is_float($price + 0)) && ($price < 0)) {
+    } elseif ($price < 0) {
         ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Invalid price..!";
     } else {
@@ -117,8 +111,9 @@ if(isset($_POST['save'])) {
 
         $book->bind($data);
         $book->insert($dbObj);
-        ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Book added successfully..!!";
+        ?> <style>div.alert{display:inline-block;}</style><?php
+        $_POST=array();
     }
 }
 

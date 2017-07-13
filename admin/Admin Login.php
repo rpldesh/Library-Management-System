@@ -98,6 +98,7 @@ session_start();
 
 
     <form class="loginForm" method="post" action="" autocomplete="off">
+        <h2 align="center">Admin Login</h2>
         <div class="imgcontainer"><img src="images/login-bg.png" alt="" class="loginimge"/></div>
         <div class="container">
             <span class="warningMsg"><img class="warImg" src="images/warning.gif" height="25px" width="25px"/>  <?php echo $message ; ?></span><br /><br />
