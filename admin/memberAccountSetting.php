@@ -42,9 +42,8 @@ $result = $m->load($dbObj, $_SESSION['id']);
     <div class="bgimage">
         <nav>
             <ul>
-                <li><a href="Administration%20Page.php?id==back">HOME</a></li>
-                <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
-                <li class="logout"><a href="../index.php">LOGOUT</a></li>
+                <li><a href="Administration%20Page.php">HOME</a></li>
+
             </ul>
         </nav>
     </div>
@@ -253,8 +252,6 @@ else if(isset($_POST['save_add_date'])){
     </script>
 
 <?php }}
-if(isset($_GET['id']) && $_GET['id']=='back' ){
-    session_destroy();
-}
+
 $dbObj->closeConnection();
 ?>

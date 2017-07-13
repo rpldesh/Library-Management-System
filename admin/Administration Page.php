@@ -21,11 +21,7 @@
 		<ul>
 
 
-<<<<<<< HEAD
-			<li><a href="">HOME</a></li>
-=======
-			<li><a href="#">HOME</a></li>
->>>>>>> 63b21ec97bcbb15446bf89d0448bb4c36daf6c48
+
 			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
 
             <?php

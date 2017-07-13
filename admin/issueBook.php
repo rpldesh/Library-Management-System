@@ -29,8 +29,7 @@ session_start();?>
             <nav >
                 <ul >
                     <li ><a href = "Administration Page.php" > HOME</a ></li >
-                    <li ><a href = "adminDetailSettings.php" > ADMIN PROFILE </a ></li >
-                    <li class="logout" ><a href = "../index.php" > LOGOUT</a ></li >
+
                 </ul >
             </nav >
 
@@ -59,7 +58,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
             <label for="accessionNo" ><b > Accession No </b ></label ><br />
             <input name = "accessionNo" type = "text" placeholder = "Enter Accession No" required /><br />
 
-            <button class="checkbtn" onclick = "window.location=''" name = "checkbtn" type = "submit" > Check</button >
+            <button class="checkbtn" onclick = "window.location='isseBook.php'" name = "checkbtn" type = "submit" > Check</button >
 
 
         </div>
@@ -71,7 +70,9 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
     </body >
     </html >
 
-<?php }
+<?php
+
+}
     if(isset($_POST['checkbtn'])) {
 
         $bk = new book();
@@ -136,5 +137,6 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
 
             <?php
         }
+
     }
 $dbObj->closeConnection();?>
