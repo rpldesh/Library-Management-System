@@ -22,8 +22,10 @@ $welcomeMsg="";
 		<ul>
 
 
+
 			<li><a href="#">Home</a></li>
-			<li><a href="#">Admin Profile</a></li>
+			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
+
 
             <?php
             if(!empty($_SESSION['username'])){ ?>

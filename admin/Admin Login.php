@@ -73,6 +73,7 @@ session_start();
                     $_SESSION['adminType'] = $admin->admin_type;
                     $_SESSION['adminStatus']=$admin->admin_status;
                     $_SESSION['add_date']=$admin->join_date;
+                    $_SESSION['id']=$admin->id;
                     header("Location:Administration Page.php");
                 }
             }else{

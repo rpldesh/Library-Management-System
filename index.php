@@ -38,6 +38,7 @@
 
     if(isset($_POST["SubmitBotton"])) {
         if (empty($_POST['uname']) || empty($_POST['Psw'])) {
+
             $msg= " Invalid login. Try again..!";
         } else {
             $user_name = $_POST['uname'];

@@ -87,7 +87,6 @@ $m->load($dbObj,$user_id);
         $result = $login->featuredLoad($dbObj,$sql);
         $psw=mysqli_fetch_row($result)[0];
 
-
         if($curEncriped!=$psw){
 
             $message= "Your current password is incorrect..!!";
@@ -211,8 +210,7 @@ $m->load($dbObj,$user_id);
             $m->update($dbObj);
             $message = "Your Telephone Number changed successfully";
             ?>
-            <style>div.alert {display: inline-block;
-                }</style><?php
+            <style>div.alert {display: inline-block;}</style><?php
         }
     }
     ?>
