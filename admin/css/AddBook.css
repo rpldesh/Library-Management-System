@@ -72,7 +72,7 @@ div.alert {
 	z-index:70;
 	position:absolute;
 	display:inline-block;
-	transform:translate(100px,10px);
+	transform:translate(500px,10px);
 	padding: 20px;
 	background-color: #f44336;
 	color: white;

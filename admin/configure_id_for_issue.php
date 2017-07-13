@@ -35,9 +35,8 @@
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="#">LOGOUT</a></li>
+                    <li><a href="Administration%20Page.php">HOME</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -98,8 +97,7 @@ if(isset($_POST['submitID'])) {
                 <nav>
                     <ul>
                         <li><a href="Administration%20Page.php">HOME</a></li>
-                        <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
-                        <li class="logout"><a href="#">LOGOUT</a></li>
+
                     </ul>
                 </nav>
             </div>
@@ -199,7 +197,9 @@ if(isset($_POST['submitID'])) {
 
     </div>
     </article>
-    <?php  }
+    <?php
+    }
+
    ?>
     </body>
     </html>

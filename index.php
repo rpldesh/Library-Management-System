@@ -168,8 +168,8 @@
 </article>
 
 <footer>
-<p style="text-align: center;">University of Moratuwa Library is one of the most prominent technological library in the country. Its main subject specializations are Engineering, Architecture and Information Technology.<br /></p>
-</div>Copyright @ 2017 Library, University of Moratuwa, Katubedda, Sri Lanka (10400).
+<p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
+    Designed by <img src="Images/Solutia_logo.png" width="140px" height="80px"/></p>
 </footer>
 </body>
 </html>

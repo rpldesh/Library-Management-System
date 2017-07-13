@@ -1,5 +1,6 @@
 <?php
-if(!isset($_POST["submitID"]) ){ ?>
+session_start();
+if(!isset($_POST["submitID"])){ ?>
     <!DOCTYPE html>
     <html>
     <head>
@@ -36,8 +37,7 @@ if(!isset($_POST["submitID"]) ){ ?>
                 <nav>
                     <ul>
                         <li><a href="Administration Page.php">HOME</a></li>
-                        <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
-                        <li class="logout"><a href="#">LOGOUT</a></li>
+
                     </ul>
                 </nav>
             </div>
@@ -64,8 +64,7 @@ if(!isset($_POST["submitID"]) ){ ?>
 
 <?php }
 
-if (isset($_POST["submitID"])){
-    session_start();
+if(isset($_POST["submitID"])){
     include("../database.php");
     include("../table.php");
     include("../member.php");
@@ -100,8 +99,7 @@ if (isset($_POST["submitID"])){
                 <nav>
                     <ul>
                         <li><a href="Administration%20Page.php">HOME</a></li>
-                        <li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
-                        <li class="logout"><a href="#">LOGOUT</a></li>
+
                     </ul>
                 </nav>
             </div>

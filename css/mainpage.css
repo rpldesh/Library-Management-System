@@ -13,7 +13,8 @@ div.borderbox{background-color:white; transform: translate(20px,0px);}
 
 
 nav{
-	padding:20px 0;
+	height: 20px;
+	padding:10px 0;
 	min-width:500px;
 }
 
@@ -207,4 +208,4 @@ a.sncoelink:hover{color:orange;}
 }
 
 
-footer{padding:10px; width:100%; color: #e1e1e1; background-image:url("../Images/footer_img.jpg");}
+footer{padding:1px; width:100%; color:black; background-image:url("../Images/footer.jpg");}

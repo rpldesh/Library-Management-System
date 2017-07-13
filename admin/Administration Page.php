@@ -23,7 +23,6 @@ $welcomeMsg="";
 
 
 
-			<li><a href="#">Home</a></li>
 			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
 
 
