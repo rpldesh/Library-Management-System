@@ -87,7 +87,6 @@
             $result = $login->featuredLoad($dbObj,$sql);
             $psw=mysqli_fetch_row($result)[0];
 
-
             if($curEncriped!=$psw){
 
                 $message= "Your current password is incorrect..!!";
@@ -110,6 +109,9 @@
         ?>
 
     </div>
+
+
+
 
 
 
