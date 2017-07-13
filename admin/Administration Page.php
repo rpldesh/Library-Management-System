@@ -21,10 +21,7 @@ $welcomeMsg="";
 	<nav>
 		<ul>
 
-
-
 			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
-
 
             <?php
             if(!empty($_SESSION['username'])){ ?>
