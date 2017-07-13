@@ -4,6 +4,7 @@
     <title>Library-Home</title>
     <link rel = "stylesheet" href ="css/mainpage.css"/>
     <style>img.warImg{display:none;}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <header>
@@ -22,52 +23,119 @@
         </nav>
     </div>
 </header>
-<?php
-$msg='';
-include("database.php");
+<article class="whitebg">
+    <?php
 
 
-if(isset($_POST["SubmitBotton"])) {
-
-
+    include("database.php");
     include("table.php");
     include("login.php");
-    include("member.php");
-
+    include ("member.php");
     $dbObj=database::getInstance();
     $dbObj->connect('localhost','root','','lms_db');
+    $msg='';
 
 
-    if (empty($_POST['uname']) || empty($_POST['Psw'])) {
-        $msg= " Invalid login. Try again..!";
-    } else {
-        $user_name = $_POST['uname'];
-        $password = $_POST['Psw'];
-        $enPass = md5("$password");
-        $login = new login();
-        $result = $login->load($dbObj,$user_name);
-        $numOfRows = mysqli_num_rows($dbObj->getResult());
-        $m= new member();
-        $sql= "Select member_status from members WHERE id= '$user_name' ";
-        $resultStatus = $login->featuredLoad($dbObj,$sql);
-        $mem_status=mysqli_fetch_row($resultStatus)[0];
-        $lst_login_date=date('Y-m-d');
+    if(isset($_POST["SubmitBotton"])) {
+        if (empty($_POST['uname']) || empty($_POST['Psw'])) {
 
-
-        if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active") {
-            session_start();
-            $login->last_login_date=$lst_login_date;
-            $login->update($dbObj);
-            $_SESSION['id'] =$user_name;
-            header("Location:member/Member Page.php");
-        } else {
-            ?>
-            <style>img.warImg{display: inline-block;}</style>
-            <?php
             $msg= " Invalid login. Try again..!";
+        } else {
+            $user_name = $_POST['uname'];
+            $password = $_POST['Psw'];
+            $enPass = md5("$password");
+            $login = new login();
+            $result = $login->load($dbObj,$user_name);
+            $numOfRows = mysqli_num_rows($dbObj->getResult());
+            $m= new member();
+            $sql= "Select member_status from members WHERE id= '$user_name' ";
+            $resultStatus = $login->featuredLoad($dbObj,$sql);
+            $mem_status=mysqli_fetch_row($resultStatus)[0];
+            $lst_login_date=date('Y-m-d');
+
+
+            if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active") {
+                session_start();
+                $login->last_login_date=$lst_login_date;
+                $login->update($dbObj);
+                $_SESSION['id'] =$user_name;
+                header("Location:member/Member Page.php");
+            } else {
+                ?>
+                <style>img.warImg{display: inline-block;}</style>
+                <?php
+                $msg= " Invalid login. Try again..!";
+            }
         }
-    }
-}?>
+    }?>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 6</div>
+            <img src="Images/1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 6</div>
+            <img src="Images/2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 6</div>
+            <img src="Images/3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 6</div>
+            <img src="Images/4.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 6</div>
+            <img src="Images/5.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 6</div>
+            <img src="Images/6.jpg" style="width:100%">
+        </div>
+
+        <div style="text-align:center">
+            <br />
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+    <br>
+
+
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex> slides.length) {slideIndex = 1}
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
 
 
     <form class="memberLoginForm" method="POST" action="index.php" autocomplete="off">
@@ -85,22 +153,25 @@ if(isset($_POST["SubmitBotton"])) {
         </div>
     </form>
 
-	
-	<div class="slideshow "></div>
-	
-	<section class="linkarea">
-	<h3>Quick Links</h3>
-	<a class="sncoelink" href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
-	<div class="stretch"><strong>Contact Information</strong> <br />
-		<p class="hidden">This text is hidden.</p>
-		<b>President :</b> <i class="TPnumber">+94333832157</i><br />
-		<b>Vice President (Administration) :</b> <i class="TPnumber">+94332287213</i><br />
-		<b>Vice President (Academic) :</b><i class="TPnumber"> +94333832156</i><br />
-		<b>Registrar :</b><i class="TPnumber"> +94332287587</i><br />
-		<b>Fax :</b> <i class="TPnumber">+94332287213</i>
-	</div>
-	</section>
 
+    <section class="linkarea">
+        <h3>Quick Links</h3>
+        <a class="sncoelink" href="http://www.siyanencoe.sch.lk/" target="_blank" >SNCoE Website</a><hr />
+        <div class="stretch"><strong>Contact Information</strong> <br />
+            <p class="hidden">This text is hidden.</p>
+            <b>President :</b> <i class="TPnumber">+94333832157</i><br />
+            <b>Vice President (Administration) :</b> <i class="TPnumber">+94332287213</i><br />
+            <b>Vice President (Academic) :</b><i class="TPnumber"> +94333832156</i><br />
+            <b>Registrar :</b><i class="TPnumber"> +94332287587</i><br />
+            <b>Fax :</b> <i class="TPnumber">+94332287213</i>
+        </div>
+    </section>
 
+</article>
+
+<footer>
+<p style="text-align: center;">University of Moratuwa Library is one of the most prominent technological library in the country. Its main subject specializations are Engineering, Architecture and Information Technology.<br /></p>
+</div>Copyright @ 2017 Library, University of Moratuwa, Katubedda, Sri Lanka (10400).
+</footer>
 </body>
 </html>
