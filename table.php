@@ -35,6 +35,7 @@ abstract class table
                 $values .= "'{$this->$key}',";
             }
             $sql .= "(" . substr($keys, 0, -1) . ") Values(" . substr($values, 0, -1) . ")";
+            echo $sql."<br />";
 
             return $sql;
         } elseif ($task == 'update') {

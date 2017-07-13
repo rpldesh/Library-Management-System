@@ -59,7 +59,7 @@ session_start();
                     <style>img.warImg{display: inline-block;}</style>
                     <?php
                 }
-                else if($admin->pwd != $encriptedPwd  ){
+                else if($admin->pwd != $encriptedPwd || $username != $admin->username ){
                     $message = "Incorrect password..!";
                     ?>
                     <style>img.warImg{display: inline-block;}</style>
