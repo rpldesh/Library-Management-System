@@ -170,10 +170,12 @@ $welcomeMsg="";
                     setTimeout(showSlides, 2000); // Change image every 2 seconds
                 }
             </script>
-
-
-
-
         </article>
+
+    <footer>
+        <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
+            Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>
+    </footer>
+
 	</body>
 </html>

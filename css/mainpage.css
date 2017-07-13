@@ -66,30 +66,6 @@ div.container{padding:16px;}
 input:focus,textarea:focus,select:hover{background-color:white;}
 
 
-
-
-div.slideshow{ display:block;	
-				box-sizing:border-box;
-				border-radius:5px;
-				padding:10px; 
-				background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
-				box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
-				margin:15px; 
-				transform:translate(5px,0px);
-				width:700px; height:300px; 
-				animation-name:slideShow; 
-				animation-duration:15s; 
-				animation-iteration-count:infinite; 
-				float:left;
-}
-@keyframes slideShow{
-	0%{background-image:url(../Images/1.jpg);}
-	20%{background-image:url(../Images/2.jpg);}
-	40%{background-image:url(../Images/3.jpg);}
-	60%{background-image:url(../Images/4.jpg);}
-	80%{background-image:url(../Images/5.jpg);}
-	100%{background-image:url(../Images/6.jpg);}
-	}
 	
 a{text-decoration:none; color:grey;  display:inline-table;  }
 a:hover{color:orange;}

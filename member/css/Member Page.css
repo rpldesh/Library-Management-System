@@ -1,5 +1,5 @@
 body{ width:100%; background-color:#DCDCDC;}
-header{ padding:5px; color:white; background: linear-gradient(
+header{ font-family:Arial, "Sans-serif", "Times New Roman"; padding:5px; color:white; background: linear-gradient(
     to left,
     rgba(73,4,4, 0),
     rgba(73,4,4, 100)
@@ -8,7 +8,7 @@ header{ padding:5px; color:white; background: linear-gradient(
   
 article{margin-left:100px; margin-right:100px;box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 		background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
-		height:1000px; position:relative;}
+		height:700px; position:relative;}
   
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
 nav{
@@ -34,7 +34,7 @@ nav ul li{display:inline-block;}
 nav ul li a{padding:10px; 
 	color:white;
 	font-size:18px;
-	font-family:Arial;
+	font-family: Arial, "Sans-serif", "Times New Roman";
 	text-decoration:none;
 	display:block;
 }
@@ -59,35 +59,14 @@ div#myProfile{float:left; display:block;margin-left:20px; margin-top:30px;}
 div#searchbk{float:left; display:inline-block; clear:both; position:relative; margin-left:20px;}
 div#prevRecords{float:left; clear:both; margin-left:20px; position:relative; display:inline-block;}
 
-div.slideshow{ display:block;	
-				box-sizing:border-box;
-				border-radius:5px;
-				padding:10px; 
-				background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
-				box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
-				margin:15px; 
-				transform:translate(0px,-300px);
-				width:700px; height:300px; 
-				animation-name:slideShow; 
-				animation-duration:15s; 
-				animation-iteration-count:infinite; 
-				float:left;
-}
-@keyframes slideShow{
-	0%{background-image:url(../images/1.jpg);}
-	20%{background-image:url(../images/2.jpg);}
-	40%{background-image:url(../images/3.jpg);}
-	60%{background-image:url(../images/4.jpg);}
-	80%{background-image:url(../images/5.jpg);}
-	100%{background-image:url(../images/6.jpg);}
-	}
+
 
 /* link area*/
 section.linkarea{ z-index:7; position:relative; display:inline-block;
 	background:linear-gradient(0deg,rgba(156,23,23,0.8),rgba(108,16,16,0.8),rgba(73,4,4,0.9));
 	border-radius:10px; margin:10px 0; width:230px; float:right;
 	box-shadow: 0 0 25px rgba(0,0,0,0.6),inset 0 0 1px rgba(255,255,255,0.6);
-	transform:translate(-10px,-295px);  padding:10px;}
+	transform:translate(-10px,-365px);  padding:10px;}
 
 div.stretch{padding:5px; overflow:hidden; width:200px; height:50px; border-radius:10px; background-color:rgba(222,221,202,1); transition:height 3s ;transition-timing-function:ease-out;
 	color:grey;}
@@ -96,7 +75,7 @@ p.hidden{visibility:hidden;}
 div.stretch:hover{ color:black;height:250px;background-color:rgba(222,221,202,1);}
 
 
-div.head_top{float: left; position: relative;}
+div.head_top{}
 
 a.sncoelink{text-decoration: none; color: ghostwhite;}
 a.sncoelink:hover{color:orange;}
@@ -212,3 +191,6 @@ a.sncoelink:hover{color:orange;}
 @media only screen and (max-width: 300px) {
 	.text {font-size: 11px}
 }
+
+
+footer{padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}

@@ -67,28 +67,6 @@ div#generatereport{float:right; display:inline-block; clear:both; margin-right:6
 div#AddnewAdmins{float:left; display:inline-block; clear:left; margin-left:50px; position: relative;}
 div#prevRecods{display:inline-block; float:right; clear:right; margin-right:60px; position:relative;}
 
-/*div.slideshow{ display:block;
-				box-sizing:border-box;
-				border-radius:5px;
-				padding:10px; 
-				background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
-				box-shadow: rgba(0,0,0, 0.5) 0px 0px 8px;
-				margin:15px; 
-				transform:translate(30px,-600px);
-				width:700px; height:300px; 
-				animation-name:slideShow; 
-				animation-duration:15s; 
-				animation-iteration-count:infinite; 
-				float:left;
-}
-@keyframes slideShow{
-	0%{background-image:url(../images/1.jpg);}
-	20%{background-image:url(../images/2.jpg);}
-	40%{background-image:url(../images/3.jpg);}
-	60%{background-image:url(../images/4.jpg);}
-	80%{background-image:url(../images/5.jpg);}
-	100%{background-image:url(../images/6.jpg);}
-	}*/
 
 span.warningMsg{color:orangered;}
 @media screen and (max-width: 1100px) {
@@ -103,7 +81,7 @@ span.warningMsg{color:orangered;}
 
 
 p.WelMsg{float: right; position: relative;}
-div.head_top{float: left; position: relative;}
+div.head_top{}
 
 
 
@@ -186,3 +164,4 @@ div.head_top{float: left; position: relative;}
 	.text {font-size: 11px}
 }
 
+footer{padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}
