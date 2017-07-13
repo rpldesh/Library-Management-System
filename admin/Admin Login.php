@@ -65,7 +65,7 @@ session_start();
                     <style>img.warImg{display: inline-block;}</style>
                     <?php
                 }
-                else {
+                else if($admin->pwd == $encriptedPwd) {
                     $admin->last_login_date = date("Y-m-d");
                     $admin->update($dbObj);
                     $_SESSION['username'] = $admin->username;
@@ -75,6 +75,12 @@ session_start();
                     $_SESSION['add_date']=$admin->join_date;
                     $_SESSION['psw']=$admin->pwd;
                     header("Location:Administration Page.php");
+                }
+                else{
+                    $message = "Invalid username..!";
+                    ?>
+                    <style>img.warImg{display: inline-block;}</style>
+                    <?php
                 }
             }else{
                 $message = "Invalid username..!";
