@@ -39,6 +39,7 @@ session_start();?>
 
 
 <?php
+
 if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
 
 ?>
@@ -82,7 +83,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
             <link rel = "stylesheet" href ="css/messageBox.css"/>
 
             <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueBook.php">&times;</a></span>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
                 <?php echo $message;?>
             </div>
             <?php

@@ -14,7 +14,7 @@
             var strFields="";
             if(id_config.memberID.value==""){
                 missingField=true;
-                strFields+="Plese enter a member ID";
+                strFields+="Please enter a member ID";
             }
             if(missingField){
                 alert("Sorry! You must provide following fields to continue:\n"+strFields);
@@ -190,7 +190,7 @@ if(isset($_POST['submitID'])) {
             <?php } ?>
 
         </table>
-        <form class="clicks" action="issueBook.php" method="post">
+        <form class="clicks" action="issueBook.php"  method="post">
 
         <button class="SubmitBtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
         <button class="cancelBtn" type="button" onclick="window.location='Administration page.php'" name="cancel">Cancel</button>

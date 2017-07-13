@@ -113,6 +113,9 @@ session_start();
 </html>
 <?php
 $message='';
+$admin=new admin();
+$admin->load($dbObj,$_SESSION['id']);
+$_SESSION['psw']=$admin->pwd;
 if(isset($_POST['save_name'])){
     $admin->admin_name=$_POST['m_name'];
     $_SESSION['adminName']=$_POST['m_name'];

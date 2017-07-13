@@ -19,7 +19,7 @@ if(isset($_POST['Issue'])) {
         $message = "Sorry...!!This book is not allowed to borrow";?>
 
     <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueBook.php">&times;</a></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div>
@@ -28,7 +28,7 @@ if(isset($_POST['Issue'])) {
         $message = "Date to be returned is invalid";
         ?>
 <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';"><a herf="issueBook.php">&times;</a></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueSave.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div><?php
