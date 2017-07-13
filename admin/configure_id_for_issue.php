@@ -69,8 +69,9 @@ include("../book_session.php");
 $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
 $message='';
-session_start();
+
 if(isset($_POST['submitID'])) {
+    session_start();
     $m = new member();
     $result = $m->load($dbObj, $_POST["memberID"]);
 
@@ -96,7 +97,7 @@ if(isset($_POST['submitID'])) {
             <div class="bgimage">
                 <nav>
                     <ul>
-                        <li><a href="Administration%20Page.php">HOME</a></li>
+                        <li><a href="Administration%20Page.php?id=Issue1back">HOME</a></li>
 
                     </ul>
                 </nav>
@@ -191,7 +192,7 @@ if(isset($_POST['submitID'])) {
         <form class="clicks" action="issueBook.php"  method="post">
 
         <button class="SubmitBtn" type="submit" name="GotoIssueForm">Go to Issuing Form</button>
-        <button class="cancelBtn" type="button" onclick="window.location='Administration page.php'" name="cancel">Cancel</button>
+        <button class="cancelBtn" type="button" onclick="window.location='Administration page.php?id=Issue1back'" name="cancel">Cancel</button>
 
         </form>
 

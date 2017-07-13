@@ -28,7 +28,7 @@ session_start();?>
         <div class="bgimage" >
             <nav >
                 <ul >
-                    <li ><a href = "Administration Page.php" > HOME</a ></li >
+                    <li ><a href = "Administration Page.php?Issue2back" > HOME</a ></li >
 
                 </ul >
             </nav >
@@ -71,6 +71,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
     </html >
 
 <?php
+
 
 }
     if(isset($_POST['checkbtn'])) {
@@ -122,7 +123,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
 
 
                         <button class="Submitbtn" name="Issue" type="submit"> Issue</button>
-                        <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancelBtn"
+                        <button class="cancelbtn" onclick="window.location='Administration Page.php?Issue2back'" name="cancelBtn"
                                 type="button"> Cancel
                         </button>
                     </div>
