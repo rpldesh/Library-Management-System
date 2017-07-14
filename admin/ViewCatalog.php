@@ -28,10 +28,24 @@ if (!(isset($_POST['search']))) {
     $_SESSION['indicator']='Started';
 }
 
+// To count the number of elements which are added to the table
+$sqlZero = "Select * from books where 1";
+$resultCount = $book->featuredLoad($dbobj,$sqlZero);
+$No_Pages=mysqli_num_rows($resultCount)/2;
+
 $sql= "Select * from books Limit $startrow,2";
 
 $result = $book->featuredLoad($dbobj,$sql);
 $len= mysqli_num_rows($result);
+
+// If the page is over then return tha last page again
+if($len==0)
+{
+    $startrow =$startrow-2;
+    $sql = "Select * from books Limit $startrow,2";
+    $result = $book->featuredLoad($dbobj, $sql);
+    $len=mysqli_num_rows($result);
+}
 
 ?>
 
@@ -121,10 +135,22 @@ $len= mysqli_num_rows($result);
 
 
                     $sql = "Select * from books Where $value like $keyword Limit $startrow,2";
-
                     $result = $book->featuredLoad($dbobj, $sql);
                     $len=mysqli_num_rows($result);
-                }
+
+
+                    // To count the number of elements which are added to the table
+                    $sqlZero = "Select * from books Where $value like $keyword";
+                    $resultCount = $book->featuredLoad($dbobj,$sqlZero);
+                    $No_Pages=mysqli_num_rows($resultCount)/2;
+
+                    if($len==0)
+                    {
+                        $startrow =$startrow-2;
+                        $sql = "Select * from books Where $value like $keyword Limit $startrow,2";
+                        $result = $book->featuredLoad($dbobj, $sql);
+                        $len=mysqli_num_rows($result);}
+                    }
 
                 for($i=0; $i<$len; $i++){?>
                         <tr>
@@ -137,18 +163,29 @@ $len= mysqli_num_rows($result);
                         </tr>
                 <?php }
 
-
                 $next=$startrow+2;
-                $prev=$startrow-2;?>
+
+                if(!$startrow==0){$prev=$startrow-2;}
+                else{$prev=0;}?>
+
         </table>
         <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
         <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
 
         <a class="tableNav">
-            <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
-            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+            <a href=<?php echo $prevlink?>><button class="prevBtn" type="submit" name="prev">Previous</button></a>
+            <div class="pagePoint">
+                <?php for($i=0; $i<$No_Pages; $i++){
+                    $page_startrow=0+2*$i;
+                    $page_link="ViewCatalog.php?startrow=".$page_startrow;?>
+                    <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
+
+                <?php }?>
+            </div>
+            <a href=<?php echo $nxtlink?>><button class="nextBtn" type="submit" name="next">Next</button></a>
 
         </div>
+        <p align="centre" ><?php $error?></p>
     </div>
 
 
