@@ -171,7 +171,7 @@ $welcomeMsg="";
                     }
                     slides[slideIndex-1].style.display = "block";
                     dots[slideIndex-1].className += " active";
-                    setTimeout(showSlides, 2000); // Change image every 2 seconds
+                    setTimeout(showSlides, 2000); // Changes image every 2 seconds
                 }
             </script>
         </article>
@@ -223,6 +223,9 @@ elseif(isset($_GET['id']) && $_GET['id']=='m_settingsback') {
     $_SESSION['type'] = '';
     $_SESSION['status'] = '';
     $_SESSION['adddate'] = '';
+}elseif(isset($_GET['id']) && $_GET['id']=='backFromReturn') {
+    if(isset($_SESSION['idForReturn'])){$_SESSION['idForReturn']='';}
+    if(isset($_SESSION["bookIDs"])){$_SESSION["bookIDs"]='';}
 }
 
 

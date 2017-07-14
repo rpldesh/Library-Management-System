@@ -77,3 +77,30 @@ div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display
 
 img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}
 /*button.closeicon{width:50px; height:50px; border-radius:50%;}*/
+
+div.alertMsg {
+    z-index:70;
+    position:absolute;
+    display:inline-block;
+    transform:translate(500px,10px);
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+
+span.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+span.closebtn:hover {
+    color: black;
+}
+

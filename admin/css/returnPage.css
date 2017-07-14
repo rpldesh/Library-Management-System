@@ -134,6 +134,15 @@ div.alertMsg {
     background-color: #f44336;
     color: white;
 }
+div.alert {
+    z-index:70;
+    position:absolute;
+    display:inline-block;
+    transform:translate(-150px,-450px);
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
 
 span.closebtn {
     margin-left: 15px;
