@@ -98,7 +98,7 @@ if(isset($_POST["submitID"])){
             <div class="bgimage">
                 <nav>
                     <ul>
-                        <li><a href="Administration%20Page.php">HOME</a></li>
+                        <li><a href="Administration%20Page.php?id=Renew1back">HOME</a></li>
 
                     </ul>
                 </nav>
@@ -218,7 +218,7 @@ if(isset($_POST["submitID"])){
         </div>
 
             <button class="renewBTN" type="submit" name="renewBTN">Renew Book/Books</button>
-            <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php'" name="cancel">Cancel</button>
+            <button class="cancelbtn" type="button" onclick="window.location='Administration Page.php?Renew1back'" name="cancel">Cancel</button>
 
 
 

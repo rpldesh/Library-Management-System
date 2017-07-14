@@ -51,10 +51,15 @@ $welcomeMsg="";
 	</div>
 	</div>
 	<div class="bgimage">
+        <p class="WelMsg"><?php echo $welcomeMsg;?></p>
 	<nav>
 		<ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">Admin Profile</a></li>
+
+
+
+			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
+
+
 
             <?php
             if(!empty($_SESSION['username'])){ ?>
@@ -71,7 +76,6 @@ $welcomeMsg="";
                 $welcomeMsg= " Welcome to Siyane National College of Education Library Administration Page ".$_SESSION['adminName']."...!!!";
             }
             ?>
-            <p class="WelMsg"><?php echo $welcomeMsg;?></p>
 
             <div class="linkbox" id="addbook"><span><strong>Add Book</strong><br /><br /></span>
                 <a href="AddBook.php" onclick="return allowLibrarianOnly()"><img src="images/addbook.png" align="center"/></a></div><br />
@@ -168,10 +172,48 @@ $welcomeMsg="";
                     setTimeout(showSlides, 2000); // Change image every 2 seconds
                 }
             </script>
-
-
-
-
         </article>
+
+    <footer>
+        <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
+            Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>
+    </footer>
+
 	</body>
 </html>
+<?php
+if(isset($_GET['id']) && ($_GET['id']=='Issue1back' ||$_GET['id']=='Issue2back' )){
+    $_SESSION['id']='';
+    $_SESSION['member_name']='';
+    $_SESSION['member_type']='';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Issue2back'){
+    $_SESSION['id']='';
+    $_SESSION['member_name']='';
+    $_SESSION['member_type']='';
+    $_SESSION['book_id']='';
+    $_SESSION['title']='';
+    $_SESSION['book_type']='';
+
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Renew1back'){
+    $_SESSION['ID']='';
+    $_SESSION['Name']='';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Renew2back') {
+    $_SESSION['ID'] = '';
+    $_SESSION['Name'] = '';
+    $_SESSION['bookIds'] = '';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='m_settingsback') {
+    $_SESSION['id'] = '';
+    $_SESSION['name'] = '';
+    $_SESSION['fname'] = '';
+    $_SESSION['type'] = '';
+    $_SESSION['status'] = '';
+    $_SESSION['adddate'] = '';
+}
+
+
+
+?>

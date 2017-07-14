@@ -22,7 +22,7 @@
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="Administration Page.php">HOME</a></li>
+                    <li><a href="Administration Page.php?id=Renew2back">HOME</a></li>
 
                 </ul>
             </nav>
@@ -81,7 +81,7 @@ $_SESSION['bookIds']=$bookIds;
                     <input id="date" name="DoR" type="date" required/><br/>
 
                     <button class="Submitbtn" name="Renew" type="submit"> Renew</button>
-                    <button class="cancelbtn" onclick="window.location='Administration Page.php'" name="cancelBtn"
+                    <button class="cancelbtn" onclick="window.location='Administration Page.php?id=Renew2back'" name="cancelBtn"
                             type="button"> Cancel
                     </button>
                 </div>
