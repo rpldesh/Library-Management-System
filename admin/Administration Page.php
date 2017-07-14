@@ -1,4 +1,5 @@
 <?php session_start();
+$session_value=(isset($_SESSION['adminType']))?$_SESSION['adminType']:'';
 $welcomeMsg="";
 ?>
 
@@ -7,6 +8,38 @@ $welcomeMsg="";
 	<head>
 		<title>Administration Page</title>
 		<link rel = "stylesheet" href ="css/Administration Page.css"/>
+        <style> div.alert{display: none;}</style>
+        <script type="text/javascript">
+            <!--
+            function allowLibrarianClerk() {
+                var adminType= "<?php echo $session_value; ?>";
+                if(adminType == "clerk" || adminType == "librarian"){
+                    return true;
+                }else{
+                    alert("The area you are trying to enter is restricted to your admin type");
+                    return false;
+                }
+            }
+            function allowLibrarianOnly() {
+                var adminType= "<?php echo $session_value; ?>";
+                if(adminType == "librarian"){
+                    return true;
+                }else{
+                    alert("The area you are trying to enter is restricted to your admin type");
+                    return false;
+                }
+            }
+            function allowLibrarianAudit() {
+                var adminType= "<?php echo $session_value; ?>";
+                if(adminType == "librarian" || adminType == "audit"){
+                    return true;
+                }else{
+                    alert("The area you are trying to enter is restricted to your admin type");
+                    return false;
+                }
+            }
+            //-->
+        </script>
 
 	</head>
 <body>
@@ -18,6 +51,7 @@ $welcomeMsg="";
 	</div>
 	</div>
 	<div class="bgimage">
+        <p class="WelMsg"><?php echo $welcomeMsg;?></p>
 	<nav>
 		<ul>
 
@@ -26,12 +60,13 @@ $welcomeMsg="";
 			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
 
 
+
             <?php
             if(!empty($_SESSION['username'])){ ?>
                 <li class="logout" ><a href="Admin%20Login.php?id=adminLogout" id="adminLogout">LOGOUT</a></li>
             <?php } ?>
 
-		</ul>
+        </ul>
 	</nav>
 	</div>
 	</header>
@@ -41,34 +76,33 @@ $welcomeMsg="";
                 $welcomeMsg= " Welcome to Siyane National College of Education Library Administration Page ".$_SESSION['adminName']."...!!!";
             }
             ?>
-            <p class="WelMsg"><?php echo $welcomeMsg;?></p>
 
             <div class="linkbox" id="addbook"><span><strong>Add Book</strong><br /><br /></span>
-                <a href="AddBook.php"><img src="images/addbook.png" align="center"/></a></div><br />
+                <a href="AddBook.php" onclick="return allowLibrarianOnly()"><img src="images/addbook.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="issuebk"><span><strong>Issue Book</strong><br /><br /></span>
-                <a  href="configure_id_for_issue.php"><img src="images/issuebk.png" align="center"/></a>></div><br />
+                <a  href="configure_id_for_issue.php" onclick="return allowLibrarianClerk();"><img src="images/issuebk.png" align="center"/></a>></div><br />
 
             <div class="linkbox" id="addmember"><span><strong>Add Member</strong><br /><br /></span>
-                <a href="AddMember.php"><img src="images/addmember.png" align="center"/></a></div><br />
+                <a href="AddMember.php" onclick="return allowLibrarianOnly()"><img src="images/addmember.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="returnbk"><span><strong>Return Book</strong><br /><br /></span>
-                <a href="config_id_for_return.php"><img src="images/returnbk.png" align="center"/></a></div><br />
+                <a href="config_id_for_return.php" onclick="return allowLibrarianClerk();"><img src="images/returnbk.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="renew"><span><strong>Renew Book</strong><br /><br /></span>
-                <a href="configure_id_for_renew.php" ><img src="images/renew.png" align="center"/></a></div><br />
+                <a href="configure_id_for_renew.php" onclick="return allowLibrarianClerk();"><img src="images/renew.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="viewcatelog"><span><strong>View Catelog</strong><br /><br /></span>
                 <a href="ViewCatalog.php"><img src="images/searchbk.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="generatereport"><span><strong>Generate report</strong><br /></span>
-                <a href="generateReport.php"><img src="images/report-icon.png" align="center"/></a></div><br />
+                <a href="generateReport.php" onclick="return allowLibrarianAudit()"><img src="images/report-icon.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="UaccSettings"><span><strong>User Account Settings</strong><br /></span>
-                <a href="configure_id_for_usersettings.php"><img src="images/useraccount.jpg" align="center"/></a></div><br />
+                <a href="configure_id_for_usersettings.php" onclick="return allowLibrarianOnly()"><img src="images/useraccount.jpg" align="center"/></a></div><br />
 
             <div class="linkbox" id="AddnewAdmins"><span><strong>Add New Admin</strong><br /></span>
-                <a href="addNewAdminPage.php"><img src="images/addAdmin.jpg" align="center"/></a></div><br />
+                <a href="addNewAdminPage.php" onclick="return allowLibrarianOnly()"><img src="images/addAdmin.jpg" align="center"/></a></div><br />
 
             <div class="linkbox" id="prevRecods"><span><strong>Previous Records</strong><br /></span>
                 <a href="AdminPreviousRecords.php"><img src="images/bookmark.png" align="center"/></a></div><br />
@@ -138,10 +172,48 @@ $welcomeMsg="";
                     setTimeout(showSlides, 2000); // Change image every 2 seconds
                 }
             </script>
-
-
-
-
         </article>
+
+    <footer>
+        <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
+            Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>
+    </footer>
+
 	</body>
 </html>
+<?php
+if(isset($_GET['id']) && ($_GET['id']=='Issue1back' ||$_GET['id']=='Issue2back' )){
+    $_SESSION['id']='';
+    $_SESSION['member_name']='';
+    $_SESSION['member_type']='';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Issue2back'){
+    $_SESSION['id']='';
+    $_SESSION['member_name']='';
+    $_SESSION['member_type']='';
+    $_SESSION['book_id']='';
+    $_SESSION['title']='';
+    $_SESSION['book_type']='';
+
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Renew1back'){
+    $_SESSION['ID']='';
+    $_SESSION['Name']='';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='Renew2back') {
+    $_SESSION['ID'] = '';
+    $_SESSION['Name'] = '';
+    $_SESSION['bookIds'] = '';
+}
+elseif(isset($_GET['id']) && $_GET['id']=='m_settingsback') {
+    $_SESSION['id'] = '';
+    $_SESSION['name'] = '';
+    $_SESSION['fname'] = '';
+    $_SESSION['type'] = '';
+    $_SESSION['status'] = '';
+    $_SESSION['adddate'] = '';
+}
+
+
+
+?>

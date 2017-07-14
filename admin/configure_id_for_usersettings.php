@@ -58,7 +58,7 @@
 </html>
 
 <?php
-session_start();
+
 include("../database.php");
 include("../table.php");
 include("../member.php");
@@ -68,6 +68,7 @@ $dbObj = database::getInstance();
 $dbObj->connect('localhost', 'root', '', 'lms_db');
 $message='';
 if(isset($_POST['submitID'])) {
+    session_start();
     $_SESSION['id']= $_POST["memberID"];
     $m = new member();
     $result = $m->load($dbObj, $_SESSION['id']);
@@ -89,4 +90,5 @@ if(isset($_POST['submitID'])) {
     header("Location:memberAccountSetting.php");}
 
 }
+$dbObj->closeConnection();
 ?>

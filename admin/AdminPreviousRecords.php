@@ -72,6 +72,7 @@ if (isset($_POST['search'])) {
          $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword";
          $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
          $No_Pages=mysqli_num_rows($resultCount)/2;
+
      }
 
      else{
@@ -83,6 +84,7 @@ if (isset($_POST['search'])) {
          $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value LIKE $keyword";
          $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
          $No_Pages=mysqli_num_rows($resultCount)/2;
+
      }
 
 
@@ -94,13 +96,13 @@ if (isset($_POST['search'])) {
         if($value=='id') {
             $startrow = $startrow - 2;
             $keyword = '"' . $_POST['Search'] . '"';
-            $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword Limit $startrow,2";
+            $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
         }
 
         else {
 
             $keyword = '"%' . $_POST['Search'] . '%"';
-            $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword Limit $startrow,2";
+            $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
         }
 
         $result = $bk_sess->featuredLoad($dbobj, $sql);
@@ -117,7 +119,8 @@ else{
     $No_Pages=mysqli_num_rows($resultCount)/2;
 
 
-    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Limit $startrow,2 ";
+       $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
+
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
 

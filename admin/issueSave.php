@@ -28,7 +28,7 @@ if(isset($_POST['Issue'])) {
         $message = "Date to be returned is invalid";
         ?>
 <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueSave.php">&times;</a></strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div><?php
@@ -55,7 +55,6 @@ if(isset($_POST['Issue'])) {
 
     }
 }
-
 $dbObj->closeConnection();
 ?>
 <!DOCTYPE html>

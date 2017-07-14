@@ -56,7 +56,7 @@ echo "Table books created successfully\n";
 
 //create members table
 $sql = "CREATE TABLE IF NOT EXISTS members(
-        id VARCHAR(20) NOT NULL,
+        id VARCHAR(100) NOT NULL,
         member_name VARCHAR(100) NOT NULL,
         member_fullname VARCHAR(200) NOT NULL,
         member_type VARCHAR(100) NOT NULL,
@@ -77,7 +77,7 @@ echo "Table member created successfully\n";
 
 //create logins table
 $sql = "CREATE TABLE IF NOT EXISTS logins(
-   id INT NOT NULL , 
+   id VARCHAR(100) NOT NULL , 
    password VARCHAR(100) NOT NULL, 
    last_login_date VARCHAR(200), 
    primary key ( id ))";
