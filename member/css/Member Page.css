@@ -1,5 +1,5 @@
 body{ width:100%; background-color:#DCDCDC;}
-header{ font-family:Arial, "Sans-serif", "Times New Roman"; padding:5px; color:white; background: linear-gradient(
+header{ height:285px;font-family:Arial, "Sans-serif", "Times New Roman"; padding:5px; color:white; background: linear-gradient(
     to left,
     rgba(73,4,4, 0),
     rgba(73,4,4, 100)
@@ -12,7 +12,8 @@ article{margin-left:100px; margin-right:100px;box-shadow: rgba(0,0,0, 0.1) 0px 0
   
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
 nav{
-	padding:20px 0;
+	transform: translate(0px, -40px);
+	padding:6px 0;
 	min-width:500px;
 }
 
@@ -80,40 +81,9 @@ div.head_top{}
 a.sncoelink{text-decoration: none; color: ghostwhite;}
 a.sncoelink:hover{color:orange;}
 
-/*for slideText animation*/
-.slideText {
-	float: right;
-	width:600px;
-	height: 50px;
-	overflow: hidden;
-	position: relative;
-	color: white;
+div.slideText{font-family: cursive, Arial, "Sans-serif", "Times New Roman"; }
 
-
-}
-.slideText p {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	line-height: 50px;
-	text-align: center;
-
-	/* Starting position */
-
-	transform:translateX(100%);
-	/* Apply animation to this element */
-
-	animation: scroll-left 20s linear infinite;
-}
-/* Move it (define the animation) */
-
-@keyframes scroll-left {
-	0%{transform: translateX(100%);}
-	100%{transform: translateX(-0%);}
-}
-
-
+/*for slide show*/
 
 * {box-sizing:border-box}
 
@@ -193,4 +163,24 @@ a.sncoelink:hover{color:orange;}
 }
 
 
+
+
 footer{padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}
+
+
+div.About{font-family: cursive, Arial, "Sans-serif", "Times New Roman"}
+span.ency{font-size: 12px;}
+
+div.para1 , div.para2{
+	text-align: justify;
+	font-family: cursive,Arial, "Sans-serif", "Times New Roman";
+	width: 500px;
+	display:inline-block;
+	padding:10px;
+	margin:15px;
+	position: relative;
+}
+div.para1{display:inline-block;  transform: translate(400px,35px);}
+div.para2{ display: inline-block; transform: translate(10px,-200px) }
+
+h2.heading{color:rgb(249,112,7); text-shadow: 2px 2px 2px grey ; text-align: center;}

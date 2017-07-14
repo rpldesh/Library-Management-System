@@ -98,7 +98,7 @@
                 <td><p style="color: Green"><?php echo date("Y-m-d", strtotime($value)) ?></p></td><?php
             } else {
                 ?>
-                <td><?php echo date("Y-m-d", strtotime($value)) ?></td>><?php
+                <td><?php echo date("Y-m-d", strtotime($value)) ?></td><?php
             }
         } elseif ($key == 'session_status') {
             if ($value == "extended") {
