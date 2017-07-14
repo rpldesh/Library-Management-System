@@ -59,6 +59,8 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
             <input name = "accessionNo" type = "text" placeholder = "Enter Accession No" required /><br />
 
             <button class="checkbtn" onclick = "window.location='isseBook.php'" name = "checkbtn" type = "submit" > Check</button >
+            <button class="cancelbtn" onclick="window.location='Administration Page.php?Issue2back'" name="cancelBtn"
+                    type="button"> Cancel</button>
 
 
         </div>
@@ -95,48 +97,8 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
             $_SESSION['book_type'] = $bk->book_type;
             $_SESSION['category_no'] = $bk->category_no;
 
-            ?>
+            header("Location:issueSave.php");
 
-            <div class="bookIssuingForm">
-
-                <form align="center" method="POST" action="issueSave.php" autocomplete="off">
-                    <div class="container">
-                        <h1> Book Issuing Form </h1>
-                        <hr/>
-                        <label for="memberID"><b> Member ID </b></label><br/>
-                        <h4><input type="text" value="<?php echo $_SESSION['id'] ?>" readonly/></h4></br>
-
-                        <label for="memberName"><b> Name with initials </b></label><br/>
-                        <h4><input type="text" value="<?php echo $_SESSION['member_name'] ?>"readonly/></h4></br>
-
-                        <label for="accessionNo"><b> Accession No </b></label><br/>
-                        <h4><input type="text" value="<?php echo $_SESSION['book_id'] ?>" readonly/></h4></br>
-
-                        <label for="bookTitle"><b> Book Title </b></label><br/>
-                        <h4><input type="text" value="<?php echo $_SESSION['title'] ?>"readonly/></h4></br>
-
-                        <label for="bookType"><b> Book Type</b></label><br/>
-                        <h4><input type="text" value="<?php echo $_SESSION['book_type'] ?>" readonly></h4></br>
-
-                        <label for="date"><b> Date to be Returned </b></label><br/>
-                        <input id="date" name="DoR" type="date" required/><br/>
-
-
-                        <button class="Submitbtn" name="Issue" type="submit"> Issue</button>
-                        <button class="cancelbtn" onclick="window.location='Administration Page.php?Issue2back'" name="cancelBtn"
-                                type="button"> Cancel
-                        </button>
-                    </div>
-                </form>
-
-            </div>
-
-
-
-            </body>
-            </html>
-
-            <?php
         }
 
     }
