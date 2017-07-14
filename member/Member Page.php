@@ -30,7 +30,7 @@ $welcomeMsg='';?>
     $name=mysqli_fetch_row($result)[0];
 
     if(!empty($_SESSION['id'])){
-        $welcomeMsg=" Hi ".$name."...!!!  Welcome to Siyane National College of Education Library.";}
+        $welcomeMsg=" Hi ".$name."...!!!  Welcome to Siyane National College of Education Library Page.";}
     ?>
 
     <div class="slideText">

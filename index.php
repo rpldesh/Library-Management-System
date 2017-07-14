@@ -168,7 +168,7 @@
     <div class="About"><h3>LIBRARY HOURS</h3>
         Monday to Friday     9.00a.m. to  4.00p.m.<br /><br /><br />
         <strong>"Let knowledge grow from more<br /> to more and thus be human life enriched." </strong> <br />
-        <span class="ency">"Encyclopaedia Britannica"</span>
+        <span class="ency">-Encyclopaedia Britannica-</span>
     </div>
 
     <div class="para1"><h2 class="heading">Our Mission</h2>
@@ -184,8 +184,8 @@
 </article>
 
 <footer>
-<p style="text-align:center;" >Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
-    Designed by <img src="Images/Solutia_logo.png" width="150px" height="80px"/></p>
+<p style="text-align:center;" >Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka.
+    <br />Designed by <img src="Images/Solutia_logo.png" width="130px" height="80px"/></p>
 </footer>
 </body>
 </html>
