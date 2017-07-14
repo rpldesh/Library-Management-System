@@ -104,3 +104,5 @@ span.closebtn:hover {
     color: black;
 }
 
+a.closbtnlink{text-decoration: none; color:white; }
+a.closbtnlink:hover{color:black;}
