@@ -32,7 +32,6 @@
 
 <?php
 
-if(isset($_POST["renewBTN"])) {
 session_start();
 include("../database.php");
 include("../table.php");
@@ -43,20 +42,7 @@ $dbObj->connect('localhost', 'root', '', 'lms_db');
 $message = "";
 
 
-
-    if (!isset($_POST["bookIds"])) {
-        $message = "Please select a book";
-    ?> <style>div.alert{display:inline-block;}</style>
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="configure_id_for_renew.php?id=back">&times;</a></strong></span>
-        <?php  echo $message;?>
-
-    </div>
-   <?php
-    } else {
-$bookIds = $_POST["bookIds"];
-$_SESSION['bookIds']=$bookIds;
-        ?>
+$bookIds=$_SESSION['bookIds']; ?>
 
         <div class="bookRenewalForm">
 
@@ -93,19 +79,12 @@ $_SESSION['bookIds']=$bookIds;
         </html>
         <?php
 
-    }
-        $dbObj->closeConnection();
-}
+   /*}*/
+
+/*}*/
 
 if(isset($_POST['Renew'])) {
-    session_start();
-    include("../database.php");
-    include("../table.php");
-    include("../book.php");
-    include("../book_session.php");
-    $dbObj = database::getInstance();
-    $dbObj->connect('localhost', 'root', '', 'lms_db');
-    $message = "";
+
 
    if(date("m-d-Y")>= date("m-d-Y",strtotime($_POST['DoR']))){
        $message="Date to be returned is unvalid";?>
@@ -137,7 +116,7 @@ if(isset($_POST['Renew'])) {
     <?php
    }
     $dbObj->closeConnection();
-    session_destroy();
+
 } ?>
 
 
