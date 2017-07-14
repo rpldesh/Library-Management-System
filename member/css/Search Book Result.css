@@ -89,3 +89,28 @@ caption{font-family:Arial;
 
 /*For admin previous records*/
 div.addminprevRcd{clear: both;}
+
+/* For pagination buttons (admin previous records) */
+.tableNav{
+    text-decoration: none;
+    padding:8px 20px;
+    display: inline-block;
+    transform: translate(0, 500px);
+
+}
+
+.tableNav.nextBtn:hover{
+    color: #777777;
+    border: red;
+rgba(40,132,145,0.85)
+}
+.tableNav.nextBtn{
+    background-colorcolor: #4CAF50;
+    border: #80ffab;
+}
+
+.pagePoint{
+    display: inline-block;
+    padding: 8px 16px;
+
+}
