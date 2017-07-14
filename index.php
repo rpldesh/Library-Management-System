@@ -165,11 +165,27 @@
         </div>
     </section>
 
+    <div class="About"><h3>LIBRARY HOURS</h3>
+        Monday to Friday     9.00a.m. to  4.00p.m.<br /><br /><br />
+        <strong>"Let knowledge grow from more<br /> to more and thus be human life enriched." </strong> <br />
+        <span class="ency">"Encyclopaedia Britannica"</span>
+    </div>
+
+    <div class="para1"><h2 class="heading">Our Mission</h2>
+        Our mission is to provide proper guidance to the prospective teachers through devoted service to build up
+        physically and mentally sound, professionally competent, well-disciplined, committed Science, Mathematics, and Technical
+        studies teachers by pre-service teacher education.</div>
+    <div class="para2"><h2 class="heading">Our Vision</h2>
+        Our vision is to develop Siyane National College of Education into an outstanding teacher education
+        institute which provides excellent Science, Mathematics and Technical Studies teachers to the schools of Sri Lanka.<br /><br />
+        </div>
+
+
 </article>
 
 <footer>
-<p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
-    Designed by <img src="Images/Solutia_logo.png" width="140px" height="80px"/></p>
+<p style="text-align:center;" >Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
+    Designed by <img src="Images/Solutia_logo.png" width="150px" height="80px"/></p>
 </footer>
 </body>
 </html>

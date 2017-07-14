@@ -51,7 +51,14 @@ $welcomeMsg="";
 	</div>
 	</div>
 	<div class="bgimage">
-        <p class="WelMsg"><?php echo $welcomeMsg;?></p>
+        <?php
+        if(!empty($_SESSION['username'])){
+            $welcomeMsg= " Welcome to Siyane National College of Education Library Administration Page ".$_SESSION['adminName']."...!!!";
+        }
+        ?>
+        <div class="slideText">
+            <marquee behavior="scroll" direction="left"><p class="WelMsg"><?php echo $welcomeMsg;?></p></marquee>
+        </div>
 	<nav>
 		<ul>
 
@@ -71,11 +78,6 @@ $welcomeMsg="";
 	</div>
 	</header>
 		<article>
-            <?php
-            if(!empty($_SESSION['username'])){
-                $welcomeMsg= " Welcome to Siyane National College of Education Library Administration Page ".$_SESSION['adminName']."...!!!";
-            }
-            ?>
 
             <div class="linkbox" id="addbook"><span><strong>Add Book</strong><br /><br /></span>
                 <a href="AddBook.php" onclick="return allowLibrarianOnly()"><img src="images/addbook.png" align="center"/></a></div><br />
@@ -112,32 +114,32 @@ $welcomeMsg="";
 
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 6</div>
-                    <img src="Images/1.jpg" style="width:100%">
+                    <img src="images/1.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 6</div>
-                    <img src="Images/2.jpg" style="width:100%">
+                    <img src="images/2.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 6</div>
-                    <img src="Images/3.jpg" style="width:100%">
+                    <img src="images/3.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">4 / 6</div>
-                    <img src="Images/4.jpg" style="width:100%">
+                    <img src="images/4.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">5 / 6</div>
-                    <img src="Images/5.jpg" style="width:100%">
+                    <img src="images/5.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">6 / 6</div>
-                    <img src="Images/6.jpg" style="width:100%">
+                    <img src="images/6.jpg" style="width:100%">
                 </div>
                 <div style="text-align:center">
                     <br /><br />
@@ -173,6 +175,15 @@ $welcomeMsg="";
                 }
             </script>
         </article>
+
+    <div class="para1"><h2 class="heading">Our Mission</h2>
+        Our mission is to provide proper guidance to the prospective teachers through devoted service to build up
+        physically and mentally sound, professionally competent, well-disciplined, committed Science, Mathematics, and Technical
+        studies teachers by pre-service teacher education.</div>
+    <div class="para2"><h2 class="heading">Our Vision</h2>
+        Our vision is to develop Siyane National College of Education into an outstanding teacher education
+        institute which provides excellent Science, Mathematics and Technical Studies teachers to the schools of Sri Lanka.<br /><br />
+    </div>
 
     <footer>
         <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />

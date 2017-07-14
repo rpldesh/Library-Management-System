@@ -24,6 +24,7 @@
 </header>
 
 <?php
+
     session_start();
     include("../database.php");
     include("../table.php");
@@ -42,10 +43,24 @@
     }
 
 $bk_sess = new book_session();
-    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
+    // To get the count of element which are added to the table
+    $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
+    $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
+    $No_Pages=mysqli_num_rows($resultCount)/2;
 
+    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
+
+    // If the page is over then return tha last page again
+    if(($numOfRows==0)&&($startrow!=0))
+    {
+     $startrow =$startrow-2;
+     $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
+     $result = $bk_sess->featuredLoad($dbObj, $sql);
+     $len=mysqli_num_rows($result);
+    }
+
 
 
 ?>
@@ -76,12 +91,18 @@ else{ ?>
         </table>
         <?php
         $next=$startrow+2;
-        $prev=$startrow-2;
-        $prevlink = "AdminPreviousRecords.php?startrow=".$prev;?>
-        <?php $nxtlink = "AdminPreviousRecords.php?startrow=".$next;?>
+        if(!$startrow==0){$prev=$startrow-2;}
+        else{$prev=0;}
+        $prevlink = "Previous%20Records.php?startrow=".$prev;?>
+        <?php $nxtlink = "Previous%20Records.php?startrow=".$next;?>
 
         <a class="tableNav">
             <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
+            <?php for($i=0; $i<$No_Pages; $i++){
+                $page_startrow=0+2*$i;
+                $page_link="Previous%20Records.php?startrow=".$page_startrow;?>
+                <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
+           <?php }?>
             <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
 
     </div>
