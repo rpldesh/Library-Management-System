@@ -30,11 +30,12 @@ $welcomeMsg='';?>
     $name=mysqli_fetch_row($result)[0];
 
     if(!empty($_SESSION['id'])){
-        $welcomeMsg=" Hi ".$name."...!!! <br /> welcome to Siyane National College of Education Library.";}
+        $welcomeMsg=" Hi ".$name."...!!!  Welcome to Siyane National College of Education Library.";}
     ?>
 
     <div class="slideText">
-        <p class="WelMsg"><?php echo $welcomeMsg;?></p>    </div>
+        <marquee behavior="scroll" direction="left"><p class="WelMsg"><?php echo $welcomeMsg;?></p></marquee>
+            </div>
 
     <div class="bgimage">
         <nav>
@@ -139,8 +140,20 @@ $welcomeMsg='';?>
         </div>
 
     </section>
-</article>
 
+    <div class="About"><strong>"Let knowledge grow from more to more and thus be human life enriched." </strong> <br />
+        <span class="ency">"Encyclopaedia Britannica"</span></div>
+
+    <div class="para1"><h2 class="heading">Our Mission</h2>
+        Our mission is to provide proper guidance to the prospective teachers through devoted service to build up
+        physically and mentally sound, professionally competent, well-disciplined, committed Science, Mathematics, and Technical
+        studies teachers by pre-service teacher education.</div>
+    <div class="para2"><h2 class="heading">Our Vision</h2>
+        Our vision is to develop Siyane National College of Education into an outstanding teacher education
+        institute which provides excellent Science, Mathematics and Technical Studies teachers to the schools of Sri Lanka.<br /><br />
+        </div>
+
+</article>
 <footer>
     <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
         Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>

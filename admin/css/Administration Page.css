@@ -1,5 +1,5 @@
 body{ width:100%; background-color:#DCDCDC;}
-header{ padding:5px; color:white; background: linear-gradient(
+header{ height:285px ; padding:5px; color:white; background: linear-gradient(
     to left,
     rgba(73,4,4, 0),
     rgba(73,4,4, 100)
@@ -10,7 +10,8 @@ article{margin-left:100px; margin-right:100px;box-shadow: rgba(0,0,0, 0.1) 0px 0
 		background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
 		height:1000px; position:relative;}
 
-  
+div.slideText{font-family: cursive, Arial, "Sans-serif", "Times New Roman";}
+
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
 nav{
 	padding:20px 0;
@@ -163,5 +164,18 @@ div.head_top{}
 @media only screen and (max-width: 300px) {
 	.text {font-size: 11px}
 }
+
+
+
+div.para1 , div.para2{
+	text-align: justify;
+	font-family: cursive,Arial, "Sans-serif", "Times New Roman";
+	width: 350px;
+	display:inline-block;
+	padding:10px;
+	position: relative;
+}
+div.para1{clear: both; display:inline-block; float: right; transform: translate(-30px,-300px);}
+div.para2{clear: both; display: inline-block; float:left; transform: translate(10px,-500px) }
 
 footer{padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}
