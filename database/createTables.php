@@ -8,15 +8,15 @@
 
 
 $connection = mysqli_connect('localhost','root','');
-mysqli_select_db($connection,'LMS_DB')or die("Error occured");
+mysqli_select_db($connection,'LMS_DB')or die("Error occurred");
 
 //create admins table
 $sql = "CREATE TABLE IF NOT EXISTS admins(
     id INT NOT NULL AUTO_INCREMENT, 
    admin_name VARCHAR(100) NOT NULL, 
    admin_type VARCHAR(20) NOT NULL, 
-   username VARCHAR(50) NOT NULL UNIQUE, 
-   pwd VARCHAR(100) NOT NULL,
+   username VARCHAR(100) NOT NULL UNIQUE, 
+   pwd VARCHAR(300) NOT NULL,
    join_date VARCHAR(200) NOT NULL,
    last_login_date VARCHAR(200),
    admin_status VARCHAR(20),
@@ -32,14 +32,14 @@ echo "Table admins created successfully\n";
 //create books table
 $sql = "CREATE TABLE IF NOT EXISTS books(
         id INT NOT NULL,
-        title VARCHAR(500) NOT NULL,
-		author VARCHAR(500) NOT NULL,
+        title VARCHAR(1000) NOT NULL,
+		author VARCHAR(1000) NOT NULL,
         ISBN VARCHAR(50),
         category_no VARCHAR(50) NOT NULL,
         publisher_name VARCHAR(500) NOT NULL,
         published_date VARCHAR(200) NOT NULL,
-        publisher_address VARCHAR(500)NOT NULL,
-        price FLOAT NOT NULL,
+        publisher_address VARCHAR(500),
+        price FLOAT ,
         no_pages INT  NOT NULL,
         date_added VARCHAR(200) NOT NULL,
         book_type VARCHAR(100) NOT NULL,
