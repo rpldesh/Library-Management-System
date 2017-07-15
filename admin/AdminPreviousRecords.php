@@ -165,15 +165,15 @@ else{ ?>
             $prevlink = "AdminPreviousRecords.php?startrow=".$prev;
             $nxtlink = "AdminPreviousRecords.php?startrow=".$next;?>
 
-        <a class="tableNav">
+        <div class="tableNav">
             <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
             <?php for($i=1; $i<$No_Pages; $i++){
                 $page_startrow=0+2*$i;
                 $page_link="AdminPreviousRecords.php?startrow=".$page_startrow;?>
-                <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
+                <a class="PGnumbers" href=<?php echo $page_link?> <?php echo $i+1?></a>
             <?php } ?>
 
-            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+            <a href=<?php echo $nxtlink?><button class="page" type="submit" name="next">Next</button></a>
 
     </div>
 <?php }?>

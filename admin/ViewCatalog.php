@@ -158,7 +158,7 @@ if($len==0)
                             if($key=="id"){
                                 $link= '"bookDetails.php?id='.$value.'"'?><?php }?>
 
-                            <td><a href=<?php echo $link?>><?php echo $value ?></a></td>
+                            <td><a class="contentLink" href=<?php echo $link?>><?php echo $value ?></a></td>
                             <?php } ?>
                         </tr>
                 <?php }
@@ -172,7 +172,7 @@ if($len==0)
         <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
         <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
 
-        <a class="tableNav">
+        <div class="tableNav">
             <a href=<?php echo $prevlink?>><button class="prevBtn" type="submit" name="prev">Previous</button></a>
             <div class="pagePoint">
                 <?php for($i=0; $i<$No_Pages; $i++){
