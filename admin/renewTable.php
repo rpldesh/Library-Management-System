@@ -19,7 +19,7 @@
             <div class="bgimage">
                 <nav>
                     <ul>
-                        <li><a href="Administration%20Page.php?id=Renew1back">HOME</a></li>
+                        <li><a href="Administration%20Page.php?id=back">HOME</a></li>
 
                     </ul>
                 </nav>
@@ -153,7 +153,7 @@
 
 if(isset($_POST["renewBTN"])) {
     if (!isset($_POST["bookIds"])) {
-        $message = "Please select a book";
+        $message = "Please select at least one book to proceed";
         ?>
         <style>div.alert {
                 display: inline-block;
