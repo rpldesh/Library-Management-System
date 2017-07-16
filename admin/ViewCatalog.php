@@ -50,7 +50,7 @@ if($len==0)
 ?>
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>View Catalog</title>
     <link rel = "stylesheet" href ="css/ViewCatalog.css"/>
@@ -71,7 +71,6 @@ if($len==0)
             <nav>
                 <ul>
                     <li><a href="Administration Page.php">HOME</a></li>
-                    <li><a href="#">ADMIN PROFILE</a></li>
                     <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 </ul>
             </nav>
@@ -168,7 +167,7 @@ if($len==0)
                 if(!$startrow==0){$prev=$startrow-2;}
                 else{$prev=0;}?>
 
-        </table>
+    </table>
         <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
         <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
 
@@ -178,7 +177,7 @@ if($len==0)
                 <?php for($i=0; $i<$No_Pages; $i++){
                     $page_startrow=0+2*$i;
                     $page_link="ViewCatalog.php?startrow=".$page_startrow;?>
-                    <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
+                    <a class="pagination" href=<?php echo $page_link?>> <?php echo $i+1?></a>
 
                 <?php }?>
             </div>
