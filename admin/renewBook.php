@@ -90,7 +90,7 @@ if(isset($_POST['Renew'])) {
        $message="Date to be returned is unvalid";?>
         <style>div.alert{display:inline-block;}</style>
        <div class="alert">
-           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="renewBook.php">&times;</a></strong></span>
+           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="renewBook.php">&times;</a></strong></span>
            <?php  echo $message;?>
 
        </div>
@@ -108,7 +108,7 @@ if(isset($_POST['Renew'])) {
         ?><style>div.alert{display:inline-block;}</style>
     <?php }?>
        <div class="alert">
-           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="Administration%20Page.php">&times;</a></strong></span>
+           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="Administration%20Page.php">&times;</a></strong></span>
            <?php  echo $message;?>
 
        </div>

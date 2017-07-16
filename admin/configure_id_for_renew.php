@@ -105,7 +105,7 @@ if(isset($_POST["submitID"])) {
     <?php if(!$loadResult){
         $message="Member does not exist..!!";?>
         <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="configure_id_for_renew.php">&times;</a></strong></span>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="configure_id_for_renew.php">&times;</a></strong></span>
             <?php  echo $message;?>
 
         </div>

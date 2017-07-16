@@ -89,7 +89,7 @@ if(isset($_POST['submitID'])) {
             <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg">
 
                 <h1>LIBRARY</h1>
-                <h3>Siyane National College of Education</br >Veyangoda</h3>
+                <h3>Siyane National College of Education<br /> >Veyangoda</h3>
 
             </div>
         </div>
@@ -112,7 +112,7 @@ if(isset($_POST['submitID'])) {
         $message="Member does not exist..Incorrect Member ID!!";?>
 
         <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="configure_id_for_issue.php">&times;</a></strong></span>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="configure_id_for_issue.php">&times;</a></strong></span>
             <?php  echo $message;?>
 
         </div>

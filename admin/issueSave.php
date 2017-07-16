@@ -11,7 +11,7 @@
         <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
 
             <h1>LIBRARY</h1>
-            <h3>Siyane National College of Education</br >Veyangoda</h3>
+            <h3>Siyane National College of Education<br />Veyangoda</h3>
 
         </div>
     </div>
@@ -89,7 +89,7 @@ if(isset($_POST['Issue'])) {
         $message = "Sorry...!!This book is not allowed to borrow";?>
 
     <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div>
@@ -98,7 +98,7 @@ if(isset($_POST['Issue'])) {
         $message = "Date to be returned is invalid";
         ?>
 <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueSave.php">&times;</a></strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueSave.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div><?php
@@ -117,7 +117,7 @@ if(isset($_POST['Issue'])) {
         $book_session1->insert($dbObj);
         $message = "Issued Successfully";?>
     <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 
     </div>

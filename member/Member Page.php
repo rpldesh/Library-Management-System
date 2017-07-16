@@ -30,7 +30,7 @@ $welcomeMsg='';?>
     $name=mysqli_fetch_row($result)[0];
 
     if(!empty($_SESSION['id'])){
-        $welcomeMsg=" Hi ".$name."...!!!  Welcome to Siyane National College of Education Library.";}
+        $welcomeMsg=" Hi ".$name."...!!!  Welcome to Siyane National College of Education Library Page.";}
     ?>
 
     <div class="slideText">
@@ -64,36 +64,42 @@ $welcomeMsg='';?>
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-            <div class="numbertext">1 / 6</div>
-            <img src="Images/1.jpg" style="width:100%">
+            <div class="numbertext">1 / 7</div>
+            <img src="images/1slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">2 / 6</div>
-            <img src="Images/2.jpg" style="width:100%">
+            <div class="numbertext">2 / 7</div>
+            <img src="images/2slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">3 / 6</div>
-            <img src="Images/3.jpg" style="width:100%">
+            <div class="numbertext">3 / 7</div>
+            <img src="images/3slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">4 / 6</div>
-            <img src="Images/4.jpg" style="width:100%">
+            <div class="numbertext">4 / 7</div>
+            <img src="images/4slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">5 / 6</div>
-            <img src="Images/5.jpg" style="width:100%">
+            <div class="numbertext">5 / 7</div>
+            <img src="images/5slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">6 / 6</div>
-            <img src="Images/6.jpg" style="width:100%">
+            <div class="numbertext">6 / 7</div>
+            <img src="images/6slide.jpg" style="width:100%">
         </div>
+        <div class="mySlides fade">
+            <div class="numbertext">7 / 7</div>
+            <img src="images/7slide.jpg" style="width:100%">
+        </div>
+
         <div style="text-align:center">
             <br /><br />
+            <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>

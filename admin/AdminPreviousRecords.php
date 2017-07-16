@@ -18,7 +18,7 @@
     <div class="bgimage">
         <nav>
             <ul>
-                <li><a href="Member Page.php">HOME</a></li>
+                <li><a href="Administration%20Page.php">HOME</a></li>
                 <li class="logout"><a href="../index.php">LOGOUT</a></li>
             </ul>
         </nav>
@@ -170,10 +170,10 @@ else{ ?>
             <?php for($i=1; $i<$No_Pages; $i++){
                 $page_startrow=0+2*$i;
                 $page_link="AdminPreviousRecords.php?startrow=".$page_startrow;?>
-                <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
+                <a class="PGnumbers" href=<?php echo $page_link?> <?php echo $i+1?></a>
             <?php } ?>
 
-            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+            <a href=<?php echo $nxtlink?><button class="page" type="submit" name="next">Next</button></a>
 
     </div>
 <?php }?>
