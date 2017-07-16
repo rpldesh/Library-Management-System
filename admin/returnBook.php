@@ -45,7 +45,8 @@
         $book->book_status = "available";
         $book->update($dbObj);
         $dateOfReturn = date("Y-m-d");
-        $sql = "Update book_sessions set date_of_return = '$dateOfReturn', session_status = 'returned' where member_id = $memberId and book_id = $value and session_status != 'returned'";
+        $sql = "Update book_sessions set date_of_return = '$dateOfReturn', session_status = 'returned' where member_id = '$memberId' and book_id = '$value' and session_status != 'returned'";
+        echo $sql."<br />";
         $dbObj->doQuery($sql);
     } ?>
     <style>div.alertMsg {

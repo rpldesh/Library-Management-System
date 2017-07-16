@@ -71,7 +71,6 @@ if($len==0)
             <nav>
                 <ul>
                     <li><a href="Administration Page.php">HOME</a></li>
-                    <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
