@@ -14,7 +14,7 @@ $admin= new admin();
 <head>
     <title>Change Admin Details</title>
     <link rel = "stylesheet" href ="css/memberSetting.css"/>
-    <style>div.alert{display:inline-block;}</style>
+    <style>div.alert{display:none;}</style>
 
 <body>
 <header>
@@ -140,11 +140,14 @@ else if(isset($_POST['save_psw'])){
     $ConNewPsw=$_POST["conNewPsw"];
 
     if($NewPsw!=$ConNewPsw){
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message= "Your new Password and confirmed password do not match..!!";
     }
     elseif($curEncriped!=$logedpsw){
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message= "Your current password is incorrect..!!";}
     elseif (strlen($NewPsw)>64 or strlen($NewPsw)<8){
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Your password must contain 8-64 characters..!!";
 
     }elseif($curEncriped==$logedpsw && $NewPsw==$ConNewPsw ){
@@ -152,6 +155,7 @@ else if(isset($_POST['save_psw'])){
         $uname=$_SESSION['username'];
         $sql = "Update admins set pwd= '$encriptedPsw' where username='$uname'";
         $dbObj->doQuery($sql);
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message=  "Your password changed successfully";
         $_SESSION['psw']=$encriptedPsw;
     }

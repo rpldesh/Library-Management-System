@@ -129,7 +129,6 @@ tr:nth-child(odd) td {
 caption{font-family:Arial;
     font-size:30px;
     font-weight:bolder;
-    color:whitesmoke;
     background: linear-gradient(#777, #444);
     border-left: 1px solid #555;
     border-right: 1px solid #777;
@@ -150,12 +149,12 @@ caption{font-family:Arial;
     z-index:70;
     position:relative;
     display:inline-block;
-    transform:translate(500px,10px);
+    transform:translate(420px,-520px);
     padding: 20px;
     background-color: #f44336;
     color: white;
 }
-
+#resetpsw{ transform:translate(300px,-800px);}
 /* The close button */
 .closebtn {
     margin-left: 15px;
