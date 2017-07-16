@@ -64,7 +64,7 @@ $welcomeMsg="";
 
 
 
-			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
+			<li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
 
 
 
@@ -191,13 +191,6 @@ $welcomeMsg="";
         institute which provides excellent Science, Mathematics and Technical Studies teachers to the schools of Sri Lanka.<br /><br />
     </div>
 
-    <footer>
-        <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
-            Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>
-    </footer>
-
-	</body>
-</html>
 <?php
 if(isset($_GET['id']) && ($_GET['id']=='Issue1back' ||$_GET['id']=='Issue2back' )){
     $_SESSION['id']='';
@@ -237,3 +230,9 @@ elseif(isset($_GET['id']) && $_GET['id']=='m_settingsback') {
 
 
 ?>
+<footer>
+    <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
+        Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>
+</footer>
+</body>
+</html>
