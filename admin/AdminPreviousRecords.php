@@ -165,7 +165,7 @@ else{ ?>
             $prevlink = "AdminPreviousRecords.php?startrow=".$prev;
             $nxtlink = "AdminPreviousRecords.php?startrow=".$next;?>
 
-        <a class="tableNav">
+        <div class="tableNav">
             <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
             <?php for($i=1; $i<$No_Pages; $i++){
                 $page_startrow=0+2*$i;
