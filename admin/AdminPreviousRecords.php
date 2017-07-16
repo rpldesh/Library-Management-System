@@ -18,7 +18,7 @@
     <div class="bgimage">
         <nav>
             <ul>
-                <li><a href="Member Page.php">HOME</a></li>
+                <li><a href="Administration%20Page.php">HOME</a></li>
                 <li class="logout"><a href="../index.php">LOGOUT</a></li>
             </ul>
         </nav>
