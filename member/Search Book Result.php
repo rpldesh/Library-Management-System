@@ -20,7 +20,6 @@
         <nav>
             <ul>
                 <li><a href="Member%20Page.html">HOME</a></li>
-                <li class="logout"><a href="#">LOGOUT</a></li>
             </ul>
         </nav>
     </div>
