@@ -1,5 +1,5 @@
 body{ width:100%; background-color:#DCDCDC;}
-header{ height:285px ; padding:5px; color:white; background: linear-gradient(
+header{ font-family:cursive, Arial, "Sans-serif", "Times New Roman"; height:285px ; padding:5px; color:white; background: linear-gradient(
     to left,
     rgba(73,4,4, 0),
     rgba(73,4,4, 100)
@@ -180,4 +180,4 @@ div.para2{clear: both; display: inline-block;  transform: translate(320px,-500px
 
 h2.heading{color:rgb(249,112,7); text-shadow: 2px 2px 2px grey ; text-align: center;}
 
-footer{padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}
+footer{position:relative; display:block; padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}

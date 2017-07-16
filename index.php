@@ -52,7 +52,7 @@
             $lst_login_date=date('Y-m-d');
 
 
-            if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active") {
+            if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active" && $login->id==$user_name) {
                 session_start();
                 $login->last_login_date=$lst_login_date;
                 $login->update($dbObj);

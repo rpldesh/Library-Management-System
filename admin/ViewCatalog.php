@@ -77,7 +77,7 @@ if($len==0)
 </header>
 </article>
 
-    <div>
+    <div class="searchbox" >
         <form action="ViewCatalog.php" method="post">
             <div class="searchbar">
                 <input class="searchtext"  type="search" name="Search" placeholder="Search..">
@@ -93,7 +93,7 @@ if($len==0)
 
     </div>
 
-    <div style="...">
+    <div class="Catelogtable" style="...">
         <table style"...">
             <caption> <b>Catalog</b></caption>
             <tr>
@@ -166,12 +166,11 @@ if($len==0)
                 if(!$startrow==0){$prev=$startrow-2;}
                 else{$prev=0;}?>
 
-    </table>
         <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
         <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
 
-        <div class="tableNav">
-            <a href=<?php echo $prevlink?>><button class="prevBtn" type="submit" name="prev">Previous</button></a>
+        <div class="tableNav" align="centre">
+            <a class="button" href=<?php echo $prevlink?>>&laquo; Previous</a>
             <div class="pagePoint">
                 <?php for($i=0; $i<$No_Pages; $i++){
                     $page_startrow=0+2*$i;
@@ -180,11 +179,13 @@ if($len==0)
 
                 <?php }?>
             </div>
-            <a href=<?php echo $nxtlink?>><button class="nextBtn" type="submit" name="next">Next</button></a>
+            <a id="nextbtn"class="button" href=<?php echo $nxtlink?>>Next &raquo;</a>
 
         </div>
         <p align="centre" ><?php $error?></p>
     </div>
+    </table>
+
 
 
 
