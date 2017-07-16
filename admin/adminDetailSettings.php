@@ -93,11 +93,11 @@ $admin= new admin();
             <br />
             <form class="change_form" id="two" method="post" action=""  autocomplete="off">
                 <label><b>Current Password</b></label>
-                <input type="password" name="curPsw" Placeholder="Enter your current password"/>
+                <input type="password" name="curPsw" Placeholder="Enter your current password" required/>
                 <label><b>New Password</b></label>
-                <input type="password" name="newPsw" Placeholder="Enter your new password"/>
+                <input type="password" name="newPsw" Placeholder="Enter your new password" required/>
                 <label><b>Confirm new password</b></label>
-                <input type="password" name="conNewPsw" Placeholder="Re enter your new password"/>
+                <input type="password" name="conNewPsw" Placeholder="Re enter your new password" required/>
                 <button class="saveBtn" name="save_psw" type="submit" >Save Changes</button>
                 <button class="cancelBtn" onclick="hide('two')" name="cancel" type="button" >Cancel</button>
 

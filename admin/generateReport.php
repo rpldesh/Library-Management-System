@@ -42,7 +42,6 @@
             <nav>
                 <ul>
                     <li><a href="Administration%20Page.php">HOME</a></li>
-                    <li class="logout"><a href="#">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
