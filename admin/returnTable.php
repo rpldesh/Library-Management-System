@@ -4,6 +4,7 @@
     <title>Books to be Returned</title>
     <link rel="stylesheet" href="css/returnPage.css"/>
     <style>div.alert{display: none;}</style>
+    <style>div.Done{display: none;}</style>
 </head>
 
 <body>
@@ -35,6 +36,7 @@ include("../table.php");
 include("../member.php");
 include("../book_session.php");
 include ("calculateFine.php");
+include("../book.php");
 $dbObj=database::getInstance();
 $dbObj->connect('localhost','root','','lms_db');
 
@@ -87,7 +89,7 @@ $numOfRows = mysqli_num_rows($result);
                 }elseif($key == 'date_of_borrowal'){
                     ?><td><?php echo date("Y-m-d",strtotime($value)) ?></td><?php
                 }elseif($key == 'book_id'){
-                    ?><td><form action="" method="post">
+                    ?><td><form action="returnTable.php" method="post">
                         <input type="checkbox" name="bookIds[]" value=<?php echo $value ?> /><?php echo $value ?>
 
                     </td>
@@ -114,13 +116,37 @@ if(isset($_POST["returnBTN"])) {
         $msg = "Please select at least one book to proceed";
     }
     else {
-        $_SESSION["bookIDs"] = $_POST["bookIds"];
-        header("Location:returnBook.php");
+        $bookIds = $_POST["bookIds"];
+        //$_SESSION["bookIDs"] = $bookIds;
+        //header("Location:returnBook.php");
+        $memberId = $_SESSION['idForReturn'];
+        //$bookIds = $_SESSION["bookIDs"];
+        foreach ($bookIds as $value) {
+            $book = new book();
+            $bookSession = new book_session();
+            $book->load($dbObj, $value);
+            $book->book_status = "available";
+            $book->update($dbObj);
+            $dateOfReturn = date("Y-m-d");
+            $sql = "Update book_sessions set date_of_return = '$dateOfReturn', session_status = 'returned' where member_id = '$memberId' and book_id = '$value' and session_status != 'returned'";
+            $dbObj->doQuery($sql);
+        } ?>
+        <!-- <style>div.Done {
+                display: inline-block;
+            }</style> --><?php
+        //$msg = "Returned successfully..!!";
+        header("Location:returnBook");
     }
 }
+$dbObj->closeConnection();
 ?>
 <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closeIcon" style="text-decoration: none; color: white" href="returnTable.php">&times;</a></strong></span>
+    <?php  echo $msg;?>
+
+</div>
+<div class="Done">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closeIcon" style="text-decoration: none; color: white" href="Administration%20Page.php?id=backFromReturn">&times;</a></strong></span>
     <?php  echo $msg;?>
 
 </div>
