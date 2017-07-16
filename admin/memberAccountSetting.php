@@ -174,7 +174,7 @@ if(isset($_POST['clearPsw'])){
     $login->update($dbObj);
     $message="successfully changed. $defPsw is the new password";?>
     <style>div.alert{display:inline-block;}</style>
-    <div class="alert">
+    <div id="resetpsw" class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
     <?php  echo $message; ?>
 
