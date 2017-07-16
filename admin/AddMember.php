@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
                 $msg = "Username already exists. Please select another username..!!";
             }
 
-            else if (date("m-d-Y") < date("m-d-Y",strtotime($addmission_date))){
+            else if (date("Y-m-d") < date("Y-m-d",strtotime($addmission_date))){
                 ?> <style>div.alert{display:inline-block;}</style><?php
                 $msg= "Invalid Date";
             }
@@ -104,7 +104,7 @@ if(isset($_POST['submit'])){
             <label for="memberName"><b>Name with initials</b></label><br />
             <input id="memberName" name="Name" type="text" placeholder="Enter Name with initials" value="<?php if (isset($_POST['Name'])) echo $_POST['Name']; ?>" required autofocus/><br/>
             <label for="memberFullName"><b>Full Name</b></label><br />
-            <input id="memberFullName" name="fullName" type="text" placeholder="Enter Full Name" value="<?php if (isset($_POST['fullName'])) echo $_POST['fullName']; ?>" required autofocus/><br>
+            <input id="memberFullName" name="fullName" type="text" placeholder="Enter Full Name" value="<?php if (isset($_POST['fullName'])) echo $_POST['fullName']; ?>" autofocus/><br>
             <label for="membertype"><b>Member Type</b></label><br />
             <select id="membertype" name="type" required > <br />
                 <option value="Internal Student(1st year)">Internal Student(1st year)</option>

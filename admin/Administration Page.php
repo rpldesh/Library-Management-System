@@ -16,7 +16,7 @@ $welcomeMsg="";
                 if(adminType == "clerk" || adminType == "librarian"){
                     return true;
                 }else{
-                    alert("The area you are trying to enter is restricted to your admin type");
+                    alert("The area you are trying to enter is restricted to your admin type.\nPlease login as a valid admin.");
                     return false;
                 }
             }
@@ -25,7 +25,7 @@ $welcomeMsg="";
                 if(adminType == "librarian"){
                     return true;
                 }else{
-                    alert("The area you are trying to enter is restricted to your admin type");
+                    alert("The area you are trying to enter is restricted to your admin type.\nPlease login as a valid admin.");
                     return false;
                 }
             }
@@ -34,7 +34,7 @@ $welcomeMsg="";
                 if(adminType == "librarian" || adminType == "audit"){
                     return true;
                 }else{
-                    alert("The area you are trying to enter is restricted to your admin type");
+                    alert("The area you are trying to enter is restricted to your admin type.\nPlease login as a valid admin.");
                     return false;
                 }
             }

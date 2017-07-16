@@ -97,7 +97,7 @@ session_start();
         }
     }$dbObj->closeConnection();
 
-    if (isset($_GET['id']) && $_GET['id']=='adminLogout'){
+    if (isset($_GET['id']) && $_GET['id']=='adminLogout' && !isset($_POST["login"])){
         $_SESSION['username'] = '';
         $_SESSION['adminName'] = '';
         $_SESSION['adminType'] = '';
