@@ -72,11 +72,14 @@ div.alert {
 	z-index:70;
 	position:absolute;
 	display:inline-block;
-	transform:translate(500px,10px);
+	transform:translate(100px,10px);
 	padding: 20px;
 	background-color: #f44336;
 	color: white;
 }
+#invalidBorobk{	transform:translate(530px,10px);}
+#invaliddateofborro{transform:translate(590px,10px);}
+#suucissue{transform:translate(620px,10px);}
 
 span.closebtn {
 	margin-left: 15px;
