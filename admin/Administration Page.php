@@ -193,38 +193,22 @@ $welcomeMsg="";
 	</body>
 </html>
 <?php
-if(isset($_GET['id']) && ($_GET['id']=='Issue1back' ||$_GET['id']=='Issue2back' )){
-    $_SESSION['id']='';
-    $_SESSION['member_name']='';
-    $_SESSION['member_type']='';
-}
-elseif(isset($_GET['id']) && $_GET['id']=='Issue2back'){
-    $_SESSION['id']='';
-    $_SESSION['member_name']='';
-    $_SESSION['member_type']='';
-    $_SESSION['book_id']='';
-    $_SESSION['title']='';
-    $_SESSION['book_type']='';
+if(isset($_GET['id']) && $_GET['id']=='back' ) {
+    if (isset($_SESSION['id'])) {$_SESSION['id'] = '';}
+    if (isset($_SESSION['member_name'])) {$_SESSION['member_name'] = '';}
+    if (isset($_SESSION['member_type'])) {$_SESSION['member_type'] = '';}
+    if (isset($_SESSION['book_id'])) {$_SESSION['book_id'] = '';}
+    if (isset($_SESSION['title'])) {$_SESSION['title'] = '';}
+    if (isset($_SESSION['book_type'])) {$_SESSION['book_type'] = '';}
+    if (isset($_SESSION['ID'])) {$_SESSION['ID'] = '';}
+    if (isset($_SESSION['Name'])) {$_SESSION['Name'] = '';}
+    if (isset($_SESSION['bookIds'])) {$_SESSION['bookIds'] = '';}
+    if (isset($_SESSION['name'])) {$_SESSION['name'] = '';}
+    if (isset($_SESSION['fname'])) {$_SESSION['fname'] = '';}
+    if (isset($_SESSION['type'])) {$_SESSION['type'] = '';}
+    if (isset($_SESSION['status'])) {$_SESSION['status'] = '';}
+    if (isset($_SESSION['adddate'])) {$_SESSION['adddate'] = '';}
 
 }
-elseif(isset($_GET['id']) && $_GET['id']=='Renew1back'){
-    $_SESSION['ID']='';
-    $_SESSION['Name']='';
-}
-elseif(isset($_GET['id']) && $_GET['id']=='Renew2back') {
-    $_SESSION['ID'] = '';
-    $_SESSION['Name'] = '';
-    $_SESSION['bookIds'] = '';
-}
-elseif(isset($_GET['id']) && $_GET['id']=='m_settingsback') {
-    $_SESSION['id'] = '';
-    $_SESSION['name'] = '';
-    $_SESSION['fname'] = '';
-    $_SESSION['type'] = '';
-    $_SESSION['status'] = '';
-    $_SESSION['adddate'] = '';
-}
-
-
 
 ?>

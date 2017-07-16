@@ -1,9 +1,10 @@
 <!DOCTYPE HTML>
+<html>
 <head>
     <title>Books to be Returned</title>
     <link rel="stylesheet" href="css/renewPage.css"/>
 </head>
-<form>
+<body>
 
     <header>
         <div class="head_top">
@@ -60,7 +61,7 @@
                 <td></td>
                 <td><p><b>No.</b></p></td>
                 <td><p><b>Accession No</b></p></td>
-                <td><p><b>Title</b></p></form></td>
+                <td><p><b>Title</b></p></body></td>
 <td><p><b>Date of Borrowal</b></p></td>
 <td><p><b>Date to be Returned</b></p></td>
 <td><p><b>Status</b></p></td>
@@ -142,7 +143,7 @@
 </div>
 
 <button class="renewBTN" type="submit" name="renewBTN">Renew Book/Books</button>
-<button class="cancelbtn" type="button" onclick="window.location='Administration Page.php?Renew1back'" name="cancel">Cancel</button>
+<button class="cancelbtn" type="button" onclick="window.location='Administration Page.php?id=back'" name="cancel">Cancel</button>
 
 
 
