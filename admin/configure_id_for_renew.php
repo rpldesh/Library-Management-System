@@ -95,7 +95,7 @@ if(isset($_POST["submitID"])) {
             <div class="bgimage">
                 <nav>
                     <ul>
-                        <li><a href="Administration%20Page.php?id=Renew1back">HOME</a></li>
+                        <li><a href="Administration%20Page.php?id=back">HOME</a></li>
 
                     </ul>
                 </nav>

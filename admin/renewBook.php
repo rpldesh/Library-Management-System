@@ -22,7 +22,7 @@
         <div class="bgimage">
             <nav>
                 <ul>
-                    <li><a href="Administration Page.php?id=Renew2back">HOME</a></li>
+                    <li><a href="Administration Page.php?id=back">HOME</a></li>
 
                 </ul>
             </nav>
@@ -67,7 +67,7 @@ $bookIds=$_SESSION['bookIds']; ?>
                     <input id="date" name="DoR" type="date" required/><br/>
 
                     <button class="Submitbtn" name="Renew" type="submit"> Renew</button>
-                    <button class="cancelbtn" onclick="window.location='Administration Page.php?id=Renew2back'" name="cancelBtn"
+                    <button class="cancelbtn" onclick="window.location='Administration Page.php?id=back'" name="cancelBtn"
                             type="button"> Cancel
                     </button>
                 </div>
@@ -108,7 +108,8 @@ if(isset($_POST['Renew'])) {
         ?><style>div.alert{display:inline-block;}</style>
     <?php }?>
        <div class="alert">
-           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="Administration%20Page.php">&times;</a></strong></span>
+<span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="Administration%20Page.php">&times;</a></strong></span>
+
            <?php  echo $message;?>
 
        </div>

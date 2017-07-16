@@ -28,7 +28,7 @@ session_start();?>
         <div class="bgimage" >
             <nav >
                 <ul >
-                    <li ><a href = "Administration Page.php?Issue2back" > HOME</a ></li >
+                    <li ><a href = "Administration Page.php?id=back" > HOME</a ></li >
 
                 </ul >
             </nav >
@@ -59,7 +59,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
             <input name = "accessionNo" type = "text" placeholder = "Enter Accession No" required /><br />
 
             <button class="checkbtn" onclick = "window.location='isseBook.php'" name = "checkbtn" type = "submit" > Check</button >
-            <button class="cancelbtn" onclick="window.location='Administration Page.php?Issue2back'" name="cancelBtn"
+            <button class="cancelbtn" onclick="window.location='Administration Page.php?id=back'" name="cancelBtn"
                     type="button"> Cancel</button>
 
 

@@ -40,7 +40,7 @@ $result = $m->load($dbObj, $_SESSION['id']);
     <div class="bgimage">
         <nav>
             <ul>
-                <li><a href="Administration%20Page.php?id=m_settingsback">HOME</a></li>
+                <li><a href="Administration%20Page.php?id=back">HOME</a></li>
 
             </ul>
         </nav>

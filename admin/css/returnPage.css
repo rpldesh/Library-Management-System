@@ -126,6 +126,15 @@ div.alertMsg {
     background-color: #f44336;
     color: white;
 }
+div.Done {
+    z-index:70;
+    position:absolute;
+    display:inline-block;
+    transform:translate(0px,-400px);
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
 div.alert {
     z-index:70;
     position:absolute;

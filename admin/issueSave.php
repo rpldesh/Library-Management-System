@@ -62,7 +62,7 @@ $message = '';?>
 
 
                         <button class="Submitbtn" name="Issue" type="submit"> Issue</button>
-                        <button class="cancelbtn" onclick="window.location='Administration Page.php?Issue2back'" name="cancelBtn" type="button"> Cancel
+                        <button class="cancelbtn" onclick="window.location='Administration Page.php?id=back'" name="cancelBtn" type="button"> Cancel
                         </button>
                     </div>
                 </form>
