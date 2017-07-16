@@ -90,7 +90,7 @@ if(isset($_POST['Renew'])) {
        $message="Date to be returned is unvalid";?>
         <style>div.alert{display:inline-block;}</style>
        <div class="alert">
-           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="renewBook.php">&times;</a></strong></span>
+           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="renewBook.php">&times;</a></strong></span>
            <?php  echo $message;?>
 
        </div>
@@ -102,13 +102,14 @@ if(isset($_POST['Renew'])) {
        foreach ($_SESSION['bookIds'] as $value) {
 
         $bookSession = new book_session();
-        $sql = "Update book_sessions set session_status ='extended',date_to_be_returned=$Date_to_be_returned where member_id = $memberId and book_id = $value and session_status != 'returned'";
+        $sql = "Update book_sessions set session_status ='extended',date_to_be_returned=$Date_to_be_returned where member_id = '$memberId' and book_id = '$value' and session_status != 'returned'";
         $dbObj->doQuery($sql);
         $message = "Renewed successfully..!!";
         ?><style>div.alert{display:inline-block;}</style>
     <?php }?>
        <div class="alert">
-           <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="Administration%20Page.php?id=back">&times;</a></strong></span>
+<span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="Administration%20Page.php">&times;</a></strong></span>
+
            <?php  echo $message;?>
 
        </div>

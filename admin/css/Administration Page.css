@@ -1,5 +1,5 @@
 body{ width:100%; background-color:#DCDCDC;}
-header{ height:285px ; padding:5px; color:white; background: linear-gradient(
+header{ font-family:cursive, Arial, "Sans-serif", "Times New Roman"; height:285px ; padding:5px; color:white; background: linear-gradient(
     to left,
     rgba(73,4,4, 0),
     rgba(73,4,4, 100)
@@ -14,7 +14,7 @@ div.slideText{font-family: cursive, Arial, "Sans-serif", "Times New Roman";}
 
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
 nav{
-	padding:20px 0;
+	padding:8px 0;
 	min-width:500px;
 }
 
@@ -25,7 +25,7 @@ nav ul{
 	padding-top:5px;
 	width:93%;
 	display:inline-table;
-	transform:translate(10px,20px);
+	transform:translate(10px,-6px);
 	z-index:33;
 	background:linear-gradient(90deg,rgba(255,255,255,0)0%,rgba(255,255,255,0.2)25%,rgba(255,255,255,0.2)75%,rgba(255,255,255,0)100%);
 	box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
@@ -175,7 +175,9 @@ div.para1 , div.para2{
 	padding:10px;
 	position: relative;
 }
-div.para1{clear: both; display:inline-block; float: right; transform: translate(-30px,-300px);}
-div.para2{clear: both; display: inline-block; float:left; transform: translate(10px,-500px) }
+div.para1{clear: both; display:inline-block;  transform: translate(300px,-500px);}
+div.para2{clear: both; display: inline-block;  transform: translate(320px,-500px); }
 
-footer{padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}
+h2.heading{color:rgb(249,112,7); text-shadow: 2px 2px 2px grey ; text-align: center;}
+
+footer{position:relative; display:block; padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}

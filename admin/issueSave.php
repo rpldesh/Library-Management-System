@@ -11,7 +11,7 @@
         <div class="logo_name"><img class="siyanelogo" src="images/siyane_logo.jpg"/>
 
             <h1>LIBRARY</h1>
-            <h3>Siyane National College of Education</br >Veyangoda</h3>
+            <h3>Siyane National College of Education<br />Veyangoda</h3>
 
         </div>
     </div>
@@ -85,20 +85,20 @@ if(isset($_POST['Issue'])) {
     $book1->load($dbObj, $book_id);
     $date_to_be_returned = $_POST['DoR'];
 
-    if ($book1->book_status != "available" || $book1->book_type!="Borrowable") {
-        $message = "Sorry...!!This book is not allowed to borrow";?>
+    if ($book1->book_status != "available" || $book1->book_type!="borrowable") {
+        $message = "Sorry...!!This book is not allowed to be borrowed";?>
 
     <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div>
 <?php
-    } elseif (date("m-d-Y") >= date("m-d-Y", strtotime($date_to_be_returned))) {
+    } elseif (date("Y-m-d") >= date("Y-m-d", strtotime($date_to_be_returned))) {
         $message = "Date to be returned is invalid";
         ?>
 <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueSave.php">&times;</a></strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueSave.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div><?php
@@ -117,7 +117,7 @@ if(isset($_POST['Issue'])) {
         $book_session1->insert($dbObj);
         $message = "Issued Successfully";?>
     <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 
     </div>

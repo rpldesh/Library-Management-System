@@ -14,7 +14,7 @@ div.logo_name{color:white;}
 
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
 
-header{padding:5px;  background: linear-gradient(
+header{font-family:cursive, Arial, "Sans-serif", "Times New Roman"; padding:5px;  background: linear-gradient(
         to left,
         rgba(73,4,4, 0),
         rgba(73,4,4, 100)),url(../images/libimage.jpg);box-shadow: 0 0 25px rgba(0,0,0,0.1),inset 0 0 1px rgba(255,255,255,0.6);
@@ -77,3 +77,32 @@ div.MessageBox{font-size:30px; text-align:center; vertical-align:middle; display
 
 img.closeIcon{ width:50px; height:50px; z-index:31; float:right; padding-right:10px;}
 /*button.closeicon{width:50px; height:50px; border-radius:50%;}*/
+
+div.alertMsg {
+    z-index:70;
+    position:absolute;
+    display:inline-block;
+    transform:translate(500px,10px);
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+
+span.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+span.closebtn:hover {
+    color: black;
+}
+
+a.closbtnlink{text-decoration: none; color:white; }
+a.closbtnlink:hover{color:black;}

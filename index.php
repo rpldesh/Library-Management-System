@@ -52,7 +52,7 @@
             $lst_login_date=date('Y-m-d');
 
 
-            if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active") {
+            if ($numOfRows == 1 && $login->password==$enPass && $mem_status=="active" && $login->id==$user_name) {
                 session_start();
                 $login->last_login_date=$lst_login_date;
                 $login->update($dbObj);
@@ -70,37 +70,42 @@
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-            <div class="numbertext">1 / 6</div>
-            <img src="Images/1.jpg" style="width:100%">
+            <div class="numbertext">1 / 7</div>
+            <img src="Images/1slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">2 / 6</div>
-            <img src="Images/2.jpg" style="width:100%">
+            <div class="numbertext">2 / 7</div>
+            <img src="Images/2slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">3 / 6</div>
-            <img src="Images/3.jpg" style="width:100%">
+            <div class="numbertext">3 / 7</div>
+            <img src="Images/3slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">4 / 6</div>
-            <img src="Images/4.jpg" style="width:100%">
+            <div class="numbertext">4 / 7</div>
+            <img src="Images/4slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">5 / 6</div>
-            <img src="Images/5.jpg" style="width:100%">
+            <div class="numbertext">5 / 7</div>
+            <img src="Images/5slide.jpg" style="width:100%">
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">6 / 6</div>
-            <img src="Images/6.jpg" style="width:100%">
+            <div class="numbertext">6 / 7</div>
+            <img src="Images/6slide.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">7 / 7</div>
+            <img src="Images/7slide.jpg" style="width:100%">
         </div>
 
         <div style="text-align:center">
             <br />
+            <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
@@ -168,7 +173,7 @@
     <div class="About"><h3>LIBRARY HOURS</h3>
         Monday to Friday     9.00a.m. to  4.00p.m.<br /><br /><br />
         <strong>"Let knowledge grow from more<br /> to more and thus be human life enriched." </strong> <br />
-        <span class="ency">"Encyclopaedia Britannica"</span>
+        <span class="ency">-Encyclopedia Britannica-</span>
     </div>
 
     <div class="para1"><h2 class="heading">Our Mission</h2>
@@ -184,8 +189,8 @@
 </article>
 
 <footer>
-<p style="text-align:center;" >Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
-    Designed by <img src="Images/Solutia_logo.png" width="150px" height="80px"/></p>
+<p style="text-align:center;" >Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka.
+    <br />Designed by <img src="Images/Solutia_logo.png" width="130px" height="80px"/></p>
 </footer>
 </body>
 </html>

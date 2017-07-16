@@ -50,7 +50,7 @@ if($len==0)
 ?>
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>View Catalog</title>
     <link rel = "stylesheet" href ="css/ViewCatalog.css"/>
@@ -71,15 +71,13 @@ if($len==0)
             <nav>
                 <ul>
                     <li><a href="Administration Page.php">HOME</a></li>
-                    <li><a href="#">ADMIN PROFILE</a></li>
-                    <li class="logout"><a href="../index.php">LOGOUT</a></li>
                 </ul>
             </nav>
         </div>
 </header>
 </article>
 
-    <div>
+    <div class="searchbox" >
         <form action="ViewCatalog.php" method="post">
             <div class="searchbar">
                 <input class="searchtext"  type="search" name="Search" placeholder="Search..">
@@ -95,7 +93,7 @@ if($len==0)
 
     </div>
 
-    <div style="...">
+    <div class="Catelogtable" style="...">
         <table style"...">
             <caption> <b>Catalog</b></caption>
             <tr>
@@ -158,7 +156,7 @@ if($len==0)
                             if($key=="id"){
                                 $link= '"bookDetails.php?id='.$value.'"'?><?php }?>
 
-                            <td><a href=<?php echo $link?>><?php echo $value ?></a></td>
+                            <td><a class="contentLink" href=<?php echo $link?>><?php echo $value ?></a></td>
                             <?php } ?>
                         </tr>
                 <?php }
@@ -168,25 +166,26 @@ if($len==0)
                 if(!$startrow==0){$prev=$startrow-2;}
                 else{$prev=0;}?>
 
-        </table>
         <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
         <?php $nxtlink = "ViewCatalog.php?startrow=".$next;?>
 
-        <a class="tableNav">
-            <a href=<?php echo $prevlink?>><button class="prevBtn" type="submit" name="prev">Previous</button></a>
+        <div class="tableNav" align="centre">
+            <a class="button" href=<?php echo $prevlink?>>&laquo; Previous</a>
             <div class="pagePoint">
                 <?php for($i=0; $i<$No_Pages; $i++){
                     $page_startrow=0+2*$i;
                     $page_link="ViewCatalog.php?startrow=".$page_startrow;?>
-                    <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
+                    <a class="pagination" href=<?php echo $page_link?>> <?php echo $i+1?></a>
 
                 <?php }?>
             </div>
-            <a href=<?php echo $nxtlink?>><button class="nextBtn" type="submit" name="next">Next</button></a>
+            <a id="nextbtn"class="button" href=<?php echo $nxtlink?>>Next &raquo;</a>
 
         </div>
         <p align="centre" ><?php $error?></p>
     </div>
+    </table>
+
 
 
 

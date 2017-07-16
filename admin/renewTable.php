@@ -159,7 +159,7 @@ if(isset($_POST["renewBTN"])) {
                 display: inline-block;
             }</style>
         <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="renewTable.php">&times;</a></strong></span>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="renewTable.php">&times;</a></strong></span>
             <?php echo $message; ?>
 
         </div>

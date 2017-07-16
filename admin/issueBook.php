@@ -87,7 +87,7 @@ if (isset($_POST['GotoIssueForm']) || !isset($_POST['checkbtn'])) {
             <link rel = "stylesheet" href ="css/messageBox.css"/>
 
             <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a href="issueBook.php">&times;</a></strong></span>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueBook.php">&times;</a></strong></span>
                 <?php echo $message;?>
             </div>
             <?php

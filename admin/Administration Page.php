@@ -16,7 +16,7 @@ $welcomeMsg="";
                 if(adminType == "clerk" || adminType == "librarian"){
                     return true;
                 }else{
-                    alert("The area you are trying to enter is restricted to your admin type");
+                    alert("The area you are trying to enter is restricted to your admin type.\nPlease login as a valid admin.");
                     return false;
                 }
             }
@@ -25,7 +25,7 @@ $welcomeMsg="";
                 if(adminType == "librarian"){
                     return true;
                 }else{
-                    alert("The area you are trying to enter is restricted to your admin type");
+                    alert("The area you are trying to enter is restricted to your admin type.\nPlease login as a valid admin.");
                     return false;
                 }
             }
@@ -34,7 +34,7 @@ $welcomeMsg="";
                 if(adminType == "librarian" || adminType == "audit"){
                     return true;
                 }else{
-                    alert("The area you are trying to enter is restricted to your admin type");
+                    alert("The area you are trying to enter is restricted to your admin type.\nPlease login as a valid admin.");
                     return false;
                 }
             }
@@ -64,7 +64,7 @@ $welcomeMsg="";
 
 
 
-			<li><a href="adminDetailSettings.php">Admin Profile</a></li>
+			<li><a href="adminDetailSettings.php">ADMIN PROFILE</a></li>
 
 
 
@@ -113,36 +113,42 @@ $welcomeMsg="";
             <div class="slideshow-container">
 
                 <div class="mySlides fade">
-                    <div class="numbertext">1 / 6</div>
-                    <img src="images/1.jpg" style="width:100%">
+                    <div class="numbertext">1 / 7</div>
+                    <img src="images/1slide.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">2 / 6</div>
-                    <img src="images/2.jpg" style="width:100%">
+                    <div class="numbertext">2 / 7</div>
+                    <img src="images/2slide.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">3 / 6</div>
-                    <img src="images/3.jpg" style="width:100%">
+                    <div class="numbertext">3 / 7</div>
+                    <img src="images/3slide.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">4 / 6</div>
-                    <img src="images/4.jpg" style="width:100%">
+                    <div class="numbertext">4 / 7</div>
+                    <img src="images/4slide.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">5 / 6</div>
-                    <img src="images/5.jpg" style="width:100%">
+                    <div class="numbertext">5 / 7</div>
+                    <img src="images/5slide.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">6 / 6</div>
-                    <img src="images/6.jpg" style="width:100%">
+                    <div class="numbertext">6 / 7</div>
+                    <img src="images/6slide.jpg" style="width:100%">
                 </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">7 / 7</div>
+                    <img src="images/7slide.jpg" style="width:100%">
+                </div>
+
                 <div style="text-align:center">
                     <br /><br />
+                    <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -171,7 +177,7 @@ $welcomeMsg="";
                     }
                     slides[slideIndex-1].style.display = "block";
                     dots[slideIndex-1].className += " active";
-                    setTimeout(showSlides, 2000); // Change image every 2 seconds
+                    setTimeout(showSlides, 2000); // Changes image every 2 seconds
                 }
             </script>
         </article>
@@ -185,13 +191,6 @@ $welcomeMsg="";
         institute which provides excellent Science, Mathematics and Technical Studies teachers to the schools of Sri Lanka.<br /><br />
     </div>
 
-    <footer>
-        <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
-            Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>
-    </footer>
-
-	</body>
-</html>
 <?php
 if(isset($_GET['id']) && $_GET['id']=='back' ) {
     if (isset($_SESSION['id'])) {$_SESSION['id'] = '';}
@@ -210,5 +209,18 @@ if(isset($_GET['id']) && $_GET['id']=='back' ) {
     if (isset($_SESSION['adddate'])) {$_SESSION['adddate'] = '';}
 
 }
+elseif(isset($_GET['id']) && $_GET['id']=='backFromReturn') {
+    if(isset($_SESSION['idForReturn'])){$_SESSION['idForReturn']='';}
+    if(isset($_SESSION["bookIDs"])){$_SESSION["bookIDs"]='';}
+}
+
+
+
 
 ?>
+<footer>
+    <p style="text-align: center;">Copyright @ 2017 Library, Siyane National College of Education, Paththalagedara, Veyangoda, Sri Lanka<br />
+        Designed by <img src="../Images/Solutia_logo.png" width="140px" height="80px"/></p>
+</footer>
+</body>
+</html>

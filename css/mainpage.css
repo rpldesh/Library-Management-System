@@ -98,7 +98,7 @@ span.warningMsg{color:orangered;}
 /* for Admin login page*/
 article.whitebg{margin-left:80px; margin-right:80px;box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
-	height:1000px; position:relative;}
+	height:800px; position:relative;}
 form.loginForm{ transform:translate(500px,-100px); margin-left: 40px; position: relative;}
 form.memberLoginForm{ transform:translate(-25px,-300px); margin-left: 40px; position: relative;}
 
@@ -184,7 +184,7 @@ a.sncoelink:hover{color:orange;}
 	.text {font-size: 11px}
 }
 
-div.About{text-align: justify; font-family: cursive, Arial, "Sans-serif", "Times New Roman"}
+div.About{margin-left:20px; text-align: justify; font-family: cursive, Arial, "Sans-serif", "Times New Roman"}
 span.ency{font-size: 12px;}
 
 div.para1 , div.para2{
@@ -199,4 +199,5 @@ div.para1{clear: both; display:inline-block; float: right; transform: translate(
 div.para2{clear: both; display: inline-block; float:left; transform: translate(10px,-500px) }
 
 h2.heading{color:rgb(249,112,7); text-shadow: 2px 2px 2px grey ; text-align: center;}
+
 footer{padding:1px; width:100%; color:black; background-image:url("../Images/footer.jpg");}

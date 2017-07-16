@@ -48,7 +48,11 @@ if(isset($_POST["entered"])){
     if (mysqli_num_rows($result) == 0){
         ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Username does not exist..!!";
-    }else if(mysqli_num_rows($result)==1) {
+    }else if($_SESSION['username'] == $_POST["uName"]){
+        ?> <style>div.alert{display:inline-block;}</style><?php
+        $message = "You cannot disable your own account. Please seek assistance from another librarian account holder ..!!";
+    }
+    else if(mysqli_num_rows($result)==1) {
         foreach (mysqli_fetch_assoc($result) as $key => $value) {
             $admin->$key = $value;
         }
@@ -78,10 +82,13 @@ if(isset($_POST["entered"])){
 }
 
 if(isset($_POST["disable"])){
-    $admin->load($dbObj,$_SESSION["adminID"]);
+    $admin->load($dbObj, $_SESSION["adminID"]);
     $admin->admin_status = "restricted";
     $admin->update($dbObj);
-    ?> <style>div.alert{display:inline-block;}</style><?php
+    ?>
+    <style>div.alert {
+            display: inline-block;
+        }</style><?php
     $message = "Admin disabled successfully..!!";
 }
 
