@@ -142,14 +142,16 @@ else if(isset($_POST['save_psw'])){
     if($NewPsw!=$ConNewPsw){
         ?> <style>div.alert{display:inline-block;}</style><?php
         $message= "Your new Password and confirmed password do not match..!!";
+        ?>   <style>div.alert{display:inline-block;}</style><?php
     }
     elseif($curEncriped!=$logedpsw){
+
         ?> <style>div.alert{display:inline-block;}</style><?php
         $message= "Your current password is incorrect..!!";}
-    elseif (strlen($NewPsw)>64 or strlen($NewPsw)<8){
+        elseif (strlen($NewPsw)>64 or strlen($NewPsw)<8){
         ?> <style>div.alert{display:inline-block;}</style><?php
         $message = "Your password must contain 8-64 characters..!!";
-
+        ?>   <style>div.alert{display:inline-block;}</style><?php
     }elseif($curEncriped==$logedpsw && $NewPsw==$ConNewPsw ){
         $encriptedPsw=md5($NewPsw);
         $uname=$_SESSION['username'];
@@ -157,19 +159,22 @@ else if(isset($_POST['save_psw'])){
         $dbObj->doQuery($sql);
         ?> <style>div.alert{display:inline-block;}</style><?php
         $message=  "Your password changed successfully";
+        ?>   <style>div.alert{display:inline-block;}</style><?php
         $_SESSION['psw']=$encriptedPsw;
     }
 
 
+
 }
 
-if(isset($_GET['id']) && $_GET['id']=='back' ){
-    session_destroy();
-}
+
 ?>
 
 <div class="alert">
+
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+
     <?php echo $message;?>
 </div>
 <?php $dbObj->closeConnection()?>

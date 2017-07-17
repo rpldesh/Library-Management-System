@@ -172,7 +172,7 @@ if(isset($_POST['clearPsw'])){
     $encodedpsw=md5("$defPsw");
     $login->password=$encodedpsw;
     $login->update($dbObj);
-    $message="successfully changed. $defPsw is the new password $encodedpsw ";?>
+    $message="successfully changed. $defPsw is the new password";?>
     <style>div.alert{display:inline-block;}</style>
     <div id="resetpsw" class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>

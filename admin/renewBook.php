@@ -102,7 +102,7 @@ if(isset($_POST['Renew'])) {
        foreach ($_SESSION['bookIds'] as $value) {
 
         $bookSession = new book_session();
-        $sql = "Update book_sessions set session_status ='extended',date_to_be_returned=$Date_to_be_returned where member_id = '$memberId' and book_id = '$value' and session_status != 'returned'";
+        $sql = "Update book_sessions set session_status ='extended',date_to_be_returned='$Date_to_be_returned' where member_id = '$memberId' and book_id = '$value' and session_status != 'returned'";
         $dbObj->doQuery($sql);
         $message = "Renewed successfully..!!";
         ?><style>div.alert{display:inline-block;}</style>
