@@ -94,7 +94,7 @@ $welcomeMsg="";
             <div class="linkbox" id="renew"><span><strong>Renew Book</strong><br /><br /></span>
                 <a href="configure_id_for_renew.php" onclick="return allowLibrarianClerk();"><img src="images/renew.png" align="center"/></a></div><br />
 
-            <div class="linkbox" id="viewcatelog"><span><strong>View Catelog</strong><br /><br /></span>
+            <div class="linkbox" id="viewcatelog"><span><strong>View Catalog</strong><br /><br /></span>
                 <a href="ViewCatalog.php"><img src="images/searchbk.png" align="center"/></a></div><br />
 
             <div class="linkbox" id="generatereport"><span><strong>Generate report</strong><br /></span>
@@ -103,7 +103,7 @@ $welcomeMsg="";
             <div class="linkbox" id="UaccSettings"><span><strong>User Account Settings</strong><br /></span>
                 <a href="configure_id_for_usersettings.php" onclick="return allowLibrarianOnly()"><img src="images/useraccount.jpg" align="center"/></a></div><br />
 
-            <div class="linkbox" id="AddnewAdmins"><span><strong>Add New Admin</strong><br /></span>
+            <div class="linkbox" id="AddnewAdmins"><span><strong>Add/Remove Admin</strong><br /></span>
                 <a href="addNewAdminPage.php" onclick="return allowLibrarianOnly()"><img src="images/addAdmin.jpg" align="center"/></a></div><br />
 
             <div class="linkbox" id="prevRecods"><span><strong>Previous Records</strong><br /></span>

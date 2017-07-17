@@ -5,7 +5,8 @@
  * Date: 7/6/2017
  * Time: 6:22 PM
  */
-
+session_start();
+$session_value=(isset($_SESSION['adminType']))?$_SESSION['adminType']:'';
 
 include ("../database.php");
 include("../table.php");
@@ -53,6 +54,19 @@ if($len==0)
 <head>
     <title>View Catalog</title>
     <link rel = "stylesheet" href ="css/ViewCatalog.css"/>
+    <script type="text/javascript">
+        <!--
+        function allowLibrarianOnly() {
+            var adminType= "<?php echo $session_value; ?>";
+            if(adminType == "librarian"){
+                return true;
+            }else{
+                alert("The area you are trying to enter is restricted to your admin type.\nPlease login as a valid admin.");
+                return false;
+            }
+        }
+        -->
+    </script>
 
 </head>
 <body>
@@ -113,7 +127,6 @@ if($len==0)
             </tr>
 
                 <?php
-                session_start();
 
 
 
@@ -155,7 +168,7 @@ if($len==0)
                             if($key=="id"){
                                 $link= '"bookDetails.php?id='.$value.'"'?><?php }?>
 
-                            <td><a class="contentLink" href=<?php echo $link?>><?php echo $value ?></a></td>
+                            <td><a class="contentLink" onclick="return allowLibrarianOnly();" href=<?php echo $link?> ><?php echo $value ?></a></td>
                             <?php } ?>
                         </tr>
                 <?php }
