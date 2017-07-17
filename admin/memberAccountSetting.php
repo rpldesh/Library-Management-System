@@ -246,6 +246,9 @@ else if(isset($_POST['save_add_date'])){
     $m->update($dbObj);
     $text='"'.$m->addmission_date.'"';
     ?>
+<div id="invaldate" class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+    <?php  echo $message; ?>
     <script type="text/javascript"> document.getElementById("div_DOA").innerHTML=<?php echo $text;?></script>
 
     <script type="text/javascript"> document.getElementById("m_DOA").value= <?php echo $text;?>

@@ -155,6 +155,8 @@ caption{font-family:Arial;
     color: white;
 }
 #resetpsw{ transform:translate(300px,-800px);}
+#invaldate{transform:translate(300px,-800px);}
+
 /* The close button */
 .closebtn {
     margin-left: 15px;
