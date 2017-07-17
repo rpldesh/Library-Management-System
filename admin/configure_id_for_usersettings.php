@@ -74,7 +74,7 @@ if(isset($_POST['submitID'])) {
     $result = $m->load($dbObj, $_SESSION['id']);
     if(!$result){
         $message="Member does not exist..!!";?>
-        <div class="alert">
+        <div id="invalidmember" class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
             <?php  echo $message;?>
 

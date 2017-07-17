@@ -95,17 +95,19 @@ else{ ?>
         $prevlink = "Previous%20Records.php?startrow=".$prev;?>
         <?php $nxtlink = "Previous%20Records.php?startrow=".$next;?>
 
-        <a class="tableNav">
-            <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
-            <?php for($i=0; $i<$No_Pages; $i++){
-                $page_startrow=0+2*$i;
-                $page_link="Previous%20Records.php?startrow=".$page_startrow;?>
-                <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
-           <?php }?>
-            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
+        <div class="tableNav" align="centre">
+            <a class="button" href=<?php echo $prevlink?>>&laquo; Previous</a>
+            <div class="pagePoint">
+                <?php for($i=0; $i<$No_Pages; $i++){
+                    $page_startrow=0+2*$i;
+                    $page_link="Previous%20Records.php?startrow=".$page_startrow;?>
+                    <a class="pagination" href=<?php echo $page_link?>> <?php echo $i+1?></a>
 
-    </div>
-    </div>
+                <?php }?>
+            </div>
+            <a id="nextbtn"class="button" href=<?php echo $nxtlink?>>Next &raquo;</a>
+
+        </div>
 <?php }?>
 </body>
 </html>
