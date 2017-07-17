@@ -45,8 +45,6 @@ $result = $b->load($dbObj, $_GET['id']);
         <nav>
             <ul>
                 <li><a href="Administration%20Page.php">HOME</a></li>
-                <li><a href="#">ADMIN PROFILE</a></li>
-                <li class="logout"><a href="../index.php">LOGOUT</a></li>
             </ul>
         </nav>
     </div>
@@ -114,7 +112,7 @@ $result = $b->load($dbObj, $_GET['id']);
 
     <tr>
         <th>Categery No</th>
-        <td><div id="div_categery"<?php echo $b->category_no?><br />
+        <td><div id="div_categery" ><?php echo $b->category_no ?> </div><br />
             <button id="b4" type='submit' onclick="show('four')">Edit</button>
             <br />
 
