@@ -233,7 +233,7 @@ $result = $b->load($dbObj, $_GET['id']);
     </tr>
 
     <tr>
-        <th>Remarkd</th>
+        <th>Remarks</th>
         <td><?php echo $b->remarks?><br />
             <button id="b11" type='submit' onclick="show('eleven')">Edit</button>
             <br />

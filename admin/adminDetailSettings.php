@@ -14,7 +14,7 @@ $admin= new admin();
 <head>
     <title>Change Admin Details</title>
     <link rel = "stylesheet" href ="css/memberSetting.css"/>
-    <style>div.alert{display:inline-block;}</style>
+    <style>div.alert{display:none;}</style>
 
 <body>
 <header>
@@ -140,32 +140,41 @@ else if(isset($_POST['save_psw'])){
     $ConNewPsw=$_POST["conNewPsw"];
 
     if($NewPsw!=$ConNewPsw){
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message= "Your new Password and confirmed password do not match..!!";
+        ?>   <style>div.alert{display:inline-block;}</style><?php
     }
     elseif($curEncriped!=$logedpsw){
-        $message= "Your current password is incorrect..!!";}
-    elseif (strlen($NewPsw)>64 or strlen($NewPsw)<8){
-        $message = "Your password must contain 8-64 characters..!!";
 
+        ?> <style>div.alert{display:inline-block;}</style><?php
+        $message= "Your current password is incorrect..!!";}
+        elseif (strlen($NewPsw)>64 or strlen($NewPsw)<8){
+        ?> <style>div.alert{display:inline-block;}</style><?php
+        $message = "Your password must contain 8-64 characters..!!";
+        ?>   <style>div.alert{display:inline-block;}</style><?php
     }elseif($curEncriped==$logedpsw && $NewPsw==$ConNewPsw ){
         $encriptedPsw=md5($NewPsw);
         $uname=$_SESSION['username'];
         $sql = "Update admins set pwd= '$encriptedPsw' where username='$uname'";
         $dbObj->doQuery($sql);
+        ?> <style>div.alert{display:inline-block;}</style><?php
         $message=  "Your password changed successfully";
+        ?>   <style>div.alert{display:inline-block;}</style><?php
         $_SESSION['psw']=$encriptedPsw;
     }
 
 
+
 }
 
-if(isset($_GET['id']) && $_GET['id']=='back' ){
-    session_destroy();
-}
+
 ?>
 
 <div class="alert">
+
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+
     <?php echo $message;?>
 </div>
 <?php $dbObj->closeConnection()?>

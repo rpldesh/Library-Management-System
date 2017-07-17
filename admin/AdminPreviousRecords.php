@@ -135,7 +135,7 @@ else{
 
 if(!$result){ echo "No records found";}
 else{ ?>
-    <div style="overflow:auto;" class="addminprevRcd">
+    <div style="" class="addminprevRcd">
         <table style="width:100%">
             <caption>Previous Records</caption>
             <tr>
@@ -156,25 +156,27 @@ else{ ?>
                     <td><?php echo $value ;?></td>
                 <?php } echo "<br />";}?></tr>
 
-
-        </table>
-        <?php
+            <?php
             $next=$startrow+2;
             $prev=$startrow-2;
             $prevlink = "AdminPreviousRecords.php?startrow=".$prev;
             $nxtlink = "AdminPreviousRecords.php?startrow=".$next;?>
 
-        <div class="tableNav">
-            <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
-            <?php for($i=1; $i<$No_Pages; $i++){
-                $page_startrow=0+2*$i;
-                $page_link="AdminPreviousRecords.php?startrow=".$page_startrow;?>
-                <a class="PGnumbers" href=<?php echo $page_link?> <?php echo $i+1?></a>
-            <?php } ?>
+            <div class="tableNav" align="centre">
+                <a class="button" href=<?php echo $prevlink?>>&laquo; Previous</a>
+                <div class="pagePoint">
+                    <?php for($i=0; $i<$No_Pages; $i++){
+                        $page_startrow=0+2*$i;
+                        $page_link="AdminPreviousRecords.php?startrow=".$page_startrow;?>
+                        <a class="pagination" href=<?php echo $page_link?>> <?php echo $i+1?></a>
 
-            <a href=<?php echo $nxtlink?><button class="page" type="submit" name="next">Next</button></a>
+                    <?php }?>
+                </div>
+                <a id="nextbtn" class="button" href=<?php echo $nxtlink?>>Next &raquo;</a>
 
-    </div>
+            </div>
+        </table>
+
 <?php }?>
 </body>
 </html>

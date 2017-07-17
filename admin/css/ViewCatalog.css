@@ -254,8 +254,10 @@ rgba(40,132,145,0.85)
 
 a.contentLink{text-decoration: none; color: black;}
 .tableNav {
+    padding-top: 5px;
+    margin-top: 10px;
     position: relative;
-    transform: translate(400px,450px);
+    transform: translate(400px,470px);
     display: inline-block;
     text-align: center;
 }

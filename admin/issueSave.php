@@ -88,7 +88,7 @@ if(isset($_POST['Issue'])) {
     if ($book1->book_status != "available" || $book1->book_type!="borrowable") {
         $message = "Sorry...!!This book is not allowed to be borrowed";?>
 
-    <div class="alert">
+    <div id="invalidBorobk" class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 
@@ -97,8 +97,8 @@ if(isset($_POST['Issue'])) {
     } elseif (date("Y-m-d") >= date("Y-m-d", strtotime($date_to_be_returned))) {
         $message = "Date to be returned is invalid";
         ?>
-<div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueSave.php">&times;</a></strong></span>
+<div id="invaliddateofborro" class="alert">
+        <span id="" class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueSave.php">&times;</a></strong></span>
     <?php echo $message;?>
 
 </div><?php
@@ -116,7 +116,7 @@ if(isset($_POST['Issue'])) {
         $book_session1->bind($data);
         $book_session1->insert($dbObj);
         $message = "Issued Successfully";?>
-    <div class="alert">
+    <div id="suucissue" class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong><a class="closbtnlink" href="issueBook.php">&times;</a></strong></span>
     <?php echo $message;?>
 

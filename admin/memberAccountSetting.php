@@ -172,9 +172,9 @@ if(isset($_POST['clearPsw'])){
     $encodedpsw=md5("$defPsw");
     $login->password=$encodedpsw;
     $login->update($dbObj);
-    $message="successfully changed. $defPsw is the new password $encodedpsw ";?>
+    $message="successfully changed. $defPsw is the new password";?>
     <style>div.alert{display:inline-block;}</style>
-    <div class="alert">
+    <div id="resetpsw" class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
     <?php  echo $message; ?>
 
@@ -246,6 +246,9 @@ else if(isset($_POST['save_add_date'])){
     $m->update($dbObj);
     $text='"'.$m->addmission_date.'"';
     ?>
+<div id="invaldate" class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';"><strong>&times;</strong></span>
+    <?php  echo $message; ?>
     <script type="text/javascript"> document.getElementById("div_DOA").innerHTML=<?php echo $text;?></script>
 
     <script type="text/javascript"> document.getElementById("m_DOA").value= <?php echo $text;?>
