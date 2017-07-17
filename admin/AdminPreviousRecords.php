@@ -65,24 +65,24 @@ if (isset($_POST['search'])) {
     $bk_sess = new book_session();
      if($value=='id'){
          $keyword = '"'.$_POST['Search'].'"';
-         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword Limit $startrow,2";
+         $sql = "Select id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword Limit $startrow,5";
 
          // To get the count of element which are added to the table
-         $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword";
+         $sqlZero = "Select id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword";
          $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
-         $No_Pages=mysqli_num_rows($resultCount)/2;
+         $No_Pages=mysqli_num_rows($resultCount)/5;
 
      }
 
      else{
 
          $keyword = '"%'.$_POST['Search'].'%"';
-         $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword Limit $startrow,2";
+         $sql = "Select id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword Limit $startrow,5";
 
          // To get the count of element which are added to the table
-         $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value LIKE $keyword";
+         $sqlZero = "Select id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value LIKE $keyword";
          $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
-         $No_Pages=mysqli_num_rows($resultCount)/2;
+         $No_Pages=mysqli_num_rows($resultCount)/5;
 
      }
 
@@ -93,15 +93,15 @@ if (isset($_POST['search'])) {
     if($numOfRows==0)
     {
         if($value=='id') {
-            $startrow = $startrow - 2;
+            $startrow = $startrow - 5;
             $keyword = '"' . $_POST['Search'] . '"';
-            $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
+            $sql = "Select id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value = $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,5";
         }
 
         else {
 
             $keyword = '"%' . $_POST['Search'] . '%"';
-            $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
+            $sql = "Select id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions Where $value like $keyword ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,5";
         }
 
         $result = $bk_sess->featuredLoad($dbobj, $sql);
@@ -113,21 +113,21 @@ else{
     $bk_sess = new book_session();
 
     // To get the count of element which are added to the table
-    $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions";
+    $sqlZero = "Select book_id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions";
     $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
-    $No_Pages=mysqli_num_rows($resultCount)/2;
+    $No_Pages=mysqli_num_rows($resultCount)/5;
 
 
-       $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,2";
+       $sql = "Select book_id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,5";
 
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
 
     // If the page is over then return tha last page again
-    if($numOfRows==0)
+    if($numOfRows==0 && $startrow!=0)
     {
-        $startrow =$startrow-2;
-        $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where Limit $startrow,2";
+        $startrow =$startrow-5;
+        $sql = "Select book_id,book_title,member_id,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions ORDER By`book_sessions`.`date_of_borrowal` DESC Limit $startrow,5";
         $result = $bk_sess->featuredLoad($dbObj, $sql);
         $numOfRows=mysqli_num_rows($result);
     }
@@ -142,6 +142,7 @@ else{ ?>
                 <th>No:</th>
                 <th>Book ID</th>
                 <th>Book Title</th>
+                <th>Borrower</th>
                 <th>Date of Borrowal</th>
                 <th>Date to be Returned</th>
                 <th>Date of Return</th>
@@ -150,15 +151,15 @@ else{ ?>
             <?php
             for($i=0;$i<$numOfRows;$i++){?>
             <tr>
-                <td><?php echo ($i+1)."." ?></td><?php
+                <td><?php echo ($startrow+$i+1)."." ?></td><?php
                 foreach (mysqli_fetch_assoc($result) as $key=>$value) {
                     ?>
                     <td><?php echo $value ;?></td>
                 <?php } echo "<br />";}?></tr>
 
             <?php
-            $next=$startrow+2;
-            $prev=$startrow-2;
+            $next=$startrow+5;
+            $prev=$startrow-5;
             $prevlink = "AdminPreviousRecords.php?startrow=".$prev;
             $nxtlink = "AdminPreviousRecords.php?startrow=".$next;?>
 
@@ -166,7 +167,7 @@ else{ ?>
                 <a class="button" href=<?php echo $prevlink?>>&laquo; Previous</a>
                 <div class="pagePoint">
                     <?php for($i=0; $i<$No_Pages; $i++){
-                        $page_startrow=0+2*$i;
+                        $page_startrow=0+5*$i;
                         $page_link="AdminPreviousRecords.php?startrow=".$page_startrow;?>
                         <a class="pagination" href=<?php echo $page_link?>> <?php echo $i+1?></a>
 

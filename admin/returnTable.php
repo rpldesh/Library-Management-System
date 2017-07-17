@@ -135,7 +135,7 @@ if(isset($_POST["returnBTN"])) {
                 display: inline-block;
             }</style> --><?php
         //$msg = "Returned successfully..!!";
-        header("Location:returnBook");
+        header("Location:returnBook.php");
     }
 }
 $dbObj->closeConnection();

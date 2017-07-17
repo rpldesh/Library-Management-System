@@ -31,9 +31,8 @@ if (!(isset($_POST['search']))) {
 // To count the number of elements which are added to the table
 $sqlZero = "Select * from books where 1";
 $resultCount = $book->featuredLoad($dbobj,$sqlZero);
-$No_Pages=mysqli_num_rows($resultCount)/2;
-
-$sql= "Select * from books Limit $startrow,2";
+$No_Pages=mysqli_num_rows($resultCount)/5;
+$sql= "Select * from books Limit $startrow,5";
 
 $result = $book->featuredLoad($dbobj,$sql);
 $len= mysqli_num_rows($result);
@@ -41,8 +40,8 @@ $len= mysqli_num_rows($result);
 // If the page is over then return tha last page again
 if($len==0)
 {
-    $startrow =$startrow-2;
-    $sql = "Select * from books Limit $startrow,2";
+    $startrow =$startrow-5;
+    $sql = "Select * from books Limit $startrow,5";
     $result = $book->featuredLoad($dbobj, $sql);
     $len=mysqli_num_rows($result);
 }
@@ -132,7 +131,7 @@ if($len==0)
                     $_SESSION['indicator']="error";
 
 
-                    $sql = "Select * from books Where $value like $keyword Limit $startrow,2";
+                    $sql = "Select * from books Where $value like $keyword Limit $startrow,5";
                     $result = $book->featuredLoad($dbobj, $sql);
                     $len=mysqli_num_rows($result);
 
@@ -140,12 +139,12 @@ if($len==0)
                     // To count the number of elements which are added to the table
                     $sqlZero = "Select * from books Where $value like $keyword";
                     $resultCount = $book->featuredLoad($dbobj,$sqlZero);
-                    $No_Pages=mysqli_num_rows($resultCount)/2;
+                    $No_Pages=mysqli_num_rows($resultCount)/5;
 
                     if($len==0)
                     {
-                        $startrow =$startrow-2;
-                        $sql = "Select * from books Where $value like $keyword Limit $startrow,2";
+                        $startrow =$startrow-5;
+                        $sql = "Select * from books Where $value like $keyword Limit $startrow,5";
                         $result = $book->featuredLoad($dbobj, $sql);
                         $len=mysqli_num_rows($result);}
                     }
@@ -161,9 +160,9 @@ if($len==0)
                         </tr>
                 <?php }
 
-                $next=$startrow+2;
+                $next=$startrow+5;
 
-                if(!$startrow==0){$prev=$startrow-2;}
+                if(!$startrow==0){$prev=$startrow-5;}
                 else{$prev=0;}?>
 
         <?php $prevlink = "ViewCatalog.php?startrow=".$prev;?>
@@ -173,7 +172,7 @@ if($len==0)
             <a class="button" href=<?php echo $prevlink?>>&laquo; Previous</a>
             <div class="pagePoint">
                 <?php for($i=0; $i<$No_Pages; $i++){
-                    $page_startrow=0+2*$i;
+                    $page_startrow=0+5*$i;
                     $page_link="ViewCatalog.php?startrow=".$page_startrow;?>
                     <a class="pagination" href=<?php echo $page_link?>> <?php echo $i+1?></a>
 

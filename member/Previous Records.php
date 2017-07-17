@@ -43,19 +43,19 @@
 
 $bk_sess = new book_session();
     // To get the count of element which are added to the table
-    $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,2";
+    $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,5";
     $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
-    $No_Pages=mysqli_num_rows($resultCount)/2;
+    $No_Pages=mysqli_num_rows($resultCount)/5;
 
-    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,2";
+    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,5";
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
 
     // If the page is over then return tha last page again
     if(($numOfRows==0)&&($startrow!=0))
     {
-     $startrow =$startrow-2;
-     $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,2";
+     $startrow =$startrow-5;
+     $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,5";
      $result = $bk_sess->featuredLoad($dbObj, $sql);
      $len=mysqli_num_rows($result);
     }
@@ -80,7 +80,7 @@ else{ ?>
                 <?php
                 for($i=0;$i<$numOfRows;$i++){?>
                 <tr>
-                    <td><?php echo ($i+1)."." ?></td><?php
+                    <td><?php echo ($startrow+$i+1)."." ?></td><?php
                     foreach (mysqli_fetch_assoc($result) as $key=>$value) {
                         ?>
                         <td><?php echo $value ;?></td>
@@ -89,8 +89,8 @@ else{ ?>
 
         </table>
         <?php
-        $next=$startrow+2;
-        if(!$startrow==0){$prev=$startrow-2;}
+        $next=$startrow+5;
+        if(!$startrow==0){$prev=$startrow-5;}
         else{$prev=0;}
         $prevlink = "Previous%20Records.php?startrow=".$prev;?>
         <?php $nxtlink = "Previous%20Records.php?startrow=".$next;?>
@@ -98,7 +98,7 @@ else{ ?>
         <a class="tableNav">
             <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
             <?php for($i=0; $i<$No_Pages; $i++){
-                $page_startrow=0+2*$i;
+                $page_startrow=0+5*$i;
                 $page_link="Previous%20Records.php?startrow=".$page_startrow;?>
                 <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
            <?php }?>
