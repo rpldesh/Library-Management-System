@@ -65,7 +65,7 @@ $bk_sess = new book_session();
 ?>
 <?php if(!$result){ echo "No records found";}
 else{ ?>
-    <div style="overflow:auto;">
+    <div>
         <table style="width:100%">
             <caption>Previous Records</caption>
             <tr>
@@ -86,26 +86,31 @@ else{ ?>
                         <td><?php echo $value ;?></td>
                     <?php } echo "<br />";}?></tr>
 
+            <?php
+            $next=$startrow+5;
+            if(!$startrow==0){$prev=$startrow-5;}
+            else{$prev=0;}
+            $prevlink = "Previous%20Records.php?startrow=".$prev;?>
+            <?php $nxtlink = "Previous%20Records.php?startrow=".$next;?>
+
+
+            <div class="tableNav" align="centre">
+                <a class="button" href=<?php echo $prevlink?>>&laquo; Previous</a>
+                <div class="pagePoint">
+                    <?php for($i=0; $i<$No_Pages; $i++){
+                        $page_startrow=0+2*$i;
+                        $page_link="Previous%20Records.php?startrow=".$page_startrow;?>
+                        <a class="pagination" href=<?php echo $page_link?>> <?php echo $i+1?></a>
+
+                    <?php }?>
+                </div>
+                <a id="nextbtn"class="button" href=<?php echo $nxtlink?>>Next &raquo;</a>
+
+
+            </div>
 
         </table>
-        <?php
-        $next=$startrow+5;
-        if(!$startrow==0){$prev=$startrow-5;}
-        else{$prev=0;}
-        $prevlink = "Previous%20Records.php?startrow=".$prev;?>
-        <?php $nxtlink = "Previous%20Records.php?startrow=".$next;?>
 
-        <a class="tableNav">
-            <a href=<?php echo $prevlink?>><button class="page" type="submit" name="prev">Previous</button></a>
-            <?php for($i=0; $i<$No_Pages; $i++){
-                $page_startrow=0+5*$i;
-                $page_link="Previous%20Records.php?startrow=".$page_startrow;?>
-                <a href=<?php echo $page_link?>> <?php echo $i+1?></a>
-           <?php }?>
-            <a href=<?php echo $nxtlink?>><button class="page" type="submit" name="next">Next</button></a>
-
-    </div>
-    </div>
 <?php }?>
 </body>
 </html>

@@ -14,7 +14,7 @@ div.slideText{font-family: cursive, Arial, "Sans-serif", "Times New Roman";}
 
 img.siyanelogo{border-radius:100%; margin-right:25px; float:left; width:120px; height:120px; display:inline-block;}
 nav{
-	padding:5px 0;
+	padding:3px 0;
 	min-width:500px;
 }
 
@@ -180,4 +180,4 @@ div.para2{clear: both; display: inline-block;  transform: translate(320px,-500px
 
 h2.heading{color:rgb(249,112,7); text-shadow: 2px 2px 2px grey ; text-align: center;}
 
-footer{position:relative; display:block; padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}
+footer{position:absolute; display:block; padding:1px; width:100%; color:black; background-image:url("../images/footer.jpg");}

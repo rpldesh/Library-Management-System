@@ -114,3 +114,165 @@ rgba(40,132,145,0.85)
     padding: 8px 16px;
 
 }
+
+
+
+
+
+
+/*for button*/
+.button {
+    display: block;
+    float: left;
+    position: relative;
+    height: 25px;
+    width: 80px;
+
+    text-decoration: none;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    line-height: 25px;
+    text-align: center;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.button:before,
+.button:after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    height: 25px;
+    width: 80px;
+    bottom: -1px;
+
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.button:before {
+    height: 23px;
+    bottom: -4px;
+    border-top: 0;
+
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+
+    -webkit-box-shadow: 0 1px 1px 0px #bfbfbf;
+    -moz-box-shadow: 0 1px 1px 0px #bfbfbf;
+    box-shadow: 0 1px 1px 0px #bfbfbf;
+}
+
+
+/* DARK GRAY */
+.button,
+.button:hover,
+.button:visited {
+    color: #555;
+    border-bottom: 4px solid #878787;
+    text-shadow: 0px 1px 0px #d6d6d6;
+
+    background: #d1d1d1;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d1d1d1), to(#afafaf));
+    background: -moz-linear-gradient(top,  #d1d1d1,  #afafaf);
+
+    box-shadow: inset 1px 1px 0 #e3e3e3;
+}
+
+.button:before,
+.button:after {
+    border: 1px solid #b4b4b4;
+    border-bottom: 1px solid #7b7b7b;
+}
+
+.button:hover {
+    background: #afafaf;
+    background: -webkit-gradient(linear, left top, left bottom, from(#afafaf), to(#d1d1d1));
+    background: -moz-linear-gradient(top,  #afafaf,  #d1d1d1);
+}
+
+
+
+/* ACTIVE STATE */
+.button:active {
+    border: none;
+    bottom: -4px;
+    margin-bottom: 22px;
+
+    -webkit-box-shadow: 0 1px 1px #fff;
+    -moz-box-shadow:  0 1px 1px #fff;
+    box-shadow:  1px 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.button:active:before,
+.button:active:after {
+    border: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* MODERNIZR FALLBACK */
+.no-cssgradients button, .no-cssgradients .button:visited,
+.no-borderradius button, .no-borderradius .button:visited,
+.no-generatedcontent button, .no-generatedcontent .button:visited {
+    height: 32px;
+    width: 82px;
+}
+
+.no-cssgradients .button:hover,
+.no-borderradius .button:hover,
+.no-generatedcontent .button:hover {
+
+}
+
+.no-cssgradients .button:active,
+.no-borderradius .button:active,
+.no-generatedcontent .button:active {
+    bottom: 0;
+    line-height: 35px;
+}
+
+
+.no-cssgradients .button,
+.no-cssgradients .button:visited,
+.no-cssgradients .button:hover { background-position-x: -492px; }
+
+
+#nextbtn{float: right;}
+.tableNav {
+    padding-top: 10px;
+    margin-top: 10px;
+    position: relative;
+    transform: translate(450px,550px);
+    display: inline-block;
+    text-align: center;
+}
+
+.pagePoint {
+    display: inline-block;
+}
+
+a.pagination {font-size:30px;
+    font-weight:bolder;
+    background: linear-gradient(#777, #444);
+    box-shadow: inset 0 1px 0 #999;
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+a.pagination.active {
+    background-color: #232121;
+    color: white;
+    border: 1px solid #232121;
+}
+
+a.pagination:hover:not(.active) {opacity: 0.5;}
