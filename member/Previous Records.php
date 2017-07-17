@@ -44,11 +44,11 @@
 
 $bk_sess = new book_session();
     // To get the count of element which are added to the table
-    $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
+    $sqlZero = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,2";
     $resultCount = $bk_sess->featuredLoad($dbObj,$sqlZero);
     $No_Pages=mysqli_num_rows($resultCount)/2;
 
-    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
+    $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,2";
     $result = $bk_sess->featuredLoad($dbObj,$sql);
     $numOfRows = mysqli_num_rows($result);
 
@@ -56,7 +56,7 @@ $bk_sess = new book_session();
     if(($numOfRows==0)&&($startrow!=0))
     {
      $startrow =$startrow-2;
-     $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = $user_id Limit $startrow,2";
+     $sql = "Select id,book_title,date_of_borrowal,date_to_be_returned,date_of_return from book_sessions where member_id = '$user_id' Limit $startrow,2";
      $result = $bk_sess->featuredLoad($dbObj, $sql);
      $len=mysqli_num_rows($result);
     }
